@@ -1,0 +1,20 @@
+# ── Private client & lead data — NEVER commit (PDPA: personal data) ──
+data/leads/*.csv
+data/leads/*.json
+data/leads/*.xlsx
+data/clients/
+!data/leads/_template.csv
+
+# Secrets / local
+.env
+.env.*
+*.key
+secrets.*
+*.local
+
+# Junk
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+.cache/

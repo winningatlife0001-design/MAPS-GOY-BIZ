@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  DEMO + REUSABLE TEMPLATE  —  Small Thai Hotel / Guesthouse website
+  ----------------------------------------------------------------------------
+  This single file is a complete, fast, mobile-first, bilingual (English/Thai)
+  website for a small independent hotel. It is built to do the ONE thing an
+  OTA-dependent hotel needs most: capture DIRECT bookings & direct contact
+  (LINE / WhatsApp / phone) so the owner stops paying 15-25% OTA commission.
+
+  HOW TO REUSE FOR A NEW CLIENT (search for "CUSTOMIZE"):
+    1. Replace every CUSTOMIZE value (name, phone, LINE id, address, prices...).
+    2. Swap the gradient photo placeholders for real photos
+       (client's photos, or generate/enhance with Adobe Firefly).
+    3. Update the JSON-LD schema at the bottom (name, geo, price, rating).
+    4. Update the Google Map embed `q=` with the real hotel name/address.
+    5. Deploy free on Cloudflare Pages / GitHub Pages / Netlify, point domain.
+
+  No build step, no dependencies, no tracking. Loads in well under 1 second.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- CUSTOMIZE: title + meta description are the #1 SEO levers. Put hotel name + town. -->
+<title>Baan Rim Talay Boutique Resort — Beachfront Hotel in Ao Nang, Krabi</title>
+<meta name="description" content="Small boutique beachfront resort in Ao Nang, Krabi. Book direct for the best rate — sea-view rooms, free breakfast, free WiFi, airport transfer. Chat on LINE." />
+<meta name="theme-color" content="#0f766e" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏝️</text></svg>" />
+
+<!-- Open Graph: how the link looks when shared on Facebook / LINE -->
+<meta property="og:title" content="Baan Rim Talay Boutique Resort — Ao Nang, Krabi" />
+<meta property="og:description" content="Beachfront boutique resort. Book direct & save. Chat on LINE." />
+<meta property="og:type" content="website" />
+
+<style>
+  :root{
+    /* CUSTOMIZE: brand colours. Teal/sand reads "tropical + trustworthy". */
+    --brand:#0f766e; --brand-dark:#0b554f; --accent:#f59e0b;
+    --ink:#1f2937; --muted:#6b7280; --bg:#ffffff; --soft:#f1f5f4; --line:#e5e7eb;
+    --line-green:#06c755; --wa-green:#25d366;
+    --radius:14px; --shadow:0 6px 24px rgba(0,0,0,.08); --maxw:1080px;
+    font-family: system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;
+    font-weight:700;font-size:1rem;padding:13px 22px;border-radius:999px;text-decoration:none;
+    transition:transform .08s ease, box-shadow .15s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--accent);color:#1f2937;box-shadow:var(--shadow)}
+  .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+  .btn-line{background:var(--line-green);color:#fff}
+  .btn-wa{background:var(--wa-green);color:#fff}
+  .btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+  section{padding:64px 0}
+  h2{font-size:1.8rem;line-height:1.2;margin-bottom:8px}
+  .lead{color:var(--muted);max-width:620px;margin-bottom:34px}
+  .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+
+  /* ---- Header ---- */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:800;font-size:1.15rem;color:var(--brand);display:flex;gap:8px;align-items:center}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .nav-links{display:flex;gap:22px}
+  .nav-links a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
+  .nav-links a:hover{color:var(--brand)}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
+  .lang button{border:0;background:#fff;padding:6px 12px;cursor:pointer;font-weight:700;color:var(--muted)}
+  .lang button.active{background:var(--brand);color:#fff}
+  @media(max-width:820px){.nav-links{display:none}}
+
+  /* ---- Hero ---- */
+  .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;
+    /* CUSTOMIZE: replace gradient with real hero photo: background:url('hero.jpg') center/cover */
+    background:linear-gradient(120deg,#0f766e,#0891b2 55%,#0ea5e9)}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.05) 55%)}
+  .hero-inner{position:relative;z-index:2;padding:0 18px 56px;max-width:var(--maxw);margin:0 auto;width:100%}
+  .hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;max-width:14ch;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+  .hero p{font-size:1.15rem;max-width:34ch;margin:14px 0 26px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+  .badge-best{position:absolute;top:18px;right:18px;z-index:2;background:var(--accent);color:#1f2937;
+    font-weight:800;padding:8px 14px;border-radius:999px;font-size:.85rem;box-shadow:var(--shadow)}
+
+  /* ---- Trust bar ---- */
+  .trust{background:var(--brand-dark);color:#fff}
+  .trust .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;padding:16px 18px;font-weight:600;font-size:.95rem}
+  .trust span{display:flex;align-items:center;gap:8px}
+
+  /* ---- Generic grid + cards ---- */
+  .grid{display:grid;gap:22px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:860px){.g3{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){.g3,.g2{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .card .ph{height:190px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;letter-spacing:.03em}
+  .card .body{padding:18px}
+  .card h3{font-size:1.15rem;margin-bottom:4px}
+  .price{font-size:1.4rem;font-weight:800;color:var(--brand)}
+  .price small{font-size:.8rem;color:var(--muted);font-weight:600}
+  .room-feats{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
+  .room-feats li{background:var(--soft);border-radius:999px;padding:4px 10px;font-size:.8rem;color:var(--ink)}
+
+  /* photo placeholders (swap for real images / Firefly output) */
+  .ph-1{background:linear-gradient(135deg,#0ea5e9,#0f766e)}
+  .ph-2{background:linear-gradient(135deg,#f59e0b,#ef4444)}
+  .ph-3{background:linear-gradient(135deg,#8b5cf6,#0891b2)}
+  .ph-4{background:linear-gradient(135deg,#10b981,#0ea5e9)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .gallery .ph{height:150px;border-radius:10px}
+  @media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
+
+  /* amenities */
+  .amen{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:center}
+  .amen .item{background:var(--soft);border-radius:var(--radius);padding:22px 12px}
+  .amen .item .ico{font-size:1.8rem}
+  @media(max-width:700px){.amen{grid-template-columns:1fr 1fr}}
+
+  /* reviews */
+  .reviews{background:var(--soft)}
+  .stars{color:var(--accent);letter-spacing:2px}
+  blockquote{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);font-style:italic}
+  blockquote footer{margin-top:10px;font-style:normal;font-weight:700;color:var(--muted);font-size:.9rem}
+
+  /* location */
+  .loc{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+  @media(max-width:760px){.loc{grid-template-columns:1fr}}
+  .map{border:0;width:100%;height:340px;border-radius:var(--radius)}
+
+  /* booking form */
+  .book{background:var(--brand);color:#fff}
+  .book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+  @media(max-width:760px){.book .wrap{grid-template-columns:1fr}}
+  form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+  .field{margin-bottom:14px}
+  label{display:block;font-weight:700;font-size:.85rem;margin-bottom:6px}
+  input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:inherit}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  /* floating contact */
+  .float{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;flex-direction:column;gap:10px}
+  .float a{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
+  .f-line{background:var(--line-green)} .f-wa{background:var(--wa-green)} .f-call{background:var(--brand)}
+
+  footer.site{background:#0b1220;color:#cbd5e1;padding:46px 0 28px}
+  footer.site a{color:#cbd5e1;text-decoration:none}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:26px}
+  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  .foot-grid h4{color:#fff;margin-bottom:10px;font-size:1rem}
+  .copyright{border-top:1px solid #1e293b;margin-top:28px;padding-top:18px;font-size:.85rem;color:#94a3b8;text-align:center}
+
+  [data-th]{display:none}            /* Thai text hidden until TH selected */
+  html[lang="th"] [data-en]{display:none}
+  html[lang="th"] [data-th]{display:inline}
+  html[lang="th"] [data-th].block{display:block}
+</style>
+</head>
+<body>
+
+<!-- =========================== HEADER =========================== -->
+<header>
+  <div class="wrap nav">
+    <!-- CUSTOMIZE: hotel name + emoji/logo -->
+    <div class="logo">🏝️ Baan Rim Talay</div>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#rooms" data-en>Rooms</a><a href="#rooms" data-th>ห้องพัก</a>
+        <a href="#amenities" data-en>Amenities</a><a href="#amenities" data-th>สิ่งอำนวยความสะดวก</a>
+        <a href="#location" data-en>Location</a><a href="#location" data-th>ที่ตั้ง</a>
+        <a href="#book" data-en>Book</a><a href="#book" data-th>จอง</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button id="en" class="active" onclick="setLang('en')">EN</button>
+        <button id="th" onclick="setLang('th')">ไทย</button>
+      </div>
+      <a href="#book" class="btn btn-primary" style="padding:9px 16px">
+        <span data-en>Book Direct</span><span data-th>จองตรง</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- =========================== HERO =========================== -->
+<section class="hero" style="padding:0">
+  <div class="badge-best">
+    <span data-en>★ Book direct & save 20%</span><span data-th>★ จองตรง ประหยัด 20%</span>
+  </div>
+  <div class="hero-inner">
+    <h1>
+      <span data-en>Beachfront boutique escape in Ao Nang, Krabi</span>
+      <span data-th class="block">รีสอร์ทบูทีคริมหาด อ่าวนาง กระบี่</span>
+    </h1>
+    <p>
+      <span data-en>12 sea-view rooms · free breakfast · 3-minute walk to the beach.</span>
+      <span data-th class="block">12 ห้องวิวทะเล · อาหารเช้าฟรี · เดิน 3 นาทีถึงหาด</span>
+    </p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn-primary">
+        <span data-en>Check availability</span><span data-th>เช็คห้องว่าง</span></a>
+      <!-- CUSTOMIZE: LINE id -->
+      <a href="https://line.me/R/ti/p/@baanrimtalay" class="btn btn-line">💬 <span data-en>Chat on LINE</span><span data-th>แชท LINE</span></a>
+      <!-- CUSTOMIZE: phone -->
+      <a href="tel:+66812345678" class="btn btn-ghost">📞 <span data-en>Call us</span><span data-th>โทร</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== TRUST BAR =========================== -->
+<div class="trust">
+  <div class="wrap">
+    <span>⭐ 4.8 / 5 <em data-en>(312 reviews)</em><em data-th>(312 รีวิว)</em></span>
+    <span>✅ <span data-en>Best price guaranteed</span><span data-th>การันตีราคาดีที่สุด</span></span>
+    <span>📶 <span data-en>Free fast WiFi</span><span data-th>WiFi ฟรี</span></span>
+    <span>🚐 <span data-en>Free airport transfer*</span><span data-th>รับส่งสนามบินฟรี*</span></span>
+    <span>🆓 <span data-en>Free cancellation</span><span data-th>ยกเลิกฟรี</span></span>
+  </div>
+</div>
+
+<!-- =========================== ROOMS =========================== -->
+<section id="rooms">
+  <div class="wrap">
+    <p class="eyebrow" data-en>Our Rooms</p><p class="eyebrow" data-th>ห้องพักของเรา</p>
+    <h2><span data-en>Stay your way</span><span data-th>เลือกห้องที่ใช่สำหรับคุณ</span></h2>
+    <p class="lead">
+      <span data-en>Every room comes with air-con, hot shower, smart TV and our famous breakfast. Book direct here for the lowest rate — always cheaper than Agoda or Booking.com.</span>
+      <span data-th class="block">ทุกห้องมีแอร์ น้ำอุ่น สมาร์ททีวี และอาหารเช้าสุดพิเศษ จองตรงที่นี่ราคาถูกที่สุด — ถูกกว่า Agoda และ Booking.com เสมอ</span>
+    </p>
+    <div class="grid g3">
+      <article class="card">
+        <div class="ph ph-1"><span data-en>Garden Room photo</span><span data-th>รูปห้องวิวสวน</span></div>
+        <div class="body">
+          <h3>Garden Room</h3>
+          <ul class="room-feats"><li>2 <span data-en>guests</span><span data-th>ท่าน</span></li><li>25 m²</li><li>❄️ A/C</li><li>🌿 <span data-en>Garden view</span><span data-th>วิวสวน</span></li></ul>
+          <div class="price">฿1,190 <small data-en>/ night</small><small data-th>/ คืน</small></div>
+          <a href="#book" class="btn btn-outline" style="margin-top:12px;width:100%;justify-content:center">
+            <span data-en>Book this room</span><span data-th>จองห้องนี้</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph ph-2"><span data-en>Sea View Room photo</span><span data-th>รูปห้องวิวทะเล</span></div>
+        <div class="body">
+          <h3>Sea View Room</h3>
+          <ul class="room-feats"><li>2 <span data-en>guests</span><span data-th>ท่าน</span></li><li>30 m²</li><li>🌊 <span data-en>Balcony</span><span data-th>ระเบียง</span></li><li>☕ <span data-en>Breakfast</span><span data-th>อาหารเช้า</span></li></ul>
+          <div class="price">฿1,790 <small data-en>/ night</small><small data-th>/ คืน</small></div>
+          <a href="#book" class="btn btn-outline" style="margin-top:12px;width:100%;justify-content:center">
+            <span data-en>Book this room</span><span data-th>จองห้องนี้</span></a>
+        </div>
+      </article>
+      <article class="card">
+        <div class="ph ph-3"><span data-en>Family Suite photo</span><span data-th>รูปห้องสวีท</span></div>
+        <div class="body">
+          <h3>Family Suite</h3>
+          <ul class="room-feats"><li>4 <span data-en>guests</span><span data-th>ท่าน</span></li><li>45 m²</li><li>🛏️ 2 <span data-en>beds</span><span data-th>เตียง</span></li><li>🌊 <span data-en>Sea view</span><span data-th>วิวทะเล</span></li></ul>
+          <div class="price">฿2,690 <small data-en>/ night</small><small data-th>/ คืน</small></div>
+          <a href="#book" class="btn btn-outline" style="margin-top:12px;width:100%;justify-content:center">
+            <span data-en>Book this room</span><span data-th>จองห้องนี้</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== AMENITIES =========================== -->
+<section id="amenities" style="background:var(--soft)">
+  <div class="wrap">
+    <p class="eyebrow" data-en>Amenities</p><p class="eyebrow" data-th>สิ่งอำนวยความสะดวก</p>
+    <h2><span data-en>Everything you need</span><span data-th>ครบทุกความต้องการ</span></h2>
+    <div class="amen" style="margin-top:28px">
+      <div class="item"><div class="ico">🏊</div><strong data-en>Pool</strong><strong data-th>สระว่ายน้ำ</strong></div>
+      <div class="item"><div class="ico">🍳</div><strong data-en>Breakfast</strong><strong data-th>อาหารเช้า</strong></div>
+      <div class="item"><div class="ico">🛵</div><strong data-en>Scooter rental</strong><strong data-th>เช่ามอเตอร์ไซค์</strong></div>
+      <div class="item"><div class="ico">🅿️</div><strong data-en>Free parking</strong><strong data-th>ที่จอดรถฟรี</strong></div>
+      <div class="item"><div class="ico">🧺</div><strong data-en>Laundry</strong><strong data-th>ซักรีด</strong></div>
+      <div class="item"><div class="ico">🛥️</div><strong data-en>Island tours</strong><strong data-th>ทัวร์เกาะ</strong></div>
+      <div class="item"><div class="ico">❄️</div><strong data-en>Air-con</strong><strong data-th>เครื่องปรับอากาศ</strong></div>
+      <div class="item"><div class="ico">🐶</div><strong data-en>Pet friendly</strong><strong data-th>สัตว์เลี้ยงเข้าได้</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== GALLERY =========================== -->
+<section>
+  <div class="wrap">
+    <p class="eyebrow" data-en>Gallery</p><p class="eyebrow" data-th>แกลเลอรี</p>
+    <h2 style="margin-bottom:24px"><span data-en>A look around</span><span data-th>บรรยากาศโดยรอบ</span></h2>
+    <!-- CUSTOMIZE: swap placeholders for real photos (client's, or enhanced with Adobe Firefly) -->
+    <div class="gallery">
+      <div class="ph ph-1"></div><div class="ph ph-2"></div><div class="ph ph-3"></div><div class="ph ph-4"></div>
+      <div class="ph ph-4"></div><div class="ph ph-3"></div><div class="ph ph-2"></div><div class="ph ph-1"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== REVIEWS =========================== -->
+<section class="reviews">
+  <div class="wrap">
+    <p class="eyebrow" data-en>Guest Reviews</p><p class="eyebrow" data-th>รีวิวจากผู้เข้าพัก</p>
+    <h2><span data-en>Loved by guests worldwide</span><span data-th>ผู้เข้าพักจากทั่วโลกประทับใจ</span></h2>
+    <p class="lead"><span class="stars">★★★★★</span> 4.8/5 · <span data-en>312 reviews on Google</span><span data-th>312 รีวิวบน Google</span></p>
+    <div class="grid g3">
+      <blockquote>"Best value in Ao Nang. Family ran, spotless rooms, the breakfast was amazing. Booked direct on their site and saved money!"<footer>— Sarah, 🇬🇧 UK</footer></blockquote>
+      <blockquote>"เจ้าของน่ารักมาก ห้องสะอาด วิวทะเลสวย ราคาดีกว่าจองในแอป จองตรงผ่านเว็บคุ้มสุด"<footer>— ณัฐ, 🇹🇭 Bangkok</footer></blockquote>
+      <blockquote>"Replied on LINE in 2 minutes and arranged our airport pickup. So easy. Will come back."<footer>— Wei, 🇸🇬 Singapore</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== LOCATION =========================== -->
+<section id="location">
+  <div class="wrap loc">
+    <div>
+      <p class="eyebrow" data-en>Find Us</p><p class="eyebrow" data-th>ที่ตั้ง</p>
+      <h2><span data-en>In the heart of Ao Nang</span><span data-th>ใจกลางอ่าวนาง</span></h2>
+      <p class="lead">
+        <span data-en>123 Ao Nang Beach Road, Mueang Krabi, Krabi 81180. 3 minutes to the beach, 25 minutes from Krabi Airport (KBV).</span>
+        <span data-th class="block">123 ถนนหาดอ่าวนาง อ.เมือง จ.กระบี่ 81180 — เดิน 3 นาทีถึงหาด ห่างสนามบินกระบี่ 25 นาที</span>
+      </p>
+      <a class="btn btn-outline" target="_blank" rel="noopener"
+         href="https://www.google.com/maps/search/?api=1&query=Ao+Nang+Beach+Krabi">
+         📍 <span data-en>Open in Google Maps</span><span data-th>เปิดใน Google Maps</span></a>
+    </div>
+    <!-- CUSTOMIZE: change q= to the real hotel name/address. This embed needs no API key. -->
+    <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      src="https://maps.google.com/maps?q=Ao%20Nang%20Beach%20Krabi&z=14&output=embed"
+      title="Map"></iframe>
+  </div>
+</section>
+
+<!-- =========================== BOOKING (direct, commission-free) =========================== -->
+<section id="book" class="book">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--accent)" data-en>Book Direct</p>
+      <p class="eyebrow" style="color:var(--accent)" data-th>จองตรง</p>
+      <h2><span data-en>Best rate, straight from us</span><span data-th>ราคาดีที่สุด จองกับเราโดยตรง</span></h2>
+      <p style="max-width:42ch;margin-top:8px">
+        <span data-en>Send a request and we'll confirm on LINE or email within a few hours. No booking fees, no middleman, always the lowest price.</span>
+        <span data-th class="block">ส่งคำขอจอง แล้วเราจะยืนยันทาง LINE หรืออีเมลภายในไม่กี่ชั่วโมง ไม่มีค่าธรรมเนียม ไม่ผ่านคนกลาง ราคาถูกที่สุดเสมอ</span>
+      </p>
+      <p style="margin-top:18px">
+        <a href="https://line.me/R/ti/p/@baanrimtalay" class="btn btn-line">💬 <span data-en>Or just message us on LINE</span><span data-th>หรือทักเราทาง LINE</span></a>
+      </p>
+    </div>
+    <!-- CUSTOMIZE: action -> your Formspree/Getform endpoint, or keep mailto fallback below -->
+    <form action="https://formspree.io/f/your-id" method="POST">
+      <div class="field"><label data-en>Full name</label><label data-th>ชื่อ-นามสกุล</label>
+        <input name="name" required placeholder="Your name" /></div>
+      <div class="row2">
+        <div class="field"><label data-en>Check-in</label><label data-th>เช็คอิน</label><input type="date" name="checkin" required /></div>
+        <div class="field"><label data-en>Check-out</label><label data-th>เช็คเอาท์</label><input type="date" name="checkout" required /></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label data-en>Room</label><label data-th>ห้อง</label>
+          <select name="room"><option>Garden Room — ฿1,190</option><option>Sea View Room — ฿1,790</option><option>Family Suite — ฿2,690</option></select></div>
+        <div class="field"><label data-en>Guests</label><label data-th>จำนวนผู้เข้าพัก</label>
+          <select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+      </div>
+      <div class="field"><label data-en>Contact (email / LINE / WhatsApp)</label><label data-th>ช่องทางติดต่อ (อีเมล / LINE / WhatsApp)</label>
+        <input name="contact" required placeholder="email@example.com" /></div>
+      <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">
+        <span data-en>Request booking →</span><span data-th>ส่งคำขอจอง →</span></button>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:10px;text-align:center">
+        <span data-en>No payment now. We confirm availability first.</span>
+        <span data-th>ยังไม่ต้องชำระเงิน เรายืนยันห้องว่างก่อน</span></p>
+    </form>
+  </div>
+</section>
+
+<!-- =========================== FOOTER =========================== -->
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div>
+      <div class="logo" style="color:#fff">🏝️ Baan Rim Talay Boutique Resort</div>
+      <p style="margin-top:10px;max-width:38ch">
+        <span data-en>A small family-run beachfront resort in Ao Nang, Krabi. Book direct and save.</span>
+        <span data-th class="block">รีสอร์ทเล็กๆ ริมหาด บริหารโดยครอบครัว ที่อ่าวนาง กระบี่ จองตรงประหยัดกว่า</span>
+      </p>
+    </div>
+    <div>
+      <h4 data-en>Contact</h4><h4 data-th>ติดต่อ</h4>
+      <p>📞 <a href="tel:+66812345678">+66 81 234 5678</a></p>
+      <p>💬 <a href="https://line.me/R/ti/p/@baanrimtalay">LINE: @baanrimtalay</a></p>
+      <p>✉️ <a href="mailto:stay@baanrimtalay.com">stay@baanrimtalay.com</a></p>
+    </div>
+    <div>
+      <h4 data-en>Visit</h4><h4 data-th>ที่อยู่</h4>
+      <p>123 Ao Nang Beach Rd,<br>Mueang Krabi, Krabi 81180</p>
+      <p style="margin-top:8px"><a href="https://www.facebook.com">Facebook</a> · <a href="https://www.instagram.com">Instagram</a></p>
+    </div>
+  </div>
+  <div class="copyright">© <span id="yr"></span> Baan Rim Talay Boutique Resort.
+    <span data-en>All rights reserved.</span><span data-th>สงวนลิขสิทธิ์</span></div>
+</footer>
+
+<!-- =========================== FLOATING CONTACT =========================== -->
+<div class="float">
+  <a class="f-line" href="https://line.me/R/ti/p/@baanrimtalay" aria-label="LINE">💬</a>
+  <a class="f-wa" href="https://wa.me/66812345678" aria-label="WhatsApp">🟢</a>
+  <a class="f-call" href="tel:+66812345678" aria-label="Call">📞</a>
+</div>
+
+<!-- =========================== STRUCTURED DATA (Google understands this) =========================== -->
+<!-- CUSTOMIZE: name, address, geo, priceRange, rating. This helps Google show rich results. -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Hotel",
+  "name":"Baan Rim Talay Boutique Resort",
+  "description":"Small boutique beachfront resort in Ao Nang, Krabi. Book direct for the best rate.",
+  "image":"https://example.com/hero.jpg",
+  "url":"https://example.com",
+  "telephone":"+66812345678",
+  "priceRange":"฿฿",
+  "address":{"@type":"PostalAddress","streetAddress":"123 Ao Nang Beach Road","addressLocality":"Mueang Krabi","addressRegion":"Krabi","postalCode":"81180","addressCountry":"TH"},
+  "geo":{"@type":"GeoCoordinates","latitude":8.0306,"longitude":98.8290},
+  "starRating":{"@type":"Rating","ratingValue":"3"},
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"312"},
+  "amenityFeature":[
+    {"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Swimming pool","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Free parking","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Airport shuttle","value":true}
+  ]
+}
+</script>
+
+<script>
+  // Language toggle: flips <html lang> which the CSS uses to show/hide EN vs TH.
+  function setLang(l){
+    document.documentElement.lang = l;
+    document.getElementById('en').classList.toggle('active', l==='en');
+    document.getElementById('th').classList.toggle('active', l==='th');
+    try{ localStorage.setItem('lang', l); }catch(e){}
+  }
+  // Remember choice; default to Thai for visitors with a Thai browser.
+  (function(){
+    var saved; try{ saved = localStorage.getItem('lang'); }catch(e){}
+    var guess = saved || ((navigator.language||'').toLowerCase().startsWith('th') ? 'th' : 'en');
+    setLang(guess);
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
