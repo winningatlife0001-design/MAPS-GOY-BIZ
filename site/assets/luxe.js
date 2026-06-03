@@ -79,7 +79,41 @@
         f.appendChild(im);grid.appendChild(f);n++;
       });
     }
-    setupLang();setupNav();setupMotion();
+    injectSEO();linkifyContacts();setupLang();setupNav();setupMotion();
+  }
+
+  /* ---- SEO: per-page <head> meta + JSON-LD structured data (from window.SEO) ---- */
+  function injectSEO(){
+    var s=window.SEO; if(!s)return;
+    var head=document.head, IMG=window.IMG||[];
+    var img=s.image||(IMG[0]?px(IMG[0],1200,630):'');
+    var url=s.url||location.href;
+    function m(a,k,v){if(!v)return;var e=document.createElement('meta');e.setAttribute(a,k);e.setAttribute('content',v);head.appendChild(e);}
+    var link=document.createElement('link');link.rel='canonical';link.href=url;head.appendChild(link);
+    m('name','theme-color',s.theme||'#23251F');
+    m('property','og:type',s.og||'website');m('property','og:site_name',s.name);m('property','og:title',document.title);
+    m('property','og:description',s.desc||'');m('property','og:url',url);if(img)m('property','og:image',img);
+    m('name','twitter:card','summary_large_image');m('name','twitter:title',document.title);m('name','twitter:description',s.desc||'');if(img)m('name','twitter:image',img);
+    var ld={"@context":"https://schema.org","@type":s.type||"LocalBusiness","name":s.name,"url":url};
+    if(s.desc)ld.description=s.desc; if(img)ld.image=img;
+    if(s.phone)ld.telephone=s.phone; if(s.priceRange)ld.priceRange=s.priceRange;
+    if(s.address)ld.address={"@type":"PostalAddress","streetAddress":s.address,"addressLocality":s.locality||"Pak Chong","addressRegion":s.region||"Nakhon Ratchasima","postalCode":s.postal||"","addressCountry":"TH"};
+    if(s.geo)ld.geo={"@type":"GeoCoordinates","latitude":s.geo[0],"longitude":s.geo[1]};
+    if(s.rating)ld.aggregateRating={"@type":"AggregateRating","ratingValue":s.rating,"reviewCount":s.reviews,"bestRating":"5"};
+    if(s.cuisine)ld.servesCuisine=s.cuisine;
+    if(s.area)ld.areaServed=s.area;
+    var sc=document.createElement('script');sc.type='application/ld+json';sc.textContent=JSON.stringify(ld);head.appendChild(sc);
+  }
+
+  /* ---- make booking contacts actually work: tel: / LINE / mailto deep-links ---- */
+  function linkifyContacts(){
+    document.querySelectorAll('.contact-row .v, .foot-col p').forEach(function(el){
+      if(el.querySelector('a'))return;
+      var t=el.textContent.trim();
+      if(/^\+?\d[\d ()\-]{6,}$/.test(t)) el.innerHTML='<a href="tel:'+t.replace(/[^\d+]/g,'')+'">'+t+'</a>';
+      else if(t.charAt(0)==='@') el.innerHTML='<a href="https://line.me/R/ti/p/'+t+'" target="_blank" rel="noopener">'+t+'</a>';
+      else if(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(t)) el.innerHTML='<a href="mailto:'+t+'">'+t+'</a>';
+    });
   }
 
   /* ---- language ---- */

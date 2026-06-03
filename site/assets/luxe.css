@@ -230,6 +230,9 @@ html[lang="th"] .feature-inner .attrib,html[lang="zh"] .feature-inner .attrib{le
 .contact-row .k{font-family:var(--body);font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:4px}
 html[lang="th"] .contact-row .k,html[lang="zh"] .contact-row .k{letter-spacing:.04em}
 .contact-row .v{font-size:15.5px}
+.contact-row .v a{color:inherit;border-bottom:1px solid var(--line);transition:border-color .3s}
+.contact-row .v a:hover{border-color:var(--accent)}
+.foot-col p a{color:inherit;border-bottom:1px solid color-mix(in srgb,var(--cream) 22%,transparent)}
 .eform{background:var(--bg-2);padding:clamp(26px,3.4vw,46px);border:1px solid var(--line)}
 .eform .field{margin-bottom:18px}
 .eform label{font-family:var(--body);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:8px}
