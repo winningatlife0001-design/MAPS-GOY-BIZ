@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- TEMPLATE — Spa / Wellness / Massage. Type sections: treatment menu + prices,
+     packages/vouchers, therapists, online booking. Calm "wellness" tier theme. CUSTOMISE marked. -->
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baan Sabai — Spa & Thai Massage, Ao Nang</title>
+<meta name="description" content="Traditional Thai massage, aromatherapy & spa packages in Ao Nang. Book your treatment online or on LINE.">
+<meta name="theme-color" content="#3f6212">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<style>
+ :root{--brand:#3f6212;--brand-dark:#2e4a0e;--accent:#a16207;--ink:#1c1917;--muted:#6b7280;--bg:#fcfdf7;--soft:#f3f6ea;--line:#e4e7d5;--line-green:#06c755;--radius:16px;--shadow:0 8px 26px rgba(40,60,10,.10);--maxw:1040px;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Arial,sans-serif}
+ *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{color:var(--ink);background:var(--bg);line-height:1.7}a{color:inherit}
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+ .btn{display:inline-flex;gap:8px;align-items:center;border:0;cursor:pointer;font-weight:800;padding:13px 24px;border-radius:999px;text-decoration:none}
+ .btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow)}.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.7)}.btn-line{background:var(--line-green);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+ section{padding:62px 0}h2{font-size:1.8rem;margin-bottom:8px}.lead{color:var(--muted);max-width:620px;margin-bottom:28px}.center{text-align:center}.center .lead{margin-inline:auto}
+ .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.78rem}
+ header{position:sticky;top:0;z-index:50;background:rgba(252,253,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+ .nav{display:flex;align-items:center;justify-content:space-between;height:62px}.logo{font-weight:800;font-size:1.2rem;color:var(--brand);display:flex;gap:8px;align-items:center}
+ .nav-right{display:flex;gap:12px;align-items:center}.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
+ .lang button{border:0;background:#fff;padding:6px 11px;cursor:pointer;font-weight:700;color:var(--muted)}.lang button.active{background:var(--brand);color:#fff}
+ .hero{min-height:64vh;display:flex;align-items:flex-end;color:#fff;position:relative;background:linear-gradient(120deg,#2e4a0e,#3f6212 55%,#65a30d)}
+ .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.05) 60%)}
+ .hero .in{position:relative;z-index:2;padding:0 20px 46px;max-width:var(--maxw);margin:0 auto;width:100%}
+ .hero h1{font-size:clamp(2rem,5vw,3rem);max-width:16ch;text-shadow:0 2px 16px rgba(0,0,0,.4)}.hero p{max-width:34ch;margin:12px 0 22px;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+ .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+ .menu .row{display:flex;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+ .menu .row .d{color:var(--muted);font-size:.9rem}.menu .row .p{color:var(--accent);font-weight:800;white-space:nowrap}
+ .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px 44px}@media(max-width:760px){.cols{grid-template-columns:1fr}}
+ .pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:760px){.pkgs{grid-template-columns:1fr}}
+ .pkg{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}.pkg .amt{font-size:1.6rem;font-weight:800;color:var(--brand);margin:6px 0}
+ .book{background:var(--brand);color:#fff}.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}@media(max-width:760px){.bgrid{grid-template-columns:1fr}}
+ form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}.field{margin-bottom:12px}label{display:block;font-weight:700;font-size:.85rem;margin-bottom:5px}
+ input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:inherit}.row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+ .float{position:fixed;right:15px;bottom:15px;z-index:60;display:flex;flex-direction:column;gap:10px}.float a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
+ .f-line{background:var(--line-green)}.f-call{background:var(--accent)}
+ footer{background:#1c1917;color:#d6d3d1;padding:38px 0;text-align:center}footer a{color:#d6d3d1;text-decoration:none}
+ [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
+</style></head><body>
+<header><div class="wrap nav"><div class="logo">🌿 Baan Sabai</div><div class="nav-right">
+ <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
+ <a href="#book" class="btn btn-primary" style="padding:9px 16px"><span data-en>Book</span><span data-th>จอง</span></a></div></div></header>
+
+<section class="hero" style="padding:0"><div class="in">
+ <h1><span data-en>Rest, restore, breathe</span><span data-th>พักผ่อน ฟื้นฟู ผ่อนคลาย</span></h1>
+ <p><span data-en>Traditional Thai massage & spa rituals in the heart of Ao Nang.</span><span data-th class="b">นวดแผนไทยและทรีตเมนต์สปา ใจกลางอ่าวนาง</span></p>
+ <div class="hero-cta"><a href="#book" class="btn btn-primary"><span data-en>Book a treatment</span><span data-th>จองทรีตเมนต์</span></a>
+ <a href="https://line.me/R/ti/p/@baansabai" class="btn btn-line">💬 LINE</a></div></div></section>
+
+<section id="menu"><div class="wrap">
+ <p class="eyebrow" data-en>Treatments</p><p class="eyebrow" data-th>ทรีตเมนต์</p>
+ <h2><span data-en>Treatment menu</span><span data-th>เมนูทรีตเมนต์</span></h2>
+ <div class="cols" style="margin-top:14px"><div class="menu">
+  <div class="row"><div><b><span data-en>Thai Massage</span><span data-th>นวดแผนไทย</span></b><div class="d">60 / 90 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿350 / ฿500</div></div>
+  <div class="row"><div><b><span data-en>Aromatherapy Oil</span><span data-th>นวดน้ำมันอโรมา</span></b><div class="d">60 / 90 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿500 / ฿700</div></div>
+  <div class="row"><div><b><span data-en>Foot Reflexology</span><span data-th>นวดเท้า</span></b><div class="d">45 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿300</div></div>
+ </div><div class="menu">
+  <div class="row"><div><b><span data-en>Herbal Compress</span><span data-th>ประคบสมุนไพร</span></b><div class="d">90 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿800</div></div>
+  <div class="row"><div><b><span data-en>Body Scrub</span><span data-th>ขัดผิว</span></b><div class="d">60 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿600</div></div>
+  <div class="row"><div><b><span data-en>Facial</span><span data-th>ทรีตเมนต์หน้า</span></b><div class="d">60 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿650</div></div>
+ </div></div>
+</div></section>
+
+<section style="background:var(--soft)"><div class="wrap">
+ <p class="eyebrow" data-en>Packages & Gift Vouchers</p><p class="eyebrow" data-th>แพ็กเกจและบัตรของขวัญ</p>
+ <h2 style="margin-bottom:22px"><span data-en>Treat yourself (or someone)</span><span data-th>ดูแลตัวเอง (หรือคนพิเศษ)</span></h2>
+ <div class="pkgs">
+  <div class="pkg"><h3><span data-en>Half-Day Escape</span><span data-th>ฮาล์ฟเดย์</span></h3><div class="amt">฿1,500</div><p style="color:var(--muted);font-size:.92rem"><span data-en>Massage + scrub + facial</span><span data-th>นวด + ขัดผิว + ทรีตเมนต์หน้า</span></p></div>
+  <div class="pkg"><h3><span data-en>Couple's Ritual</span><span data-th>สำหรับคู่รัก</span></h3><div class="amt">฿2,400</div><p style="color:var(--muted);font-size:.92rem"><span data-en>Aroma massage for two + tea</span><span data-th>นวดอโรมาสำหรับสองท่าน + ชา</span></p></div>
+  <div class="pkg"><h3><span data-en>Gift Voucher</span><span data-th>บัตรของขวัญ</span></h3><div class="amt">฿500+</div><p style="color:var(--muted);font-size:.92rem"><span data-en>Any value — sent on LINE</span><span data-th>กำหนดมูลค่าเองได้ ส่งทาง LINE</span></p></div>
+ </div></div></section>
+
+<section id="book" class="book"><div class="wrap bgrid">
+ <div><p class="eyebrow" style="color:#fff" data-en>Booking</p><p class="eyebrow" style="color:#fff" data-th>จอง</p>
+  <h2><span data-en>Book your treatment</span><span data-th>จองทรีตเมนต์ของคุณ</span></h2>
+  <p style="max-width:40ch;margin-top:8px"><span data-en>Request a time and we'll confirm on LINE. Walk-ins welcome too.</span><span data-th class="b">เลือกเวลาที่ต้องการ เรายืนยันทาง LINE หรือ Walk-in ได้เลย</span></p></div>
+ <form action="https://formspree.io/f/your-id" method="POST">
+  <div class="field"><label data-en>Name</label><label data-th>ชื่อ</label><input name="name" required></div>
+  <div class="row2"><div class="field"><label data-en>Date</label><label data-th>วันที่</label><input type="date" name="date" required></div><div class="field"><label data-en>Time</label><label data-th>เวลา</label><input type="time" name="time" required></div></div>
+  <div class="field"><label data-en>Treatment</label><label data-th>ทรีตเมนต์</label><select><option>Thai Massage</option><option>Aromatherapy</option><option>Foot Reflexology</option><option>Package</option></select></div>
+  <div class="field"><label data-en>Contact (LINE / phone)</label><label data-th>ติดต่อ (LINE / โทร)</label><input name="contact" required></div>
+  <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-en>Request booking →</span><span data-th>ส่งคำขอจอง →</span></button>
+ </form></div></section>
+
+<footer><div class="wrap"><div class="logo" style="color:#fff;justify-content:center">🌿 Baan Sabai</div>
+ <p style="margin-top:8px;font-size:.9rem">Ao Nang, Krabi · 📞 <a href="tel:+66800000000">+66 80 000 0000</a> · 💬 <a href="https://line.me/R/ti/p/@baansabai">LINE @baansabai</a></p>
+ <p style="font-size:.8rem;color:#a8a29e;margin-top:10px">© <span id="yr"></span> Baan Sabai Spa</p></div></footer>
+<div class="float"><a class="f-line" href="https://line.me/R/ti/p/@baansabai">💬</a><a class="f-call" href="tel:+66800000000">📞</a></div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DaySpa","name":"Baan Sabai","priceRange":"฿฿","telephone":"+66800000000","address":{"@type":"PostalAddress","addressLocality":"Ao Nang","addressRegion":"Krabi","addressCountry":"TH"}}</script>
+<script>function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}(function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();</script>
+</body></html>

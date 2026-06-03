@@ -75,4 +75,6 @@ data/leads/  ← where client lists get saved (kept private, never shared)
 
 That's it. Everything else in here just makes each step better.
 
-> 🟢 **Next step:** read `01-market-and-opportunity.md`, then `07-legal-tax-foreigner.md`, then open `templates/website/hotel/index.html` in a browser to see what we actually deliver.
+> 🟢 **Next step:** read `01-market-and-opportunity.md`, then `07-legal-tax-foreigner.md`, then open `templates/website/_demos/smile-house/index.html` in a browser to see what we deliver.
+>
+> **For [girlfriend] (operator):** the **Thai handbook** is `docs/TH/คู่มือ.md`, her weekly routine is `docs/12-operator-playbook.md`, and the money projections are `docs/13-business-plan.md`. Her own agency website is in `site/` (publish it with `site/DEPLOY.md`).

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- TEMPLATE — Tour operator / Dive shop. Type sections: trips/courses with price+duration+includes,
+     book/request, reviews (foreign guests → WhatsApp emphasis). Ocean/adventure theme. CUSTOMISE marked. -->
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andaman Trips — Island Tours & Diving, Krabi</title>
+<meta name="description" content="Island-hopping, snorkelling & scuba trips from Krabi. Small groups, great guides. Book direct on WhatsApp or LINE.">
+<meta name="theme-color" content="#0369a1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤿</text></svg>">
+<style>
+ :root{--brand:#0369a1;--brand-dark:#075985;--accent:#0891b2;--cta:#f97316;--ink:#0f172a;--muted:#64748b;--bg:#fff;--soft:#ecfeff;--line:#dbeafe;--line-green:#06c755;--wa:#25d366;--radius:16px;--shadow:0 8px 26px rgba(3,55,90,.12);--maxw:1060px;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Arial,sans-serif}
+ *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{color:var(--ink);background:var(--bg);line-height:1.7}a{color:inherit}
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+ .btn{display:inline-flex;gap:8px;align-items:center;border:0;cursor:pointer;font-weight:800;padding:13px 24px;border-radius:999px;text-decoration:none}
+ .btn-cta{background:var(--cta);color:#fff;box-shadow:var(--shadow)}.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.7)}.btn-wa{background:var(--wa);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+ section{padding:62px 0}h2{font-size:1.8rem;margin-bottom:8px}.lead{color:var(--muted);max-width:620px;margin-bottom:28px}.center{text-align:center}.center .lead{margin-inline:auto}
+ .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.78rem}
+ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+ .nav{display:flex;align-items:center;justify-content:space-between;height:62px}.logo{font-weight:800;font-size:1.2rem;color:var(--brand);display:flex;gap:8px;align-items:center}
+ .nav-right{display:flex;gap:12px;align-items:center}.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
+ .lang button{border:0;background:#fff;padding:6px 11px;cursor:pointer;font-weight:700;color:var(--muted)}.lang button.active{background:var(--brand);color:#fff}
+ .hero{min-height:66vh;display:flex;align-items:flex-end;color:#fff;position:relative;background:linear-gradient(120deg,#075985,#0891b2 55%,#22d3ee)}
+ .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.05) 60%)}
+ .hero .in{position:relative;z-index:2;padding:0 20px 46px;max-width:var(--maxw);margin:0 auto;width:100%}
+ .hero h1{font-size:clamp(2rem,5vw,3.1rem);max-width:16ch;text-shadow:0 2px 16px rgba(0,0,0,.4)}.hero p{max-width:36ch;margin:12px 0 22px;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+ .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+ .trips{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:860px){.trips{grid-template-columns:1fr 1fr}}@media(max-width:600px){.trips{grid-template-columns:1fr}}
+ .trip{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+ .trip .ph{height:150px;color:#fff;display:flex;align-items:flex-end;padding:12px;font-weight:800}
+ .p1{background:linear-gradient(135deg,#0891b2,#22d3ee)}.p2{background:linear-gradient(135deg,#0369a1,#0891b2)}.p3{background:linear-gradient(135deg,#0e7490,#14b8a6)}
+ .trip .b{padding:16px}.trip .meta{font-size:.8rem;color:var(--muted);margin:4px 0 8px}.trip .amt{font-size:1.4rem;font-weight:800;color:var(--brand)}.trip .amt small{font-size:.75rem;color:var(--muted);font-weight:600}
+ .inc{list-style:none;font-size:.85rem;margin:8px 0 12px}.inc li{padding-left:18px;position:relative}.inc li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
+ .book{background:var(--brand);color:#fff;text-align:center}.book .btn{margin:6px}
+ .float{position:fixed;right:15px;bottom:15px;z-index:60;display:flex;flex-direction:column;gap:10px}.float a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
+ .f-wa{background:var(--wa)}.f-line{background:var(--line-green)}
+ footer{background:#0b1220;color:#cbd5e1;padding:38px 0;text-align:center}footer a{color:#cbd5e1;text-decoration:none}
+ [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
+</style></head><body>
+<header><div class="wrap nav"><div class="logo">🤿 Andaman Trips</div><div class="nav-right">
+ <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
+ <a href="#book" class="btn btn-cta" style="padding:9px 16px"><span data-en>Book a trip</span><span data-th>จองทริป</span></a></div></div></header>
+
+<section class="hero" style="padding:0"><div class="in">
+ <h1><span data-en>The Andaman, the way it should be</span><span data-th>อันดามันในแบบที่ควรเป็น</span></h1>
+ <p><span data-en>Small-group island tours, snorkelling & scuba from Krabi. Great guides, fair prices, book direct.</span><span data-th class="b">ทัวร์เกาะกลุ่มเล็ก ดำน้ำตื้นและสกูบา จากกระบี่ ไกด์ดี ราคาเป็นธรรม จองตรง</span></p>
+ <div class="hero-cta"><a href="#book" class="btn btn-cta"><span data-en>See trips</span><span data-th>ดูทริป</span></a>
+ <a href="https://wa.me/66800000000" class="btn btn-wa">🟢 WhatsApp</a></div></div></section>
+
+<section><div class="wrap">
+ <p class="eyebrow" data-en>Our Trips</p><p class="eyebrow" data-th>ทริปของเรา</p>
+ <h2><span data-en>Pick your adventure</span><span data-th>เลือกการผจญภัยของคุณ</span></h2>
+ <div class="trips" style="margin-top:18px">
+  <div class="trip"><div class="ph p1"><span data-en>4 Islands Tour</span><span data-th>ทัวร์ 4 เกาะ</span></div><div class="b"><div class="meta">🕐 <span data-en>Full day · longtail</span><span data-th>เต็มวัน · เรือหางยาว</span></div><ul class="inc"><li><span data-en>Lunch + snorkel gear</span><span data-th>อาหารกลางวัน + อุปกรณ์</span></li><li><span data-en>Hotel pickup</span><span data-th>รับที่โรงแรม</span></li></ul><div class="amt">฿1,200 <small>/ <span data-en>person</span><span data-th>ท่าน</span></small></div></div></div>
+  <div class="trip"><div class="ph p2"><span data-en>Phi Phi Speedboat</span><span data-th>เกาะพีพี สปีดโบ๊ท</span></div><div class="b"><div class="meta">🕐 <span data-en>Full day · speedboat</span><span data-th>เต็มวัน · สปีดโบ๊ท</span></div><ul class="inc"><li><span data-en>Buffet lunch + fruit</span><span data-th>บุฟเฟต์ + ผลไม้</span></li><li><span data-en>National park guide</span><span data-th>ไกด์อุทยาน</span></li></ul><div class="amt">฿1,800 <small>/ <span data-en>person</span><span data-th>ท่าน</span></small></div></div></div>
+  <div class="trip"><div class="ph p3"><span data-en>Discover Scuba</span><span data-th>ลองดำน้ำสกูบา</span></div><div class="b"><div class="meta">🕐 <span data-en>Half/full day · PADI</span><span data-th>ครึ่ง/เต็มวัน · PADI</span></div><ul class="inc"><li><span data-en>2 dives + instructor</span><span data-th>ดำน้ำ 2 ครั้ง + ครูฝึก</span></li><li><span data-en>All gear included</span><span data-th>อุปกรณ์ครบ</span></li></ul><div class="amt">฿3,400 <small>/ <span data-en>person</span><span data-th>ท่าน</span></small></div></div></div>
+ </div>
+</div></section>
+
+<section id="book" class="book"><div class="wrap">
+ <p class="eyebrow" style="color:#fff" data-en>Book direct</p><p class="eyebrow" style="color:#fff" data-th>จองตรง</p>
+ <h2><span data-en>Ready when you are</span><span data-th>พร้อมเมื่อคุณพร้อม</span></h2>
+ <p style="max-width:46ch;margin:8px auto 22px"><span data-en>Message us your dates & group size — we'll confirm availability and pickup. Booking direct is cheaper than the agents on the street.</span><span data-th class="b">ส่งวันที่และจำนวนคนมา เราจะยืนยันคิวและจุดรับ จองตรงถูกกว่าเอเย่นต์ทั่วไป</span></p>
+ <a href="https://wa.me/66800000000" class="btn btn-wa">🟢 <span data-en>Book on WhatsApp</span><span data-th>จองทาง WhatsApp</span></a>
+ <a href="https://line.me/R/ti/p/@andamantrips" class="btn btn-cta">💬 <span data-en>Book on LINE</span><span data-th>จองทาง LINE</span></a>
+</div></section>
+
+<footer><div class="wrap"><div class="logo" style="color:#fff;justify-content:center">🤿 Andaman Trips</div>
+ <p style="margin-top:8px;font-size:.9rem">Ao Nang, Krabi · WhatsApp +66 80 000 0000 · 💬 <a href="https://line.me/R/ti/p/@andamantrips">LINE @andamantrips</a></p>
+ <p style="font-size:.8rem;color:#94a3b8;margin-top:10px">© <span id="yr"></span> Andaman Trips</p></div></footer>
+<div class="float"><a class="f-wa" href="https://wa.me/66800000000">🟢</a><a class="f-line" href="https://line.me/R/ti/p/@andamantrips">💬</a></div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","name":"Andaman Trips","provider":{"@type":"TravelAgency","name":"Andaman Trips","address":{"@type":"PostalAddress","addressLocality":"Ao Nang","addressRegion":"Krabi","addressCountry":"TH"}}}</script>
+<script>function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}(function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();</script>
+</body></html>

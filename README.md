@@ -31,7 +31,9 @@ Why it works: small Thai hotels lose **15–25% to OTA commission** on ~**85–9
 |---|---|
 | [`docs/`](docs/) | The knowledge base — read `00`→`10` in order |
 | [`workflows/`](workflows/) | The "how to do the work" recipes (find leads, build a site, fix Google Maps) |
-| [`templates/`](templates/) | The template **system** (hotel + restaurant, theme-able by price tier + brand — see `templates/website/README.md`) + a **live rebuild demo** (Smile House) + outreach (EN/TH) + proposal + intake |
+| [`templates/`](templates/) | Website **system** — hotel · luxury · restaurant/bar · spa · tour · clinic, theme-able by tier + brand (`templates/website/README.md`) · **Smile House** rebuild · outreach (EN/TH) · proposal · intake |
+| [`site/`](site/) | **Her agency website** (FoundDirect) + live portfolio — what goes on the web. Deploy: [`site/DEPLOY.md`](site/DEPLOY.md) |
+| [`business-plan/`](business-plan/) | 2-year financial model (CSV) — open in Excel; narrative in `docs/13` |
 | [`data/leads/`](data/leads/) | Where private lead lists live (git-ignored for privacy/PDPA) |
 | [`docs/SOURCES.md`](docs/SOURCES.md) | Every key fact, cited |
 
@@ -46,6 +48,9 @@ Why it works: small Thai hotels lose **15–25% to OTA commission** on ~**85–9
 - **08 — [Selling to Thai Owners](docs/08-sales-and-outreach-thailand.md)** · LINE-first, relationship-first
 - **09 — [Competition & Risks](docs/09-competition-and-risks.md)** · who's out there + what kills this
 - **10 — [30/60/90-Day Plan](docs/10-30-60-90-plan.md)** · zero → ~10 paying clients
+- **12 — [Operator Playbook](docs/12-operator-playbook.md)** · her weekly rhythm
+- **13 — [Business Plan & 2-yr money model](docs/13-business-plan.md)** · the projections (base case ~฿5.7M/2yr profit)
+- **🇹🇭 [คู่มือภาษาไทย](docs/TH/%E0%B8%84%E0%B8%B9%E0%B9%88%E0%B8%A1%E0%B8%B7%E0%B8%AD.md)** · Thai handbook for her
 
 ### The workflows
 - [Find clients (the lead machine)](workflows/leadgen-apify.md) — Apify Google Maps, `website: withoutWebsite`

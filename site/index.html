@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--
+  HER AGENCY WEBSITE  (placeholder brand: "FoundDirect" — rename freely)
+  Doubles as: the live demo site + her sales site + portfolio.
+  Deployed via .github/workflows/deploy-pages.yml to GitHub Pages.
+  Portfolio links are relative → also work locally and on the project Pages path.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FoundDirect — Websites & Google Maps for Thai Hotels</title>
+<meta name="description" content="We build fast, bilingual websites and fix your Google Maps so guests find you and book direct — keep the 15–25% you give OTAs. For Thai hotels, restaurants, bars & spas." />
+<meta name="theme-color" content="#0f766e" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><path d=%22M24 4C14 4 6 12 6 22c0 12 18 22 18 22s18-10 18-22C42 12 34 4 24 4z%22 fill=%22%230f766e%22/><path d=%22M24 13l8 11h-6v8h-4v-8h-6z%22 fill=%22white%22/></svg>" />
+<style>
+  :root{--brand:#0f766e;--brand-dark:#0b554f;--accent:#f59e0b;--ink:#0f172a;--muted:#64748b;--bg:#fff;--soft:#f0fdfa;--line:#e2e8f0;--line-green:#06c755;--radius:16px;--shadow:0 10px 30px rgba(2,32,28,.10);--maxw:1120px;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Roboto,Arial,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{color:var(--ink);background:var(--bg);line-height:1.6}a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:800;font-size:1rem;padding:13px 24px;border-radius:999px;text-decoration:none;transition:transform .08s}
+  .btn:active{transform:translateY(1px)}.btn-primary{background:var(--accent);color:#1f2937;box-shadow:var(--shadow)}
+  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.65)}
+  .btn-line{background:var(--line-green);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+  section{padding:66px 0}h2{font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.15;margin-bottom:10px}
+  .lead{color:var(--muted);max-width:640px;margin:0 auto 36px;text-align:center}
+  .center{text-align:center}.eyebrow{color:var(--brand);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.8rem}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  .logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.2rem;color:var(--brand)}
+  .logo b{color:var(--ink)}.nav-right{display:flex;align-items:center;gap:14px}.nav-links{display:flex;gap:22px}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem}.nav-links a:hover{color:var(--brand)}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
+  .lang button{border:0;background:#fff;padding:6px 12px;cursor:pointer;font-weight:700;color:var(--muted)}.lang button.active{background:var(--brand);color:#fff}
+  @media(max-width:860px){.nav-links{display:none}}
+  .hero{background:radial-gradient(1200px 500px at 70% -10%,#0e7490 0%,#0f766e 45%,#0b554f 100%);color:#fff;text-align:center;padding:80px 0 72px}
+  .hero h1{font-size:clamp(2rem,5.2vw,3.4rem);line-height:1.08;max-width:18ch;margin:0 auto;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+  .hero p{font-size:1.18rem;max-width:46ch;margin:16px auto 28px;opacity:.95}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .stats{display:flex;gap:14px 40px;justify-content:center;flex-wrap:wrap;margin-top:40px;color:#fff}
+  .stat b{font-size:1.7rem;display:block}.stat span{opacity:.85;font-size:.9rem}
+  .grid{display:grid;gap:22px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:900px){.g3,.g4{grid-template-columns:1fr 1fr}}@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+  .card .ico{font-size:1.9rem}.card h3{font-size:1.2rem;margin:8px 0 4px}.card p{color:var(--muted);font-size:.95rem}
+  .pcard{display:flex;flex-direction:column}.pcard .thumb{height:120px;border-radius:12px;margin-bottom:14px;display:flex;align-items:flex-end;padding:12px;color:#fff;font-weight:800}
+  .t1{background:linear-gradient(135deg,#0ea5e9,#22d3ee)}.t2{background:linear-gradient(135deg,#0f766e,#0891b2)}.t3{background:linear-gradient(135deg,#9a3412,#ea580c)}
+  .problem{background:var(--soft)}
+  .price{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:860px){.price{grid-template-columns:1fr}}
+  .tier{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);position:relative}
+  .tier.feat{border:2px solid var(--brand)}
+  .tier .amt{font-size:2rem;font-weight:800;color:var(--brand);margin:6px 0}.tier .amt small{font-size:.85rem;color:var(--muted);font-weight:600}
+  .tier ul{list-style:none;margin-top:12px}.tier li{padding:6px 0 6px 24px;position:relative;font-size:.93rem}
+  .tier li:before{content:"✓";position:absolute;left:0;color:var(--brand);font-weight:800}
+  .badge{position:absolute;top:-12px;right:18px;background:var(--accent);color:#1f2937;font-weight:800;font-size:.75rem;padding:4px 12px;border-radius:999px}
+  .steps{counter-reset:s}.step{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px}
+  .step .n{flex:0 0 38px;height:38px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+  .cta{background:var(--brand);color:#fff;text-align:center;border-radius:var(--radius);padding:46px 20px;margin:0 20px}
+  footer.site{background:#0b1220;color:#cbd5e1;padding:40px 0 26px;margin-top:10px}footer.site a{color:#cbd5e1;text-decoration:none}
+  .copyright{border-top:1px solid #1e293b;margin-top:22px;padding-top:16px;font-size:.85rem;color:#94a3b8;text-align:center}
+  .float{position:fixed;right:16px;bottom:16px;z-index:60}.float a{width:56px;height:56px;border-radius:50%;background:var(--line-green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
+  [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
+  .logo svg,.hlogo{vertical-align:middle}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#top">
+    <svg width="30" height="30" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4C14 4 6 12 6 22c0 12 18 22 18 22s18-10 18-22C42 12 34 4 24 4z" fill="#0f766e"/><path d="M24 13l8 11h-6v8h-4v-8h-6z" fill="#fff"/></svg>
+    Found<b>Direct</b>
+  </a>
+  <div class="nav-right">
+    <nav class="nav-links">
+      <a href="#services" data-en>Services</a><a href="#services" data-th>บริการ</a>
+      <a href="#work" data-en>Our Work</a><a href="#work" data-th>ผลงาน</a>
+      <a href="#pricing" data-en>Pricing</a><a href="#pricing" data-th>ราคา</a>
+      <a href="#contact" data-en>Contact</a><a href="#contact" data-th>ติดต่อ</a>
+    </nav>
+    <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
+    <a href="#contact" class="btn btn-primary" style="padding:9px 18px"><span data-en>Free audit</span><span data-th>ตรวจฟรี</span></a>
+  </div>
+</div></header>
+
+<section class="hero" id="top" style="padding-top:80px">
+  <div class="wrap">
+    <h1><span data-en>Get found on Google. Book direct. Keep your money.</span><span data-th class="b">ลูกค้าหาเจอบน Google จองตรง เก็บเงินไว้เอง</span></h1>
+    <p><span data-en>We build fast, beautiful websites and fix your Google Maps — so guests book you directly instead of paying 15–25% to Agoda & Booking.com.</span><span data-th class="b">เราทำเว็บไซต์สวยเร็ว และปรับ Google Maps ให้ — เพื่อให้ลูกค้าจองตรงกับคุณ แทนที่จะเสียค่าคอม 15–25% ให้ Agoda และ Booking.com</span></p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary"><span data-en>Get a free website audit</span><span data-th>ขอตรวจเว็บฟรี</span></a>
+      <a href="#work" class="btn btn-ghost"><span data-en>See our work →</span><span data-th>ดูผลงาน →</span></a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>3–5 <span data-en>days</span><span data-th>วัน</span></b><span data-en>to launch</span><span data-th>เปิดเว็บ</span></div>
+      <div class="stat"><b>EN·ไทย·中文</b><span data-en>multilingual</span><span data-th>หลายภาษา</span></div>
+      <div class="stat"><b>15–25%</b><span data-en>OTA fees you save</span><span data-th>ค่าคอมที่ประหยัด</span></div>
+      <div class="stat"><b>LINE</b><span data-en>local Thai support</span><span data-th>ทีมไทยดูแล</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem"><div class="wrap center">
+  <p class="eyebrow" data-en>The problem</p><p class="eyebrow" data-th>ปัญหา</p>
+  <h2><span data-en>You're paying the OTAs a fortune</span><span data-th>คุณกำลังจ่ายค่าคอมให้ OTA มหาศาล</span></h2>
+  <p class="lead"><span data-en>Most small Thai hotels send 85–92% of bookings through OTAs at 15–25% commission — often ฿2 million+ a year. With no real website and a half-empty Google profile, guests can't book you directly. We fix exactly that.</span><span data-th class="b">โรงแรมเล็กส่วนใหญ่ส่งการจอง 85–92% ผ่าน OTA เสียค่าคอม 15–25% — บ่อยครั้งปีละกว่า 2 ล้านบาท เพราะไม่มีเว็บของตัวเองและโปรไฟล์ Google ไม่สมบูรณ์ ลูกค้าจึงจองตรงไม่ได้ เรามาแก้ตรงนี้ค่ะ</span></p>
+</div></section>
+
+<!-- SERVICES -->
+<section id="services"><div class="wrap">
+  <p class="eyebrow center" data-en>What we do</p><p class="eyebrow center" data-th>เราทำอะไร</p>
+  <h2 class="center"><span data-en>Two things, done properly</span><span data-th>สองสิ่ง ทำให้ดีจริง</span></h2>
+  <p class="lead"><span data-en>A website that takes direct bookings, and a Google presence that gets you found.</span><span data-th class="b">เว็บไซต์ที่รับจองตรงได้ และโปรไฟล์ Google ที่ทำให้ลูกค้าหาเจอ</span></p>
+  <div class="grid g2">
+    <div class="card"><div class="ico">🌐</div><h3><span data-en>Website that converts</span><span data-th>เว็บไซต์ที่ขายได้</span></h3>
+      <p><span data-en>Mobile-first, EN/Thai/Chinese, direct-booking & LINE buttons, fast & secure. Built to turn lookers into direct bookings.</span><span data-th class="b">รองรับมือถือ ภาษาไทย/อังกฤษ/จีน ปุ่มจองตรงและ LINE เร็วและปลอดภัย ออกแบบให้เปลี่ยนผู้เข้าชมเป็นการจองตรง</span></p></div>
+    <div class="card"><div class="ico">📍</div><h3><span data-en>Google Maps that ranks</span><span data-th>Google Maps ที่ติดอันดับ</span></h3>
+      <p><span data-en>We claim & complete your Google Business Profile, add photos, grow real reviews, post weekly, and report your ranking every month.</span><span data-th class="b">เรายืนยันและทำโปรไฟล์ Google ให้ครบ เพิ่มรูป สร้างรีวิวจริง โพสต์ทุกสัปดาห์ และรายงานอันดับทุกเดือน</span></p></div>
+  </div>
+  <p class="center" style="margin-top:26px;color:var(--muted)"><span data-en><b>For:</b> hotels · guesthouses · resorts · restaurants · bars · cafés · spas · tours · clinics</span><span data-th><b>เหมาะกับ:</b> โรงแรม · เกสต์เฮาส์ · รีสอร์ท · ร้านอาหาร · บาร์ · คาเฟ่ · สปา · ทัวร์ · คลินิก</span></p>
+</div></section>
+
+<!-- WORK / PORTFOLIO -->
+<section id="work" style="background:var(--soft)"><div class="wrap">
+  <p class="eyebrow center" data-en>Our work</p><p class="eyebrow center" data-th>ผลงาน</p>
+  <h2 class="center"><span data-en>Sites we build</span><span data-th>ตัวอย่างเว็บที่เราทำ</span></h2>
+  <p class="lead"><span data-en>Every site is tailored to the business type and price level — a hostel, a 5-star and a beach bar should look nothing alike.</span><span data-th class="b">ทุกเว็บออกแบบให้เข้ากับประเภทธุรกิจและระดับราคา — โฮสเทล โรงแรม 5 ดาว และบีชบาร์ ต้องไม่เหมือนกัน</span></p>
+  <div class="grid g3">
+    <a class="card pcard" href="./smile-house/" target="_blank"><div class="thumb t1">Smile House</div><h3><span data-en>Budget hotel</span><span data-th>โรงแรมราคาประหยัด</span></h3><p><span data-en>Rebuild of a real Samui hotel — friendly, bright, direct booking.</span><span data-th class="b">รีบิลด์โรงแรมจริงที่สมุย สดใส เป็นกันเอง จองตรงได้</span></p></a>
+    <a class="card pcard" href="./hotel/" target="_blank"><div class="thumb t2"><span data-en>Boutique Hotel</span><span data-th>โรงแรมบูทีค</span></div><h3><span data-en>Boutique / resort</span><span data-th>บูทีค / รีสอร์ท</span></h3><p><span data-en>Sea-view rooms, gallery, reviews, booking & LINE.</span><span data-th class="b">ห้องวิวทะเล แกลเลอรี รีวิว จอง และ LINE</span></p></a>
+    <a class="card pcard" href="./restaurant/" target="_blank"><div class="thumb t3"><span data-en>Restaurant & Bar</span><span data-th>ร้านอาหาร & บาร์</span></div><h3><span data-en>Restaurant / café / bar</span><span data-th>ร้านอาหาร / คาเฟ่ / บาร์</span></h3><p><span data-en>Menu, reservations & delivery — a food site, not a hotel one.</span><span data-th class="b">เมนู จองโต๊ะ และเดลิเวอรี เว็บสำหรับร้านอาหารโดยเฉพาะ</span></p></a>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section id="pricing"><div class="wrap">
+  <p class="eyebrow center" data-en>Pricing</p><p class="eyebrow center" data-th>ราคา</p>
+  <h2 class="center"><span data-en>Build once, then a small monthly fee</span><span data-th>ทำเว็บครั้งเดียว แล้วจ่ายรายเดือนเล็กน้อย</span></h2>
+  <p class="lead"><span data-en>One-time build from ฿15,000. Then pick a monthly plan — far less than what you give the OTAs.</span><span data-th class="b">ค่าทำเว็บครั้งเดียวเริ่มต้น ฿15,000 แล้วเลือกแพ็กเกจรายเดือน — น้อยกว่าค่าคอม OTA มาก</span></p>
+  <div class="price">
+    <div class="tier"><h3 data-en>Essentials</h3><h3 data-th>เริ่มต้น</h3><div class="amt">฿3,900<small>/<span data-en>mo</span><span data-th>เดือน</span></small></div>
+      <p style="color:var(--muted);font-size:.9rem" data-en>Bars · cafés · small shops</p><p style="color:var(--muted);font-size:.9rem" data-th>บาร์ · คาเฟ่ · ร้านเล็ก</p>
+      <ul><li><span data-en>Hosting, domain, SSL</span><span data-th>โฮสติ้ง โดเมน SSL</span></li><li><span data-en>2 content edits / month</span><span data-th>แก้ไขเนื้อหา 2 ครั้ง/เดือน</span></li><li><span data-en>Google Maps basics</span><span data-th>ดูแล Google Maps พื้นฐาน</span></li><li><span data-en>LINE support</span><span data-th>ซัพพอร์ตทาง LINE</span></li></ul></div>
+    <div class="tier feat"><div class="badge" data-en>Most popular</div><div class="badge" data-th>นิยมสุด</div><h3 data-en>Hotel</h3><h3 data-th>โรงแรม</h3><div class="amt">฿7,900<small>/<span data-en>mo</span><span data-th>เดือน</span></small></div>
+      <p style="color:var(--muted);font-size:.9rem" data-en>Small & mid hotels</p><p style="color:var(--muted);font-size:.9rem" data-th>โรงแรมเล็ก–กลาง</p>
+      <ul><li><span data-en>Everything in Essentials</span><span data-th>ทุกอย่างในแพ็กเริ่มต้น</span></li><li><span data-en>Active Google Maps + weekly posts</span><span data-th>ดูแล Google Maps + โพสต์ทุกสัปดาห์</span></li><li><span data-en>Review generation + replies</span><span data-th>สร้างรีวิว + ตอบรีวิว</span></li><li><span data-en>Monthly ranking report</span><span data-th>รายงานอันดับทุกเดือน</span></li></ul></div>
+    <div class="tier"><h3 data-en>Growth</h3><h3 data-th>เติบโต</h3><div class="amt">฿10,800<small>/<span data-en>mo</span><span data-th>เดือน</span></small></div>
+      <p style="color:var(--muted);font-size:.9rem" data-en>Hotels going all-in on direct</p><p style="color:var(--muted);font-size:.9rem" data-th>โรงแรมที่เน้นจองตรงเต็มที่</p>
+      <ul><li><span data-en>Everything in Hotel</span><span data-th>ทุกอย่างในแพ็กโรงแรม</span></li><li><span data-en>Local SEO (more keywords)</span><span data-th>ทำ SEO ท้องถิ่น (คีย์เวิร์ดมากขึ้น)</span></li><li><span data-en>Booking-conversion tuning</span><span data-th>ปรับเว็บให้จองมากขึ้น</span></li><li><span data-en>Priority edits & strategy call</span><span data-th>แก้ไขด่วน + คุยกลยุทธ์</span></li></ul></div>
+  </div>
+  <p class="center" style="margin-top:22px;color:var(--muted);font-size:.9rem"><span data-en>💡 A hotel paying ฿175,000/mo in OTA commission saves far more than any plan here by shifting a few bookings to direct.</span><span data-th>💡 โรงแรมที่จ่ายค่าคอม OTA เดือนละ ฿175,000 ประหยัดได้มากกว่าค่าบริการทุกแพ็กเกจ เพียงย้ายการจองมาตรงไม่กี่รายการ</span></p>
+</div></section>
+
+<!-- HOW IT WORKS -->
+<section style="background:var(--soft)"><div class="wrap">
+  <p class="eyebrow center" data-en>How it works</p><p class="eyebrow center" data-th>ขั้นตอน</p>
+  <h2 class="center"><span data-en>Live in about a week</span><span data-th>เปิดเว็บได้ในราวหนึ่งสัปดาห์</span></h2>
+  <div class="grid g2" style="margin-top:26px">
+    <div>
+      <div class="step"><div class="n">1</div><div><b><span data-en>Free audit</span><span data-th>ตรวจฟรี</span></b><br><span style="color:var(--muted)" data-en>We show you exactly what's missing on your Google & website.</span><span style="color:var(--muted)" data-th>เราชี้ให้เห็นว่า Google และเว็บของคุณขาดอะไร</span></div></div>
+      <div class="step"><div class="n">2</div><div><b><span data-en>You send photos & details</span><span data-th>ส่งรูปและข้อมูล</span></b><br><span style="color:var(--muted)" data-en>Rooms, prices, your LINE — that's it.</span><span style="color:var(--muted)" data-th>ห้องพัก ราคา LINE แค่นี้พอ</span></div></div>
+    </div>
+    <div>
+      <div class="step"><div class="n">3</div><div><b><span data-en>We build it (3–5 days)</span><span data-th>เราสร้างเว็บ (3–5 วัน)</span></b><br><span style="color:var(--muted)" data-en>You review, we adjust, we launch.</span><span style="color:var(--muted)" data-th>คุณตรวจ เราปรับ แล้วเปิดใช้งาน</span></div></div>
+      <div class="step"><div class="n">4</div><div><b><span data-en>We look after it</span><span data-th>เราดูแลต่อ</span></b><br><span style="color:var(--muted)" data-en>Hosting, edits, Google Maps & monthly reports.</span><span style="color:var(--muted)" data-th>โฮสติ้ง แก้ไข Google Maps และรายงานรายเดือน</span></div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CONTACT CTA -->
+<section id="contact"><div class="wrap"><div class="cta">
+  <h2 style="color:#fff"><span data-en>Want a free audit of your hotel?</span><span data-th>อยากให้ตรวจเว็บและ Google ของคุณฟรีไหม?</span></h2>
+  <p style="max-width:46ch;margin:8px auto 22px;opacity:.95"><span data-en>Send us your hotel name — we'll reply with a short video showing what to fix. No cost, no obligation.</span><span data-th class="b">ส่งชื่อโรงแรมมา เราจะส่งวิดีโอสั้น ๆ ชี้จุดที่ควรปรับให้ ฟรี ไม่มีข้อผูกมัด</span></p>
+  <!-- CONFIRM: her real LINE id + email -->
+  <a href="https://line.me/R/ti/p/@founddirect" class="btn btn-line" style="margin:4px">💬 <span data-en>Message on LINE</span><span data-th>ทักทาง LINE</span></a>
+  <a href="mailto:hello@founddirect.co" class="btn btn-primary" style="margin:4px">✉️ <span data-en>Email us</span><span data-th>อีเมล</span></a>
+</div></div></section>
+
+<footer class="site"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center">
+  <div class="logo" style="color:#fff"><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4C14 4 6 12 6 22c0 12 18 22 18 22s18-10 18-22C42 12 34 4 24 4z" fill="#34d399"/><path d="M24 13l8 11h-6v8h-4v-8h-6z" fill="#0b1220"/></svg> Found<b style="color:#fff">Direct</b></div>
+  <div style="color:#94a3b8;font-size:.9rem"><span data-en>Websites & Google Maps for Thai hotels.</span><span data-th>เว็บไซต์และ Google Maps สำหรับโรงแรมไทย</span> · LINE @founddirect</div>
+</div><div class="copyright">© <span id="yr"></span> FoundDirect. <span data-en>Built in Thailand.</span><span data-th>สร้างในประเทศไทย</span></div></footer>
+
+<div class="float"><a href="https://line.me/R/ti/p/@founddirect" aria-label="LINE">💬</a></div>
+<script>
+  function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}
+  (function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();
+</script>
+</body>
+</html>

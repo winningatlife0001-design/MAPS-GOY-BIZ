@@ -42,18 +42,20 @@ Keep it to **3 build tiers + 3 monthly tiers**. Productised = fast to sell, fast
 > Deposit **50% to start, 50% on approval before go-live.** Never hand over domain/hosting logins until paid in full.
 
 ### Monthly (recurring — this is the real business)
-| Plan | Price/mo | What's included |
+| Plan | Price/mo | For / what's included |
 |---|---|---|
-| **Care** | **฿1,500** | Hosting, domain, SSL, backups, security, up to 2 content edits/mo, LINE support. |
-| **Care + Maps** ⭐ | **฿3,900** | Care **+** Google Business Profile management: weekly post, review replies, photo refresh, monthly rank report. *Lead with this one.* |
-| **Growth** | **฿7,900** | Care + Maps **+** active local SEO, more keywords, monthly strategy + booking-conversion tweaks, priority edits. |
+| **Essentials** | **฿3,900** | Bars, cafés, small shops. Hosting, domain, SSL, backups, 2 edits/mo, basic Google Maps, LINE support. |
+| **Hotel** ⭐ | **฿7,900** | Small & mid hotels (*lead with this*). Essentials **+** active Google Business Profile mgmt: weekly post, review replies, photo refresh, monthly rank report. |
+| **Growth** | **฿10,800** (≈ $300) | Hotels going all-in on direct. Hotel **+** active local SEO, more keywords, booking-conversion tuning, priority edits + strategy call. |
+
+> Note (your instinct was right): **฿3,900 is too cheap for a hotel** — that's the bar/café tier. Hotels start at ฿7,900; the target is **Growth ฿10,800 ≈ $300/mo**. The 2-year model (`docs/13`) uses a blended **฿7,000/mo**.
 
 Add-ons: extra language ฿3,000 · photo shoot/AI enhancement pack ฿2,500 · Google review QR kit ฿900 · seasonal promo page ฿1,500.
 
 ---
 
 ## Why this wins
-- **Recurring revenue is the goal.** 10 clients on *Care + Maps* (฿3,900) = **฿39,000/mo (~฿468,000/yr) recurring** before any new build income. Retainers are where small agencies actually make money; a build is just the on-ramp.
+- **Recurring revenue is the goal.** 10 hotels on the **Hotel** plan (฿7,900) = **฿79,000/mo (~฿948,000/yr) recurring** before any new build income. Retainers are where small agencies actually make money; a build is just the on-ramp. (Full 2-year projection: `docs/13-business-plan.md`.)
 - We undercut agencies on price **and** beat freelancers on service + ongoing care + Thai-language support + the Google Maps bundle (almost nobody bundles Maps).
 - **Don't compete on price alone** — race-to-the-bottom clients churn and expect everything. Sell *value* (saved commission, more direct bookings, looking trustworthy to foreign guests).
 
