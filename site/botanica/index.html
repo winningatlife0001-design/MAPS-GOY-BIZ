@@ -96,7 +96,7 @@ html[lang="th"] .txtlink,html[lang="zh"] .txtlink{letter-spacing:.08em}
 .reveal,.line-rise>span{will-change:transform,opacity}
 
 /* ---------- NAV ---------- */
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad);transition:background .5s,padding .5s,box-shadow .5s;color:#fff}
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:15px var(--pad);transition:padding .4s,box-shadow .4s;color:var(--ink);background:color-mix(in srgb,var(--bg) 95%,transparent);backdrop-filter:saturate(1.1) blur(12px);box-shadow:0 1px 0 var(--line)}
 .nav.scrolled{background:rgba(243,239,231,.92);backdrop-filter:saturate(1.1) blur(12px);color:var(--ink);padding:15px var(--pad);box-shadow:0 1px 0 var(--line)}
 .brand{font-family:var(--display);font-weight:400;font-size:23px;letter-spacing:.42em;text-transform:uppercase;padding-left:.42em}
 .nav-links{display:flex;gap:34px;align-items:center}
@@ -135,7 +135,7 @@ html[lang="th"] .hero .hero-sub{line-height:1.9}
 .scrollcue .ln::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--cream);animation:cue 2.4s ease-in-out infinite}
 @keyframes cue{0%{top:-100%}60%,100%{top:100%}}
 .hero-meta{display:none}
-.nav:not(.scrolled){background:linear-gradient(to bottom,rgba(0,0,0,.28),rgba(0,0,0,0));text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.nav:not(.scrolled){box-shadow:0 1px 0 var(--line)}
 
 /* sticky reserve bar */
 .bookbar{position:fixed;left:0;right:0;bottom:0;z-index:900;transform:translateY(110%);transition:transform .6s cubic-bezier(.22,1,.36,1);background:rgba(243,239,231,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px var(--pad)}
@@ -278,7 +278,7 @@ html[lang="th"] .foot-col h5,html[lang="zh"] .foot-col h5{letter-spacing:.06em}
   .split-media{aspect-ratio:4/3}
   .stay-row,.stay-row:nth-child(even){grid-template-columns:1fr}
   .stay-row:nth-child(even) .stay-media{order:0}
-  .stay-media{order:0;aspect-ratio:16/10;min-height:0}
+  .stay-media{order:0;aspect-ratio:auto;height:60vw;min-height:210px}
   .sec-head{flex-direction:column;align-items:flex-start}
   .gal{grid-template-columns:repeat(6,1fr)}
   .gal .frame,.gal .frame.tall,.gal .frame.wide,.gal .frame.big{grid-column:span 3;aspect-ratio:1/1}
