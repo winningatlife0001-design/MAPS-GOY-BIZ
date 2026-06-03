@@ -31,7 +31,7 @@ Why it works: small Thai hotels lose **15–25% to OTA commission** on ~**85–9
 |---|---|
 | [`docs/`](docs/) | The knowledge base — read `00`→`10` in order |
 | [`workflows/`](workflows/) | The "how to do the work" recipes (find leads, build a site, fix Google Maps) |
-| [`templates/`](templates/) | A real demo hotel website + ready-to-send outreach (EN/TH) + proposal + intake form |
+| [`templates/`](templates/) | The template **system** (hotel + restaurant, theme-able by price tier + brand — see `templates/website/README.md`) + a **live rebuild demo** (Smile House) + outreach (EN/TH) + proposal + intake |
 | [`data/leads/`](data/leads/) | Where private lead lists live (git-ignored for privacy/PDPA) |
 | [`docs/SOURCES.md`](docs/SOURCES.md) | Every key fact, cited |
 
@@ -49,6 +49,7 @@ Why it works: small Thai hotels lose **15–25% to OTA commission** on ~**85–9
 
 ### The workflows
 - [Find clients (the lead machine)](workflows/leadgen-apify.md) — Apify Google Maps, `website: withoutWebsite`
+- [Find & audit BAD-website hotels](workflows/audit-bad-sites.md) — the "your site is junk" leads
 - [Build a client website](workflows/build-a-site-sop.md) — start → live in days
 - [Google Maps optimization SOP](workflows/gbp-optimization-sop.md) — the monthly checklist
 

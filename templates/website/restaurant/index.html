@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  TEMPLATE — Restaurant / Café / Bar  (a FOOD & DRINK business ≠ a hotel)
+  ----------------------------------------------------------------------------
+  Different job from a hotel site. The goals here are: show the MENU (with
+  photos + prices), take RESERVATIONS, enable ORDERING/delivery, and prove the
+  vibe. No "rooms", no room-booking engine.
+
+  TIER: this default is "mid / casual". Re-skin via the :root tokens.
+  BAR / NIGHTLIFE VARIANT (see comment near the menu): use a dark theme,
+  swap the Menu emphasis for "What's On / Events / Live music", lead with
+  signature cocktails + a vibe video, and CTA = "Reserve a table tonight".
+
+  CUSTOMISE: search "CUSTOMISE". Swap gradient placeholders for real food
+  photos (a restaurant lives or dies on its food photography).
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Baan Aroi — Thai Restaurant & Café in Ao Nang, Krabi</title>
+<meta name="description" content="Authentic Thai food, fresh seafood, great coffee & cocktails in Ao Nang. Reserve a table or order delivery. Open daily." />
+<meta name="theme-color" content="#9a3412" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍜</text></svg>" />
+<style>
+  /* ---- WARM "CASUAL FOOD" THEME (re-skin per client/tier) ---- */
+  :root{
+    --brand:#9a3412; --brand-dark:#7c2d12; --accent:#ea580c;
+    --ink:#1c1917; --muted:#78716c; --bg:#fffdf9; --soft:#fff7ed; --line:#eaddcf;
+    --line-green:#06c755; --wa-green:#25d366;
+    --radius:14px; --shadow:0 6px 22px rgba(120,53,15,.10); --maxw:1080px;
+    font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{color:var(--ink);background:var(--bg);line-height:1.6}a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:800;font-size:1rem;padding:13px 22px;border-radius:999px;text-decoration:none;transition:transform .08s}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow)}
+  .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.7)}
+  .btn-line{background:var(--line-green);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+  section{padding:58px 0}h2{font-size:1.8rem;line-height:1.15;margin-bottom:8px}
+  .lead{color:var(--muted);max-width:600px;margin-bottom:30px}
+  .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
+  header{position:sticky;top:0;z-index:50;background:rgba(255,253,249,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .logo{font-weight:800;font-size:1.2rem;color:var(--brand);display:flex;gap:8px;align-items:center}
+  .nav-right{display:flex;align-items:center;gap:12px}.nav-links{display:flex;gap:20px}
+  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem}.nav-links a:hover{color:var(--brand)}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
+  .lang button{border:0;background:#fff;padding:6px 11px;cursor:pointer;font-weight:700;color:var(--muted)}.lang button.active{background:var(--brand);color:#fff}
+  @media(max-width:820px){.nav-links{display:none}}
+  .hero{position:relative;min-height:72vh;display:flex;align-items:flex-end;color:#fff;
+    /* CUSTOMISE: real food/interior photo here */
+    background:linear-gradient(120deg,#7c2d12,#b45309 55%,#ea580c)}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.05) 60%)}
+  .hero-inner{position:relative;z-index:2;padding:0 18px 50px;max-width:var(--maxw);margin:0 auto;width:100%}
+  .hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.07;max-width:15ch;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+  .hero p{font-size:1.12rem;max-width:34ch;margin:14px 0 24px;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+  .trust{background:var(--brand-dark);color:#fff}
+  .trust .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;padding:15px 18px;font-weight:600;font-size:.95rem}
+  .trust span{display:flex;align-items:center;gap:7px}
+  /* MENU */
+  .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}
+  @media(max-width:760px){.menu-grid{grid-template-columns:1fr}}
+  .menu-cat{margin-bottom:26px}.menu-cat h3{font-size:1.15rem;color:var(--brand);border-bottom:2px solid var(--line);padding-bottom:6px;margin-bottom:12px}
+  .item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}
+  .item .thumb{width:64px;height:64px;border-radius:12px;flex:0 0 64px}
+  .item .info{flex:1}.item .row{display:flex;justify-content:space-between;gap:10px;font-weight:700}
+  .item .price{color:var(--accent);white-space:nowrap}.item .desc{color:var(--muted);font-size:.88rem;font-weight:400}
+  .tag{display:inline-block;font-size:.7rem;font-weight:700;background:var(--soft);color:var(--brand);border-radius:999px;padding:1px 7px;margin-left:5px}
+  .ph-1{background:linear-gradient(135deg,#ea580c,#f59e0b)}.ph-2{background:linear-gradient(135deg,#9a3412,#dc2626)}
+  .ph-3{background:linear-gradient(135deg,#16a34a,#65a30d)}.ph-4{background:linear-gradient(135deg,#b45309,#ea580c)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.gallery .ph{height:150px;border-radius:12px}
+  @media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
+  .order{background:var(--soft)}
+  .order-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}@media(max-width:760px){.order-grid{grid-template-columns:1fr}}
+  form{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .field{margin-bottom:13px}label{display:block;font-weight:700;font-size:.85rem;margin-bottom:5px}
+  input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:inherit}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .delivery a{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 16px;font-weight:700;text-decoration:none;margin:6px 6px 0 0}
+  .hours{display:grid;grid-template-columns:1fr 1fr;gap:24px}@media(max-width:760px){.hours{grid-template-columns:1fr}}
+  table.hrs{width:100%;border-collapse:collapse}table.hrs td{padding:7px 0;border-bottom:1px solid var(--line)}table.hrs td:last-child{text-align:right;color:var(--muted)}
+  .map{border:0;width:100%;height:300px;border-radius:var(--radius)}
+  .reviews{background:var(--brand-dark);color:#fff}
+  blockquote{background:rgba(255,255,255,.08);border-radius:var(--radius);padding:18px;font-style:italic}
+  blockquote footer{margin-top:8px;font-style:normal;font-weight:700;color:#fed7aa;font-size:.9rem}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:760px){.grid3{grid-template-columns:1fr}}
+  .float{position:fixed;right:15px;bottom:15px;z-index:60;display:flex;flex-direction:column;gap:10px}
+  .float a{width:53px;height:53px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
+  .f-line{background:var(--line-green)}.f-wa{background:var(--wa-green)}.f-call{background:var(--accent)}
+  footer.site{background:#1c1917;color:#d6d3d1;padding:42px 0 26px}footer.site a{color:#d6d3d1;text-decoration:none}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}@media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
+  .foot-grid h4{color:#fff;margin-bottom:9px}.copyright{border-top:1px solid #44403c;margin-top:24px;padding-top:16px;font-size:.85rem;color:#a8a29e;text-align:center}
+  [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <div class="logo">🍜 Baan Aroi</div>
+  <div class="nav-right">
+    <nav class="nav-links">
+      <a href="#menu" data-en>Menu</a><a href="#menu" data-th>เมนู</a>
+      <a href="#order" data-en>Order</a><a href="#order" data-th>สั่งอาหาร</a>
+      <a href="#visit" data-en>Visit</a><a href="#visit" data-th>เยี่ยมชม</a>
+    </nav>
+    <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
+    <a href="#order" class="btn btn-primary" style="padding:9px 16px"><span data-en>Reserve</span><span data-th>จองโต๊ะ</span></a>
+  </div>
+</div></header>
+
+<section class="hero" style="padding:0">
+  <div class="hero-inner">
+    <h1><span data-en>Real Thai flavours by the beach</span><span data-th class="b">รสไทยแท้ ริมทะเล</span></h1>
+    <p><span data-en>Fresh seafood, home-style curries, great coffee & cocktails — in the heart of Ao Nang.</span><span data-th class="b">อาหารทะเลสด แกงรสมือแม่ กาแฟดีและค็อกเทล ใจกลางอ่าวนาง</span></p>
+    <div class="hero-cta">
+      <a href="#order" class="btn btn-primary"><span data-en>Reserve a table</span><span data-th>จองโต๊ะ</span></a>
+      <!-- CUSTOMISE: LINE + phone -->
+      <a href="https://line.me/R/ti/p/@baanaroi" class="btn btn-line">💬 <span data-en>Order on LINE</span><span data-th>สั่งทาง LINE</span></a>
+      <a href="tel:+66800000000" class="btn btn-ghost">📞 <span data-en>Call</span><span data-th>โทร</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="trust"><div class="wrap">
+  <span>⭐ 4.7 <span data-en>on Google</span><span data-th>บน Google</span></span>
+  <span>🦐 <span data-en>Fresh daily seafood</span><span data-th>อาหารทะเลสดทุกวัน</span></span>
+  <span>🌶️ <span data-en>Thai · Vegetarian · Halal options</span><span data-th>ไทย · มังสวิรัติ · ฮาลาล</span></span>
+  <span>🛵 <span data-en>Delivery available</span><span data-th>มีบริการส่ง</span></span>
+</div></div>
+
+<!-- =================== MENU (the heart of a food site) =================== -->
+<!-- BAR VARIANT: rename this to "Drinks / Signature Cocktails" and add a "What's On" events section above it. -->
+<section id="menu"><div class="wrap">
+  <p class="eyebrow" data-en>Our Menu</p><p class="eyebrow" data-th>เมนูของเรา</p>
+  <h2><span data-en>Cooked fresh, priced fair</span><span data-th>ปรุงสดใหม่ ราคาเป็นกันเอง</span></h2>
+  <p class="lead"><span data-en>A few favourites below — full menu in the restaurant. Dietary needs? Just ask. 🌱</span><span data-th class="b">ตัวอย่างเมนูยอดนิยม เมนูเต็มที่ร้าน แพ้อาหารหรือต้องการพิเศษ แจ้งได้เลยค่ะ 🌱</span></p>
+  <div class="menu-grid">
+    <div>
+      <div class="menu-cat">
+        <h3 data-en>Starters</h3><h3 data-th>ของทานเล่น</h3>
+        <div class="item"><div class="thumb ph-1"></div><div class="info"><div class="row"><span data-en>Spring Rolls</span><span data-th>ปอเปี๊ยะทอด</span><span class="price">฿120</span></div><div class="desc" data-en>Crispy veg rolls, sweet chilli</div><div class="desc" data-th>ปอเปี๊ยะผักกรอบ น้ำจิ้มหวาน</div></div></div>
+        <div class="item"><div class="thumb ph-3"></div><div class="info"><div class="row"><span data-en>Som Tam <span class="tag">🌶️</span></span><span data-th>ส้มตำ <span class="tag">🌶️</span></span><span class="price">฿140</span></div><div class="desc" data-en>Green papaya salad</div><div class="desc" data-th>ส้มตำไทย</div></div></div>
+      </div>
+      <div class="menu-cat">
+        <h3 data-en>From the Sea</h3><h3 data-th>อาหารทะเล</h3>
+        <div class="item"><div class="thumb ph-2"></div><div class="info"><div class="row"><span data-en>Grilled Sea Bass</span><span data-th>ปลากะพงเผา</span><span class="price">฿420</span></div><div class="desc" data-en>Whole fish, lime & garlic</div><div class="desc" data-th>ปลาทั้งตัว มะนาวกระเทียม</div></div></div>
+        <div class="item"><div class="thumb ph-4"></div><div class="info"><div class="row"><span data-en>Pad Thai Goong</span><span data-th>ผัดไทยกุ้ง</span><span class="price">฿180</span></div><div class="desc" data-en>Prawn pad thai</div><div class="desc" data-th>ผัดไทยกุ้งสด</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="menu-cat">
+        <h3 data-en>Thai Favourites</h3><h3 data-th>เมนูยอดนิยม</h3>
+        <div class="item"><div class="thumb ph-2"></div><div class="info"><div class="row"><span data-en>Green Curry <span class="tag">🌶️</span></span><span data-th>แกงเขียวหวาน</span><span class="price">฿180</span></div><div class="desc" data-en>Chicken or tofu, coconut</div><div class="desc" data-th>ไก่หรือเต้าหู้ กะทิ</div></div></div>
+        <div class="item"><div class="thumb ph-1"></div><div class="info"><div class="row"><span data-en>Massaman Beef</span><span data-th>มัสมั่นเนื้อ</span><span class="price">฿220</span></div><div class="desc" data-en>Slow-cooked, peanuts, potato</div><div class="desc" data-th>ตุ๋นนุ่ม ถั่ว มันฝรั่ง</div></div></div>
+        <div class="item"><div class="thumb ph-3"></div><div class="info"><div class="row"><span data-en>Veg Stir-fry <span class="tag">🌱</span></span><span data-th>ผัดผักรวม <span class="tag">🌱</span></span><span class="price">฿120</span></div><div class="desc" data-en>Seasonal vegetables, garlic</div><div class="desc" data-th>ผักตามฤดู กระเทียม</div></div></div>
+      </div>
+      <div class="menu-cat">
+        <h3 data-en>Drinks</h3><h3 data-th>เครื่องดื่ม</h3>
+        <div class="item"><div class="thumb ph-4"></div><div class="info"><div class="row"><span data-en>Thai Iced Tea</span><span data-th>ชาเย็น</span><span class="price">฿70</span></div></div></div>
+        <div class="item"><div class="thumb ph-1"></div><div class="info"><div class="row"><span data-en>Fresh Coconut</span><span data-th>มะพร้าวสด</span><span class="price">฿90</span></div></div></div>
+        <div class="item"><div class="thumb ph-2"></div><div class="info"><div class="row"><span data-en>Cocktails from</span><span data-th>ค็อกเทล เริ่มต้น</span><span class="price">฿160</span></div></div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- =================== RESERVE / ORDER =================== -->
+<section id="order" class="order"><div class="wrap order-grid">
+  <div>
+    <p class="eyebrow" data-en>Reserve / Order</p><p class="eyebrow" data-th>จองโต๊ะ / สั่งอาหาร</p>
+    <h2><span data-en>Book a table or order in</span><span data-th>จองโต๊ะ หรือสั่งกลับบ้าน</span></h2>
+    <p class="lead"><span data-en>Reserve below and we'll confirm on LINE. For delivery, order on your favourite app:</span><span data-th class="b">จองด้านล่าง เรายืนยันทาง LINE สำหรับเดลิเวอรี สั่งผ่านแอปได้เลย:</span></p>
+    <!-- CUSTOMISE: real delivery links -->
+    <div class="delivery">
+      <a href="#">🛵 GrabFood</a><a href="#">🛵 LINE MAN</a><a href="#">🍔 foodpanda</a>
+    </div>
+  </div>
+  <form action="https://formspree.io/f/your-id" method="POST">
+    <div class="field"><label data-en>Name</label><label data-th>ชื่อ</label><input name="name" required placeholder="Your name" /></div>
+    <div class="row2"><div class="field"><label data-en>Date</label><label data-th>วันที่</label><input type="date" name="date" required /></div>
+      <div class="field"><label data-en>Time</label><label data-th>เวลา</label><input type="time" name="time" required /></div></div>
+    <div class="row2"><div class="field"><label data-en>Guests</label><label data-th>จำนวนคน</label><select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select></div>
+      <div class="field"><label data-en>Contact</label><label data-th>ติดต่อ</label><input name="contact" required placeholder="LINE / phone" /></div></div>
+    <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-en>Request a table →</span><span data-th>จองโต๊ะ →</span></button>
+  </form>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow" data-en>Gallery</p><p class="eyebrow" data-th>แกลเลอรี</p>
+  <h2 style="margin-bottom:22px"><span data-en>Feast your eyes</span><span data-th>ชมภาพอาหาร</span></h2>
+  <!-- CUSTOMISE: real food photos — the #1 driver for a restaurant -->
+  <div class="gallery"><div class="ph ph-1"></div><div class="ph ph-2"></div><div class="ph ph-3"></div><div class="ph ph-4"></div></div>
+</div></section>
+
+<section class="reviews"><div class="wrap">
+  <p class="eyebrow" style="color:#fed7aa" data-en>Reviews</p><p class="eyebrow" style="color:#fed7aa" data-th>รีวิว</p>
+  <h2><span data-en>Guests keep coming back</span><span data-th>ลูกค้ากลับมาเรื่อยๆ</span></h2>
+  <div class="grid3" style="margin-top:22px">
+    <blockquote>"Best green curry in Ao Nang, and so friendly!"<footer>— Google review</footer></blockquote>
+    <blockquote>"อร่อยทุกจาน ราคาไม่แพง บริการดีมาก"<footer>— รีวิว Google</footer></blockquote>
+    <blockquote>"Ordered on LINE, delivered hot in 20 mins. Perfect."<footer>— Google review</footer></blockquote>
+  </div>
+</div></section>
+
+<section id="visit"><div class="wrap hours">
+  <div>
+    <p class="eyebrow" data-en>Opening Hours</p><p class="eyebrow" data-th>เวลาเปิด</p>
+    <h2 style="margin-bottom:14px"><span data-en>Come hungry</span><span data-th>มาให้หิวๆ</span></h2>
+    <table class="hrs">
+      <tr><td data-en>Mon–Fri</td><td data-th>จันทร์–ศุกร์</td><td>11:00 – 22:30</td></tr>
+      <tr><td data-en>Sat–Sun</td><td data-th>เสาร์–อาทิตย์</td><td>10:00 – 23:00</td></tr>
+    </table>
+    <p style="margin-top:14px"><a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ao+Nang+Krabi">📍 <span data-en>Open in Google Maps</span><span data-th>เปิดใน Google Maps</span></a></p>
+  </div>
+  <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map" src="https://maps.google.com/maps?q=Ao%20Nang%20Krabi&z=14&output=embed"></iframe>
+</div></section>
+
+<footer class="site"><div class="wrap foot-grid">
+  <div><div class="logo" style="color:#fff">🍜 Baan Aroi</div><p style="margin-top:9px;max-width:36ch"><span data-en>Real Thai food, fresh seafood, coffee & cocktails in Ao Nang, Krabi.</span><span data-th class="b">อาหารไทยแท้ ทะเลสด กาแฟและค็อกเทล อ่าวนาง กระบี่</span></p></div>
+  <div><h4 data-en>Contact</h4><h4 data-th>ติดต่อ</h4><p>📞 <a href="tel:+66800000000">+66 80 000 0000</a></p><p>💬 <a href="https://line.me/R/ti/p/@baanaroi">LINE: @baanaroi</a></p></div>
+  <div><h4 data-en>Find us</h4><h4 data-th>ที่อยู่</h4><p>Ao Nang, Mueang Krabi,<br>Krabi 81180</p></div>
+</div><div class="copyright">© <span id="yr"></span> Baan Aroi.</div></footer>
+
+<div class="float">
+  <a class="f-line" href="https://line.me/R/ti/p/@baanaroi" aria-label="LINE">💬</a>
+  <a class="f-wa" href="https://wa.me/66800000000" aria-label="WhatsApp">🟢</a>
+  <a class="f-call" href="tel:+66800000000" aria-label="Call">📞</a>
+</div>
+
+<!-- Restaurant schema → helps Google show hours, menu, rating -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Baan Aroi","servesCuisine":["Thai","Seafood"],"priceRange":"฿฿","url":"https://example.com","telephone":"+66800000000","acceptsReservations":"True","address":{"@type":"PostalAddress","streetAddress":"Ao Nang","addressLocality":"Mueang Krabi","addressRegion":"Krabi","postalCode":"81180","addressCountry":"TH"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:00","closes":"22:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"10:00","closes":"23:00"}],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.7","reviewCount":"180"}}
+</script>
+<script>
+  function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}
+  (function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();
+</script>
+</body>
+</html>

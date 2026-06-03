@@ -67,5 +67,8 @@ Connecting an engine also unlocks **Google's free hotel booking links** (the hot
 - **Spas:** treatment menu + prices, online appointment booking, vouchers.
 - **Tour operators:** itinerary pages, instant-book/request, Rezdy/Bokun + Google Things-to-Do.
 
+## One engine → every business type, price tier & brand
+We don't use one template for everyone. Per client we set **3 dials — business *type*, price *tier*, and their *brand*** — so a hostel, a 5-star resort and a beach bar look nothing alike. A 3-star's site should *not* look like a 5-star's; a restaurant's *not* like a hotel's. Full system + theme tokens: [`templates/website/README.md`](../templates/website/README.md). Logos/colours/fonts: [`templates/website/BRANDING.md`](../templates/website/BRANDING.md).
+
 ## How we actually build it
-We start from `templates/website/hotel/index.html` (a complete, fast, bilingual base) and Claude customizes content, photos (enhanced via Adobe Firefly), languages, and schema per client — usually in **a few days**, not weeks. Step-by-step in `workflows/build-a-site-sop.md`.
+Pick the **type** template (`templates/website/hotel/` or `restaurant/`) → apply the **tier** preset → drop in the client's **brand** tokens + logo → Claude fills real content, enhances photos (Adobe Firefly), adds languages + schema. Usually **a few days**, not weeks. See the live rebuild demo (`templates/website/_demos/smile-house/`) and the step-by-step in `workflows/build-a-site-sop.md`.

@@ -2,8 +2,10 @@
 data/leads/*.csv
 data/leads/*.json
 data/leads/*.xlsx
+data/leads/*.md
 data/clients/
 !data/leads/_template.csv
+!data/leads/README.md
 
 # Secrets / local
 .env
