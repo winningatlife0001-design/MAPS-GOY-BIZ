@@ -677,7 +677,7 @@ document.querySelectorAll('[data-img]').forEach(el=>{
 (function(){
   const grid=document.getElementById('gallery-grid');
   const used=[0,3,5,6,9,12,14,16,18,21];
-  const pool=IMG.map((_,i)=>i).filter(i=>!used.includes(i));
+  const pool=IMG.map((_,i)=>i).filter(i=>!used.includes(i)).slice(0,8);
   // layout rhythm: big, tall, tall, wide, square... cycles
   const shapes=['big','tall','tall','wide','tall','big','tall','wide','tall','tall','big','tall','tall','wide','tall'];
   pool.forEach((idx,n)=>{

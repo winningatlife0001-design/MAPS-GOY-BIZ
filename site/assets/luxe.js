@@ -74,6 +74,7 @@
       var n=0;
       IMG.forEach(function(u,i){
         if(used.indexOf(i)>-1)return;
+        if(n>=8)return;
         var f=document.createElement('div');f.className='frame hoverable '+shapes[n%shapes.length];
         var im=document.createElement('img');im.src=px(IMG[i],1000,1000);im.loading='eager';im.decoding='async';im.alt=(window.PAGE_NAME||'')+' photo';
         f.appendChild(im);grid.appendChild(f);n++;
