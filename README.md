@@ -50,6 +50,7 @@ Why it works: small Thai hotels lose **15–25% to OTA commission** on ~**85–9
 - **10 — [30/60/90-Day Plan](docs/10-30-60-90-plan.md)** · zero → ~10 paying clients
 - **12 — [Operator Playbook](docs/12-operator-playbook.md)** · her weekly rhythm
 - **13 — [Business Plan & 2-yr money model](docs/13-business-plan.md)** · the projections (base case ~฿5.7M/2yr profit)
+- **14 — [Feasibility (data & evidence)](docs/14-feasibility.md)** · funnel math, clients/mo needed, close & retention rates
 - **🇹🇭 [คู่มือภาษาไทย](docs/TH/%E0%B8%84%E0%B8%B9%E0%B9%88%E0%B8%A1%E0%B8%B7%E0%B8%AD.md)** · Thai handbook for her
 
 ### The workflows
