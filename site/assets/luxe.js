@@ -147,6 +147,7 @@
   /* ---- motion: Lenis + GSAP ---- */
   function loadScript(src){return new Promise(function(res,rej){var s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s);});}
   function setupMotion(){
+    if(location.search.indexOf('flat')>-1)return;
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     loadScript('https://unpkg.com/lenis@1.1.13/dist/lenis.min.js')
       .then(function(){return loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js');})
