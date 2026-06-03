@@ -1,453 +1,163 @@
 <!DOCTYPE html>
-<!--
-  ============================================================================
-  DEMO + REUSABLE TEMPLATE  —  Small Thai Hotel / Guesthouse website
-  ----------------------------------------------------------------------------
-  This single file is a complete, fast, mobile-first, bilingual (English/Thai)
-  website for a small independent hotel. It is built to do the ONE thing an
-  OTA-dependent hotel needs most: capture DIRECT bookings & direct contact
-  (LINE / WhatsApp / phone) so the owner stops paying 15-25% OTA commission.
-
-  HOW TO REUSE FOR A NEW CLIENT (search for "CUSTOMIZE"):
-    1. Replace every CUSTOMIZE value (name, phone, LINE id, address, prices...).
-    2. Swap the gradient photo placeholders for real photos
-       (client's photos, or generate/enhance with Adobe Firefly).
-    3. Update the JSON-LD schema at the bottom (name, geo, price, rating).
-    4. Update the Google Map embed `q=` with the real hotel name/address.
-    5. Deploy free on Cloudflare Pages / GitHub Pages / Netlify, point domain.
-
-  No build step, no dependencies, no tracking. Loads in well under 1 second.
-  ============================================================================
--->
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- CUSTOMIZE: title + meta description are the #1 SEO levers. Put hotel name + town. -->
-<title>Baan Rim Talay Boutique Resort — Beachfront Hotel in Ao Nang, Krabi</title>
-<meta name="description" content="Small boutique beachfront resort in Ao Nang, Krabi. Book direct for the best rate — sea-view rooms, free breakfast, free WiFi, airport transfer. Chat on LINE." />
-<meta name="theme-color" content="#0f766e" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏝️</text></svg>" />
-
-<!-- Open Graph: how the link looks when shared on Facebook / LINE -->
-<meta property="og:title" content="Baan Rim Talay Boutique Resort — Ao Nang, Krabi" />
-<meta property="og:description" content="Beachfront boutique resort. Book direct & save. Chat on LINE." />
-<meta property="og:type" content="website" />
-
-<style>
-  :root{
-    /* CUSTOMIZE: brand colours. Teal/sand reads "tropical + trustworthy". */
-    --brand:#0f766e; --brand-dark:#0b554f; --accent:#f59e0b;
-    --ink:#1f2937; --muted:#6b7280; --bg:#ffffff; --soft:#f1f5f4; --line:#e5e7eb;
-    --line-green:#06c755; --wa-green:#25d366;
-    --radius:14px; --shadow:0 6px 24px rgba(0,0,0,.08); --maxw:1080px;
-    font-family: system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Roboto,Arial,sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
-  img{max-width:100%;display:block}
-  a{color:inherit}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
-  .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;
-    font-weight:700;font-size:1rem;padding:13px 22px;border-radius:999px;text-decoration:none;
-    transition:transform .08s ease, box-shadow .15s ease}
-  .btn:active{transform:translateY(1px)}
-  .btn-primary{background:var(--accent);color:#1f2937;box-shadow:var(--shadow)}
-  .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.6)}
-  .btn-line{background:var(--line-green);color:#fff}
-  .btn-wa{background:var(--wa-green);color:#fff}
-  .btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
-  section{padding:64px 0}
-  h2{font-size:1.8rem;line-height:1.2;margin-bottom:8px}
-  .lead{color:var(--muted);max-width:620px;margin-bottom:34px}
-  .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
-
-  /* ---- Header ---- */
-  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:1.15rem;color:var(--brand);display:flex;gap:8px;align-items:center}
-  .nav-right{display:flex;align-items:center;gap:14px}
-  .nav-links{display:flex;gap:22px}
-  .nav-links a{text-decoration:none;font-weight:600;color:var(--ink);font-size:.95rem}
-  .nav-links a:hover{color:var(--brand)}
-  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
-  .lang button{border:0;background:#fff;padding:6px 12px;cursor:pointer;font-weight:700;color:var(--muted)}
-  .lang button.active{background:var(--brand);color:#fff}
-  @media(max-width:820px){.nav-links{display:none}}
-
-  /* ---- Hero ---- */
-  .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;
-    /* CUSTOMIZE: replace gradient with real hero photo: background:url('hero.jpg') center/cover */
-    background:linear-gradient(120deg,#0f766e,#0891b2 55%,#0ea5e9)}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),rgba(0,0,0,.05) 55%)}
-  .hero-inner{position:relative;z-index:2;padding:0 18px 56px;max-width:var(--maxw);margin:0 auto;width:100%}
-  .hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;max-width:14ch;text-shadow:0 2px 18px rgba(0,0,0,.35)}
-  .hero p{font-size:1.15rem;max-width:34ch;margin:14px 0 26px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
-  .badge-best{position:absolute;top:18px;right:18px;z-index:2;background:var(--accent);color:#1f2937;
-    font-weight:800;padding:8px 14px;border-radius:999px;font-size:.85rem;box-shadow:var(--shadow)}
-
-  /* ---- Trust bar ---- */
-  .trust{background:var(--brand-dark);color:#fff}
-  .trust .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:center;padding:16px 18px;font-weight:600;font-size:.95rem}
-  .trust span{display:flex;align-items:center;gap:8px}
-
-  /* ---- Generic grid + cards ---- */
-  .grid{display:grid;gap:22px}
-  .g3{grid-template-columns:repeat(3,1fr)}
-  .g2{grid-template-columns:repeat(2,1fr)}
-  @media(max-width:860px){.g3{grid-template-columns:1fr 1fr}}
-  @media(max-width:600px){.g3,.g2{grid-template-columns:1fr}}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-  .card .ph{height:190px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;letter-spacing:.03em}
-  .card .body{padding:18px}
-  .card h3{font-size:1.15rem;margin-bottom:4px}
-  .price{font-size:1.4rem;font-weight:800;color:var(--brand)}
-  .price small{font-size:.8rem;color:var(--muted);font-weight:600}
-  .room-feats{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
-  .room-feats li{background:var(--soft);border-radius:999px;padding:4px 10px;font-size:.8rem;color:var(--ink)}
-
-  /* photo placeholders (swap for real images / Firefly output) */
-  .ph-1{background:linear-gradient(135deg,#0ea5e9,#0f766e)}
-  .ph-2{background:linear-gradient(135deg,#f59e0b,#ef4444)}
-  .ph-3{background:linear-gradient(135deg,#8b5cf6,#0891b2)}
-  .ph-4{background:linear-gradient(135deg,#10b981,#0ea5e9)}
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  .gallery .ph{height:150px;border-radius:10px}
-  @media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
-
-  /* amenities */
-  .amen{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:center}
-  .amen .item{background:var(--soft);border-radius:var(--radius);padding:22px 12px}
-  .amen .item .ico{font-size:1.8rem}
-  @media(max-width:700px){.amen{grid-template-columns:1fr 1fr}}
-
-  /* reviews */
-  .reviews{background:var(--soft)}
-  .stars{color:var(--accent);letter-spacing:2px}
-  blockquote{background:#fff;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);font-style:italic}
-  blockquote footer{margin-top:10px;font-style:normal;font-weight:700;color:var(--muted);font-size:.9rem}
-
-  /* location */
-  .loc{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
-  @media(max-width:760px){.loc{grid-template-columns:1fr}}
-  .map{border:0;width:100%;height:340px;border-radius:var(--radius)}
-
-  /* booking form */
-  .book{background:var(--brand);color:#fff}
-  .book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
-  @media(max-width:760px){.book .wrap{grid-template-columns:1fr}}
-  form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
-  .field{margin-bottom:14px}
-  label{display:block;font-weight:700;font-size:.85rem;margin-bottom:6px}
-  input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:inherit}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
-  /* floating contact */
-  .float{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;flex-direction:column;gap:10px}
-  .float a{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
-  .f-line{background:var(--line-green)} .f-wa{background:var(--wa-green)} .f-call{background:var(--brand)}
-
-  footer.site{background:#0b1220;color:#cbd5e1;padding:46px 0 28px}
-  footer.site a{color:#cbd5e1;text-decoration:none}
-  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:26px}
-  @media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
-  .foot-grid h4{color:#fff;margin-bottom:10px;font-size:1rem}
-  .copyright{border-top:1px solid #1e293b;margin-top:28px;padding-top:18px;font-size:.85rem;color:#94a3b8;text-align:center}
-
-  [data-th]{display:none}            /* Thai text hidden until TH selected */
-  html[lang="th"] [data-en]{display:none}
-  html[lang="th"] [data-th]{display:inline}
-  html[lang="th"] [data-th].block{display:block}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden Village Khao Yai — Private-Pool Villas</title>
+<meta name="description" content="The Hidden Village Khao Yai — a boutique collection of private-pool villas and jacuzzi suites folded into the hills of Khao Yai.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/luxe.css">
+<style>:root{--bg:#F2EEE5;--bg-2:#E9E1D4;--bg-3:#E0D6C5;--ink:#26231D;--ink-soft:#60584B;--ink-faint:#8E8675;--line:rgba(38,35,29,.14);--line-soft:rgba(38,35,29,.07);--accent:#A9743F;--accent-deep:#714824;--dark:#262019;--cream:#EFE8DA;--gold:#C7A567;--grade-overlay:rgba(168,116,64,.06)}</style>
 </head>
-<body>
+<body lang="en">
+<div class="grain"></div>
 
-<!-- =========================== HEADER =========================== -->
-<header>
-  <div class="wrap nav">
-    <!-- CUSTOMIZE: hotel name + emoji/logo -->
-    <div class="logo">🏝️ Baan Rim Talay</div>
-    <div class="nav-right">
-      <nav class="nav-links">
-        <a href="#rooms" data-en>Rooms</a><a href="#rooms" data-th>ห้องพัก</a>
-        <a href="#amenities" data-en>Amenities</a><a href="#amenities" data-th>สิ่งอำนวยความสะดวก</a>
-        <a href="#location" data-en>Location</a><a href="#location" data-th>ที่ตั้ง</a>
-        <a href="#book" data-en>Book</a><a href="#book" data-th>จอง</a>
-      </nav>
-      <div class="lang" role="group" aria-label="Language">
-        <button id="en" class="active" onclick="setLang('en')">EN</button>
-        <button id="th" onclick="setLang('th')">ไทย</button>
-      </div>
-      <a href="#book" class="btn btn-primary" style="padding:9px 16px">
-        <span data-en>Book Direct</span><span data-th>จองตรง</span>
-      </a>
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">Hidden Village</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#villas" class="t" data-en="Villas" data-th="วิลล่า" data-zh="别墅">Villas</a>
+    <a href="#experience" class="t" data-en="Experience" data-th="ประสบการณ์" data-zh="体验">Experience</a>
+    <a href="#amenities" class="t" data-en="Amenities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Amenities</a>
+    <a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a>
+    <a href="#reserve" class="navbtn t" data-en="Reserve" data-th="จอง" data-zh="预订">Reserve</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang" id="lang"><button data-l="en" class="active">EN</button><span>·</span><button data-l="th">ไทย</button><span>·</span><button data-l="zh">中文</button></div>
+    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-media frame"><img data-img="0" alt="Hidden Village private-pool villa" fetchpriority="high"></div>
+  <div class="hero-inner maxw">
+    <div class="hero-eyebrow eyebrow"><span class="tick"></span><span class="t" data-en="Khao Yai · Pak Chong" data-th="เขาใหญ่ · ปากช่อง" data-zh="考艾 · 北冲">Khao Yai · Pak Chong</span></div>
+    <h1 class="t" data-en="Your own corner of the valley." data-th="มุมสงบของหุบเขา ที่เป็นของคุณ" data-zh="谷中一隅，只属于你。">Your own corner of the valley.</h1>
+    <p class="hero-sub t" data-en="A boutique village of private-pool villas and jacuzzi suites, folded into the hills of Khao Yai — yours to disappear into." data-th="หมู่บ้านบูทีคของพูลวิลล่าและห้องสวีทพร้อมจากุซซี่ ซ่อนตัวอยู่ในขุนเขาเขาใหญ่ — พื้นที่ส่วนตัวให้คุณได้หลบหายไป" data-zh="一座由私池别墅与按摩浴缸套房组成的精品村落，藏于考艾群山之间——任你隐遁其中。">A boutique village of private-pool villas and jacuzzi suites, folded into the hills of Khao Yai — yours to disappear into.</p>
+    <div class="hero-cta">
+      <a href="#reserve" class="btn btn--ghost-light t" data-en="Reserve a villa" data-th="จองวิลล่า" data-zh="预订别墅">Reserve a villa</a>
+      <a href="#villas" class="btn btn--ghost-light t" data-en="View the villas" data-th="ชมวิลล่า" data-zh="查看别墅">View the villas</a>
     </div>
   </div>
+  <div class="scrollcue"><span class="ln"></span><span class="t" data-en="Scroll" data-th="เลื่อนลง" data-zh="向下滚动">Scroll</span></div>
+  <div class="hero-meta"><div class="t" data-en="Boutique Villa Resort" data-th="บูทีควิลล่ารีสอร์ต" data-zh="精品别墅度假村">Boutique Villa Resort</div><div class="t" data-en="Khao Yai · Thailand" data-th="เขาใหญ่ · ไทย" data-zh="考艾 · 泰国">Khao Yai · Thailand</div></div>
 </header>
 
-<!-- =========================== HERO =========================== -->
-<section class="hero" style="padding:0">
-  <div class="badge-best">
-    <span data-en>★ Book direct & save 20%</span><span data-th>★ จองตรง ประหยัด 20%</span>
-  </div>
-  <div class="hero-inner">
-    <h1>
-      <span data-en>Beachfront boutique escape in Ao Nang, Krabi</span>
-      <span data-th class="block">รีสอร์ทบูทีคริมหาด อ่าวนาง กระบี่</span>
-    </h1>
-    <p>
-      <span data-en>12 sea-view rooms · free breakfast · 3-minute walk to the beach.</span>
-      <span data-th class="block">12 ห้องวิวทะเล · อาหารเช้าฟรี · เดิน 3 นาทีถึงหาด</span>
-    </p>
-    <div class="hero-cta">
-      <a href="#book" class="btn btn-primary">
-        <span data-en>Check availability</span><span data-th>เช็คห้องว่าง</span></a>
-      <!-- CUSTOMIZE: LINE id -->
-      <a href="https://line.me/R/ti/p/@baanrimtalay" class="btn btn-line">💬 <span data-en>Chat on LINE</span><span data-th>แชท LINE</span></a>
-      <!-- CUSTOMIZE: phone -->
-      <a href="tel:+66812345678" class="btn btn-ghost">📞 <span data-en>Call us</span><span data-th>โทร</span></a>
-    </div>
-  </div>
-</section>
+<section class="band band--alt"><div class="manifesto reveal">
+  <span class="eyebrow t" data-en="The Hidden Village" data-th="ฮิดเดน วิลเลจ" data-zh="隐村">The Hidden Village</span>
+  <p class="t" data-en="Tucked down a quiet lane — a handful of villas, a great deal of green, &amp; the feeling that the whole valley belongs to you." data-th="ซ่อนอยู่ปลายซอยอันเงียบสงบ — วิลล่าเพียงไม่กี่หลัง พื้นที่สีเขียวกว้างใหญ่ และความรู้สึกว่าทั้งหุบเขาเป็นของคุณ" data-zh="藏于一条幽静小径尽头——寥寥数栋别墅，漫山绿意，以及整片山谷皆为你所有的感觉。">Tucked down a quiet lane — a handful of villas, a great deal of green, <span class="amp">&amp;</span> the feeling that the whole valley belongs to you.</p>
+</div></section>
 
-<!-- =========================== TRUST BAR =========================== -->
-<div class="trust">
-  <div class="wrap">
-    <span>⭐ 4.8 / 5 <em data-en>(312 reviews)</em><em data-th>(312 รีวิว)</em></span>
-    <span>✅ <span data-en>Best price guaranteed</span><span data-th>การันตีราคาดีที่สุด</span></span>
-    <span>📶 <span data-en>Free fast WiFi</span><span data-th>WiFi ฟรี</span></span>
-    <span>🚐 <span data-en>Free airport transfer*</span><span data-th>รับส่งสนามบินฟรี*</span></span>
-    <span>🆓 <span data-en>Free cancellation</span><span data-th>ยกเลิกฟรี</span></span>
+<section class="band" id="about"><div class="maxw"><div class="split split--wide reveal">
+  <div class="split-media frame hoverable"><img data-img="2" alt="Villa and gardens"></div>
+  <div class="split-text">
+    <span class="idx">01 — <span class="t" data-en="The Place" data-th="สถานที่" data-zh="此地">The Place</span></span>
+    <h2 class="t" data-en="A village built for slowing down" data-th="หมู่บ้านที่สร้างมาเพื่อการพักผ่อน" data-zh="为放慢而生的村落">A village built for slowing down</h2>
+    <p class="body t" data-en="A small collection of private villas in landscaped gardens beneath the Khao Yai range. Golf carts hum along the paths; mist settles over the lawns at dawn. The kind of place you book for two nights and leave wishing it were five." data-th="คอลเลกชันวิลล่าส่วนตัวขนาดเล็กในสวนจัดแต่งใต้แนวเขาเขาใหญ่ รถกอล์ฟแล่นไปตามทางเดิน หมอกปกคลุมสนามหญ้ายามเช้า ที่ที่คุณจองสองคืนแล้วอยากอยู่ต่อเป็นห้า" data-zh="一组隐于考艾山脚园林间的私属别墅。高尔夫球车沿小径轻驶，晨雾笼罩草坪。你订两晚，离开时却盼着能住五晚。">A small collection of private villas in landscaped gardens beneath the Khao Yai range. Golf carts hum along the paths; mist settles over the lawns at dawn. The kind of place you book for two nights and leave wishing it were five.</p>
+    <a href="#villas" class="txtlink t" data-en="View the villas" data-th="ชมวิลล่า" data-zh="查看别墅">View the villas <svg class="ic"><use href="#ic-arrow"/></svg></a>
   </div>
-</div>
+</div></div></section>
 
-<!-- =========================== ROOMS =========================== -->
-<section id="rooms">
-  <div class="wrap">
-    <p class="eyebrow" data-en>Our Rooms</p><p class="eyebrow" data-th>ห้องพักของเรา</p>
-    <h2><span data-en>Stay your way</span><span data-th>เลือกห้องที่ใช่สำหรับคุณ</span></h2>
-    <p class="lead">
-      <span data-en>Every room comes with air-con, hot shower, smart TV and our famous breakfast. Book direct here for the lowest rate — always cheaper than Agoda or Booking.com.</span>
-      <span data-th class="block">ทุกห้องมีแอร์ น้ำอุ่น สมาร์ททีวี และอาหารเช้าสุดพิเศษ จองตรงที่นี่ราคาถูกที่สุด — ถูกกว่า Agoda และ Booking.com เสมอ</span>
-    </p>
-    <div class="grid g3">
-      <article class="card">
-        <div class="ph ph-1"><span data-en>Garden Room photo</span><span data-th>รูปห้องวิวสวน</span></div>
-        <div class="body">
-          <h3>Garden Room</h3>
-          <ul class="room-feats"><li>2 <span data-en>guests</span><span data-th>ท่าน</span></li><li>25 m²</li><li>❄️ A/C</li><li>🌿 <span data-en>Garden view</span><span data-th>วิวสวน</span></li></ul>
-          <div class="price">฿1,190 <small data-en>/ night</small><small data-th>/ คืน</small></div>
-          <a href="#book" class="btn btn-outline" style="margin-top:12px;width:100%;justify-content:center">
-            <span data-en>Book this room</span><span data-th>จองห้องนี้</span></a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="ph ph-2"><span data-en>Sea View Room photo</span><span data-th>รูปห้องวิวทะเล</span></div>
-        <div class="body">
-          <h3>Sea View Room</h3>
-          <ul class="room-feats"><li>2 <span data-en>guests</span><span data-th>ท่าน</span></li><li>30 m²</li><li>🌊 <span data-en>Balcony</span><span data-th>ระเบียง</span></li><li>☕ <span data-en>Breakfast</span><span data-th>อาหารเช้า</span></li></ul>
-          <div class="price">฿1,790 <small data-en>/ night</small><small data-th>/ คืน</small></div>
-          <a href="#book" class="btn btn-outline" style="margin-top:12px;width:100%;justify-content:center">
-            <span data-en>Book this room</span><span data-th>จองห้องนี้</span></a>
-        </div>
-      </article>
-      <article class="card">
-        <div class="ph ph-3"><span data-en>Family Suite photo</span><span data-th>รูปห้องสวีท</span></div>
-        <div class="body">
-          <h3>Family Suite</h3>
-          <ul class="room-feats"><li>4 <span data-en>guests</span><span data-th>ท่าน</span></li><li>45 m²</li><li>🛏️ 2 <span data-en>beds</span><span data-th>เตียง</span></li><li>🌊 <span data-en>Sea view</span><span data-th>วิวทะเล</span></li></ul>
-          <div class="price">฿2,690 <small data-en>/ night</small><small data-th>/ คืน</small></div>
-          <a href="#book" class="btn btn-outline" style="margin-top:12px;width:100%;justify-content:center">
-            <span data-en>Book this room</span><span data-th>จองห้องนี้</span></a>
-        </div>
-      </article>
-    </div>
+<section class="band band--alt" id="experience"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="The Experience" data-th="ประสบการณ์" data-zh="体验">The Experience</span><h2 class="t" data-en="Three quiet pleasures" data-th="สามความสุขอันเงียบสงบ" data-zh="三重静好">Three quiet pleasures</h2></div></div>
+  <div class="split reveal">
+    <div class="split-media frame hoverable"><img data-img="5" alt="Private pool villa"></div>
+    <div class="split-text"><span class="idx">02 — <span class="t" data-en="Your pool" data-th="สระของคุณ" data-zh="你的泳池">Your pool</span></span>
+      <h2 class="t" data-en="Water all to yourself" data-th="สายน้ำส่วนตัวของคุณ" data-zh="独享一池水">Water all to yourself</h2>
+      <p class="body t" data-en="Private plunge pools and in-villa jacuzzis, screened by garden walls — swim at midnight, soak at sunrise, see no one." data-th="สระส่วนตัวและจากุซซี่ในวิลล่า กั้นด้วยกำแพงสวน — ว่ายตอนเที่ยงคืน แช่ตอนรุ่งเช้า โดยไม่เจอใคร" data-zh="私属泡池与别墅内按摩浴缸，由花园院墙环绕——午夜畅游，晨曦浸泡，不见外人。">Private plunge pools and in-villa jacuzzis, screened by garden walls — swim at midnight, soak at sunrise, see no one.</p></div>
+  </div>
+  <div class="split rev reveal">
+    <div class="split-text"><span class="idx">03 — <span class="t" data-en="Your view" data-th="วิวของคุณ" data-zh="你的景致">Your view</span></span>
+      <h2 class="t" data-en="Mountains from the bed" data-th="ขุนเขาจากบนเตียง" data-zh="卧看群山">Mountains from the bed</h2>
+      <p class="body t" data-en="Every villa frames the Khao Yai hills. Wake to mist on the gardens, take coffee on the terrace, watch the light move across the range." data-th="ทุกวิลล่าจับภาพขุนเขาเขาใหญ่ ตื่นมาพบหมอกบนสวน จิบกาแฟที่ระเบียง มองแสงเคลื่อนผ่านแนวเขา" data-zh="每栋别墅都将考艾山峦框入窗中。在花园薄雾中醒来，于露台啜咖啡，看光影掠过山脊。">Every villa frames the Khao Yai hills. Wake to mist on the gardens, take coffee on the terrace, watch the light move across the range.</p></div>
+    <div class="split-media frame hoverable"><img data-img="8" alt="Mountain view from villa"></div>
+  </div>
+</div></section>
+
+<section class="band" id="villas"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="The Villas" data-th="วิลล่า" data-zh="别墅">The Villas</span><h2 class="t" data-en="Three villas, all yours" data-th="สามวิลล่า เป็นของคุณทั้งหมด" data-zh="三栋别墅，皆为私享">Three villas, all yours</h2></div>
+  <p class="hint t" data-en="Rates per night, including breakfast for two." data-th="ราคาต่อคืน รวมอาหารเช้าสองท่าน" data-zh="房价按夜计，含双人早餐。">Rates per night, including breakfast for two.</p></div></div>
+  <div class="rows reveal">
+    <div class="row"><div class="row-media frame hoverable"><img data-img="3" alt="Pool Villa"></div><div class="row-body"><span class="idx">A</span>
+      <h3 class="t" data-en="The Pool Villa" data-th="พูลวิลล่า" data-zh="泳池别墅">The Pool Villa</h3>
+      <div class="row-tags"><span class="t" data-en="Private pool" data-th="สระส่วนตัว" data-zh="私属泳池">Private pool</span><span class="t" data-en="Mountain view" data-th="วิวภูเขา" data-zh="山景">Mountain view</span><span class="t" data-en="Sleeps 2–3" data-th="พัก 2–3" data-zh="可住 2–3 人">Sleeps 2–3</span></div>
+      <p class="desc t" data-en="A standalone villa with its own walled pool, terrace and garden — total privacy beneath the hills." data-th="วิลล่าเดี่ยวพร้อมสระมีกำแพงล้อม ระเบียง และสวนส่วนตัว — ความเป็นส่วนตัวเต็มที่ใต้ขุนเขา" data-zh="独栋别墅，配围墙泳池、露台与花园——山下的全然私密。">A standalone villa with its own walled pool, terrace and garden — total privacy beneath the hills.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿7,500</div><a href="#reserve" class="btn btn--accent t" data-en="Enquire" data-th="สอบถาม" data-zh="咨询">Enquire</a></div></div></div>
+    <div class="row"><div class="row-media frame hoverable"><img data-img="6" alt="Jacuzzi Suite"></div><div class="row-body"><span class="idx">B</span>
+      <h3 class="t" data-en="The Jacuzzi Suite" data-th="จากุซซี่ สวีท" data-zh="按摩浴缸套房">The Jacuzzi Suite</h3>
+      <div class="row-tags"><span class="t" data-en="In-room jacuzzi" data-th="จากุซซี่ในห้อง" data-zh="室内按摩浴缸">In-room jacuzzi</span><span class="t" data-en="Large bathtub" data-th="อ่างอาบน้ำใหญ่" data-zh="大浴缸">Large bathtub</span><span class="t" data-en="Balcony" data-th="ระเบียง" data-zh="露台">Balcony</span></div>
+      <p class="desc t" data-en="A spacious suite with a deep jacuzzi and a balcony over the gardens — warm water, cool mountain air." data-th="ห้องสวีทกว้างขวางพร้อมจากุซซี่และระเบียงเหนือสวน — น้ำอุ่น อากาศภูเขาเย็นสบาย" data-zh="宽敞套房，配深按摩浴缸与俯瞰花园的露台——暖水之中，凉爽山风。">A spacious suite with a deep jacuzzi and a balcony over the gardens — warm water, cool mountain air.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿5,900</div><a href="#reserve" class="btn btn--accent t" data-en="Enquire" data-th="สอบถาม" data-zh="咨询">Enquire</a></div></div></div>
+    <div class="row"><div class="row-media frame hoverable"><img data-img="9" alt="Garden Villa"></div><div class="row-body"><span class="idx">C</span>
+      <h3 class="t" data-en="The Garden Villa" data-th="การ์เด้น วิลล่า" data-zh="花园别墅">The Garden Villa</h3>
+      <div class="row-tags"><span class="t" data-en="Garden terrace" data-th="ระเบียงสวน" data-zh="花园露台">Garden terrace</span><span class="t" data-en="King bed" data-th="เตียงคิง" data-zh="特大床">King bed</span><span class="t" data-en="Sleeps 2" data-th="พัก 2" data-zh="可住 2 人">Sleeps 2</span></div>
+      <p class="desc t" data-en="The same considered design opening straight onto the lawns — our most loved room, at a gentler rate." data-th="งานออกแบบพิถีพิถันแบบเดียวกัน เปิดออกสู่สนามหญ้า — ห้องที่แขกรักที่สุด ในราคาที่อ่อนโยนกว่า" data-zh="同样考究的设计，直通草坪——最受宾客喜爱的房型，价格更亲切。">The same considered design opening straight onto the lawns — our most loved room, at a gentler rate.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿3,900</div><a href="#reserve" class="btn btn--accent t" data-en="Enquire" data-th="สอบถาม" data-zh="咨询">Enquire</a></div></div></div>
   </div>
 </section>
 
-<!-- =========================== AMENITIES =========================== -->
-<section id="amenities" style="background:var(--soft)">
-  <div class="wrap">
-    <p class="eyebrow" data-en>Amenities</p><p class="eyebrow" data-th>สิ่งอำนวยความสะดวก</p>
-    <h2><span data-en>Everything you need</span><span data-th>ครบทุกความต้องการ</span></h2>
-    <div class="amen" style="margin-top:28px">
-      <div class="item"><div class="ico">🏊</div><strong data-en>Pool</strong><strong data-th>สระว่ายน้ำ</strong></div>
-      <div class="item"><div class="ico">🍳</div><strong data-en>Breakfast</strong><strong data-th>อาหารเช้า</strong></div>
-      <div class="item"><div class="ico">🛵</div><strong data-en>Scooter rental</strong><strong data-th>เช่ามอเตอร์ไซค์</strong></div>
-      <div class="item"><div class="ico">🅿️</div><strong data-en>Free parking</strong><strong data-th>ที่จอดรถฟรี</strong></div>
-      <div class="item"><div class="ico">🧺</div><strong data-en>Laundry</strong><strong data-th>ซักรีด</strong></div>
-      <div class="item"><div class="ico">🛥️</div><strong data-en>Island tours</strong><strong data-th>ทัวร์เกาะ</strong></div>
-      <div class="item"><div class="ico">❄️</div><strong data-en>Air-con</strong><strong data-th>เครื่องปรับอากาศ</strong></div>
-      <div class="item"><div class="ico">🐶</div><strong data-en>Pet friendly</strong><strong data-th>สัตว์เลี้ยงเข้าได้</strong></div>
-    </div>
+<section class="band band--alt" id="amenities"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Everything provided" data-th="สิ่งอำนวยความสะดวก" data-zh="一应俱全">Everything provided</span><h2 class="t" data-en="The quiet essentials" data-th="สิ่งจำเป็นอันเรียบง่าย" data-zh="静好之必备">The quiet essentials</h2></div></div>
+  <div class="amen reveal">
+    <div class="amen-item"><svg class="ic"><use href="#ic-pool"/></svg><h4 class="t" data-en="Private Pool" data-th="สระส่วนตัว" data-zh="私属泳池">Private Pool</h4><p class="t" data-en="Walled plunge pools in pool villas." data-th="สระมีกำแพงล้อมในพูลวิลล่า" data-zh="泳池别墅配围墙泡池。">Walled plunge pools in pool villas.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-tub"/></svg><h4 class="t" data-en="Jacuzzi" data-th="จากุซซี่" data-zh="按摩浴缸">Jacuzzi</h4><p class="t" data-en="In-room jacuzzis &amp; deep tubs." data-th="จากุซซี่ในห้องและอ่างแช่ลึก" data-zh="室内按摩浴缸与深泡浴缸。">In-room jacuzzis &amp; deep tubs.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-mountain"/></svg><h4 class="t" data-en="Mountain Views" data-th="วิวภูเขา" data-zh="山景">Mountain Views</h4><p class="t" data-en="From every villa &amp; terrace." data-th="จากทุกวิลล่าและระเบียง" data-zh="每栋别墅与露台皆可饱览。">From every villa &amp; terrace.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-van"/></svg><h4 class="t" data-en="Golf-Cart Rides" data-th="รถกอล์ฟรับส่ง" data-zh="高尔夫球车">Golf-Cart Rides</h4><p class="t" data-en="Around the grounds, any time." data-th="รอบบริเวณ ทุกเวลา" data-zh="园内随时接送。">Around the grounds, any time.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-breakfast"/></svg><h4 class="t" data-en="Breakfast" data-th="อาหารเช้า" data-zh="早餐">Breakfast</h4><p class="t" data-en="Included, brought to your villa." data-th="รวมในค่าห้อง เสิร์ฟถึงวิลล่า" data-zh="含早餐，送至别墅。">Included, brought to your villa.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-wifi"/></svg><h4 class="t" data-en="Free Wi-Fi" data-th="ไวไฟฟรี" data-zh="免费 Wi-Fi">Free Wi-Fi</h4><p class="t" data-en="Fast, throughout the village." data-th="รวดเร็วทั่วทั้งหมู่บ้าน" data-zh="全村覆盖，快速稳定。">Fast, throughout the village.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-leaf"/></svg><h4 class="t" data-en="Landscaped Gardens" data-th="สวนจัดแต่ง" data-zh="园林景观">Landscaped Gardens</h4><p class="t" data-en="Lawns, ponds &amp; a golf-practice green." data-th="สนามหญ้า บ่อน้ำ และสนามซ้อมกอล์ฟ" data-zh="草坪、池塘与高尔夫练习果岭。">Lawns, ponds &amp; a golf-practice green.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-parking"/></svg><h4 class="t" data-en="Free Parking" data-th="ที่จอดรถฟรี" data-zh="免费停车">Free Parking</h4><p class="t" data-en="Beside your villa." data-th="ข้างวิลล่าของคุณ" data-zh="紧邻别墅。">Beside your villa.</p></div>
+  </div>
+</div></section>
+
+<section class="band" id="gallery"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</span><h2 class="t" data-en="A closer look" data-th="มองใกล้ขึ้นอีกนิด" data-zh="细看隐村">A closer look</h2></div>
+  <p class="hint t" data-en="Real moments at Hidden Village — villas, water, and the Khao Yai hills." data-th="ช่วงเวลาจริงที่ฮิดเดน วิลเลจ — วิลล่า สายน้ำ และขุนเขาเขาใหญ่" data-zh="隐村的真实瞬间——别墅、水景，与考艾山峦。">Real moments at Hidden Village — villas, water, and the Khao Yai hills.</p></div>
+  <div class="gal reveal" id="gallery-grid"></div>
+</div></section>
+
+<section class="feature">
+  <div class="feature-bg frame"><img data-img="4" alt=""></div>
+  <div class="feature-inner reveal">
+    <span class="eyebrow t" data-en="What guests say" data-th="เสียงจากผู้เข้าพัก" data-zh="宾客之声">What guests say</span>
+    <blockquote class="t" data-en="“Spacious, beautiful rooms, real mountain views, and the quiet of your own private pool.”" data-th="“ห้องกว้างขวางสวยงาม วิวภูเขาจริง และความเงียบของสระส่วนตัวของคุณเอง”" data-zh="“房间宽敞精美，真正的山景，以及独享私池的静谧。”">“Spacious, beautiful rooms, real mountain views, and the quiet of your own private pool.”</blockquote>
+    <div class="attrib"><span class="stars"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg></span><span class="t" data-en="4.8 average · from 240 guest reviews" data-th="เฉลี่ย 4.8 · จากรีวิวผู้เข้าพัก 240 รายการ" data-zh="平均 4.8 分 · 综合 240 条宾客评价">4.8 average · from 240 guest reviews</span></div>
   </div>
 </section>
 
-<!-- =========================== GALLERY =========================== -->
-<section>
-  <div class="wrap">
-    <p class="eyebrow" data-en>Gallery</p><p class="eyebrow" data-th>แกลเลอรี</p>
-    <h2 style="margin-bottom:24px"><span data-en>A look around</span><span data-th>บรรยากาศโดยรอบ</span></h2>
-    <!-- CUSTOMIZE: swap placeholders for real photos (client's, or enhanced with Adobe Firefly) -->
-    <div class="gallery">
-      <div class="ph ph-1"></div><div class="ph ph-2"></div><div class="ph ph-3"></div><div class="ph ph-4"></div>
-      <div class="ph ph-4"></div><div class="ph ph-3"></div><div class="ph ph-2"></div><div class="ph ph-1"></div>
-    </div>
+<section class="band band--alt" id="reserve"><div class="maxw reserve">
+  <div class="reveal">
+    <span class="eyebrow t" data-en="Reservations" data-th="การจอง" data-zh="预订">Reservations</span>
+    <h2 class="t" data-en="Plan your stay" data-th="วางแผนการเข้าพัก" data-zh="规划您的入住">Plan your stay</h2>
+    <p class="lead t" data-en="Send your dates and we'll reply within the day — in English, ไทย or 中文 — with the right villa for you." data-th="ส่งวันที่ของคุณ แล้วเราจะตอบกลับภายในวัน — อังกฤษ ไทย หรือจีน — พร้อมวิลล่าที่เหมาะกับคุณ" data-zh="告知您的日期，我们将于当日回复——英文、泰文或中文——为您奉上最合适的别墅。">Send your dates and we'll reply within the day — in English, ไทย or 中文 — with the right villa for you.</p>
+    <div class="contact-row"><svg class="ic"><use href="#ic-pin"/></svg><div><div class="k t" data-en="Address" data-th="ที่อยู่" data-zh="地址">Address</div><div class="v">70 Moo 5, Pak Chong, Nakhon Ratchasima 30450</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-phone"/></svg><div><div class="k t" data-en="Telephone" data-th="โทรศัพท์" data-zh="电话">Telephone</div><div class="v">+66 44 756 239</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-chat"/></svg><div><div class="k">LINE</div><div class="v">@hiddenvillagekhaoyai</div></div></div>
   </div>
-</section>
+  <form class="eform reveal" onsubmit="return false">
+    <div class="field"><label class="t" data-en="Full name" data-th="ชื่อ-นามสกุล" data-zh="姓名">Full name</label><input type="text" autocomplete="name"></div>
+    <div class="field"><label class="t" data-en="Email" data-th="อีเมล" data-zh="电子邮箱">Email</label><input type="email" autocomplete="email"></div>
+    <div class="field two"><div><label class="t" data-en="Arrive" data-th="วันเข้าพัก" data-zh="入住">Arrive</label><input type="date"></div><div><label class="t" data-en="Depart" data-th="วันออก" data-zh="退房">Depart</label><input type="date"></div></div>
+    <div class="field"><label class="t" data-en="Which villa?" data-th="วิลล่าไหน?" data-zh="哪栋别墅？">Which villa?</label><input type="text"></div>
+    <button class="btn btn--solid t" data-en="Send enquiry" data-th="ส่งคำขอ" data-zh="发送咨询">Send enquiry <svg class="ic"><use href="#ic-arrow"/></svg></button>
+  </form>
+</div></section>
 
-<!-- =========================== REVIEWS =========================== -->
-<section class="reviews">
-  <div class="wrap">
-    <p class="eyebrow" data-en>Guest Reviews</p><p class="eyebrow" data-th>รีวิวจากผู้เข้าพัก</p>
-    <h2><span data-en>Loved by guests worldwide</span><span data-th>ผู้เข้าพักจากทั่วโลกประทับใจ</span></h2>
-    <p class="lead"><span class="stars">★★★★★</span> 4.8/5 · <span data-en>312 reviews on Google</span><span data-th>312 รีวิวบน Google</span></p>
-    <div class="grid g3">
-      <blockquote>"Best value in Ao Nang. Family ran, spotless rooms, the breakfast was amazing. Booked direct on their site and saved money!"<footer>— Sarah, 🇬🇧 UK</footer></blockquote>
-      <blockquote>"เจ้าของน่ารักมาก ห้องสะอาด วิวทะเลสวย ราคาดีกว่าจองในแอป จองตรงผ่านเว็บคุ้มสุด"<footer>— ณัฐ, 🇹🇭 Bangkok</footer></blockquote>
-      <blockquote>"Replied on LINE in 2 minutes and arranged our airport pickup. So easy. Will come back."<footer>— Wei, 🇸🇬 Singapore</footer></blockquote>
-    </div>
-  </div>
-</section>
+<footer class="foot"><div class="maxw"><div class="foot-top">
+  <div class="foot-brand"><div class="brand">Hidden Village</div>
+    <p class="t" data-en="A boutique village of private-pool villas in the hills of Khao Yai, Pak Chong." data-th="หมู่บ้านบูทีคของพูลวิลล่าในขุนเขาเขาใหญ่ ปากช่อง" data-zh="坐落于北冲考艾山间的私池别墅精品村落。">A boutique village of private-pool villas in the hills of Khao Yai, Pak Chong.</p>
+    <div class="foot-soc"><a href="#" aria-label="Facebook"><svg class="ic"><use href="#ic-fb"/></svg></a><a href="#" aria-label="Instagram"><svg class="ic"><use href="#ic-ig"/></svg></a><a href="#" aria-label="LINE"><svg class="ic"><use href="#ic-chat"/></svg></a></div></div>
+  <div class="foot-col"><h5 class="t" data-en="Explore" data-th="สำรวจ" data-zh="导览">Explore</h5><a href="#villas" class="t" data-en="The Villas" data-th="วิลล่า" data-zh="别墅">The Villas</a><a href="#experience" class="t" data-en="Experience" data-th="ประสบการณ์" data-zh="体验">Experience</a><a href="#amenities" class="t" data-en="Amenities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Amenities</a><a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a></div>
+  <div class="foot-col"><h5 class="t" data-en="Visit" data-th="เยี่ยมชม" data-zh="到访">Visit</h5><p>70 Moo 5, Pak Chong</p><p>Nakhon Ratchasima 30450</p><p>+66 44 756 239</p><a href="#reserve" class="t" data-en="Reserve a villa →" data-th="จองวิลล่า →" data-zh="预订别墅 →">Reserve a villa →</a></div>
+</div><div class="foot-bottom"><div>© 2026 The Hidden Village Khao Yai</div><div class="disc t" data-en="Design concept for demonstration — not the official website of The Hidden Village Khao Yai. Photography © respective owners, via Google Maps." data-th="แนวคิดการออกแบบเพื่อการสาธิต — ไม่ใช่เว็บไซต์ทางการ ภาพถ่ายเป็นลิขสิทธิ์ของเจ้าของ ผ่าน Google Maps" data-zh="设计概念演示——非官方网站。图片版权归各自所有者，来源 Google 地图。">Design concept for demonstration — not the official website of The Hidden Village Khao Yai. Photography © respective owners, via Google Maps.</div></div></div></footer>
 
-<!-- =========================== LOCATION =========================== -->
-<section id="location">
-  <div class="wrap loc">
-    <div>
-      <p class="eyebrow" data-en>Find Us</p><p class="eyebrow" data-th>ที่ตั้ง</p>
-      <h2><span data-en>In the heart of Ao Nang</span><span data-th>ใจกลางอ่าวนาง</span></h2>
-      <p class="lead">
-        <span data-en>123 Ao Nang Beach Road, Mueang Krabi, Krabi 81180. 3 minutes to the beach, 25 minutes from Krabi Airport (KBV).</span>
-        <span data-th class="block">123 ถนนหาดอ่าวนาง อ.เมือง จ.กระบี่ 81180 — เดิน 3 นาทีถึงหาด ห่างสนามบินกระบี่ 25 นาที</span>
-      </p>
-      <a class="btn btn-outline" target="_blank" rel="noopener"
-         href="https://www.google.com/maps/search/?api=1&query=Ao+Nang+Beach+Krabi">
-         📍 <span data-en>Open in Google Maps</span><span data-th>เปิดใน Google Maps</span></a>
-    </div>
-    <!-- CUSTOMIZE: change q= to the real hotel name/address. This embed needs no API key. -->
-    <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      src="https://maps.google.com/maps?q=Ao%20Nang%20Beach%20Krabi&z=14&output=embed"
-      title="Map"></iframe>
-  </div>
-</section>
-
-<!-- =========================== BOOKING (direct, commission-free) =========================== -->
-<section id="book" class="book">
-  <div class="wrap">
-    <div>
-      <p class="eyebrow" style="color:var(--accent)" data-en>Book Direct</p>
-      <p class="eyebrow" style="color:var(--accent)" data-th>จองตรง</p>
-      <h2><span data-en>Best rate, straight from us</span><span data-th>ราคาดีที่สุด จองกับเราโดยตรง</span></h2>
-      <p style="max-width:42ch;margin-top:8px">
-        <span data-en>Send a request and we'll confirm on LINE or email within a few hours. No booking fees, no middleman, always the lowest price.</span>
-        <span data-th class="block">ส่งคำขอจอง แล้วเราจะยืนยันทาง LINE หรืออีเมลภายในไม่กี่ชั่วโมง ไม่มีค่าธรรมเนียม ไม่ผ่านคนกลาง ราคาถูกที่สุดเสมอ</span>
-      </p>
-      <p style="margin-top:18px">
-        <a href="https://line.me/R/ti/p/@baanrimtalay" class="btn btn-line">💬 <span data-en>Or just message us on LINE</span><span data-th>หรือทักเราทาง LINE</span></a>
-      </p>
-    </div>
-    <!-- CUSTOMIZE: action -> your Formspree/Getform endpoint, or keep mailto fallback below -->
-    <form action="https://formspree.io/f/your-id" method="POST">
-      <div class="field"><label data-en>Full name</label><label data-th>ชื่อ-นามสกุล</label>
-        <input name="name" required placeholder="Your name" /></div>
-      <div class="row2">
-        <div class="field"><label data-en>Check-in</label><label data-th>เช็คอิน</label><input type="date" name="checkin" required /></div>
-        <div class="field"><label data-en>Check-out</label><label data-th>เช็คเอาท์</label><input type="date" name="checkout" required /></div>
-      </div>
-      <div class="row2">
-        <div class="field"><label data-en>Room</label><label data-th>ห้อง</label>
-          <select name="room"><option>Garden Room — ฿1,190</option><option>Sea View Room — ฿1,790</option><option>Family Suite — ฿2,690</option></select></div>
-        <div class="field"><label data-en>Guests</label><label data-th>จำนวนผู้เข้าพัก</label>
-          <select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
-      </div>
-      <div class="field"><label data-en>Contact (email / LINE / WhatsApp)</label><label data-th>ช่องทางติดต่อ (อีเมล / LINE / WhatsApp)</label>
-        <input name="contact" required placeholder="email@example.com" /></div>
-      <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">
-        <span data-en>Request booking →</span><span data-th>ส่งคำขอจอง →</span></button>
-      <p style="font-size:.78rem;color:var(--muted);margin-top:10px;text-align:center">
-        <span data-en>No payment now. We confirm availability first.</span>
-        <span data-th>ยังไม่ต้องชำระเงิน เรายืนยันห้องว่างก่อน</span></p>
-    </form>
-  </div>
-</section>
-
-<!-- =========================== FOOTER =========================== -->
-<footer class="site">
-  <div class="wrap foot-grid">
-    <div>
-      <div class="logo" style="color:#fff">🏝️ Baan Rim Talay Boutique Resort</div>
-      <p style="margin-top:10px;max-width:38ch">
-        <span data-en>A small family-run beachfront resort in Ao Nang, Krabi. Book direct and save.</span>
-        <span data-th class="block">รีสอร์ทเล็กๆ ริมหาด บริหารโดยครอบครัว ที่อ่าวนาง กระบี่ จองตรงประหยัดกว่า</span>
-      </p>
-    </div>
-    <div>
-      <h4 data-en>Contact</h4><h4 data-th>ติดต่อ</h4>
-      <p>📞 <a href="tel:+66812345678">+66 81 234 5678</a></p>
-      <p>💬 <a href="https://line.me/R/ti/p/@baanrimtalay">LINE: @baanrimtalay</a></p>
-      <p>✉️ <a href="mailto:stay@baanrimtalay.com">stay@baanrimtalay.com</a></p>
-    </div>
-    <div>
-      <h4 data-en>Visit</h4><h4 data-th>ที่อยู่</h4>
-      <p>123 Ao Nang Beach Rd,<br>Mueang Krabi, Krabi 81180</p>
-      <p style="margin-top:8px"><a href="https://www.facebook.com">Facebook</a> · <a href="https://www.instagram.com">Instagram</a></p>
-    </div>
-  </div>
-  <div class="copyright">© <span id="yr"></span> Baan Rim Talay Boutique Resort.
-    <span data-en>All rights reserved.</span><span data-th>สงวนลิขสิทธิ์</span></div>
-</footer>
-
-<!-- =========================== FLOATING CONTACT =========================== -->
-<div class="float">
-  <a class="f-line" href="https://line.me/R/ti/p/@baanrimtalay" aria-label="LINE">💬</a>
-  <a class="f-wa" href="https://wa.me/66812345678" aria-label="WhatsApp">🟢</a>
-  <a class="f-call" href="tel:+66812345678" aria-label="Call">📞</a>
-</div>
-
-<!-- =========================== STRUCTURED DATA (Google understands this) =========================== -->
-<!-- CUSTOMIZE: name, address, geo, priceRange, rating. This helps Google show rich results. -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Hotel",
-  "name":"Baan Rim Talay Boutique Resort",
-  "description":"Small boutique beachfront resort in Ao Nang, Krabi. Book direct for the best rate.",
-  "image":"https://example.com/hero.jpg",
-  "url":"https://example.com",
-  "telephone":"+66812345678",
-  "priceRange":"฿฿",
-  "address":{"@type":"PostalAddress","streetAddress":"123 Ao Nang Beach Road","addressLocality":"Mueang Krabi","addressRegion":"Krabi","postalCode":"81180","addressCountry":"TH"},
-  "geo":{"@type":"GeoCoordinates","latitude":8.0306,"longitude":98.8290},
-  "starRating":{"@type":"Rating","ratingValue":"3"},
-  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"312"},
-  "amenityFeature":[
-    {"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},
-    {"@type":"LocationFeatureSpecification","name":"Swimming pool","value":true},
-    {"@type":"LocationFeatureSpecification","name":"Free parking","value":true},
-    {"@type":"LocationFeatureSpecification","name":"Airport shuttle","value":true}
-  ]
-}
-</script>
+<div class="bookbar" id="bookbar"><div class="bb-name">Hidden Village</div><div class="bb-r"><span class="bb-note t" data-en="Private-pool villas · from ฿3,900/night" data-th="พูลวิลล่า · เริ่มต้น ฿3,900/คืน" data-zh="私池别墅 · ฿3,900/晚起">Private-pool villas · from ฿3,900/night</span><a href="#reserve" class="btn btn--solid t" data-en="Reserve" data-th="จอง" data-zh="预订">Reserve</a></div></div>
 
 <script>
-  // Language toggle: flips <html lang> which the CSS uses to show/hide EN vs TH.
-  function setLang(l){
-    document.documentElement.lang = l;
-    document.getElementById('en').classList.toggle('active', l==='en');
-    document.getElementById('th').classList.toggle('active', l==='th');
-    try{ localStorage.setItem('lang', l); }catch(e){}
-  }
-  // Remember choice; default to Thai for visitors with a Thai browser.
-  (function(){
-    var saved; try{ saved = localStorage.getItem('lang'); }catch(e){}
-    var guess = saved || ((navigator.language||'').toLowerCase().startsWith('th') ? 'th' : 'en');
-    setLang(guess);
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  })();
+window.PAGE_NAME="Hidden Village Khao Yai";
+window.GAL_USED=[0,2,3,4,5,6,8,9];
+window.IMG=["https://lh3.googleusercontent.com/gps-cs-s/APNQkAFH3YEu80SKbz9a4-lVZwPclKNXsWWc8MP3LeS02MDFE-J_yIaDo1-ojpW2_Z12oLOX__90uXkenScdX3MLSpCVGr7gaH6K8Lz2sBnM8BfkOeYWZ4qGi8knkALB9d3Jz6W7WKpDRw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFgTV1plxqJF5uz_DSA-NSZhlpJMYn-YCvrkzM0o8Vwsskj7c-nElVTLvZm2wycTxle0xDWSSAXENjSXE79n6llF8AYZ5KHBCn1gYPrl5u9X3KqyH92V5FQBL5s98mTfLbfcnCc","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHsBWWuSnEP7veWQ3Nm99VBemOH7YQLyHeKqebdUSEtb0oxvOEbfg3cPoxSgxV4r7HJlTVHq1lJ7o7ut1ODfirk6gkbqCmXls8yRURPcTmdSi82BPSwZB9XqUVWuHOGHAkQTaazfw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFpYy0F0oeFGwoIn3c8H8oOzCLtySq_Qx-Vue8uXuYFt6AFZ_zxsbRSFT4RIunBRZiR7PhH49JLZ_6lYorbDR6mFR7UkOyjFt6kwKz3kA0nrAi60uc8NWBKDvUk7WiJvfJgBuoL","https://lh3.googleusercontent.com/gps-cs-s/APNQkAETydWpsiMRQwDMrxeHXKBWYPu2qtqTuLG1n_t1eY371FDeuIM9Q9sV81E4_-jBB18y47H0qz87laW0IArtJ1JD07zILdbHFWinXzNYEO7dGzL8RaKDMqv2woQFGfiwemODrZzXjg","https://lh3.googleusercontent.com/gps-cs-s/APNQkAH25fUMs0d3JO1an9Wocq7XUWjsV8kFwYCYJL4-agHFYzv_qcINdprBQyxIdFV6SAsyx2MFg-q6dZusnmD3bYl4T92O2zCeItSX4NGZjDrP4HFAC3vnk66c28ESy_FYxvylt28","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFFU18yQAsZTztFzrLcZHCu4jnrt-zgNHm1ZP6GvcOHDpcUsysbpid3QFw5PcYUveQCrHL6NNDsxq852C_yPf2FIqMU9X7jGbEoGQUIjt6zigJJwwMw8P83YTrx0yLLN6w5Xr8S","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFHdyvMkIqNF0p6BuO650367U2lL5UtQmjfECiHSjyYFiMxLvdlp6lj80E10xYSD62cXm9qT3q-zbaKU35VGdmQzrN5RNzH6xKyNDPmzxdD_7f3Qam5lhH0WHHA0P5TqiJ6-7TDLTwUMPJR","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGm3W4WCIfV8TTzjwNVv0qjl3ugck3_4UBKyX9ugEhn9_EGRxpuZNSqAeyIbvC9u5np32UV-EemyzFP_pE9wNZ8FUZSLhnKmLdgcdAoY4vPvL6uysuvratj9TGqdNPXVwm_QC1qWw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEh7P3-YO6WzhCTRIWHbPc_rNuMJDBKVDZHhxSZ-OGGwut5cBlGvDdsrpv4ECcE_AoFA8-p0hzIOatnzJvAVmXNWitHIBnX1XpwNoSFGgnECzjNN_5Cbx5-LLzSKS33IY_AHMA","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEdz19BlXaJsCakfFaPAczHRzR3HXbrxs32_QlkxemX_mQYW8Y5lvU5Qwyb_gPLXB5ejW9QCH9-2JNrKwcE2DV8rcU8JCEhBDRmlfmm6mMh1-Wr8QfO37l_95LmSKUXbJipOxaL","https://lh3.googleusercontent.com/gps-cs-s/APNQkAE7KZqZcwtLjvjFNz6o2B_Dc8MPqY8wCJPR49LxHZROpl-xsEKuY7DicwiXfV9ht_-1ZVc7MWI2amGCOBlUUFbjYpSYoHNdqSKficOjncUxSmZP-HyHstZhFGbFifBggeOvjgo","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHlu8dw70LR6tMDdFk1GILEIFOivDYrwfKjsZE17FqqlPa-llP11nYwzaeygLYbGqgtUV-rrnoegHSBenEhcemAfiBvuX3qKSJN8J97walvKGoTxFJ5Lp3enBQdeTN-8SV38Rc","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEBTY8JVGd_cYk6DYP-pElDR2_srnreS10_-6VA6A-P8BbKKEq_-lMXZm1YlTxvfQsUiyP5AInKko7doqaW0-ukdxiAlpL_zb87DbJGHTA8loVh_htU6DD0EBWcd_JHGgSRGX4V8feVl25i","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHU5vjPYCbuQND8OIak2ZJD5zL-KJQX2em-ZLAMEcwLgBCjBOso61NonuSxnBjjxUyropvoARBaqNzz-50tM9GKDTzW_eTnpEeYMBnMteB3xhzvTtV3zkXdX1HwHHK6oNM7T8ek5g","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFNry7Yj7EvdCQq0-Nutzz3eEj0zij5BhvgADSoTTEBq963_j5ymd6m3qw4SVAxZifgVmpHkypb_K_by_Gx6ZbKJ81vyKFycSUZF4cd24PTkkERP_pHMf3585zDsgR8_QTSkqm40w"];
 </script>
+<script src="../assets/luxe.js"></script>
 </body>
 </html>

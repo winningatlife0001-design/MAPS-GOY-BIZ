@@ -1,99 +1,137 @@
 <!DOCTYPE html>
-<!-- TEMPLATE — Clinic (dental / cosmetic / medical-tourism). Type sections: services+prices,
-     doctors/credentials, trust/safety badges, book consultation (WhatsApp for intl patients). Clean clinical theme. -->
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smile Dental Krabi — Dental & Cosmetic Clinic for International Patients</title>
-<meta name="description" content="Modern dental & cosmetic clinic in Krabi. International standards, English-speaking dentists, transparent prices. Book a free consultation on WhatsApp.">
-<meta name="theme-color" content="#0e7490">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦷</text></svg>">
-<style>
- :root{--brand:#0e7490;--brand-dark:#155e75;--accent:#0d9488;--ink:#0f172a;--muted:#64748b;--bg:#fff;--soft:#f0fdfa;--line:#e2e8f0;--line-green:#06c755;--wa:#25d366;--radius:16px;--shadow:0 8px 26px rgba(14,116,144,.10);--maxw:1060px;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Arial,sans-serif}
- *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{color:var(--ink);background:var(--bg);line-height:1.7}a{color:inherit}
- .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
- .btn{display:inline-flex;gap:8px;align-items:center;border:0;cursor:pointer;font-weight:800;padding:13px 24px;border-radius:999px;text-decoration:none}
- .btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow)}.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.7)}.btn-wa{background:var(--wa);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
- section{padding:60px 0}h2{font-size:1.8rem;margin-bottom:8px}.lead{color:var(--muted);max-width:640px;margin-bottom:26px}.center{text-align:center}.center .lead{margin-inline:auto}
- .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.78rem}
- header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
- .nav{display:flex;align-items:center;justify-content:space-between;height:62px}.logo{font-weight:800;font-size:1.15rem;color:var(--brand);display:flex;gap:8px;align-items:center}
- .nav-right{display:flex;gap:12px;align-items:center}.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
- .lang button{border:0;background:#fff;padding:6px 11px;cursor:pointer;font-weight:700;color:var(--muted)}.lang button.active{background:var(--brand);color:#fff}
- .hero{background:linear-gradient(120deg,#155e75,#0e7490 55%,#0d9488);color:#fff;padding:64px 0}
- .hero .in{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}@media(max-width:760px){.hero .in{grid-template-columns:1fr}}
- .hero h1{font-size:clamp(1.9rem,4.5vw,2.8rem);max-width:18ch}.hero p{margin:12px 0 20px;opacity:.95;max-width:42ch}
- .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.badges span{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 12px;font-size:.82rem;font-weight:600}
- .card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:var(--radius);padding:20px}
- .svc{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}@media(max-width:760px){.svc{grid-template-columns:1fr}}
- .svc .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.svc .p{color:var(--accent);font-weight:800;white-space:nowrap}
- .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:760px){.docs{grid-template-columns:1fr}}
- .doc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow)}
- .doc .av{width:74px;height:74px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#0e7490,#0d9488)}
- .trust{background:var(--soft)}.trust .g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:center}@media(max-width:700px){.trust .g{grid-template-columns:1fr 1fr}}
- .trust .item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}.trust .ico{font-size:1.6rem}
- .book{background:var(--brand);color:#fff;text-align:center}.book .btn{margin:6px}
- .float{position:fixed;right:15px;bottom:15px;z-index:60;display:flex;flex-direction:column;gap:10px}.float a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
- .f-wa{background:var(--wa)}.f-line{background:var(--line-green)}
- footer{background:#0b1220;color:#cbd5e1;padding:38px 0;text-align:center}footer a{color:#cbd5e1;text-decoration:none}
- [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
-</style></head><body>
-<header><div class="wrap nav"><div class="logo">🦷 Smile Dental Krabi</div><div class="nav-right">
- <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
- <a href="#book" class="btn btn-primary" style="padding:9px 16px"><span data-en>Free consult</span><span data-th>ปรึกษาฟรี</span></a></div></div></header>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bangkok Dental Khao Yai — Modern Dental Care</title>
+<meta name="description" content="Bangkok Dental Khao Yai — gentle, modern dentistry in Pak Chong. Check-ups, whitening, implants and clear aligners. Book a visit online.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/luxe.css">
+<style>:root{--bg:#EFF4F3;--bg-2:#E1ECEB;--bg-3:#D5E4E2;--ink:#1E2A29;--ink-soft:#52615F;--ink-faint:#7F938F;--line:rgba(30,42,41,.13);--line-soft:rgba(30,42,41,.07);--accent:#2E8C8A;--accent-deep:#1C5C5A;--dark:#15302E;--cream:#E8F0EE;--gold:#7FB0AB;--grade-overlay:rgba(46,140,138,.05)}</style>
+</head>
+<body lang="en">
+<div class="grain"></div>
 
-<section class="hero"><div class="wrap in">
- <div><h1><span data-en>World-class dental care, Thailand prices</span><span data-th>ทันตกรรมมาตรฐานสากล ราคาคนไทย</span></h1>
-  <p><span data-en>Modern dental & cosmetic treatments with English-speaking dentists. Trusted by international patients.</span><span data-th class="b">ทันตกรรมและความงามทันสมัย โดยทันตแพทย์ที่สื่อสารภาษาอังกฤษได้ ไว้วางใจโดยผู้ป่วยต่างชาติ</span></p>
-  <a href="#book" class="btn btn-wa">🟢 <span data-en>Free WhatsApp consult</span><span data-th>ปรึกษาฟรีทาง WhatsApp</span></a>
-  <div class="badges"><span data-en>✓ Sterilised to int'l standards</span><span data-th>✓ ฆ่าเชื้อมาตรฐานสากล</span><span data-en>✓ English-speaking</span><span data-th>✓ พูดอังกฤษได้</span><span data-en>✓ Airport pickup</span><span data-th>✓ รับสนามบิน</span></div>
- </div>
- <div class="card"><b><span data-en>Get a free quote</span><span data-th>ขอใบเสนอราคาฟรี</span></b>
-  <p style="font-size:.9rem;opacity:.9;margin:6px 0 12px"><span data-en>Send a photo or your treatment plan — we'll reply with a price & timeline.</span><span data-th class="b">ส่งรูปหรือแผนการรักษา เราจะตอบราคาและระยะเวลาให้</span></p>
-  <a href="https://wa.me/66800000000" class="btn btn-wa" style="width:100%;justify-content:center">🟢 WhatsApp</a></div>
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">Bangkok Dental</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#services" class="t" data-en="Services" data-th="บริการ" data-zh="项目">Services</a>
+    <a href="#about" class="t" data-en="The Clinic" data-th="คลินิก" data-zh="诊所">The Clinic</a>
+    <a href="#why" class="t" data-en="Why Us" data-th="ทำไมเรา" data-zh="为何选择">Why Us</a>
+    <a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a>
+    <a href="#book" class="navbtn t" data-en="Book a visit" data-th="นัดหมาย" data-zh="预约">Book a visit</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang" id="lang"><button data-l="en" class="active">EN</button><span>·</span><button data-l="th">ไทย</button><span>·</span><button data-l="zh">中文</button></div>
+    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-media frame"><img data-img="0" alt="Bangkok Dental Khao Yai clinic" fetchpriority="high"></div>
+  <div class="hero-inner maxw">
+    <div class="hero-eyebrow eyebrow"><span class="tick"></span><span class="t" data-en="Khao Yai · Pak Chong" data-th="เขาใหญ่ · ปากช่อง" data-zh="考艾 · 北冲">Khao Yai · Pak Chong</span></div>
+    <h1 class="t" data-en="Dentistry without the dread." data-th="ทำฟันแบบไม่ต้องกลัว" data-zh="看牙，不再忐忑。">Dentistry without the dread.</h1>
+    <p class="hero-sub t" data-en="Gentle, modern dental care in Khao Yai — clear prices, careful hands, and a team that explains everything before they begin." data-th="การดูแลฟันที่อ่อนโยนและทันสมัยในเขาใหญ่ — ราคาชัดเจน มือเบา และทีมที่อธิบายทุกอย่างก่อนเริ่ม" data-zh="考艾温和而现代的口腔诊疗——价格透明、手法轻柔，团队会在开始前为您详细说明。">Gentle, modern dental care in Khao Yai — clear prices, careful hands, and a team that explains everything before they begin.</p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn--ghost-light t" data-en="Book a visit" data-th="นัดหมาย" data-zh="预约就诊">Book a visit</a>
+      <a href="#services" class="btn btn--ghost-light t" data-en="See services &amp; prices" data-th="ดูบริการและราคา" data-zh="查看项目与价格">See services &amp; prices</a>
+    </div>
+  </div>
+  <div class="scrollcue"><span class="ln"></span><span class="t" data-en="Scroll" data-th="เลื่อนลง" data-zh="向下滚动">Scroll</span></div>
+  <div class="hero-meta"><div class="t" data-en="Dental Clinic" data-th="คลินิกทันตกรรม" data-zh="牙科诊所">Dental Clinic</div><div class="t" data-en="Pak Chong · Khao Yai" data-th="ปากช่อง · เขาใหญ่" data-zh="北冲 · 考艾">Pak Chong · Khao Yai</div></div>
+</header>
+
+<section class="band band--alt"><div class="manifesto reveal">
+  <span class="eyebrow t" data-en="Our promise" data-th="คำมั่นของเรา" data-zh="我们的承诺">Our promise</span>
+  <p class="t" data-en="Clean, calm &amp; clear. You'll always know what we're doing, what it costs, &amp; why — before anything happens." data-th="สะอาด สงบ และชัดเจน คุณจะรู้เสมอว่าเรากำลังทำอะไร ราคาเท่าไร และเพราะอะไร — ก่อนเริ่มทุกครั้ง" data-zh="洁净、安心、透明。在一切开始之前，您始终清楚我们在做什么、费用多少，以及为什么。">Clean, calm <span class="amp">&amp;</span> clear. You'll always know what we're doing, what it costs, <span class="amp">&amp;</span> why — before anything happens.</p>
 </div></section>
 
-<section><div class="wrap">
- <p class="eyebrow" data-en>Treatments & Prices</p><p class="eyebrow" data-th>บริการและราคา</p>
- <h2><span data-en>Transparent pricing</span><span data-th>ราคาชัดเจน โปร่งใส</span></h2>
- <div class="svc" style="margin-top:14px"><div>
-  <div class="row"><span data-en>Check-up & clean</span><span data-th>ตรวจและขูดหินปูน</span><span class="p">฿800</span></div>
-  <div class="row"><span data-en>Tooth filling</span><span data-th>อุดฟัน</span><span class="p">฿800+</span></div>
-  <div class="row"><span data-en>Teeth whitening</span><span data-th>ฟอกสีฟัน</span><span class="p">฿6,000</span></div>
- </div><div>
-  <div class="row"><span data-en>Dental implant</span><span data-th>รากฟันเทียม</span><span class="p">฿38,000+</span></div>
-  <div class="row"><span data-en>Crown (ceramic)</span><span data-th>ครอบฟันเซรามิก</span><span class="p">฿9,500+</span></div>
-  <div class="row"><span data-en>Root canal</span><span data-th>รักษารากฟัน</span><span class="p">฿6,000+</span></div>
- </div></div>
+<section class="band" id="about"><div class="maxw"><div class="split split--wide reveal">
+  <div class="split-media frame hoverable"><img data-img="1" alt="Clinic interior"></div>
+  <div class="split-text">
+    <span class="idx">01 — <span class="t" data-en="The Clinic" data-th="คลินิก" data-zh="诊所">The Clinic</span></span>
+    <h2 class="t" data-en="Modern, spotless, calm" data-th="ทันสมัย สะอาด สงบ" data-zh="现代、洁净、安心">Modern, spotless, calm</h2>
+    <p class="body t" data-en="Digital X-rays, sterile single-use kits and quiet, comfortable rooms. We treat nervous patients gently and welcome visitors from abroad — care here costs a fraction of what it does back home." data-th="เอกซเรย์ดิจิทัล เครื่องมือฆ่าเชื้อใช้ครั้งเดียว และห้องที่เงียบสบาย เราดูแลคนไข้ที่กังวลอย่างนุ่มนวล และยินดีต้อนรับชาวต่างชาติ — ค่ารักษาที่นี่เป็นเพียงเศษเสี้ยวของที่บ้านคุณ" data-zh="数字 X 光、一次性无菌器械，以及安静舒适的诊室。我们温柔对待紧张的患者，亦欢迎海外访客——此处的费用仅为您本国的零头。">Digital X-rays, sterile single-use kits and quiet, comfortable rooms. We treat nervous patients gently and welcome visitors from abroad — care here costs a fraction of what it does back home.</p>
+    <a href="#services" class="txtlink t" data-en="Services &amp; prices" data-th="บริการและราคา" data-zh="项目与价格">Services &amp; prices <svg class="ic"><use href="#ic-arrow"/></svg></a>
+  </div>
+</div></div></section>
+
+<section class="band band--alt" id="services"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Services &amp; Prices" data-th="บริการและราคา" data-zh="项目与价格">Services &amp; Prices</span><h2 class="t" data-en="Clear prices, no surprises" data-th="ราคาชัดเจน ไม่มีบวกเพิ่ม" data-zh="价格透明，绝无意外">Clear prices, no surprises</h2></div>
+  <p class="hint t" data-en="Starting prices. We confirm the exact figure after your check-up." data-th="ราคาเริ่มต้น เรายืนยันราคาจริงหลังตรวจ" data-zh="为起始价。检查后确认确切金额。">Starting prices. We confirm the exact figure after your check-up.</p></div>
+  <div class="menu-list reveal">
+    <div class="menu-row"><div><div class="mn t" data-en="Check-up &amp; Clean" data-th="ตรวจ + ขูดหินปูน" data-zh="检查与洗牙">Check-up &amp; Clean</div><div class="md t" data-en="Exam, scale &amp; polish" data-th="ตรวจ ขูดหินปูน ขัดฟัน" data-zh="检查、洁治与抛光">Exam, scale &amp; polish</div></div><div class="mp">฿500</div></div>
+    <div class="menu-row"><div><div class="mn t" data-en="Tooth-Coloured Filling" data-th="อุดฟันสีเหมือนฟัน" data-zh="树脂补牙">Tooth-Coloured Filling</div><div class="md t" data-en="Composite, per tooth" data-th="คอมโพสิต ต่อซี่" data-zh="复合树脂，每颗">Composite, per tooth</div></div><div class="mp">฿800</div></div>
+    <div class="menu-row"><div><div class="mn t" data-en="Teeth Whitening" data-th="ฟอกสีฟัน" data-zh="牙齿美白">Teeth Whitening</div><div class="md t" data-en="In-clinic, one session" data-th="ทำที่คลินิก หนึ่งครั้ง" data-zh="诊所内，单次">In-clinic, one session</div></div><div class="mp">฿4,500</div></div>
+    <div class="menu-row"><div><div class="mn t" data-en="Crown / Veneer" data-th="ครอบฟัน / วีเนียร์" data-zh="牙冠 / 贴面">Crown / Veneer</div><div class="md t" data-en="Ceramic, per tooth" data-th="เซรามิก ต่อซี่" data-zh="陶瓷，每颗">Ceramic, per tooth</div></div><div class="mp">฿8,000</div></div>
+    <div class="menu-row"><div><div class="mn t" data-en="Dental Implant" data-th="รากฟันเทียม" data-zh="种植牙">Dental Implant</div><div class="md t" data-en="Fixture + crown" data-th="รากเทียม + ครอบฟัน" data-zh="种植体 + 牙冠">Fixture + crown</div></div><div class="mp">฿40,000</div></div>
+    <div class="menu-row"><div><div class="mn t" data-en="Clear Aligners" data-th="จัดฟันใส" data-zh="隐形矫正">Clear Aligners</div><div class="md t" data-en="Full course, from" data-th="คอร์สเต็ม เริ่มต้น" data-zh="全程，起">Full course, from</div></div><div class="mp">฿120,000</div></div>
+  </div>
 </div></section>
 
-<section class="trust"><div class="wrap center">
- <p class="eyebrow" data-en>Why patients trust us</p><p class="eyebrow" data-th>ทำไมผู้ป่วยไว้วางใจ</p>
- <h2 style="margin-bottom:24px"><span data-en>Safe, modern, international</span><span data-th>ปลอดภัย ทันสมัย ระดับสากล</span></h2>
- <div class="g"><div class="item"><div class="ico">🧪</div><strong data-en>Sterilisation</strong><strong data-th>ระบบฆ่าเชื้อ</strong></div>
-  <div class="item"><div class="ico">🎓</div><strong data-en>Certified dentists</strong><strong data-th>ทันตแพทย์มีใบรับรอง</strong></div>
-  <div class="item"><div class="ico">🌐</div><strong data-en>1,000+ intl patients</strong><strong data-th>ผู้ป่วยต่างชาติ 1,000+</strong></div>
-  <div class="item"><div class="ico">🛬</div><strong data-en>Travel support</strong><strong data-th>ช่วยเรื่องเดินทาง</strong></div></div>
+<section class="band" id="why"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Why Us" data-th="ทำไมต้องเรา" data-zh="为何选择我们">Why Us</span><h2 class="t" data-en="Care you can trust" data-th="การดูแลที่ไว้ใจได้" data-zh="值得信赖的诊疗">Care you can trust</h2></div></div>
+  <div class="amen reveal">
+    <div class="amen-item"><svg class="ic"><use href="#ic-shield"/></svg><h4 class="t" data-en="Strict Hygiene" data-th="สุขอนามัยเข้มงวด" data-zh="严格消毒">Strict Hygiene</h4><p class="t" data-en="Sterile, single-use instruments." data-th="เครื่องมือฆ่าเชื้อ ใช้ครั้งเดียว" data-zh="无菌、一次性器械。">Sterile, single-use instruments.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-sparkle"/></svg><h4 class="t" data-en="Modern Equipment" data-th="อุปกรณ์ทันสมัย" data-zh="现代设备">Modern Equipment</h4><p class="t" data-en="Digital X-ray &amp; imaging." data-th="เอกซเรย์และภาพดิจิทัล" data-zh="数字 X 光与成像。">Digital X-ray &amp; imaging.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-smile"/></svg><h4 class="t" data-en="Gentle Team" data-th="ทีมงานอ่อนโยน" data-zh="温柔团队">Gentle Team</h4><p class="t" data-en="Kind with nervous patients." data-th="ใจดีกับคนไข้ที่กังวล" data-zh="善待紧张的患者。">Kind with nervous patients.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-users"/></svg><h4 class="t" data-en="English Spoken" data-th="พูดอังกฤษได้" data-zh="可英语沟通">English Spoken</h4><p class="t" data-en="Welcoming to visitors." data-th="ยินดีต้อนรับชาวต่างชาติ" data-zh="欢迎海外访客。">Welcoming to visitors.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-ticket"/></svg><h4 class="t" data-en="Clear Pricing" data-th="ราคาชัดเจน" data-zh="价格透明">Clear Pricing</h4><p class="t" data-en="A written quote, every time." data-th="ใบเสนอราคาทุกครั้ง" data-zh="每次均提供书面报价。">A written quote, every time.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-calendar"/></svg><h4 class="t" data-en="Easy Booking" data-th="นัดหมายง่าย" data-zh="预约便捷">Easy Booking</h4><p class="t" data-en="By LINE, phone or this site." data-th="ทาง LINE โทร หรือเว็บนี้" data-zh="可经 LINE、电话或本站预约。">By LINE, phone or this site.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-parking"/></svg><h4 class="t" data-en="Free Parking" data-th="ที่จอดรถฟรี" data-zh="免费停车">Free Parking</h4><p class="t" data-en="Right outside the door." data-th="หน้าคลินิกเลย" data-zh="门前即停。">Right outside the door.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-clock"/></svg><h4 class="t" data-en="Open 6 Days" data-th="เปิด 6 วัน" data-zh="每周营业六天">Open 6 Days</h4><p class="t" data-en="Including weekends." data-th="รวมวันหยุดสุดสัปดาห์" data-zh="含周末。">Including weekends.</p></div>
+  </div>
 </div></section>
 
-<section><div class="wrap center" style="margin-bottom:22px">
- <p class="eyebrow" data-en>Our Dentists</p><p class="eyebrow" data-th>ทันตแพทย์ของเรา</p>
- <h2><span data-en>Meet the team</span><span data-th>ทีมงานของเรา</span></h2></div>
- <div class="wrap docs"><div class="doc"><div class="av"></div><b>Dr. [Name]</b><p style="color:var(--muted);font-size:.9rem" data-en>Implantology · 15 yrs</p><p style="color:var(--muted);font-size:.9rem" data-th>รากฟันเทียม · 15 ปี</p></div>
-  <div class="doc"><div class="av"></div><b>Dr. [Name]</b><p style="color:var(--muted);font-size:.9rem" data-en>Cosmetic · 10 yrs</p><p style="color:var(--muted);font-size:.9rem" data-th>ความงาม · 10 ปี</p></div>
-  <div class="doc"><div class="av"></div><b>Dr. [Name]</b><p style="color:var(--muted);font-size:.9rem" data-en>Orthodontics · 12 yrs</p><p style="color:var(--muted);font-size:.9rem" data-th>จัดฟัน · 12 ปี</p></div></div>
+<section class="band band--alt" id="gallery"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</span><h2 class="t" data-en="Inside the clinic" data-th="ภายในคลินิก" data-zh="诊所一览">Inside the clinic</h2></div>
+  <p class="hint t" data-en="Real spaces at Bangkok Dental Khao Yai — clean, modern, calm." data-th="พื้นที่จริงที่คลินิก — สะอาด ทันสมัย สงบ" data-zh="诊所真实空间——洁净、现代、安心。">Real spaces at Bangkok Dental Khao Yai — clean, modern, calm.</p></div>
+  <div class="gal reveal" id="gallery-grid"></div>
+</div></section>
+
+<section class="feature">
+  <div class="feature-bg frame"><img data-img="6" alt=""></div>
+  <div class="feature-inner reveal">
+    <span class="eyebrow t" data-en="What patients say" data-th="เสียงจากคนไข้" data-zh="患者之声">What patients say</span>
+    <blockquote class="t" data-en="“Spotless, modern, and genuinely gentle. They explained every step and the price up front. The best dental experience I've had.”" data-th="“สะอาด ทันสมัย และอ่อนโยนจริง ๆ อธิบายทุกขั้นตอนและราคาล่วงหน้า ประสบการณ์ทำฟันที่ดีที่สุดเท่าที่เคยมี”" data-zh="“一尘不染、现代，且真正温柔。每一步与价格都事先说明。我经历过最好的牙科体验。”">“Spotless, modern, and genuinely gentle. They explained every step and the price up front. The best dental experience I've had.”</blockquote>
+    <div class="attrib"><span class="stars"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg></span><span class="t" data-en="5.0 average · Google reviews" data-th="เฉลี่ย 5.0 · รีวิว Google" data-zh="平均 5.0 分 · Google 评价">5.0 average · Google reviews</span></div>
+  </div>
 </section>
 
-<section id="book" class="book"><div class="wrap">
- <p class="eyebrow" style="color:#fff" data-en>Free consultation</p><p class="eyebrow" style="color:#fff" data-th>ปรึกษาฟรี</p>
- <h2><span data-en>Get your free quote today</span><span data-th>ขอใบเสนอราคาฟรีวันนี้</span></h2>
- <p style="max-width:46ch;margin:8px auto 22px"><span data-en>Send your X-ray or describe what you need — we'll reply with a treatment plan, price and timeline. No obligation.</span><span data-th class="b">ส่งฟิล์มเอกซเรย์หรือบอกสิ่งที่ต้องการ เราจะตอบแผนการรักษา ราคา และระยะเวลา ไม่มีข้อผูกมัด</span></p>
- <a href="https://wa.me/66800000000" class="btn btn-wa">🟢 <span data-en>WhatsApp us</span><span data-th>ทาง WhatsApp</span></a>
- <a href="https://line.me/R/ti/p/@smiledentalkrabi" class="btn btn-primary">💬 LINE</a>
+<section class="band" id="book"><div class="maxw reserve">
+  <div class="reveal">
+    <span class="eyebrow t" data-en="Appointments" data-th="นัดหมาย" data-zh="预约">Appointments</span>
+    <h2 class="t" data-en="Book a visit" data-th="นัดหมายเข้าพบ" data-zh="预约就诊">Book a visit</h2>
+    <p class="lead t" data-en="Send what you need and a time that suits — we reply quickly in English, ไทย or 中文. First check-ups are unhurried and honest." data-th="บอกสิ่งที่ต้องการและเวลาที่สะดวก — เราตอบกลับเร็วทั้งอังกฤษ ไทย หรือจีน การตรวจครั้งแรกไม่เร่งรีบและตรงไปตรงมา" data-zh="告知所需与方便的时间——我们将以英文、泰文或中文迅速回复。首次检查从容而坦诚。">Send what you need and a time that suits — we reply quickly in English, ไทย or 中文. First check-ups are unhurried and honest.</p>
+    <div class="contact-row"><svg class="ic"><use href="#ic-pin"/></svg><div><div class="k t" data-en="Address" data-th="ที่อยู่" data-zh="地址">Address</div><div class="v">Mu Si, Pak Chong, Nakhon Ratchasima 30130</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-phone"/></svg><div><div class="k t" data-en="Telephone" data-th="โทรศัพท์" data-zh="电话">Telephone</div><div class="v">+66 62 498 3666</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-chat"/></svg><div><div class="k">LINE</div><div class="v">@bangkokdentalkhaoyai</div></div></div>
+  </div>
+  <form class="eform reveal" onsubmit="return false">
+    <div class="field"><label class="t" data-en="Full name" data-th="ชื่อ-นามสกุล" data-zh="姓名">Full name</label><input type="text" autocomplete="name"></div>
+    <div class="field"><label class="t" data-en="What do you need?" data-th="ต้องการทำอะไร?" data-zh="您需要什么？">What do you need?</label><input type="text"></div>
+    <div class="field two"><div><label class="t" data-en="Preferred date" data-th="วันที่สะดวก" data-zh="期望日期">Preferred date</label><input type="date"></div><div><label class="t" data-en="Phone / LINE" data-th="โทร / LINE" data-zh="电话 / LINE">Phone / LINE</label><input type="text"></div></div>
+    <button class="btn btn--solid t" data-en="Request appointment" data-th="ขอนัดหมาย" data-zh="申请预约">Request appointment <svg class="ic"><use href="#ic-arrow"/></svg></button>
+  </form>
 </div></section>
 
-<footer><div class="wrap"><div class="logo" style="color:#fff;justify-content:center">🦷 Smile Dental Krabi</div>
- <p style="margin-top:8px;font-size:.9rem">Krabi, Thailand · WhatsApp +66 80 000 0000 · 💬 <a href="https://line.me/R/ti/p/@smiledentalkrabi">LINE</a></p>
- <p style="font-size:.8rem;color:#94a3b8;margin-top:10px">© <span id="yr"></span> Smile Dental Krabi</p></div></footer>
-<div class="float"><a class="f-wa" href="https://wa.me/66800000000">🟢</a><a class="f-line" href="https://line.me/R/ti/p/@smiledentalkrabi">💬</a></div>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Smile Dental Krabi","priceRange":"฿฿","telephone":"+66800000000","address":{"@type":"PostalAddress","addressLocality":"Krabi","addressCountry":"TH"}}</script>
-<script>function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}(function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();</script>
-</body></html>
+<footer class="foot"><div class="maxw"><div class="foot-top">
+  <div class="foot-brand"><div class="brand">Bangkok Dental</div>
+    <p class="t" data-en="Gentle, modern dental care in Mu Si, Pak Chong — Khao Yai. Visitors from abroad welcome." data-th="การดูแลฟันที่อ่อนโยนและทันสมัยในหมู่สี ปากช่อง เขาใหญ่ ยินดีต้อนรับชาวต่างชาติ" data-zh="坐落于考艾北冲 Mu Si 的温和现代口腔诊疗。欢迎海外访客。">Gentle, modern dental care in Mu Si, Pak Chong — Khao Yai. Visitors from abroad welcome.</p>
+    <div class="foot-soc"><a href="#" aria-label="Facebook"><svg class="ic"><use href="#ic-fb"/></svg></a><a href="#" aria-label="LINE"><svg class="ic"><use href="#ic-chat"/></svg></a></div></div>
+  <div class="foot-col"><h5 class="t" data-en="Explore" data-th="สำรวจ" data-zh="导览">Explore</h5><a href="#services" class="t" data-en="Services" data-th="บริการ" data-zh="项目">Services</a><a href="#why" class="t" data-en="Why Us" data-th="ทำไมเรา" data-zh="为何选择">Why Us</a><a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a><a href="#book" class="t" data-en="Book a visit" data-th="นัดหมาย" data-zh="预约">Book a visit</a></div>
+  <div class="foot-col"><h5 class="t" data-en="Visit" data-th="เยี่ยมชม" data-zh="到访">Visit</h5><p>Mu Si, Pak Chong</p><p>Nakhon Ratchasima 30130</p><p>+66 62 498 3666</p><a href="#book" class="t" data-en="Book a visit →" data-th="นัดหมาย →" data-zh="预约 →">Book a visit →</a></div>
+</div><div class="foot-bottom"><div>© 2026 Bangkok Dental Khao Yai</div><div class="disc t" data-en="Design concept for demonstration — not the official website of Bangkok Dental Khao Yai. Photography © respective owners, via Google Maps." data-th="แนวคิดการออกแบบเพื่อการสาธิต — ไม่ใช่เว็บไซต์ทางการ ภาพถ่ายเป็นลิขสิทธิ์ของเจ้าของ ผ่าน Google Maps" data-zh="设计概念演示——非官方网站。图片版权归各自所有者，来源 Google 地图。">Design concept for demonstration — not the official website of Bangkok Dental Khao Yai. Photography © respective owners, via Google Maps.</div></div></div></footer>
+
+<div class="bookbar" id="bookbar"><div class="bb-name">Bangkok Dental</div><div class="bb-r"><span class="bb-note t" data-en="Check-up from ฿500 · open 6 days" data-th="ตรวจฟันเริ่ม ฿500 · เปิด 6 วัน" data-zh="检查 ฿500 起 · 每周六天">Check-up from ฿500 · open 6 days</span><a href="#book" class="btn btn--solid t" data-en="Book a visit" data-th="นัดหมาย" data-zh="预约">Book a visit</a></div></div>
+
+<script>
+window.PAGE_NAME="Bangkok Dental Khao Yai";
+window.GAL_USED=[0,1,6];
+window.IMG=["https://lh3.googleusercontent.com/gps-cs-s/APNQkAGYgch-lFqjEniTenxIGa8e3V-ih_Cpu7PT4oukg1jNmvLFn531qnN_FaC7wMQ9nmJomzsVojwZRMI4RcI2GNmKf79fok0mGj-Uhi7taKdE_hNmdlYJ6a5dwVlKMj9Bkc0diroI","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFXohLxgvoxBZvGP0BMnmbRClBPnTp-p-_mmQMS7fnsDKcAy9M-Gm0nAFCJ5xYKZz0wziSgN5aBblrm7VRdbhkX5N8sThwhxyMQmULUkM9comVXkMLdkZDr9HDqS3KfcfiGqiUP","https://lh3.googleusercontent.com/gps-cs-s/APNQkAH3g_IADJb_Tf8NRdVrPF5QC9Wc2Gmm3UtndY4AHwESAwKSFeMVLOVhtv0vkdqot-HoiVPHQfsy-LCtaa4EOFFWOfBqEWo-vGbNezM_hYC4t5NhG0SdSxss1x1X-jbkPeuUKak","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFVpVApqE2YJq3DtOd0cpUMzcXHVeL9Faz7k1YhpPYHcPGv1XwqmTy4XHvQ02ST1Om2eS6clJ0XllTkZi3gyJxGQNMLSbVAfkP1ztls0XDZVIRNllbsqJBDUXO9YdM1h6SL6RGq-w","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG9teHLuG-7QFXRhe1iMFYUwxV72GgiYS8VyTjS_5WFtBv13cXifSK8xmB93HQ5rJCLfgbGExEVoxrnoIG__h0AaY2lArb59D63ngTQMH-saVSmo8XsSuLVFDsM30m6j8beakUV","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHRtSHAmhf71Ipg7HIm1UwnWvF4Gw7E0jKmF_K_XeGAyQrYC3CegdT9PcJ2KZylYy3qkTeL17P7D8NtG8jjSmZ9WEzWF4zmT46gAGO1E3fcIcD1RBCKVDn1Xf8uKVdZR3tfp5MO","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEA58jdOx1SUiINXdPCj-4b5KYVtC5K_GHC6TlZ-w9O50kDoUqIT7yPPvxjtIms18XHJvgLimJvwfGOmQwbKeH2VkrvzBY7jV-o912IMu6gepEt7zYdKtRKJIw7WbGIQ2KjqE0EGw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFfHDl4hb96or2HVQST8lVvSLdOZ0hHPj8wP3DCuDvtZVimXArevGpWAMJ9u74vxHUW1xn_i10KgIdkuW0HN75E0jZCB60dT0fAaHRkX8ury2ffYeo_5C1lFdLj0XF8kSfuP-Zpiw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHC8_tQny5C-EKZkT_KrfscgzCq4zeeG53K2F_7Ag0yYu5xyqglj1qokPoK-i7oPO1NXW4Vfcz2JrSHFpYv7YLfWB8OZwA4J6W2FN7BYTuLwIjRwgoVJYD55bgaJWz9MQHmLDsrZQ","https://lh3.googleusercontent.com/gps-cs-s/APNQkAESrXnf_qpQejq-IJcEO_qw2U5xiKiDpgC54mhLrQckHlU5JRQ3FkU9iuxrcylyHWHHyTscTNkTVPRcAdsGw9glXUvFhAEfOitLEnR9S_jPdJye76bu7B1gP3VebL_gkELm57RM","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFNFGHOafRXFsr-N4wM1YQz7Lgs27ZCKLF4MdutqCxstZK5y0wWF81JU_2y1Yar7DrsAvIZWMeJ93WQXJmSN1_jwqBUEXG6h9qHzbdA6QgjBrkoPsic3y50HTtpMHQQe2tQK8oY","https://lh3.googleusercontent.com/gps-cs-s/APNQkAE2LVGy-mXpfE4qrP2-rA-BNHBWaeE1Oge2AMt4S1BFYGbSXC0KWl-tFz2uRjLRpHFKR7MK_ewxlTDfk_OIuhlM9gFjjVmaJoz8Ff-fAqWRSNwJrzi9xaloaPBr6CIrj1W_XJQm"];
+</script>
+<script src="../assets/luxe.js"></script>
+</body>
+</html>

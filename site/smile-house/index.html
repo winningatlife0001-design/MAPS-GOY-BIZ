@@ -1,249 +1,147 @@
 <!DOCTYPE html>
-<!--
-  ============================================================================
-  REBUILD DEMO  —  "Smile House" (Koh Samui)
-  ----------------------------------------------------------------------------
-  WHY THIS EXISTS: Smile House has 900+ Google reviews but their real website
-  (samuismilehouse.com) currently shows a BLANK hosting placeholder. This is a
-  spec rebuild to show the owner "here's what yours could look like" in the
-  first message. TIER = budget/mid (bright, friendly, prices up front).
-
-  ⚠️ DEMO DATA: room names, prices, address and photos are realistic
-  placeholders — confirm the real details with the owner before going live.
-  Search "CONFIRM" to find every assumption.
-  ============================================================================
--->
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Smile House Samui — Friendly Budget Hotel near Chaweng Beach</title>
-<meta name="description" content="Smile House: friendly, great-value rooms a few minutes from Chaweng Beach, Koh Samui. Pool, free WiFi, breakfast. Book direct & save — chat on LINE." />
-<meta name="theme-color" content="#0ea5e9" />
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>😊</text></svg>" />
-<meta property="og:title" content="Smile House Samui — Friendly Budget Hotel near Chaweng" />
-<meta property="og:description" content="Great-value rooms minutes from Chaweng Beach. Book direct & save. Chat on LINE." />
-<style>
-  /* ---- BUDGET / MID TIER THEME TOKENS (bright, friendly, prices loud) ---- */
-  :root{
-    --brand:#0ea5e9; --brand-dark:#0369a1; --accent:#f97316;
-    --ink:#1f2937; --muted:#6b7280; --bg:#ffffff; --soft:#eff6ff; --line:#e5e7eb;
-    --line-green:#06c755; --wa-green:#25d366;
-    --radius:18px; --shadow:0 6px 22px rgba(0,0,0,.09); --maxw:1080px;
-    font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Roboto,Arial,sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{color:var(--ink);background:var(--bg);line-height:1.6}
-  a{color:inherit}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px}
-  .btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;font-weight:800;
-    font-size:1rem;padding:13px 22px;border-radius:999px;text-decoration:none;transition:transform .08s}
-  .btn:active{transform:translateY(1px)}
-  .btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow)}
-  .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.7)}
-  .btn-line{background:var(--line-green);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
-  section{padding:58px 0}
-  h2{font-size:1.8rem;line-height:1.15;margin-bottom:8px}
-  .lead{color:var(--muted);max-width:600px;margin-bottom:30px}
-  .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem}
-  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .logo{font-weight:800;font-size:1.2rem;color:var(--brand);display:flex;gap:8px;align-items:center}
-  .nav-right{display:flex;align-items:center;gap:12px}
-  .nav-links{display:flex;gap:20px}
-  .nav-links a{text-decoration:none;font-weight:600;font-size:.95rem}.nav-links a:hover{color:var(--brand)}
-  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
-  .lang button{border:0;background:#fff;padding:6px 11px;cursor:pointer;font-weight:700;color:var(--muted)}
-  .lang button.active{background:var(--brand);color:#fff}
-  @media(max-width:820px){.nav-links{display:none}}
-  .hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;color:#fff;
-    /* CONFIRM: replace gradient with a real bright photo of the hotel/pool */
-    background:linear-gradient(120deg,#0ea5e9,#06b6d4 55%,#22d3ee)}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.03) 60%)}
-  .hero-inner{position:relative;z-index:2;padding:0 18px 52px;max-width:var(--maxw);margin:0 auto;width:100%}
-  .hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.07;max-width:15ch;text-shadow:0 2px 16px rgba(0,0,0,.35)}
-  .hero p{font-size:1.12rem;max-width:32ch;margin:14px 0 24px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
-  .pill{position:absolute;top:16px;right:16px;z-index:2;background:var(--accent);color:#fff;font-weight:800;
-    padding:8px 14px;border-radius:999px;font-size:.85rem;box-shadow:var(--shadow)}
-  .trust{background:var(--brand-dark);color:#fff}
-  .trust .wrap{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;padding:15px 18px;font-weight:600;font-size:.95rem}
-  .trust span{display:flex;align-items:center;gap:7px}
-  .grid{display:grid;gap:20px}.g3{grid-template-columns:repeat(3,1fr)}
-  @media(max-width:860px){.g3{grid-template-columns:1fr 1fr}}@media(max-width:600px){.g3{grid-template-columns:1fr}}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-  .card .ph{height:180px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
-  .card .body{padding:17px}.card h3{font-size:1.12rem;margin-bottom:4px}
-  .price{font-size:1.5rem;font-weight:800;color:var(--accent)}.price small{font-size:.8rem;color:var(--muted);font-weight:600}
-  .feats{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
-  .feats li{background:var(--soft);border-radius:999px;padding:4px 10px;font-size:.8rem}
-  .ph-1{background:linear-gradient(135deg,#0ea5e9,#22d3ee)}.ph-2{background:linear-gradient(135deg,#f97316,#fbbf24)}
-  .ph-3{background:linear-gradient(135deg,#06b6d4,#3b82f6)}.ph-4{background:linear-gradient(135deg,#10b981,#22d3ee)}
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.gallery .ph{height:140px;border-radius:12px}
-  @media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
-  .amen{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center}
-  .amen .item{background:var(--soft);border-radius:var(--radius);padding:20px 10px}.amen .ico{font-size:1.7rem}
-  @media(max-width:700px){.amen{grid-template-columns:1fr 1fr}}
-  .reviews{background:var(--soft)}
-  blockquote{background:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);font-style:italic}
-  blockquote footer{margin-top:8px;font-style:normal;font-weight:700;color:var(--muted);font-size:.9rem}
-  .loc{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}@media(max-width:760px){.loc{grid-template-columns:1fr}}
-  .map{border:0;width:100%;height:320px;border-radius:var(--radius)}
-  .book{background:var(--brand)}.book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;color:#fff}
-  @media(max-width:760px){.book .wrap{grid-template-columns:1fr}}
-  form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-  .field{margin-bottom:13px}label{display:block;font-weight:700;font-size:.85rem;margin-bottom:5px}
-  input,select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:inherit}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-  .float{position:fixed;right:15px;bottom:15px;z-index:60;display:flex;flex-direction:column;gap:10px}
-  .float a{width:53px;height:53px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
-  .f-line{background:var(--line-green)}.f-wa{background:var(--wa-green)}.f-call{background:var(--accent)}
-  footer.site{background:#0b1220;color:#cbd5e1;padding:42px 0 26px}footer.site a{color:#cbd5e1;text-decoration:none}
-  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px}@media(max-width:700px){.foot-grid{grid-template-columns:1fr}}
-  .foot-grid h4{color:#fff;margin-bottom:9px}.copyright{border-top:1px solid #1e293b;margin-top:24px;padding-top:16px;font-size:.85rem;color:#94a3b8;text-align:center}
-  [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tharapana Khao Yai — Creek-Side Resort</title>
+<meta name="description" content="Tharapana Khao Yai — a friendly creek-side resort with clean rooms, a pool and mountain air, from ฿900 a night. Book direct and save.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/luxe.css">
+<style>:root{--bg:#F5F3EC;--bg-2:#E9EADF;--bg-3:#DEE3D5;--ink:#262922;--ink-soft:#576154;--ink-faint:#869079;--line:rgba(38,41,34,.13);--line-soft:rgba(38,41,34,.07);--accent:#3E8E7E;--accent-deep:#2A6256;--dark:#21302B;--cream:#ECEFE3;--gold:#C2A05A;--grade-overlay:rgba(62,142,126,.05)}</style>
 </head>
-<body>
-<header><div class="wrap nav">
-  <div class="logo"><svg width="30" height="30" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 7 5 23h38L24 7z" fill="#0369a1"/><rect x="10" y="22" width="28" height="18" rx="3" fill="#0ea5e9"/><circle cx="19" cy="29" r="2.1" fill="#fff"/><circle cx="29" cy="29" r="2.1" fill="#fff"/><path d="M18 33.5c2 3 10 3 12 0" stroke="#fff" stroke-width="2.3" fill="none" stroke-linecap="round"/></svg> Smile House</div>
-  <div class="nav-right">
-    <nav class="nav-links">
-      <a href="#rooms" data-en>Rooms</a><a href="#rooms" data-th>ห้องพัก</a>
-      <a href="#amenities" data-en>Facilities</a><a href="#amenities" data-th>สิ่งอำนวยความสะดวก</a>
-      <a href="#location" data-en>Location</a><a href="#location" data-th>ที่ตั้ง</a>
-    </nav>
-    <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
-    <a href="#book" class="btn btn-primary" style="padding:9px 16px"><span data-en>Book Direct</span><span data-th>จองตรง</span></a>
-  </div>
-</div></header>
+<body lang="en">
+<div class="grain"></div>
 
-<section class="hero" style="padding:0">
-  <div class="pill"><span data-en>★ Book direct & save</span><span data-th>★ จองตรง ประหยัดกว่า</span></div>
-  <div class="hero-inner">
-    <h1><span data-en>Friendly, great-value stays by Chaweng Beach</span><span data-th class="b">ที่พักราคาดี อบอุ่น ใกล้หาดเฉวง</span></h1>
-    <!-- CONFIRM: exact distance to beach -->
-    <p><span data-en>Clean comfy rooms, a cool pool, and a 5-minute stroll to the sand. 😊</span><span data-th class="b">ห้องสะอาดสบาย มีสระว่ายน้ำ เดินเพียง 5 นาทีถึงหาด 😊</span></p>
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">Tharapana</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#rooms" class="t" data-en="Rooms" data-th="ห้องพัก" data-zh="客房">Rooms</a>
+    <a href="#about" class="t" data-en="The Resort" data-th="รีสอร์ต" data-zh="度假村">The Resort</a>
+    <a href="#amenities" class="t" data-en="Facilities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Facilities</a>
+    <a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a>
+    <a href="#book" class="navbtn t" data-en="Book direct" data-th="จองตรง" data-zh="直接预订">Book direct</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang" id="lang"><button data-l="en" class="active">EN</button><span>·</span><button data-l="th">ไทย</button><span>·</span><button data-l="zh">中文</button></div>
+    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-media frame"><img data-img="0" alt="Tharapana creek-side resort" fetchpriority="high"></div>
+  <div class="hero-inner maxw">
+    <div class="hero-eyebrow eyebrow"><span class="tick"></span><span class="t" data-en="Khao Yai · By the creek" data-th="เขาใหญ่ · ริมลำธาร" data-zh="考艾 · 溪畔">Khao Yai · By the creek</span></div>
+    <h1 class="t" data-en="Wake up by the stream." data-th="ตื่นมาริมลำธาร" data-zh="在溪水声中醒来。">Wake up by the stream.</h1>
+    <p class="hero-sub t" data-en="A friendly creek-side resort in Khao Yai — clean, comfy rooms, a pool, and the sound of running water, from ฿900 a night." data-th="รีสอร์ตริมลำธารสุดอบอุ่นในเขาใหญ่ — ห้องสะอาดสบาย มีสระว่ายน้ำ และเสียงน้ำไหล เริ่มต้นเพียงคืนละ ฿900" data-zh="考艾一家温馨的溪畔度假村——干净舒适的客房、泳池，与潺潺水声，每晚 ฿900 起。">A friendly creek-side resort in Khao Yai — clean, comfy rooms, a pool, and the sound of running water, from ฿900 a night.</p>
     <div class="hero-cta">
-      <a href="#book" class="btn btn-primary"><span data-en>Check availability</span><span data-th>เช็คห้องว่าง</span></a>
-      <!-- CONFIRM: LINE id + phone -->
-      <a href="https://line.me/R/ti/p/@smilehousesamui" class="btn btn-line">💬 <span data-en>Chat on LINE</span><span data-th>แชท LINE</span></a>
-      <a href="tel:+66770000000" class="btn btn-ghost">📞 <span data-en>Call</span><span data-th>โทร</span></a>
+      <a href="#book" class="btn btn--ghost-light t" data-en="Book direct &amp; save" data-th="จองตรง ราคาดีกว่า" data-zh="直接预订更优惠">Book direct &amp; save</a>
+      <a href="#rooms" class="btn btn--ghost-light t" data-en="See rooms" data-th="ดูห้องพัก" data-zh="查看客房">See rooms</a>
     </div>
+  </div>
+  <div class="scrollcue"><span class="ln"></span><span class="t" data-en="Scroll" data-th="เลื่อนลง" data-zh="向下滚动">Scroll</span></div>
+  <div class="hero-meta"><div class="t" data-en="Creek-Side Resort" data-th="รีสอร์ตริมลำธาร" data-zh="溪畔度假村">Creek-Side Resort</div><div class="t" data-en="from ฿900 / night" data-th="เริ่ม ฿900 / คืน" data-zh="฿900 / 晚起">from ฿900 / night</div></div>
+</header>
+
+<section class="band band--alt"><div class="manifesto reveal">
+  <span class="eyebrow t" data-en="Simple &amp; lovely" data-th="เรียบง่ายและน่ารัก" data-zh="简单而美好">Simple &amp; lovely</span>
+  <p class="t" data-en="Nothing fancy — just a genuinely lovely spot by the water. Clean rooms, kind staff, mountain air, &amp; a price that leaves room for the fun stuff." data-th="ไม่ต้องหรูหรา — แค่ที่พักน่ารักริมน้ำจริง ๆ ห้องสะอาด พนักงานใจดี อากาศภูเขา และราคาที่เหลือเงินไว้เที่ยว" data-zh="无需奢华——只是一处真正惬意的水畔小居。干净的房间、亲切的员工、清新山风，以及让你还有预算去玩的价格。">Nothing fancy — just a genuinely lovely spot by the water. Clean rooms, kind staff, mountain air, <span class="amp">&amp;</span> a price that leaves room for the fun stuff.</p>
+</div></section>
+
+<section class="band" id="about"><div class="maxw"><div class="split split--wide reveal">
+  <div class="split-media frame hoverable"><img data-img="2" alt="The creek and gardens"></div>
+  <div class="split-text">
+    <span class="idx">01 — <span class="t" data-en="The Resort" data-th="รีสอร์ต" data-zh="度假村">The Resort</span></span>
+    <h2 class="t" data-en="A little patch of calm" data-th="มุมสงบเล็ก ๆ" data-zh="一隅静地">A little patch of calm</h2>
+    <p class="body t" data-en="Rooms set among gardens beside a clear mountain creek. Fall asleep to running water, wake to birds and cool air, take a dip in the pool, and let Khao Yai do the rest." data-th="ห้องพักท่ามกลางสวนริมลำธารใสจากภูเขา หลับไปกับเสียงน้ำไหล ตื่นมากับเสียงนกและอากาศเย็น ลงเล่นน้ำในสระ แล้วปล่อยให้เขาใหญ่ดูแลส่วนที่เหลือ" data-zh="客房散落于花园之间，紧邻清澈的山涧。伴着水声入眠，在鸟鸣与凉风中醒来，到泳池畅游一番，其余的，就交给考艾。">Rooms set among gardens beside a clear mountain creek. Fall asleep to running water, wake to birds and cool air, take a dip in the pool, and let Khao Yai do the rest.</p>
+    <a href="#rooms" class="txtlink t" data-en="See the rooms" data-th="ดูห้องพัก" data-zh="查看客房">See the rooms <svg class="ic"><use href="#ic-arrow"/></svg></a>
+  </div>
+</div></div></section>
+
+<section class="band band--alt" id="rooms"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Rooms" data-th="ห้องพัก" data-zh="客房">Rooms</span><h2 class="t" data-en="Comfy rooms, fair prices" data-th="ห้องสบาย ราคาคุ้ม" data-zh="舒适客房，实在价格">Comfy rooms, fair prices</h2></div>
+  <p class="hint t" data-en="Per night, breakfast included. Book direct here for our best rate." data-th="ต่อคืน รวมอาหารเช้า จองตรงที่นี่ได้ราคาดีที่สุด" data-zh="每晚含早餐。本站直订享最优价。">Per night, breakfast included. Book direct here for our best rate.</p></div></div>
+  <div class="rows reveal">
+    <div class="row"><div class="row-media frame hoverable"><img data-img="3" alt="Creek-View Room"></div><div class="row-body"><span class="idx">A</span>
+      <h3 class="t" data-en="Creek-View Room" data-th="ห้องวิวลำธาร" data-zh="溪景房">Creek-View Room</h3>
+      <div class="row-tags"><span class="t" data-en="Stream view" data-th="วิวลำธาร" data-zh="溪流景">Stream view</span><span class="t" data-en="Air-con" data-th="แอร์" data-zh="空调">Air-con</span><span class="t" data-en="Sleeps 2" data-th="พัก 2" data-zh="可住 2 人">Sleeps 2</span></div>
+      <p class="desc t" data-en="Our favourite — a bright, clean room with the creek right outside the window." data-th="ห้องโปรดของเรา — ห้องสว่างสะอาด มีลำธารอยู่นอกหน้าต่าง" data-zh="我们的最爱——明亮干净，推窗即见溪流。">Our favourite — a bright, clean room with the creek right outside the window.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿1,200</div><a href="#book" class="btn btn--accent t" data-en="Book" data-th="จอง" data-zh="预订">Book</a></div></div></div>
+    <div class="row"><div class="row-media frame hoverable"><img data-img="6" alt="Garden Bungalow"></div><div class="row-body"><span class="idx">B</span>
+      <h3 class="t" data-en="Garden Bungalow" data-th="บังกะโลในสวน" data-zh="花园平房">Garden Bungalow</h3>
+      <div class="row-tags"><span class="t" data-en="Private porch" data-th="ระเบียงส่วนตัว" data-zh="私属门廊">Private porch</span><span class="t" data-en="Garden" data-th="สวน" data-zh="花园">Garden</span><span class="t" data-en="Sleeps 2" data-th="พัก 2" data-zh="可住 2 人">Sleeps 2</span></div>
+      <p class="desc t" data-en="A cosy stand-alone bungalow opening onto the garden — our best-value room." data-th="บังกะโลเดี่ยวอบอุ่น เปิดออกสู่สวน — ห้องคุ้มค่าที่สุด" data-zh="温馨独栋平房，向花园敞开——最超值之选。">A cosy stand-alone bungalow opening onto the garden — our best-value room.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿900</div><a href="#book" class="btn btn--accent t" data-en="Book" data-th="จอง" data-zh="预订">Book</a></div></div></div>
+    <div class="row"><div class="row-media frame hoverable"><img data-img="9" alt="Family Room"></div><div class="row-body"><span class="idx">C</span>
+      <h3 class="t" data-en="Family Room" data-th="ห้องครอบครัว" data-zh="家庭房">Family Room</h3>
+      <div class="row-tags"><span class="t" data-en="Sleeps 4" data-th="พัก 4" data-zh="可住 4 人">Sleeps 4</span><span class="t" data-en="Two beds" data-th="สองเตียง" data-zh="两张床">Two beds</span><span class="t" data-en="Near pool" data-th="ใกล้สระ" data-zh="近泳池">Near pool</span></div>
+      <p class="desc t" data-en="Room for the whole family, steps from the pool and the garden lawn." data-th="กว้างพอสำหรับทั้งครอบครัว ใกล้สระและสนามหญ้า" data-zh="全家同住，紧邻泳池与花园草坪。">Room for the whole family, steps from the pool and the garden lawn.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿1,800</div><a href="#book" class="btn btn--accent t" data-en="Book" data-th="จอง" data-zh="预订">Book</a></div></div></div>
   </div>
 </section>
 
-<div class="trust"><div class="wrap">
-  <span>😊 <span data-en>900+ guest reviews</span><span data-th>รีวิวกว่า 900 รายการ</span></span>
-  <span>💸 <span data-en>Best price direct</span><span data-th>ราคาดีที่สุดเมื่อจองตรง</span></span>
-  <span>📶 <span data-en>Free WiFi</span><span data-th>WiFi ฟรี</span></span>
-  <span>🏊 <span data-en>Swimming pool</span><span data-th>สระว่ายน้ำ</span></span>
-  <span>🛵 <span data-en>Scooter rental</span><span data-th>เช่ามอเตอร์ไซค์</span></span>
-</div></div>
-
-<section id="rooms"><div class="wrap">
-  <p class="eyebrow" data-en>Our Rooms</p><p class="eyebrow" data-th>ห้องพัก</p>
-  <h2><span data-en>Comfy rooms, honest prices</span><span data-th>ห้องสบาย ราคาคุ้มค่า</span></h2>
-  <p class="lead"><span data-en>All rooms have air-con, hot shower and free WiFi. Book here for the best rate — cheaper than the booking apps.</span><span data-th class="b">ทุกห้องมีแอร์ น้ำอุ่น และ WiFi ฟรี จองที่นี่ราคาดีที่สุด ถูกกว่าแอปจองทั่วไป</span></p>
-  <!-- CONFIRM all room names + prices with owner -->
-  <div class="grid g3">
-    <article class="card"><div class="ph ph-1"><span data-en>Standard Room</span><span data-th>ห้องสแตนดาร์ด</span></div><div class="body">
-      <h3>Standard Room</h3><ul class="feats"><li>2 <span data-en>guests</span><span data-th>ท่าน</span></li><li>❄️ A/C</li><li>📶 WiFi</li></ul>
-      <div class="price">฿890 <small data-en>/ night</small><small data-th>/ คืน</small></div>
-      <a href="#book" class="btn btn-outline" style="margin-top:11px;width:100%;justify-content:center"><span data-en>Book</span><span data-th>จอง</span></a></div></article>
-    <article class="card"><div class="ph ph-2"><span data-en>Deluxe Pool View</span><span data-th>ดีลักซ์ วิวสระ</span></div><div class="body">
-      <h3>Deluxe Pool View</h3><ul class="feats"><li>2 <span data-en>guests</span><span data-th>ท่าน</span></li><li>🏊 <span data-en>Pool view</span><span data-th>วิวสระ</span></li><li>🧊 <span data-en>Fridge</span><span data-th>ตู้เย็น</span></li></ul>
-      <div class="price">฿1,290 <small data-en>/ night</small><small data-th>/ คืน</small></div>
-      <a href="#book" class="btn btn-outline" style="margin-top:11px;width:100%;justify-content:center"><span data-en>Book</span><span data-th>จอง</span></a></div></article>
-    <article class="card"><div class="ph ph-3"><span data-en>Family Room</span><span data-th>ห้องครอบครัว</span></div><div class="body">
-      <h3>Family Room</h3><ul class="feats"><li>3–4 <span data-en>guests</span><span data-th>ท่าน</span></li><li>🛏️ 2 <span data-en>beds</span><span data-th>เตียง</span></li><li>❄️ A/C</li></ul>
-      <div class="price">฿1,690 <small data-en>/ night</small><small data-th>/ คืน</small></div>
-      <a href="#book" class="btn btn-outline" style="margin-top:11px;width:100%;justify-content:center"><span data-en>Book</span><span data-th>จอง</span></a></div></article>
+<section class="band" id="amenities"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Facilities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Facilities</span><h2 class="t" data-en="Everything you need" data-th="มีครบทุกอย่างที่ต้องการ" data-zh="所需一应俱全">Everything you need</h2></div></div>
+  <div class="amen reveal">
+    <div class="amen-item"><svg class="ic"><use href="#ic-pool"/></svg><h4 class="t" data-en="Swimming Pool" data-th="สระว่ายน้ำ" data-zh="游泳池">Swimming Pool</h4><p class="t" data-en="Cool off after a day out." data-th="คลายร้อนหลังเที่ยว" data-zh="出游一日后的清凉。">Cool off after a day out.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-droplet"/></svg><h4 class="t" data-en="The Creek" data-th="ลำธาร" data-zh="溪流">The Creek</h4><p class="t" data-en="A clear stream through the grounds." data-th="ลำธารใสไหลผ่านรีสอร์ต" data-zh="清溪穿园而过。">A clear stream through the grounds.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-wifi"/></svg><h4 class="t" data-en="Free Wi-Fi" data-th="ไวไฟฟรี" data-zh="免费 Wi-Fi">Free Wi-Fi</h4><p class="t" data-en="In every room." data-th="ทุกห้อง" data-zh="每间客房覆盖。">In every room.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-breakfast"/></svg><h4 class="t" data-en="Breakfast" data-th="อาหารเช้า" data-zh="早餐">Breakfast</h4><p class="t" data-en="Included with your room." data-th="รวมในค่าห้อง" data-zh="含早餐。">Included with your room.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-parking"/></svg><h4 class="t" data-en="Free Parking" data-th="ที่จอดรถฟรี" data-zh="免费停车">Free Parking</h4><p class="t" data-en="Park right by your room." data-th="จอดข้างห้องได้เลย" data-zh="客房旁即可停车。">Park right by your room.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-leaf"/></svg><h4 class="t" data-en="Gardens" data-th="สวน" data-zh="花园">Gardens</h4><p class="t" data-en="Lawns and shady corners." data-th="สนามหญ้าและมุมร่มรื่น" data-zh="草坪与树荫一隅。">Lawns and shady corners.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-mountain"/></svg><h4 class="t" data-en="Mountain Air" data-th="อากาศภูเขา" data-zh="山间空气">Mountain Air</h4><p class="t" data-en="Cool nights, fresh mornings." data-th="กลางคืนเย็น เช้าสดชื่น" data-zh="夜凉如水，晨意清新。">Cool nights, fresh mornings.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-users"/></svg><h4 class="t" data-en="Family-Friendly" data-th="เหมาะกับครอบครัว" data-zh="适合家庭">Family-Friendly</h4><p class="t" data-en="Kind staff, room for kids." data-th="พนักงานใจดี มีที่ให้เด็กวิ่งเล่น" data-zh="员工亲切，孩子有处撒欢。">Kind staff, room for kids.</p></div>
   </div>
 </div></section>
 
-<section id="amenities" style="background:var(--soft)"><div class="wrap">
-  <p class="eyebrow" data-en>Facilities</p><p class="eyebrow" data-th>สิ่งอำนวยความสะดวก</p>
-  <h2><span data-en>Everything for an easy stay</span><span data-th>ครบทุกอย่างเพื่อการพักผ่อนสบายๆ</span></h2>
-  <div class="amen" style="margin-top:26px">
-    <div class="item"><div class="ico">🏊</div><strong data-en>Pool</strong><strong data-th>สระว่ายน้ำ</strong></div>
-    <div class="item"><div class="ico">🍳</div><strong data-en>Breakfast</strong><strong data-th>อาหารเช้า</strong></div>
-    <div class="item"><div class="ico">📶</div><strong data-en>Free WiFi</strong><strong data-th>WiFi ฟรี</strong></div>
-    <div class="item"><div class="ico">🅿️</div><strong data-en>Free parking</strong><strong data-th>ที่จอดรถฟรี</strong></div>
-    <div class="item"><div class="ico">🛵</div><strong data-en>Scooter hire</strong><strong data-th>เช่ามอเตอร์ไซค์</strong></div>
-    <div class="item"><div class="ico">🧺</div><strong data-en>Laundry</strong><strong data-th>ซักรีด</strong></div>
-    <div class="item"><div class="ico">🏖️</div><strong data-en>Near beach</strong><strong data-th>ใกล้หาด</strong></div>
-    <div class="item"><div class="ico">🛎️</div><strong data-en>24h reception</strong><strong data-th>เคาน์เตอร์ 24 ชม.</strong></div>
-  </div>
+<section class="band band--alt" id="gallery"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</span><h2 class="t" data-en="Have a look around" data-th="ลองดูรอบ ๆ" data-zh="随处看看">Have a look around</h2></div>
+  <p class="hint t" data-en="Real photos of Tharapana — the creek, the pool and the gardens." data-th="ภาพจริงของธาราพนา — ลำธาร สระ และสวน" data-zh="Tharapana 的真实照片——溪流、泳池与花园。">Real photos of Tharapana — the creek, the pool and the gardens.</p></div>
+  <div class="gal reveal" id="gallery-grid"></div>
 </div></section>
 
-<section><div class="wrap">
-  <p class="eyebrow" data-en>Gallery</p><p class="eyebrow" data-th>แกลเลอรี</p>
-  <h2 style="margin-bottom:22px"><span data-en>Take a look</span><span data-th>ชมบรรยากาศ</span></h2>
-  <!-- CONFIRM: replace with the owner's real photos (or enhance them with Adobe Firefly) -->
-  <div class="gallery"><div class="ph ph-1"></div><div class="ph ph-2"></div><div class="ph ph-3"></div><div class="ph ph-4"></div></div>
-</div></section>
-
-<section class="reviews"><div class="wrap">
-  <p class="eyebrow" data-en>Guest Reviews</p><p class="eyebrow" data-th>รีวิวจากผู้เข้าพัก</p>
-  <h2><span data-en>900+ happy guests on Google</span><span data-th>ผู้เข้าพักกว่า 900 รายบน Google</span></h2>
-  <div class="grid g3" style="margin-top:22px">
-    <blockquote>"Great value, super friendly staff and a lovely pool. 5 minutes to Chaweng Beach!"<footer>— Google guest</footer></blockquote>
-    <blockquote>"ห้องสะอาด พนักงานน่ารักมาก ราคาดี ใกล้หาด คุ้มมากค่ะ"<footer>— ผู้เข้าพัก Google</footer></blockquote>
-    <blockquote>"Perfect budget base for Samui. Booked direct on LINE, easy and cheap."<footer>— Google guest</footer></blockquote>
+<section class="feature">
+  <div class="feature-bg frame"><img data-img="4" alt=""></div>
+  <div class="feature-inner reveal">
+    <span class="eyebrow t" data-en="What guests say" data-th="เสียงจากผู้เข้าพัก" data-zh="宾客之声">What guests say</span>
+    <blockquote class="t" data-en="“Clean rooms, lovely staff, and falling asleep to the sound of the stream. Brilliant value — we'll be back.”" data-th="“ห้องสะอาด พนักงานน่ารัก หลับไปกับเสียงลำธาร คุ้มค่ามาก — ต้องกลับมาอีกแน่นอน”" data-zh="“房间干净、员工可爱，伴着溪声入眠。超值——我们一定再来。”">“Clean rooms, lovely staff, and falling asleep to the sound of the stream. Brilliant value — we'll be back.”</blockquote>
+    <div class="attrib"><span class="stars"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg></span><span class="t" data-en="4.1 average · from 140 guest reviews" data-th="เฉลี่ย 4.1 · จากรีวิว 140 รายการ" data-zh="平均 4.1 分 · 综合 140 条评价">4.1 average · from 140 guest reviews</span></div>
   </div>
-</div></section>
+</section>
 
-<section id="location"><div class="wrap loc">
-  <div>
-    <p class="eyebrow" data-en>Find Us</p><p class="eyebrow" data-th>ที่ตั้ง</p>
-    <h2><span data-en>Minutes from Chaweng Beach</span><span data-th>ห่างหาดเฉวงไม่กี่นาที</span></h2>
-    <!-- CONFIRM exact address -->
-    <p class="lead"><span data-en>Chaweng, Koh Samui, Surat Thani. Close to the beach, night market, restaurants and bars — easy airport transfer on request.</span><span data-th class="b">เฉวง เกาะสมุย สุราษฎร์ธานี ใกล้หาด ตลาดกลางคืน ร้านอาหารและบาร์ มีบริการรับส่งสนามบินตามคำขอ</span></p>
-    <a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Smile+House+Chaweng+Koh+Samui">📍 <span data-en>Open in Google Maps</span><span data-th>เปิดใน Google Maps</span></a>
+<section class="band" id="book"><div class="maxw reserve">
+  <div class="reveal">
+    <span class="eyebrow t" data-en="Book Direct" data-th="จองตรง" data-zh="直接预订">Book Direct</span>
+    <h2 class="t" data-en="Best rate, straight from us" data-th="ราคาดีที่สุด จองกับเราตรง" data-zh="最优价，直接向我们预订">Best rate, straight from us</h2>
+    <p class="lead t" data-en="Skip the booking sites — message us and we'll beat their price and hold your room. We reply in English, ไทย or 中文." data-th="ข้ามเว็บจองไปเลย — ทักหาเรา เราให้ราคาดีกว่าและจองห้องให้ ตอบกลับทั้งอังกฤษ ไทย หรือจีน" data-zh="跳过订房网站——直接联系我们，价更优并为您留房。可用英文、泰文或中文回复。">Skip the booking sites — message us and we'll beat their price and hold your room. We reply in English, ไทย or 中文.</p>
+    <div class="contact-row"><svg class="ic"><use href="#ic-pin"/></svg><div><div class="k t" data-en="Address" data-th="ที่อยู่" data-zh="地址">Address</div><div class="v">289 Thanarat Rd, Mu Si, Pak Chong, Nakhon Ratchasima 30130</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-phone"/></svg><div><div class="k t" data-en="Telephone" data-th="โทรศัพท์" data-zh="电话">Telephone</div><div class="v">+66 93 019 9299</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-chat"/></svg><div><div class="k">LINE</div><div class="v">@tharapanakhaoyai</div></div></div>
   </div>
-  <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map" src="https://maps.google.com/maps?q=Chaweng%20Beach%20Koh%20Samui&z=14&output=embed"></iframe>
-</div></section>
-
-<section id="book" class="book"><div class="wrap">
-  <div>
-    <p class="eyebrow" style="color:#fff" data-en>Book Direct</p><p class="eyebrow" style="color:#fff" data-th>จองตรง</p>
-    <h2><span data-en>Best price, straight from us</span><span data-th>ราคาดีที่สุด จองกับเราโดยตรง</span></h2>
-    <p style="max-width:40ch;margin-top:8px"><span data-en>Send a request and we'll confirm on LINE within a few hours. No fees, no middleman.</span><span data-th class="b">ส่งคำขอจอง เราจะยืนยันทาง LINE ภายในไม่กี่ชั่วโมง ไม่มีค่าธรรมเนียม ไม่ผ่านคนกลาง</span></p>
-    <p style="margin-top:16px"><a href="https://line.me/R/ti/p/@smilehousesamui" class="btn btn-line">💬 <span data-en>Message us on LINE</span><span data-th>ทักเราทาง LINE</span></a></p>
-  </div>
-  <form action="https://formspree.io/f/your-id" method="POST">
-    <div class="field"><label data-en>Name</label><label data-th>ชื่อ</label><input name="name" required placeholder="Your name" /></div>
-    <div class="row2"><div class="field"><label data-en>Check-in</label><label data-th>เช็คอิน</label><input type="date" name="checkin" required /></div>
-      <div class="field"><label data-en>Check-out</label><label data-th>เช็คเอาท์</label><input type="date" name="checkout" required /></div></div>
-    <div class="row2"><div class="field"><label data-en>Room</label><label data-th>ห้อง</label><select name="room"><option>Standard — ฿890</option><option>Deluxe Pool View — ฿1,290</option><option>Family — ฿1,690</option></select></div>
-      <div class="field"><label data-en>Guests</label><label data-th>ผู้เข้าพัก</label><select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select></div></div>
-    <div class="field"><label data-en>Contact (email / LINE)</label><label data-th>ช่องทางติดต่อ (อีเมล / LINE)</label><input name="contact" required placeholder="email or LINE id" /></div>
-    <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-en>Request booking →</span><span data-th>ส่งคำขอจอง →</span></button>
+  <form class="eform reveal" onsubmit="return false">
+    <div class="field"><label class="t" data-en="Name" data-th="ชื่อ" data-zh="姓名">Name</label><input type="text" autocomplete="name"></div>
+    <div class="field two"><div><label class="t" data-en="Check-in" data-th="เช็คอิน" data-zh="入住">Check-in</label><input type="date"></div><div><label class="t" data-en="Check-out" data-th="เช็คเอาท์" data-zh="退房">Check-out</label><input type="date"></div></div>
+    <div class="field two"><div><label class="t" data-en="Guests" data-th="จำนวนคน" data-zh="人数">Guests</label><input type="number" min="1" value="2"></div><div><label class="t" data-en="Room" data-th="ห้อง" data-zh="房型">Room</label><input type="text"></div></div>
+    <div class="field"><label class="t" data-en="Phone / LINE" data-th="โทร / LINE" data-zh="电话 / LINE">Phone / LINE</label><input type="text"></div>
+    <button class="btn btn--solid t" data-en="Book direct" data-th="จองตรง" data-zh="直接预订">Book direct <svg class="ic"><use href="#ic-arrow"/></svg></button>
   </form>
 </div></section>
 
-<footer class="site"><div class="wrap foot-grid">
-  <div><div class="logo" style="color:#fff"><svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 7 5 23h38L24 7z" fill="#7dd3fc"/><rect x="10" y="22" width="28" height="18" rx="3" fill="#38bdf8"/><circle cx="19" cy="29" r="2.1" fill="#0b1220"/><circle cx="29" cy="29" r="2.1" fill="#0b1220"/><path d="M18 33.5c2 3 10 3 12 0" stroke="#0b1220" stroke-width="2.3" fill="none" stroke-linecap="round"/></svg> Smile House Samui</div>
-    <p style="margin-top:9px;max-width:36ch"><span data-en>Friendly, great-value rooms near Chaweng Beach, Koh Samui. Book direct & save.</span><span data-th class="b">ที่พักราคาดี อบอุ่น ใกล้หาดเฉวง เกาะสมุย จองตรงประหยัดกว่า</span></p></div>
-  <div><h4 data-en>Contact</h4><h4 data-th>ติดต่อ</h4>
-    <p>📞 <a href="tel:+66770000000">+66 77 000 000</a></p><p>💬 <a href="https://line.me/R/ti/p/@smilehousesamui">LINE: @smilehousesamui</a></p><p>✉️ <a href="mailto:stay@samuismilehouse.com">stay@samuismilehouse.com</a></p></div>
-  <div><h4 data-en>Visit</h4><h4 data-th>ที่อยู่</h4><p>Chaweng, Koh Samui,<br>Surat Thani 84320</p></div>
-</div><div class="copyright">© <span id="yr"></span> Smile House Samui · <span data-en>Spec demo by your web partner</span><span data-th>เว็บตัวอย่าง</span></div></footer>
+<footer class="foot"><div class="maxw"><div class="foot-top">
+  <div class="foot-brand"><div class="brand">Tharapana</div>
+    <p class="t" data-en="A friendly creek-side resort on Thanarat Road, Khao Yai — clean rooms, a pool and the sound of running water." data-th="รีสอร์ตริมลำธารสุดอบอุ่นบนถนนธนะรัชต์ เขาใหญ่ — ห้องสะอาด มีสระ และเสียงน้ำไหล" data-zh="位于考艾 Thanarat 路、温馨的溪畔度假村——干净客房、泳池，与潺潺水声。">A friendly creek-side resort on Thanarat Road, Khao Yai — clean rooms, a pool and the sound of running water.</p>
+    <div class="foot-soc"><a href="#" aria-label="Facebook"><svg class="ic"><use href="#ic-fb"/></svg></a><a href="#" aria-label="Instagram"><svg class="ic"><use href="#ic-ig"/></svg></a><a href="#" aria-label="LINE"><svg class="ic"><use href="#ic-chat"/></svg></a></div></div>
+  <div class="foot-col"><h5 class="t" data-en="Explore" data-th="สำรวจ" data-zh="导览">Explore</h5><a href="#rooms" class="t" data-en="Rooms" data-th="ห้องพัก" data-zh="客房">Rooms</a><a href="#amenities" class="t" data-en="Facilities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Facilities</a><a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a><a href="#book" class="t" data-en="Book direct" data-th="จองตรง" data-zh="直接预订">Book direct</a></div>
+  <div class="foot-col"><h5 class="t" data-en="Visit" data-th="เยี่ยมชม" data-zh="到访">Visit</h5><p>289 Thanarat Rd, Mu Si</p><p>Pak Chong, Nakhon Ratchasima</p><p>+66 93 019 9299</p><a href="#book" class="t" data-en="Book direct →" data-th="จองตรง →" data-zh="直接预订 →">Book direct →</a></div>
+</div><div class="foot-bottom"><div>© 2026 Tharapana Khao Yai</div><div class="disc t" data-en="Design concept for demonstration — not the official website of Tharapana Khao Yai. Photography © respective owners, via Google Maps." data-th="แนวคิดการออกแบบเพื่อการสาธิต — ไม่ใช่เว็บไซต์ทางการ ภาพถ่ายเป็นลิขสิทธิ์ของเจ้าของ ผ่าน Google Maps" data-zh="设计概念演示——非官方网站。图片版权归各自所有者，来源 Google 地图。">Design concept for demonstration — not the official website of Tharapana Khao Yai. Photography © respective owners, via Google Maps.</div></div></div></footer>
 
-<div class="float">
-  <a class="f-line" href="https://line.me/R/ti/p/@smilehousesamui" aria-label="LINE">💬</a>
-  <a class="f-wa" href="https://wa.me/6677000000" aria-label="WhatsApp">🟢</a>
-  <a class="f-call" href="tel:+66770000000" aria-label="Call">📞</a>
-</div>
+<div class="bookbar" id="bookbar"><div class="bb-name">Tharapana</div><div class="bb-r"><span class="bb-note t" data-en="Creek-side rooms · from ฿900/night" data-th="ห้องริมลำธาร · เริ่ม ฿900/คืน" data-zh="溪畔客房 · ฿900/晚起">Creek-side rooms · from ฿900/night</span><a href="#book" class="btn btn--solid t" data-en="Book direct" data-th="จองตรง" data-zh="直接预订">Book direct</a></div></div>
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Hotel","name":"Smile House Samui","description":"Friendly budget hotel near Chaweng Beach, Koh Samui.","url":"https://www.samuismilehouse.com","telephone":"+6677000000","priceRange":"฿","address":{"@type":"PostalAddress","streetAddress":"Chaweng","addressLocality":"Koh Samui","addressRegion":"Surat Thani","postalCode":"84320","addressCountry":"TH"},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},{"@type":"LocationFeatureSpecification","name":"Swimming pool","value":true},{"@type":"LocationFeatureSpecification","name":"Free parking","value":true}]}
-</script>
 <script>
-  function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}
-  (function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();
+window.PAGE_NAME="Tharapana Khao Yai";
+window.GAL_USED=[0,2,3,4,6,9];
+window.IMG=["https://lh3.googleusercontent.com/gps-cs-s/APNQkAHSEc_rmLv7HmP2W0z8e_wFfSpChIJmrhzwYRdGdk4azXF-hLC1hvgt70RSLyjYbA-k4lm_DTDVXE4Ht_C-OcNuWUZUShe7ugiWW_OTmqAp2Zem-3UNVbaV2-jAA4k5dmoR0LO3hw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHZl5ishNpcc5tug-T2QMO1tUu-znrCOqmEQIWU6WS0Fku7dnHg8Az38oSE0gFdCkZGU90raD9gtXOfEXbKzGdhr-xylLB6FgKSyvozO9YxwEeXACDy_5PQnYkMtyJmKVG_GCI3","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFg2G8mBJ-SXYST05gzR9lDJny-EXNo7HhoD4fPOuti728ydLq-0zJ3lWDRja5_5VVmkL7gksKmeI7jJhIX9Cp6yF0OxR6q-2BuH7S3-b5rq8F2hz9D9yz6Ckl18I9j-DN0QuSQ","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHbAm30Q0_CaSjiDnUQ-l14ByYLbFQbpEzM_NQ0CDNHH6cf24eEiBQ9CAtYf4xgfnBSGBP44y07tf_KMoqj16Xs6lxOi6MgzeGGz66ywX7Povo0JaWu135ycjQS_XY6sA_eYp5c","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFEdBfSJ5stNxS5VCAVY2uPt9ZUiTpsFVv2xumEWUX0Bb4tNRNi7kagD0OGSq5VgMaeXrb_WlWK1PE8ktjzhrrTB-iwuM-DjZXK9qob0iWnoszP-NHn5JBkwR-TQ0OoZH5IReN5","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFYZJOpgas_6RaR-n5NA_NnqQoaBsDJxdUJjaSVBN2lueaEu5awpr8R7duFTKexUWxObSeXIQEEZKeyVWiVMdiug5sfD7Z1YTwJdgvGUHMPAv0LN4ySi4SFXxMNa9Y2I4BObq7B","https://lh3.googleusercontent.com/gps-cs-s/APNQkAESPAy5LQoRVAPqFYNVm_N8RtVnGt99Lcsno0Fxq8XQSN9npipelQY1tJsb8M69H8epmEp7noZs-HNcEI6-6jtt4gwomL9VjwiQQF8jcSnWOcLmLHeSdZqXD2T8sHXhKcO8GEyS","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG960WTUgL8Juj9rJPVrMjRsBPRrfIEXePOHs7V0m_MPzbCnXwsoxWQ-Erfj2DVQQtew40M5M6pRqR_vAiuGkNcjH8W09CjY9DbfPih0FivJvTk63eIRSux4y1KSkFwzdH9hVEV0A","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEPIAC47P0_iXEK7Um5QF8X4cp6eNTwotAQhn49JxSICxqOaCAm1PHogsSE-TM1WoZj0FXuEsWl_JDyjgl2sfl1jr7mXgHa8KACujfYFsRFR7fV67LLMUDB1KMHQgw5cN82v09p","https://lh3.googleusercontent.com/gps-cs-s/APNQkAF60-1uMdZOFuXmQWQuAYhHESYrGQrXTriu-mI8HDLR0PDRqVT-OeTzOh9H-erIZIRfvWY0hhYzypOyiqxfXxC_yqpco7sflzPVNg1RxSyFhNQN-UhDvpui0fHpl5X6qyvQLmc","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEehC-wFxATI35gyLEhrOOrEwpAvDvHTOaDupPrkm4aZmSPkU1afaqwAjtQRfllS6aH0TD1-a8h7Sc26AGKLe1-hV1-9ZLbxygPPeX5M2SQxCT1JhhCEAX4aHhj99eTeuFKvY_0","https://lh3.googleusercontent.com/gps-cs-s/APNQkAE03cGjNSDy9STUEC3RQHPInJPfCPKIS1vuPWl1iTROwRs66ivu7t0yOIJYjzwulb2s7TJsfHK94TsuV0afFl1SKw2KNqtvrWL4Qc9dSj8XvII8NuwPa52DqTpnnCRRvnE-wePtdA","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEic6Z1ouDBn8RJ3q2GaeQpWFImtiKpWRPw5R22546hdU6-1okR0Hx6okCZsSO89Q2vvA7bPaFCwvIE30cmQhnWnMBf1ZQkvDRFfx3uPnChABmfwkGYGf3470mz1OXJSgv2ap9X8w","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGr3VFRMhmN-nwHi21zpwsmsPtjOndVAP7kFB4VAE_JCuKICFVqafX_41Svqmg1jj4j01JNVAZYwW6zdKJtbmo2XExOPyeZ5Y4JYiMae0wnbAOPW0zMi3_OHRpSiMiur06jaRAL","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG-o2doH_JQf_LnXtLeT-zRm8jnVfXD91I3xQzJxB8G_2Fl5v8hcR67-agqIf82LmzzlCR34GgV_ZpxynlEuJ6fRPHkep2lqOquQGqoz6u_RCWzunGd6amMqqrBLnKXRzPlrcPR"];
 </script>
+<script src="../assets/luxe.js"></script>
 </body>
 </html>

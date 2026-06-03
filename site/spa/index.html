@@ -1,90 +1,146 @@
 <!DOCTYPE html>
-<!-- TEMPLATE — Spa / Wellness / Massage. Type sections: treatment menu + prices,
-     packages/vouchers, therapists, online booking. Calm "wellness" tier theme. CUSTOMISE marked. -->
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Baan Sabai — Spa & Thai Massage, Ao Nang</title>
-<meta name="description" content="Traditional Thai massage, aromatherapy & spa packages in Ao Nang. Book your treatment online or on LINE.">
-<meta name="theme-color" content="#3f6212">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
-<style>
- :root{--brand:#3f6212;--brand-dark:#2e4a0e;--accent:#a16207;--ink:#1c1917;--muted:#6b7280;--bg:#fcfdf7;--soft:#f3f6ea;--line:#e4e7d5;--line-green:#06c755;--radius:16px;--shadow:0 8px 26px rgba(40,60,10,.10);--maxw:1040px;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Arial,sans-serif}
- *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{color:var(--ink);background:var(--bg);line-height:1.7}a{color:inherit}
- .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
- .btn{display:inline-flex;gap:8px;align-items:center;border:0;cursor:pointer;font-weight:800;padding:13px 24px;border-radius:999px;text-decoration:none}
- .btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow)}.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.7)}.btn-line{background:var(--line-green);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
- section{padding:62px 0}h2{font-size:1.8rem;margin-bottom:8px}.lead{color:var(--muted);max-width:620px;margin-bottom:28px}.center{text-align:center}.center .lead{margin-inline:auto}
- .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.78rem}
- header{position:sticky;top:0;z-index:50;background:rgba(252,253,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
- .nav{display:flex;align-items:center;justify-content:space-between;height:62px}.logo{font-weight:800;font-size:1.2rem;color:var(--brand);display:flex;gap:8px;align-items:center}
- .nav-right{display:flex;gap:12px;align-items:center}.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
- .lang button{border:0;background:#fff;padding:6px 11px;cursor:pointer;font-weight:700;color:var(--muted)}.lang button.active{background:var(--brand);color:#fff}
- .hero{min-height:64vh;display:flex;align-items:flex-end;color:#fff;position:relative;background:linear-gradient(120deg,#2e4a0e,#3f6212 55%,#65a30d)}
- .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.05) 60%)}
- .hero .in{position:relative;z-index:2;padding:0 20px 46px;max-width:var(--maxw);margin:0 auto;width:100%}
- .hero h1{font-size:clamp(2rem,5vw,3rem);max-width:16ch;text-shadow:0 2px 16px rgba(0,0,0,.4)}.hero p{max-width:34ch;margin:12px 0 22px;text-shadow:0 1px 10px rgba(0,0,0,.45)}
- .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
- .menu .row{display:flex;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
- .menu .row .d{color:var(--muted);font-size:.9rem}.menu .row .p{color:var(--accent);font-weight:800;white-space:nowrap}
- .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px 44px}@media(max-width:760px){.cols{grid-template-columns:1fr}}
- .pkgs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:760px){.pkgs{grid-template-columns:1fr}}
- .pkg{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}.pkg .amt{font-size:1.6rem;font-weight:800;color:var(--brand);margin:6px 0}
- .book{background:var(--brand);color:#fff}.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}@media(max-width:760px){.bgrid{grid-template-columns:1fr}}
- form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}.field{margin-bottom:12px}label{display:block;font-weight:700;font-size:.85rem;margin-bottom:5px}
- input,select{width:100%;padding:11px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:inherit}.row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
- .float{position:fixed;right:15px;bottom:15px;z-index:60;display:flex;flex-direction:column;gap:10px}.float a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
- .f-line{background:var(--line-green)}.f-call{background:var(--accent)}
- footer{background:#1c1917;color:#d6d3d1;padding:38px 0;text-align:center}footer a{color:#d6d3d1;text-decoration:none}
- [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
-</style></head><body>
-<header><div class="wrap nav"><div class="logo">🌿 Baan Sabai</div><div class="nav-right">
- <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
- <a href="#book" class="btn btn-primary" style="padding:9px 16px"><span data-en>Book</span><span data-th>จอง</span></a></div></div></header>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hansar Thai Wellness Spa — Khao Yai</title>
+<meta name="description" content="Hansar Thai Wellness Spa, Khao Yai — Thai massage, aroma rituals, onsen and milk baths in a calm forest setting. Book a treatment online.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/luxe.css">
+<style>:root{--bg:#F0F2EB;--bg-2:#E4E9DD;--bg-3:#DAE0D0;--ink:#252A23;--ink-soft:#56604F;--ink-faint:#869079;--line:rgba(37,42,35,.13);--line-soft:rgba(37,42,35,.07);--accent:#5F7A57;--accent-deep:#3C5235;--dark:#222E25;--cream:#ECEFE2;--gold:#B6A06A;--grade-overlay:rgba(95,122,87,.06)}</style>
+</head>
+<body lang="en">
+<div class="grain"></div>
 
-<section class="hero" style="padding:0"><div class="in">
- <h1><span data-en>Rest, restore, breathe</span><span data-th>พักผ่อน ฟื้นฟู ผ่อนคลาย</span></h1>
- <p><span data-en>Traditional Thai massage & spa rituals in the heart of Ao Nang.</span><span data-th class="b">นวดแผนไทยและทรีตเมนต์สปา ใจกลางอ่าวนาง</span></p>
- <div class="hero-cta"><a href="#book" class="btn btn-primary"><span data-en>Book a treatment</span><span data-th>จองทรีตเมนต์</span></a>
- <a href="https://line.me/R/ti/p/@baansabai" class="btn btn-line">💬 LINE</a></div></div></section>
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">Hansar Spa</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#treatments" class="t" data-en="Treatments" data-th="ทรีตเมนต์" data-zh="疗程">Treatments</a>
+    <a href="#ritual" class="t" data-en="The Ritual" data-th="พิธีกรรม" data-zh="仪式">The Ritual</a>
+    <a href="#facilities" class="t" data-en="Facilities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Facilities</a>
+    <a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a>
+    <a href="#book" class="navbtn t" data-en="Book" data-th="จอง" data-zh="预约">Book</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang" id="lang"><button data-l="en" class="active">EN</button><span>·</span><button data-l="th">ไทย</button><span>·</span><button data-l="zh">中文</button></div>
+    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</nav>
 
-<section id="menu"><div class="wrap">
- <p class="eyebrow" data-en>Treatments</p><p class="eyebrow" data-th>ทรีตเมนต์</p>
- <h2><span data-en>Treatment menu</span><span data-th>เมนูทรีตเมนต์</span></h2>
- <div class="cols" style="margin-top:14px"><div class="menu">
-  <div class="row"><div><b><span data-en>Thai Massage</span><span data-th>นวดแผนไทย</span></b><div class="d">60 / 90 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿350 / ฿500</div></div>
-  <div class="row"><div><b><span data-en>Aromatherapy Oil</span><span data-th>นวดน้ำมันอโรมา</span></b><div class="d">60 / 90 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿500 / ฿700</div></div>
-  <div class="row"><div><b><span data-en>Foot Reflexology</span><span data-th>นวดเท้า</span></b><div class="d">45 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿300</div></div>
- </div><div class="menu">
-  <div class="row"><div><b><span data-en>Herbal Compress</span><span data-th>ประคบสมุนไพร</span></b><div class="d">90 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿800</div></div>
-  <div class="row"><div><b><span data-en>Body Scrub</span><span data-th>ขัดผิว</span></b><div class="d">60 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿600</div></div>
-  <div class="row"><div><b><span data-en>Facial</span><span data-th>ทรีตเมนต์หน้า</span></b><div class="d">60 <span data-en>min</span><span data-th>นาที</span></div></div><div class="p">฿650</div></div>
- </div></div>
+<header class="hero" id="top">
+  <div class="hero-media frame"><img data-img="0" alt="Hansar Thai Wellness Spa treatment room" fetchpriority="high"></div>
+  <div class="hero-inner maxw">
+    <div class="hero-eyebrow eyebrow"><span class="tick"></span><span class="t" data-en="Khao Yai · Wellness" data-th="เขาใหญ่ · เวลเนส" data-zh="考艾 · 养生">Khao Yai · Wellness</span></div>
+    <h1 class="t" data-en="Let the day fall away." data-th="ปล่อยให้ทุกความเหนื่อยล้าจางหาย" data-zh="让一日喧嚣，悄然褪去。">Let the day fall away.</h1>
+    <p class="hero-sub t" data-en="Thai massage, aroma rituals, onsen and milk baths — unhurried, by trained hands, in the green quiet of Khao Yai." data-th="นวดไทย ทรีตเมนต์อโรมา ออนเซ็น และมิลค์บาธ — อย่างไม่เร่งรีบ โดยนักบำบัดผู้ชำนาญ ท่ามกลางความเขียวสงบของเขาใหญ่" data-zh="泰式按摩、香薰仪式、温泉与牛奶浴——从容不迫，由专业之手，于考艾的绿意静谧之中。">Thai massage, aroma rituals, onsen and milk baths — unhurried, by trained hands, in the green quiet of Khao Yai.</p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn--ghost-light t" data-en="Book a treatment" data-th="จองทรีตเมนต์" data-zh="预约疗程">Book a treatment</a>
+      <a href="#treatments" class="btn btn--ghost-light t" data-en="View treatments" data-th="ดูทรีตเมนต์" data-zh="查看疗程">View treatments</a>
+    </div>
+  </div>
+  <div class="scrollcue"><span class="ln"></span><span class="t" data-en="Scroll" data-th="เลื่อนลง" data-zh="向下滚动">Scroll</span></div>
+  <div class="hero-meta"><div class="t" data-en="Thai Wellness Spa" data-th="สปาเพื่อสุขภาพ" data-zh="泰式养生水疗">Thai Wellness Spa</div><div class="t" data-en="Khao Yai · Thailand" data-th="เขาใหญ่ · ไทย" data-zh="考艾 · 泰国">Khao Yai · Thailand</div></div>
+</header>
+
+<section class="band band--alt"><div class="manifesto reveal">
+  <span class="eyebrow t" data-en="The Idea" data-th="แนวคิด" data-zh="理念">The Idea</span>
+  <p class="t" data-en="Stillness is a skill we have nearly forgotten. Here, warm oil, herbal steam &amp; trained hands remind the body how it feels to be cared for." data-th="ความสงบนิ่งคือทักษะที่เราเกือบลืมเลือน ที่นี่ น้ำมันอุ่น ไอน้ำสมุนไพร และมือของนักบำบัดผู้ชำนาญ จะเตือนร่างกายว่าการได้รับการดูแลนั้นรู้สึกอย่างไร" data-zh="静，是我们几乎遗忘的本能。在这里，温润精油、草本蒸气与专业之手，让身体重新记起被悉心呵护的感觉。">Stillness is a skill we have nearly forgotten. Here, warm oil, herbal steam <span class="amp">&amp;</span> trained hands remind the body how it feels to be cared for.</p>
 </div></section>
 
-<section style="background:var(--soft)"><div class="wrap">
- <p class="eyebrow" data-en>Packages & Gift Vouchers</p><p class="eyebrow" data-th>แพ็กเกจและบัตรของขวัญ</p>
- <h2 style="margin-bottom:22px"><span data-en>Treat yourself (or someone)</span><span data-th>ดูแลตัวเอง (หรือคนพิเศษ)</span></h2>
- <div class="pkgs">
-  <div class="pkg"><h3><span data-en>Half-Day Escape</span><span data-th>ฮาล์ฟเดย์</span></h3><div class="amt">฿1,500</div><p style="color:var(--muted);font-size:.92rem"><span data-en>Massage + scrub + facial</span><span data-th>นวด + ขัดผิว + ทรีตเมนต์หน้า</span></p></div>
-  <div class="pkg"><h3><span data-en>Couple's Ritual</span><span data-th>สำหรับคู่รัก</span></h3><div class="amt">฿2,400</div><p style="color:var(--muted);font-size:.92rem"><span data-en>Aroma massage for two + tea</span><span data-th>นวดอโรมาสำหรับสองท่าน + ชา</span></p></div>
-  <div class="pkg"><h3><span data-en>Gift Voucher</span><span data-th>บัตรของขวัญ</span></h3><div class="amt">฿500+</div><p style="color:var(--muted);font-size:.92rem"><span data-en>Any value — sent on LINE</span><span data-th>กำหนดมูลค่าเองได้ ส่งทาง LINE</span></p></div>
- </div></div></section>
+<section class="band" id="ritual"><div class="maxw">
+  <div class="split split--wide reveal">
+    <div class="split-media frame hoverable"><img data-img="2" alt="Spa interior"></div>
+    <div class="split-text"><span class="idx">01 — <span class="t" data-en="The Welcome" data-th="การต้อนรับ" data-zh="迎宾">The Welcome</span></span>
+      <h2 class="t" data-en="Arrive, breathe, begin" data-th="มาถึง หายใจ เริ่มต้น" data-zh="抵达，呼吸，开始">Arrive, breathe, begin</h2>
+      <p class="body t" data-en="Every visit opens with a foot cleanse and a cup of warm herbal tea. We ask how you are, then tailor pressure, oils and warmth to the body in front of us — never a script." data-th="ทุกการมาเยือนเริ่มด้วยการล้างเท้าและชาสมุนไพรอุ่น ๆ เราถามว่าคุณเป็นอย่างไร แล้วปรับน้ำหนักมือ น้ำมัน และความอบอุ่นให้เหมาะกับร่างกายของคุณ — ไม่ใช่สูตรสำเร็จ" data-zh="每次到访，皆以净足与一盏温热草本茶开启。我们询问您的状态，再为眼前的身体调配力度、精油与温度——绝非千篇一律。">Every visit opens with a foot cleanse and a cup of warm herbal tea. We ask how you are, then tailor pressure, oils and warmth to the body in front of us — never a script.</p></div>
+  </div>
+</div></section>
 
-<section id="book" class="book"><div class="wrap bgrid">
- <div><p class="eyebrow" style="color:#fff" data-en>Booking</p><p class="eyebrow" style="color:#fff" data-th>จอง</p>
-  <h2><span data-en>Book your treatment</span><span data-th>จองทรีตเมนต์ของคุณ</span></h2>
-  <p style="max-width:40ch;margin-top:8px"><span data-en>Request a time and we'll confirm on LINE. Walk-ins welcome too.</span><span data-th class="b">เลือกเวลาที่ต้องการ เรายืนยันทาง LINE หรือ Walk-in ได้เลย</span></p></div>
- <form action="https://formspree.io/f/your-id" method="POST">
-  <div class="field"><label data-en>Name</label><label data-th>ชื่อ</label><input name="name" required></div>
-  <div class="row2"><div class="field"><label data-en>Date</label><label data-th>วันที่</label><input type="date" name="date" required></div><div class="field"><label data-en>Time</label><label data-th>เวลา</label><input type="time" name="time" required></div></div>
-  <div class="field"><label data-en>Treatment</label><label data-th>ทรีตเมนต์</label><select><option>Thai Massage</option><option>Aromatherapy</option><option>Foot Reflexology</option><option>Package</option></select></div>
-  <div class="field"><label data-en>Contact (LINE / phone)</label><label data-th>ติดต่อ (LINE / โทร)</label><input name="contact" required></div>
-  <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-en>Request booking →</span><span data-th>ส่งคำขอจอง →</span></button>
- </form></div></section>
+<section class="band band--alt" id="treatments"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Signature Treatments" data-th="ทรีตเมนต์ซิกเนเจอร์" data-zh="招牌疗程">Signature Treatments</span><h2 class="t" data-en="Three ways to soften" data-th="สามวิธีในการผ่อนคลาย" data-zh="三种舒缓之道">Three ways to soften</h2></div>
+  <p class="hint t" data-en="Prices per person. Couples rooms available." data-th="ราคาต่อท่าน มีห้องสำหรับคู่" data-zh="价格按人计，提供双人房。">Prices per person. Couples rooms available.</p></div></div>
+  <div class="rows reveal">
+    <div class="row"><div class="row-media frame hoverable"><img data-img="3" alt="Aroma massage"></div><div class="row-body"><span class="idx">01</span>
+      <h3 class="t" data-en="Signature Aroma Massage" data-th="อโรมา มาสสาจ ซิกเนเจอร์" data-zh="招牌香薰按摩">Signature Aroma Massage</h3>
+      <div class="row-tags"><span class="t" data-en="60 / 90 min" data-th="60 / 90 นาที" data-zh="60 / 90 分钟">60 / 90 min</span><span class="t" data-en="Warm oil" data-th="น้ำมันอุ่น" data-zh="温润精油">Warm oil</span></div>
+      <p class="desc t" data-en="Slow, flowing strokes with a blend of warm aromatic oils — our most-loved treatment, deeply calming." data-th="การนวดที่นุ่มนวลลื่นไหลด้วยน้ำมันหอมระเหยอุ่น ๆ — ทรีตเมนต์ที่ลูกค้ารักที่สุด ผ่อนคลายลึก" data-zh="以温热香薰精油，行缓慢流畅的推抚——最受喜爱的疗程，深度安神。">Slow, flowing strokes with a blend of warm aromatic oils — our most-loved treatment, deeply calming.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From" data-th="เริ่มต้น" data-zh="起">From</small>฿900</div><a href="#book" class="btn btn--accent t" data-en="Book" data-th="จอง" data-zh="预约">Book</a></div></div></div>
+    <div class="row"><div class="row-media frame hoverable"><img data-img="6" alt="Onsen and milk bath"></div><div class="row-body"><span class="idx">02</span>
+      <h3 class="t" data-en="Onsen &amp; Milk Bath Ritual" data-th="ออนเซ็น &amp; มิลค์บาธ" data-zh="温泉牛奶浴仪式">Onsen &amp; Milk Bath Ritual</h3>
+      <div class="row-tags"><span class="t" data-en="90 min" data-th="90 นาที" data-zh="90 分钟">90 min</span><span class="t" data-en="Onsen" data-th="ออนเซ็น" data-zh="温泉">Onsen</span><span class="t" data-en="Milk bath" data-th="มิลค์บาธ" data-zh="牛奶浴">Milk bath</span></div>
+      <p class="desc t" data-en="A warm mineral onsen soak followed by a softening milk bath and a gentle finishing massage. Pure restoration." data-th="แช่ออนเซ็นแร่ธาตุอุ่น ตามด้วยมิลค์บาธที่ช่วยให้ผิวนุ่ม และปิดท้ายด้วยการนวดเบา ๆ ฟื้นฟูอย่างแท้จริง" data-zh="先以温热矿物温泉浸泡，再享柔肤牛奶浴，最后辅以轻柔收尾按摩。纯粹的修复。">A warm mineral onsen soak followed by a softening milk bath and a gentle finishing massage. Pure restoration.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From" data-th="เริ่มต้น" data-zh="起">From</small>฿1,500</div><a href="#book" class="btn btn--accent t" data-en="Book" data-th="จอง" data-zh="预约">Book</a></div></div></div>
+    <div class="row"><div class="row-media frame hoverable"><img data-img="9" alt="Body polish"></div><div class="row-body"><span class="idx">03</span>
+      <h3 class="t" data-en="Herbal Body Polish" data-th="ขัดผิวสมุนไพร" data-zh="草本身体磨砂">Herbal Body Polish</h3>
+      <div class="row-tags"><span class="t" data-en="60 min" data-th="60 นาที" data-zh="60 分钟">60 min</span><span class="t" data-en="Exfoliate" data-th="ผลัดเซลล์ผิว" data-zh="去角质">Exfoliate</span></div>
+      <p class="desc t" data-en="A fragrant herbal scrub that polishes away the week and leaves skin soft, warm and glowing." data-th="สครับสมุนไพรหอม ๆ ที่ขัดความเหนื่อยล้าออกไป ทิ้งผิวให้นุ่ม อุ่น และเปล่งปลั่ง" data-zh="芬芳草本磨砂，拂去一周疲惫，留下柔嫩、温润、焕发光泽的肌肤。">A fragrant herbal scrub that polishes away the week and leaves skin soft, warm and glowing.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From" data-th="เริ่มต้น" data-zh="起">From</small>฿1,200</div><a href="#book" class="btn btn--accent t" data-en="Book" data-th="จอง" data-zh="预约">Book</a></div></div></div>
+  </div>
+</section>
 
-<footer><div class="wrap"><div class="logo" style="color:#fff;justify-content:center">🌿 Baan Sabai</div>
- <p style="margin-top:8px;font-size:.9rem">Ao Nang, Krabi · 📞 <a href="tel:+66800000000">+66 80 000 0000</a> · 💬 <a href="https://line.me/R/ti/p/@baansabai">LINE @baansabai</a></p>
- <p style="font-size:.8rem;color:#a8a29e;margin-top:10px">© <span id="yr"></span> Baan Sabai Spa</p></div></footer>
-<div class="float"><a class="f-line" href="https://line.me/R/ti/p/@baansabai">💬</a><a class="f-call" href="tel:+66800000000">📞</a></div>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"DaySpa","name":"Baan Sabai","priceRange":"฿฿","telephone":"+66800000000","address":{"@type":"PostalAddress","addressLocality":"Ao Nang","addressRegion":"Krabi","addressCountry":"TH"}}</script>
-<script>function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}(function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();</script>
-</body></html>
+<section class="band" id="facilities"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Facilities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Facilities</span><h2 class="t" data-en="Everything to unwind" data-th="ทุกสิ่งเพื่อการผ่อนคลาย" data-zh="放松所需，一应俱全">Everything to unwind</h2></div></div>
+  <div class="amen reveal">
+    <div class="amen-item"><svg class="ic"><use href="#ic-droplet"/></svg><h4 class="t" data-en="Onsen" data-th="ออนเซ็น" data-zh="温泉">Onsen</h4><p class="t" data-en="Warm mineral soaking pools." data-th="บ่อแช่แร่ธาตุอุ่น" data-zh="温热矿物泡池。">Warm mineral soaking pools.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-flower"/></svg><h4 class="t" data-en="Milk Bath" data-th="มิลค์บาธ" data-zh="牛奶浴">Milk Bath</h4><p class="t" data-en="Softening soaks with petals." data-th="แช่น้ำนมพร้อมกลีบดอกไม้" data-zh="花瓣牛奶柔肤浴。">Softening soaks with petals.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-lotus"/></svg><h4 class="t" data-en="Aroma Oils" data-th="น้ำมันอโรมา" data-zh="香薰精油">Aroma Oils</h4><p class="t" data-en="Blended in-house, by mood." data-th="ผสมเองตามอารมณ์" data-zh="按心境自调香氛。">Blended in-house, by mood.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-heart"/></svg><h4 class="t" data-en="Couples Rooms" data-th="ห้องสำหรับคู่" data-zh="双人房">Couples Rooms</h4><p class="t" data-en="Side-by-side, in private." data-th="เคียงข้างกัน อย่างเป็นส่วนตัว" data-zh="并肩私密相伴。">Side-by-side, in private.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-leaf"/></svg><h4 class="t" data-en="Herbal Steam" data-th="อบไอน้ำสมุนไพร" data-zh="草本蒸气">Herbal Steam</h4><p class="t" data-en="Thai herbs, gentle heat." data-th="สมุนไพรไทย ความร้อนอ่อนโยน" data-zh="泰式草本，温和热气。">Thai herbs, gentle heat.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-hands"/></svg><h4 class="t" data-en="Skilled Therapists" data-th="นักบำบัดมืออาชีพ" data-zh="专业理疗师">Skilled Therapists</h4><p class="t" data-en="Trained, certified, kind." data-th="ผ่านการอบรม มีใบรับรอง ใจดี" data-zh="训练有素，持证，亲切。">Trained, certified, kind.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-candle"/></svg><h4 class="t" data-en="Foot Massage" data-th="นวดเท้า" data-zh="足部按摩">Foot Massage</h4><p class="t" data-en="The perfect short escape." data-th="การพักผ่อนสั้น ๆ ที่ลงตัว" data-zh="恰到好处的短憩。">The perfect short escape.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-parking"/></svg><h4 class="t" data-en="Free Parking" data-th="ที่จอดรถฟรี" data-zh="免费停车">Free Parking</h4><p class="t" data-en="Easy, right at the door." data-th="สะดวก หน้าร้านเลย" data-zh="门前便捷停车。">Easy, right at the door.</p></div>
+  </div>
+</div></section>
+
+<section class="band band--alt" id="gallery"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</span><h2 class="t" data-en="Inside the spa" data-th="ภายในสปา" data-zh="水疗一隅">Inside the spa</h2></div>
+  <p class="hint t" data-en="Real spaces at Hansar — warm water, soft light and quiet rooms." data-th="พื้นที่จริงที่ฮันซาร์ — น้ำอุ่น แสงนวล และห้องอันเงียบสงบ" data-zh="Hansar 的真实空间——温水、柔光，与静室。">Real spaces at Hansar — warm water, soft light and quiet rooms.</p></div>
+  <div class="gal reveal" id="gallery-grid"></div>
+</div></section>
+
+<section class="feature">
+  <div class="feature-bg frame"><img data-img="4" alt=""></div>
+  <div class="feature-inner reveal">
+    <span class="eyebrow t" data-en="What guests say" data-th="เสียงจากลูกค้า" data-zh="宾客之声">What guests say</span>
+    <blockquote class="t" data-en="“Spotlessly clean, beautifully fragrant, and the massage was exactly on point. I left feeling new.”" data-th="“สะอาดหมดจด หอมละมุน และการนวดตรงจุดมาก ออกมาแล้วรู้สึกเหมือนเป็นคนใหม่”" data-zh="“一尘不染，馨香怡人，按摩恰到好处。离开时焕然一新。”">“Spotlessly clean, beautifully fragrant, and the massage was exactly on point. I left feeling new.”</blockquote>
+    <div class="attrib"><span class="stars"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg></span><span class="t" data-en="4.9 average · from 700+ guest reviews" data-th="เฉลี่ย 4.9 · จากรีวิวกว่า 700 รายการ" data-zh="平均 4.9 分 · 综合 700+ 条评价">4.9 average · from 700+ guest reviews</span></div>
+  </div>
+</section>
+
+<section class="band" id="book"><div class="maxw reserve">
+  <div class="reveal">
+    <span class="eyebrow t" data-en="Booking" data-th="การจอง" data-zh="预约">Booking</span>
+    <h2 class="t" data-en="Reserve your time" data-th="จองเวลาของคุณ" data-zh="预约您的时光">Reserve your time</h2>
+    <p class="lead t" data-en="Tell us the treatment and a time that suits — we reply quickly in English, ไทย or 中文, and hold your slot." data-th="บอกทรีตเมนต์และเวลาที่สะดวก — เราตอบกลับเร็วทั้งอังกฤษ ไทย หรือจีน และจองเวลาให้คุณ" data-zh="告知疗程与方便的时间——我们将以英文、泰文或中文迅速回复，并为您留位。">Tell us the treatment and a time that suits — we reply quickly in English, ไทย or 中文, and hold your slot.</p>
+    <div class="contact-row"><svg class="ic"><use href="#ic-pin"/></svg><div><div class="k t" data-en="Address" data-th="ที่อยู่" data-zh="地址">Address</div><div class="v">223 Mu Si, Pak Chong, Nakhon Ratchasima 30450</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-phone"/></svg><div><div class="k t" data-en="Telephone" data-th="โทรศัพท์" data-zh="电话">Telephone</div><div class="v">+66 97 919 7622</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-clock"/></svg><div><div class="k t" data-en="Open daily" data-th="เปิดทุกวัน" data-zh="每日营业">Open daily</div><div class="v t" data-en="10:00 – 21:00" data-th="10:00 – 21:00" data-zh="10:00 – 21:00">10:00 – 21:00</div></div></div>
+  </div>
+  <form class="eform reveal" onsubmit="return false">
+    <div class="field"><label class="t" data-en="Full name" data-th="ชื่อ-นามสกุล" data-zh="姓名">Full name</label><input type="text" autocomplete="name"></div>
+    <div class="field"><label class="t" data-en="Treatment" data-th="ทรีตเมนต์" data-zh="疗程">Treatment</label><input type="text"></div>
+    <div class="field two"><div><label class="t" data-en="Date" data-th="วันที่" data-zh="日期">Date</label><input type="date"></div><div><label class="t" data-en="Guests" data-th="จำนวนคน" data-zh="人数">Guests</label><input type="number" min="1" value="1"></div></div>
+    <div class="field"><label class="t" data-en="Phone / LINE" data-th="โทร / LINE" data-zh="电话 / LINE">Phone / LINE</label><input type="text"></div>
+    <button class="btn btn--solid t" data-en="Request booking" data-th="ส่งคำขอจอง" data-zh="提交预约">Request booking <svg class="ic"><use href="#ic-arrow"/></svg></button>
+  </form>
+</div></section>
+
+<footer class="foot"><div class="maxw"><div class="foot-top">
+  <div class="foot-brand"><div class="brand">Hansar Spa</div>
+    <p class="t" data-en="A Thai wellness spa in the green quiet of Khao Yai — massage, onsen and herbal rituals." data-th="สปาเพื่อสุขภาพแบบไทยในความเขียวสงบของเขาใหญ่ — นวด ออนเซ็น และทรีตเมนต์สมุนไพร" data-zh="坐落于考艾绿意静处的泰式养生水疗——按摩、温泉与草本仪式。">A Thai wellness spa in the green quiet of Khao Yai — massage, onsen and herbal rituals.</p>
+    <div class="foot-soc"><a href="#" aria-label="Facebook"><svg class="ic"><use href="#ic-fb"/></svg></a><a href="#" aria-label="Instagram"><svg class="ic"><use href="#ic-ig"/></svg></a><a href="#" aria-label="LINE"><svg class="ic"><use href="#ic-chat"/></svg></a></div></div>
+  <div class="foot-col"><h5 class="t" data-en="Explore" data-th="สำรวจ" data-zh="导览">Explore</h5><a href="#treatments" class="t" data-en="Treatments" data-th="ทรีตเมนต์" data-zh="疗程">Treatments</a><a href="#facilities" class="t" data-en="Facilities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Facilities</a><a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a><a href="#book" class="t" data-en="Book" data-th="จอง" data-zh="预约">Book</a></div>
+  <div class="foot-col"><h5 class="t" data-en="Visit" data-th="เยี่ยมชม" data-zh="到访">Visit</h5><p>223 Mu Si, Pak Chong</p><p>Nakhon Ratchasima 30450</p><p>+66 97 919 7622</p><a href="#book" class="t" data-en="Book a treatment →" data-th="จองทรีตเมนต์ →" data-zh="预约疗程 →">Book a treatment →</a></div>
+</div><div class="foot-bottom"><div>© 2026 Hansar Thai Wellness Spa</div><div class="disc t" data-en="Design concept for demonstration — not the official website of Hansar Thai Wellness Spa. Photography © respective owners, via Google Maps." data-th="แนวคิดการออกแบบเพื่อการสาธิต — ไม่ใช่เว็บไซต์ทางการ ภาพถ่ายเป็นลิขสิทธิ์ของเจ้าของ ผ่าน Google Maps" data-zh="设计概念演示——非官方网站。图片版权归各自所有者，来源 Google 地图。">Design concept for demonstration — not the official website of Hansar Thai Wellness Spa. Photography © respective owners, via Google Maps.</div></div></div></footer>
+
+<div class="bookbar" id="bookbar"><div class="bb-name">Hansar Spa</div><div class="bb-r"><span class="bb-note t" data-en="Massage &amp; onsen · from ฿900" data-th="นวด &amp; ออนเซ็น · เริ่มต้น ฿900" data-zh="按摩与温泉 · ฿900 起">Massage &amp; onsen · from ฿900</span><a href="#book" class="btn btn--solid t" data-en="Book" data-th="จอง" data-zh="预约">Book</a></div></div>
+
+<script>
+window.PAGE_NAME="Hansar Thai Wellness Spa";
+window.GAL_USED=[0,2,3,4,6,9];
+window.IMG=["https://lh3.googleusercontent.com/gps-cs-s/APNQkAEg9GGJxXSCXiyfNer-7HO6q8ob8JC7Vidl3XF8GeSLcVb4R-rc2HvTrs5MEUH7_yY80O_iduKfFXxw2d902BxGGeojFASd0Rr6Q_Hd63ob6Yn4fZlzOLbkChkojiYtlmcQFzM3Hw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGK6OY3CgOdjMzQku8fZ5lBvanVC1bRi7sfbwTxWWApzaLOL7M231LEVmVnla9lMUr1_EbXmvZQ4ECF49ZpF__Q2ubJ12SKkC94LkUVsDgo9w1K0Q_mfs9ERBJUAafKiSYheTQ7OxbrqkCF","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFsOzMNQAjckkexu5oz4okLv86ZD3vCeBj1U98IjOYA5sUceiUrdcHSZ1GaW01mLdp9odPsCINzBVdoL2stMKWmWyZ23F-OrZ1bM9zqCS_nj7VakEV8Qb9s13jtmA18Fyza_0uw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAE8oR6FzToOlRySaFF0v4ba5ffTbCxGlIbHdSb5-pvvYiWX4cbO1cuNyPyJ8iCAsR0ZsfVhS0c_YqFCaeHv_3Pw7NiHBsXUiTjNvFvCkRDtDi9dzFvUofy-Kf6jP8IzLn2_GO91uT9SLqu3","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5B7We0GDUKp7u-VCXMW5mPVmVo1KbGObgr9JgHmFzExvBK02olNm3iBDW29d51DDIkITJl1cFmHxXeF31gkMNF7v0Vj0HbChC8dt26IZQEYSFQmFD2BXRGBFMh5UQ0wRFktWSJB21jl0n","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG-E0OaSQxmOib5bf7OwFoE6ejkMJvQ8isdVb5pCG0RVpPvj2kryuAu5P43pFaYGsd8rBTmFTGmPJu1075SkSj-xedChFqP-EMjX3SynnsWcAeKk1_You_z5QgejTf3UtsQEXyqMPrQMpHV","https://lh3.googleusercontent.com/gps-cs-s/APNQkAH4CK-LwMoThkSHMoFD-XTykFoPtIijFrmS3tmmSYzscCzp-V3dP0NLlKVZLPh-GN6W-pAOHzNFAVALbQNasJoe-9R614amWxa4kHjIk0JEAL5wfqkRbscMl_HDLTu5UK-BdsAj","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEju4U4NM1VlpV2a756iznB2mY3fQQj-WHY71fYOEOjgU2z9Ap53eYGNMLu5cKmG1S0AFAQJf2o8Lop0ceCeB0qAzWmmDpFF5g9kXA3qaJnDf20MwbKarQEW63ghBVDP2j24gwdzy70AUGy","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGG_qQhaRLYUDCmzRDmkdhypsWSuZwH355lSCRuMEYvCM1Z_JuyejjKOqS2bn0F0A8SMC81esijB0n2qY9oAvN-Su893UB2xs8ehH4udMizR3akFaqX8RdH_YEUJYHgE-V3pAbuQA","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEr_ERxU9bExpbawHPF-AXKuYbH3ZQf2BLya7dPiplyMOt0PLuIKmYZCk-RemksV-S2swGoU9zDkEB2RYHYMmdfzNfP6me1YjHEOK0j-rDENEMZoH0r0XdlQKsSXOGIIEgI3bFQ","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGmBei3_Jai41b_VT4WQHX3ETyaVkcKBhuCx0MWgJvfuXf8TEjhy2-lAHN7EwLfYLQOK6BfTeR9EQcAWk-9RJ1Jz3JrvMKiBAd-quE2Adc6om9Yljag4ZfPNS43Hq1JYREHJZLM","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5xbMgxMWCt4N_a9rnkL7cP0Wd7U0_tvlsrtUaYckX9F6YkCZOJOQWD7ZC-Q9r2Z7ZTyg0d0YSPxLhyhc7_Hf_9iaGEHFOOkb43ERnk6tq4ARzyxG2IiYSKQxTmy2cP6_usWjmfTeafEc","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHCVYns9AnnaUCos5CBEEy0qeiNInAOLqlwPDd5_2PJbBvnmZXxVOe4KrZb4SsUSEuKS12O4Xd2BqJuNwmrEv7exde1XwfDSUvPZSW1PDoE8zuXINCiZR6k_p6oNZJ1dM2z8nsndjGLEnQl","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHuJoBdHGFBUp968_mNzsGS0gRiyNMvss1ghzisrwc15_nGNXolOSCHpN5sd1a3nejqX8EkHEfK58KoHioe2KePN5hgt-C4y2Y1JP-uj40bUZ-SXl0qyME10QkUPRD-8uNR-X-BdKJyXOc","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFqm7J12JLIwiM1IAZO_4wqYIVB5NP3OYacNXxRN2ivw68PnswO2vAfuj1MOydNr_M0rsUJDR_eH-_opWBtvaYRgU_n39qkxEAbMu2v_2vEEm5Sumj7K_vXhepJvB2DWSTZshS0mSClGRE"];
+</script>
+<script src="../assets/luxe.js"></script>
+</body>
+</html>
