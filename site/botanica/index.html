@@ -670,7 +670,7 @@ document.querySelectorAll('[data-img]').forEach(el=>{
   if(!IMG[i])return;
   const big = el.closest('.hero-media')||el.closest('.fbg');
   el.src = big ? px(IMG[i],2000,1200) : px(IMG[i],1280,1280);
-  el.loading = (el.closest('.hero-media'))?'eager':'lazy';
+  el.loading='eager'; el.decoding='async';
 });
 
 /* build gallery from remaining photos */
@@ -685,7 +685,7 @@ document.querySelectorAll('[data-img]').forEach(el=>{
     const shape=shapes[n%shapes.length];
     f.className='frame hoverable '+shape;
     const img=document.createElement('img');
-    img.src=px(IMG[idx],1000,1000); img.loading='lazy'; img.alt='Botanica Khao Yai';
+    img.src=px(IMG[idx],1000,1000); img.loading='eager'; img.decoding='async'; img.alt='Botanica Khao Yai';
     f.appendChild(img); grid.appendChild(f);
   });
 })();
