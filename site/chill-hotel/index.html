@@ -1,337 +1,146 @@
 <!DOCTYPE html>
-<!--
-  REDESIGN EXAMPLE — Chill Hotel Khaoyai (real hotel: 4.8★, 1,056 Google reviews, Pak Chong).
-  Imagery = the hotel's REAL photos pulled live from its Google listing (lh3.googleusercontent.com).
-  Trilingual EN / ไทย / 中文 with per-language typography. Room names/prices are indicative (confirm with owner).
-  For a production build we'd self-host the chosen photos; here they're referenced live to show real imagery.
--->
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Chill Hotel Khaoyai — Boutique Mountain Hotel near Khao Yai, Pak Chong</title>
-<meta name="description" content="A calm, design-led hotel minutes from Khao Yai National Park. Pool, hot tub, restaurant & the warmest welcome in Pak Chong. 4.8★ from 1,056 guests. Book direct & save." />
-<meta name="theme-color" content="#1f3d2b" />
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 rx=%2210%22 fill=%22%231f3d2b%22/><path d=%22M14 30c0-7 5-12 11-12 4 0 6 2 7 4-2-1-4-1-6 0-4 2-6 6-6 10 0 1 0 2 1 3-4-1-7-4-7-5z%22 fill=%22%23a7c4a0%22/></svg>" />
-<style>
-  :root{
-    --forest:#1f3d2b;--forest-2:#2e5740;--sage:#8aa888;--moss:#5b7355;--gold:#c2a36b;
-    --ink:#1b211d;--muted:#6b7669;--bg:#fbfaf6;--cream:#f3efe6;--line:#e3ded2;
-    --line-green:#06c755;--wa:#25d366;--maxw:1180px;
-    --serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
-    --shadow:0 18px 50px rgba(31,61,43,.14);--shadow-sm:0 8px 24px rgba(31,61,43,.10);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
-  h1,h2,h3,h4,.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.1}
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  .eyebrow{font-family:var(--sans);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;color:var(--moss)}
-  .btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:0;font-family:var(--sans);font-weight:600;font-size:.96rem;padding:14px 26px;border-radius:999px;transition:transform .12s,box-shadow .2s,background .2s}
-  .btn:hover{transform:translateY(-2px)}
-  .btn-gold{background:var(--gold);color:#241c0c;box-shadow:0 10px 26px rgba(194,163,107,.4)}
-  .btn-dark{background:var(--forest);color:#fff}.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.6)}
-  .btn-line{background:var(--line-green);color:#fff}.btn-outline{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
-  section{padding:96px 0}
-  h2{font-size:clamp(1.9rem,4vw,2.9rem)}
-  .lead{color:var(--muted);font-size:1.12rem;max-width:60ch}
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-  .reveal.in{opacity:1;transform:none}
-
-  /* nav */
-  header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.3s}
-  header .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-  header.solid{background:rgba(251,250,246,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.3rem;color:#fff;transition:color .3s}
-  header.solid .logo{color:var(--forest)}
-  .logo .mk{width:34px;height:34px;border-radius:9px;background:var(--forest);display:flex;align-items:center;justify-content:center;color:var(--sage);font-size:1.1rem}
-  header.solid .logo .mk{background:var(--forest)}
-  .nav-links{display:flex;gap:30px}
-  .nav-links a{color:#fff;font-family:var(--sans);font-weight:500;font-size:.95rem;opacity:.92;transition:color .3s}
-  header.solid .nav-links a{color:var(--ink)}
-  .nav-right{display:flex;align-items:center;gap:14px}
-  .lang{display:flex;gap:2px;background:rgba(255,255,255,.16);border-radius:999px;padding:3px}
-  header.solid .lang{background:var(--cream)}
-  .lang button{border:0;background:transparent;color:#fff;font-family:var(--sans);font-weight:600;font-size:.8rem;padding:5px 10px;border-radius:999px;cursor:pointer;opacity:.8}
-  header.solid .lang button{color:var(--moss)}
-  .lang button.on{background:#fff;color:var(--forest);opacity:1}
-  header.solid .lang button.on{background:var(--forest);color:#fff}
-  @media(max-width:880px){.nav-links{display:none}}
-
-  /* hero */
-  .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
-  .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05)}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,30,20,.78),rgba(15,30,20,.15) 55%,rgba(15,30,20,.35))}
-  .hero .inner{position:relative;z-index:2;padding-bottom:64px;width:100%}
-  .hero h1{font-size:clamp(2.6rem,6.5vw,5rem);font-weight:500;max-width:16ch;text-shadow:0 2px 30px rgba(0,0,0,.35)}
-  .hero p{font-size:1.2rem;max-width:46ch;margin:20px 0 30px;opacity:.96}
-  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
-  .hero-badge{position:absolute;top:96px;right:24px;z-index:2;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:14px;padding:12px 16px;text-align:center}
-  .hero-badge b{font-family:var(--serif);font-size:1.5rem;display:block}
-  @media(max-width:600px){.hero-badge{display:none}}
-
-  /* trust strip */
-  .strip{background:var(--forest);color:#dfe8da}
-  .strip .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;padding:20px 24px;font-weight:500;font-size:.96rem}
-  .strip span{display:flex;align-items:center;gap:8px}.strip b{color:#fff}
-
-  /* about split */
-  .split{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
-  @media(max-width:860px){.split{grid-template-columns:1fr;gap:30px}}
-  .split .ph{height:520px;border-radius:18px;background-size:cover;background-position:center;box-shadow:var(--shadow)}
-  @media(max-width:860px){.split .ph{height:320px}}
-  .split h2{margin:14px 0 18px}
-
-  /* rooms */
-  .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  @media(max-width:900px){.rooms{grid-template-columns:1fr 1fr}}@media(max-width:620px){.rooms{grid-template-columns:1fr}}
-  .room{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
-  .room:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .room img{height:240px;width:100%;object-fit:cover}
-  .room .body{padding:22px}
-  .room h3{font-size:1.4rem}
-  .room .feat{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
-  .room .feat li{list-style:none;background:var(--cream);border-radius:999px;padding:4px 11px;font-size:.8rem;color:var(--moss)}
-  .room .price{font-family:var(--serif);font-size:1.6rem;color:var(--forest)}.room .price small{font-family:var(--sans);font-size:.8rem;color:var(--muted)}
-
-  /* amenities */
-  .amen{background:var(--cream)}
-  .amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  @media(max-width:760px){.amen-grid{grid-template-columns:1fr 1fr}}
-  .amen-grid .it{background:#fff;border-radius:14px;padding:22px 16px;text-align:center;border:1px solid var(--line)}
-  .amen-grid .it .ic{font-size:1.7rem}.amen-grid .it span{display:block;margin-top:6px;font-weight:500;font-size:.92rem}
-
-  /* gallery */
-  .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
-  @media(max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}}
-  .gal img{width:100%;height:100%;object-fit:cover;border-radius:12px}
-  .gal .big{grid-column:span 2;grid-row:span 2}
-
-  /* booking */
-  .book{background:var(--forest);color:#fff}
-  .book .split{align-items:center}
-  .book h2{color:#fff}.book .lead{color:#cfdcc8}
-  form{background:#fff;color:var(--ink);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
-  .field{margin-bottom:14px}label{display:block;font-weight:600;font-size:.84rem;margin-bottom:6px;color:var(--moss)}
-  input,select{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;font-family:var(--sans);font-size:1rem;background:var(--bg)}
-  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
-  /* reviews */
-  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}@media(max-width:820px){.quotes{grid-template-columns:1fr}}
-  .quote{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm)}
-  .quote .st{color:var(--gold);letter-spacing:2px;margin-bottom:8px}.quote p{font-style:italic}.quote footer{margin-top:12px;color:var(--muted);font-weight:600;font-size:.88rem}
-
-  footer.site{background:#16271c;color:#aebfa6;padding:56px 0 30px}
-  footer.site a{color:#cdd9c6}
-  .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
-  .fgrid h4{color:#fff;font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
-  .copyright{border-top:1px solid #2a3d2f;margin-top:34px;padding-top:20px;font-size:.85rem;color:#7e9077;text-align:center}
-  .float{position:fixed;right:18px;bottom:18px;z-index:70;display:flex;flex-direction:column;gap:11px}
-  .float a{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.55rem;box-shadow:0 8px 22px rgba(0,0,0,.28)}
-  .f-line{background:var(--line-green)}.f-wa{background:var(--wa)}.f-call{background:var(--gold);color:#241c0c}
-
-  /* language system */
-  html[lang="en"] [data-th],html[lang="en"] [data-zh]{display:none!important}
-  html[lang="th"] [data-en],html[lang="th"] [data-zh]{display:none!important}
-  html[lang="zh"] [data-en],html[lang="zh"] [data-th]{display:none!important}
-  /* per-language typography */
-  html[lang="th"] body,html[lang="th"] .btn,html[lang="th"] input,html[lang="th"] select{font-family:'Noto Sans Thai',sans-serif}
-  html[lang="th"] h1,html[lang="th"] h2,html[lang="th"] h3,html[lang="th"] h4{font-family:'Noto Sans Thai',sans-serif;font-weight:700;letter-spacing:0;line-height:1.25}
-  html[lang="th"] body{line-height:1.85}
-  html[lang="zh"] body,html[lang="zh"] .btn,html[lang="zh"] input,html[lang="zh"] select{font-family:'Noto Sans SC',sans-serif}
-  html[lang="zh"] h1,html[lang="zh"] h2,html[lang="zh"] h3,html[lang="zh"] h4{font-family:'Noto Serif SC',serif;font-weight:600;letter-spacing:.02em;line-height:1.3}
-  html[lang="zh"] .eyebrow{letter-spacing:.3em}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chill Hotel Khao Yai — A Relaxed Design Stay</title>
+<meta name="description" content="Chill Hotel Khao Yai — a relaxed design hotel with comfortable rooms, a pool and mountain air. Book direct.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/luxe.css">
+<style>:root{--bg:#F1F2EF;--bg-2:#E4E8E4;--bg-3:#D8DED8;--ink:#212725;--ink-soft:#535C58;--ink-faint:#828C87;--line:rgba(33,39,37,.13);--line-soft:rgba(33,39,37,.07);--accent:#4C7370;--accent-deep:#2F4F4D;--dark:#1D2A28;--cream:#E9EEEB;--gold:#B79F6E;--grade-overlay:rgba(76,115,112,.05)}</style>
 </head>
-<body>
-<header id="hdr"><div class="wrap nav">
-  <a class="logo" href="#top"><span class="mk">⛰</span> Chill Hotel <span style="opacity:.6">Khaoyai</span></a>
-  <nav class="nav-links">
-    <a href="#rooms" data-en>Rooms</a><a href="#rooms" data-th>ห้องพัก</a><a href="#rooms" data-zh>客房</a>
-    <a href="#amenities" data-en>Facilities</a><a href="#amenities" data-th>สิ่งอำนวยความสะดวก</a><a href="#amenities" data-zh>设施</a>
-    <a href="#gallery" data-en>Gallery</a><a href="#gallery" data-th>แกลเลอรี</a><a href="#gallery" data-zh>相册</a>
-    <a href="#visit" data-en>Location</a><a href="#visit" data-th>ที่ตั้ง</a><a href="#visit" data-zh>位置</a>
-  </nav>
-  <div class="nav-right">
-    <div class="lang"><button data-l="en" class="on" onclick="setLang('en')">EN</button><button data-l="th" onclick="setLang('th')">ไทย</button><button data-l="zh" onclick="setLang('zh')">中文</button></div>
-    <a href="#book" class="btn btn-gold" style="padding:10px 18px"><span data-en>Book Direct</span><span data-th>จองตรง</span><span data-zh>官网预订</span></a>
-  </div>
-</div></header>
+<body lang="en">
+<div class="grain"></div>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="bg" id="heroBg"></div>
-  <div class="hero-badge"><b>4.8★</b><span data-en>1,056 reviews</span><span data-th>1,056 รีวิว</span><span data-zh>1,056 条评价</span></div>
-  <div class="inner"><div class="wrap">
-    <p class="eyebrow" style="color:#cfe0c8">Pak Chong · Khao Yai</p>
-    <h1><span data-en>Wake up in the mountains of Khao Yai</span><span data-th>ตื่นมาพบขุนเขาเขาใหญ่</span><span data-zh>在考艾的群山中醒来</span></h1>
-    <p><span data-en>A calm, design-led hotel minutes from the national park — pool, hot tub, and the warmest welcome in Pak Chong.</span><span data-th>โรงแรมดีไซน์อบอุ่น เงียบสงบ ใกล้อุทยานแห่งชาติเขาใหญ่ พร้อมสระว่ายน้ำ อ่างน้ำวน และการต้อนรับที่อบอุ่นที่สุดในปากช่อง</span><span data-zh>邻近国家公园的静谧设计酒店——泳池、按摩浴缸，以及帕侬最温暖的款待。</span></p>
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">Chill Hotel</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#rooms" class="t" data-en="Rooms" data-th="ห้องพัก" data-zh="客房">Rooms</a>
+    <a href="#about" class="t" data-en="The Hotel" data-th="โรงแรม" data-zh="酒店">The Hotel</a>
+    <a href="#amenities" class="t" data-en="Amenities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Amenities</a>
+    <a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a>
+    <a href="#book" class="navbtn t" data-en="Reserve" data-th="จอง" data-zh="预订">Reserve</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang" id="lang"><button data-l="en" class="active">EN</button><span>·</span><button data-l="th">ไทย</button><span>·</span><button data-l="zh">中文</button></div>
+    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-media frame"><img data-img="0" alt="Chill Hotel Khao Yai" fetchpriority="high"></div>
+  <div class="hero-inner maxw">
+    <div class="hero-eyebrow eyebrow"><span class="tick"></span><span class="t" data-en="Khao Yai · Design Hotel" data-th="เขาใหญ่ · ดีไซน์โฮเทล" data-zh="考艾 · 设计酒店">Khao Yai · Design Hotel</span></div>
+    <h1 class="t" data-en="Cool air, easy days." data-th="อากาศเย็นสบาย วันสบาย ๆ" data-zh="凉风轻拂，日子悠然。">Cool air, easy days.</h1>
+    <p class="hero-sub t" data-en="A relaxed design hotel in Khao Yai — comfortable rooms, a pool to laze by, and the mountains waiting at the end of the road." data-th="ดีไซน์โฮเทลสบาย ๆ ในเขาใหญ่ — ห้องพักสบาย สระให้นอนเล่น และขุนเขารออยู่ปลายถนน" data-zh="考艾一家轻松的设计酒店——舒适客房、可慵懒消磨的泳池，以及在路尽头守候的群山。">A relaxed design hotel in Khao Yai — comfortable rooms, a pool to laze by, and the mountains waiting at the end of the road.</p>
     <div class="hero-cta">
-      <a href="#book" class="btn btn-gold"><span data-en>Check availability</span><span data-th>เช็คห้องว่าง</span><span data-zh>查询空房</span></a>
-      <a href="https://line.me/R/ti/p/@chillhotelkhaoyai" class="btn btn-ghost">💬 <span data-en>Chat on LINE</span><span data-th>แชท LINE</span><span data-zh>LINE 咨询</span></a>
+      <a href="#book" class="btn btn--ghost-light t" data-en="Reserve a room" data-th="จองห้องพัก" data-zh="预订客房">Reserve a room</a>
+      <a href="#rooms" class="btn btn--ghost-light t" data-en="See rooms" data-th="ดูห้องพัก" data-zh="查看客房">See rooms</a>
     </div>
-  </div></div>
+  </div>
+  <div class="scrollcue"><span class="ln"></span><span class="t" data-en="Scroll" data-th="เลื่อนลง" data-zh="向下滚动">Scroll</span></div>
+  <div class="hero-meta"><div class="t" data-en="Design Hotel" data-th="ดีไซน์โฮเทล" data-zh="设计酒店">Design Hotel</div><div class="t" data-en="Khao Yai · Thailand" data-th="เขาใหญ่ · ไทย" data-zh="考艾 · 泰国">Khao Yai · Thailand</div></div>
+</header>
+
+<section class="band band--alt"><div class="manifesto reveal">
+  <span class="eyebrow t" data-en="The Idea" data-th="แนวคิด" data-zh="理念">The Idea</span>
+  <p class="t" data-en="A place to do very little, very well. Good design, a good bed, good coffee &amp; nowhere you urgently need to be." data-th="ที่ที่ไว้ทำอะไรน้อย ๆ แต่ทำได้ดีมาก ดีไซน์ดี เตียงดี กาแฟดี และไม่มีที่ไหนที่คุณต้องรีบไป" data-zh="一处什么都不必多做、却做得极好的地方。好设计、好床、好咖啡，以及无处急需赶赴。">A place to do very little, very well. Good design, a good bed, good coffee <span class="amp">&amp;</span> nowhere you urgently need to be.</p>
+</div></section>
+
+<section class="band" id="about"><div class="maxw"><div class="split split--wide reveal">
+  <div class="split-media frame hoverable"><img data-img="2" alt="Hotel interior"></div>
+  <div class="split-text">
+    <span class="idx">01 — <span class="t" data-en="The Hotel" data-th="โรงแรม" data-zh="酒店">The Hotel</span></span>
+    <h2 class="t" data-en="Relaxed, by design" data-th="สบาย ๆ ตั้งแต่การออกแบบ" data-zh="轻松，源于设计">Relaxed, by design</h2>
+    <p class="body t" data-en="Clean lines, warm materials and big windows onto the green. Close to the vineyards, the national park and the cafés — but quiet enough to feel like a proper escape." data-th="เส้นสายเรียบง่าย วัสดุอบอุ่น และหน้าต่างบานใหญ่รับสีเขียว ใกล้ไร่องุ่น อุทยานแห่งชาติ และคาเฟ่ — แต่เงียบพอที่จะรู้สึกเหมือนได้หนีเที่ยวจริง ๆ" data-zh="简净的线条、温润的材质，与朝向绿意的大窗。邻近葡萄园、国家公园与咖啡馆——却静得足以成为一场真正的逃离。">Clean lines, warm materials and big windows onto the green. Close to the vineyards, the national park and the cafés — but quiet enough to feel like a proper escape.</p>
+    <a href="#rooms" class="txtlink t" data-en="See the rooms" data-th="ดูห้องพัก" data-zh="查看客房">See the rooms <svg class="ic"><use href="#ic-arrow"/></svg></a>
+  </div>
+</div></div></section>
+
+<section class="band band--alt" id="rooms"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Rooms" data-th="ห้องพัก" data-zh="客房">Rooms</span><h2 class="t" data-en="Rooms to slow down in" data-th="ห้องพักให้คุณได้ผ่อนคลาย" data-zh="让你慢下来的客房">Rooms to slow down in</h2></div>
+  <p class="hint t" data-en="Per night, breakfast included. Book direct for the best rate." data-th="ต่อคืน รวมอาหารเช้า จองตรงได้ราคาดีที่สุด" data-zh="每晚含早餐。直订享最优价。">Per night, breakfast included. Book direct for the best rate.</p></div></div>
+  <div class="rows reveal">
+    <div class="row"><div class="row-media frame hoverable"><img data-img="3" alt="Deluxe Mountain Room"></div><div class="row-body"><span class="idx">A</span>
+      <h3 class="t" data-en="Deluxe Mountain" data-th="ดีลักซ์ เมาน์เทน" data-zh="豪华山景房">Deluxe Mountain</h3>
+      <div class="row-tags"><span class="t" data-en="Mountain view" data-th="วิวภูเขา" data-zh="山景">Mountain view</span><span class="t" data-en="Balcony" data-th="ระเบียง" data-zh="阳台">Balcony</span><span class="t" data-en="Sleeps 2" data-th="พัก 2" data-zh="可住 2 人">Sleeps 2</span></div>
+      <p class="desc t" data-en="A bright, generous room with a balcony framing the hills — coffee out here is the whole point." data-th="ห้องสว่างกว้างขวางพร้อมระเบียงรับวิวขุนเขา — จิบกาแฟตรงนี้คือไฮไลต์" data-zh="明亮宽敞的客房，阳台将群山纳入眼帘——在此啜一杯咖啡，便是全部意义。">A bright, generous room with a balcony framing the hills — coffee out here is the whole point.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿2,400</div><a href="#book" class="btn btn--accent t" data-en="Reserve" data-th="จอง" data-zh="预订">Reserve</a></div></div></div>
+    <div class="row"><div class="row-media frame hoverable"><img data-img="6" alt="Pool Access Room"></div><div class="row-body"><span class="idx">B</span>
+      <h3 class="t" data-en="Pool Access" data-th="พูล แอคเซส" data-zh="泳池畔客房">Pool Access</h3>
+      <div class="row-tags"><span class="t" data-en="Step to pool" data-th="ติดสระ" data-zh="紧邻泳池">Step to pool</span><span class="t" data-en="Terrace" data-th="ระเบียง" data-zh="露台">Terrace</span><span class="t" data-en="Sleeps 2" data-th="พัก 2" data-zh="可住 2 人">Sleeps 2</span></div>
+      <p class="desc t" data-en="Slide open the door and you're poolside. Made for long, lazy afternoons." data-th="เปิดประตูก็ถึงขอบสระ เหมาะกับบ่ายแสนสบายยาว ๆ" data-zh="推门即至泳池畔。为悠长慵懒的午后而生。">Slide open the door and you're poolside. Made for long, lazy afternoons.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿3,200</div><a href="#book" class="btn btn--accent t" data-en="Reserve" data-th="จอง" data-zh="预订">Reserve</a></div></div></div>
+    <div class="row"><div class="row-media frame hoverable"><img data-img="9" alt="Family Suite"></div><div class="row-body"><span class="idx">C</span>
+      <h3 class="t" data-en="Family Suite" data-th="แฟมิลี่ สวีท" data-zh="家庭套房">Family Suite</h3>
+      <div class="row-tags"><span class="t" data-en="Two rooms" data-th="สองห้อง" data-zh="两间房">Two rooms</span><span class="t" data-en="Sleeps 4" data-th="พัก 4" data-zh="可住 4 人">Sleeps 4</span><span class="t" data-en="Lounge" data-th="มุมนั่งเล่น" data-zh="休息区">Lounge</span></div>
+      <p class="desc t" data-en="Space for the whole family, with a lounge to spread out in and room for everyone to relax." data-th="กว้างพอสำหรับทั้งครอบครัว มีมุมนั่งเล่นให้ทุกคนได้พักผ่อน" data-zh="全家共享的空间，配休息区，人人皆可舒展放松。">Space for the whole family, with a lounge to spread out in and room for everyone to relax.</p>
+      <div class="row-foot"><div class="price"><small class="t" data-en="From / night" data-th="เริ่มต้น / คืน" data-zh="起 / 每晚">From / night</small>฿4,200</div><a href="#book" class="btn btn--accent t" data-en="Reserve" data-th="จอง" data-zh="预订">Reserve</a></div></div></div>
+  </div>
 </section>
 
-<div class="strip"><div class="wrap">
-  <span>⭐ <b>4.8</b> / 5 · <span data-en>1,056 guest reviews</span><span data-th>1,056 รีวิว</span><span data-zh>1,056 条评价</span></span>
-  <span>🏊 <span data-en>Pool & hot tub</span><span data-th>สระว่ายน้ำ & อ่างน้ำวน</span><span data-zh>泳池与按摩浴缸</span></span>
-  <span>🌿 <span data-en>5 min to Khao Yai</span><span data-th>5 นาทีถึงเขาใหญ่</span><span data-zh>5 分钟到考艾</span></span>
-  <span>💸 <span data-en>Best price, book direct</span><span data-th>ราคาดีที่สุดเมื่อจองตรง</span><span data-zh>官网预订更优惠</span></span>
-</div></div>
+<section class="band" id="amenities"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Amenities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Amenities</span><h2 class="t" data-en="The good stuff" data-th="ของดีที่มีให้" data-zh="贴心配备">The good stuff</h2></div></div>
+  <div class="amen reveal">
+    <div class="amen-item"><svg class="ic"><use href="#ic-pool"/></svg><h4 class="t" data-en="Swimming Pool" data-th="สระว่ายน้ำ" data-zh="游泳池">Swimming Pool</h4><p class="t" data-en="The heart of the hotel." data-th="หัวใจของโรงแรม" data-zh="酒店的核心。">The heart of the hotel.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-coffee"/></svg><h4 class="t" data-en="Café &amp; Bar" data-th="คาเฟ่ &amp; บาร์" data-zh="咖啡与酒吧">Café &amp; Bar</h4><p class="t" data-en="Good coffee, easy drinks." data-th="กาแฟดี เครื่องดื่มสบาย ๆ" data-zh="好咖啡，惬意小酌。">Good coffee, easy drinks.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-breakfast"/></svg><h4 class="t" data-en="Breakfast" data-th="อาหารเช้า" data-zh="早餐">Breakfast</h4><p class="t" data-en="Included, no early alarms." data-th="รวมในค่าห้อง ไม่ต้องตื่นเช้า" data-zh="含早餐，无需早起。">Included, no early alarms.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-wifi"/></svg><h4 class="t" data-en="Free Wi-Fi" data-th="ไวไฟฟรี" data-zh="免费 Wi-Fi">Free Wi-Fi</h4><p class="t" data-en="Fast, in every room." data-th="เร็ว ทุกห้อง" data-zh="全房快速覆盖。">Fast, in every room.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-mountain"/></svg><h4 class="t" data-en="Mountain Views" data-th="วิวภูเขา" data-zh="山景">Mountain Views</h4><p class="t" data-en="From rooms &amp; rooftop." data-th="จากห้องและดาดฟ้า" data-zh="客房与天台皆可远眺。">From rooms &amp; rooftop.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-parking"/></svg><h4 class="t" data-en="Free Parking" data-th="ที่จอดรถฟรี" data-zh="免费停车">Free Parking</h4><p class="t" data-en="On-site &amp; easy." data-th="ในโรงแรม สะดวก" data-zh="园内便捷停车。">On-site &amp; easy.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-aircon"/></svg><h4 class="t" data-en="Air-Conditioned" data-th="เครื่องปรับอากาศ" data-zh="空调">Air-Conditioned</h4><p class="t" data-en="Every room, every season." data-th="ทุกห้อง ทุกฤดู" data-zh="每房四季皆宜。">Every room, every season.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-service"/></svg><h4 class="t" data-en="Room Service" data-th="รูมเซอร์วิส" data-zh="客房服务">Room Service</h4><p class="t" data-en="When you'd rather not move." data-th="ตอนที่ไม่อยากลุกไปไหน" data-zh="当你不想挪步时。">When you'd rather not move.</p></div>
+  </div>
+</div></section>
 
-<!-- ABOUT -->
-<section><div class="wrap split">
-  <div class="ph reveal" id="aboutPh"></div>
+<section class="band band--alt" id="gallery"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</span><h2 class="t" data-en="A look around" data-th="ลองดูรอบ ๆ" data-zh="随处看看">A look around</h2></div>
+  <p class="hint t" data-en="Real photos of Chill Hotel — rooms, pool and the green around us." data-th="ภาพจริงของชิล โฮเทล — ห้องพัก สระ และสีเขียวรอบตัว" data-zh="Chill Hotel 的真实照片——客房、泳池，与环抱的绿意。">Real photos of Chill Hotel — rooms, pool and the green around us.</p></div>
+  <div class="gal reveal" id="gallery-grid"></div>
+</div></section>
+
+<section class="feature">
+  <div class="feature-bg frame"><img data-img="4" alt=""></div>
+  <div class="feature-inner reveal">
+    <span class="eyebrow t" data-en="What guests say" data-th="เสียงจากผู้เข้าพัก" data-zh="宾客之声">What guests say</span>
+    <blockquote class="t" data-en="“Stylish, spotless and so relaxing. The pool, the views, the bed — we didn't want to leave.”" data-th="“มีสไตล์ สะอาด และผ่อนคลายมาก สระ วิว เตียง — ไม่อยากกลับเลย”" data-zh="“时尚、洁净、无比放松。泳池、景致、床——让人不舍离开。”">“Stylish, spotless and so relaxing. The pool, the views, the bed — we didn't want to leave.”</blockquote>
+    <div class="attrib"><span class="stars"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg></span><span class="t" data-en="Loved by guests on Google" data-th="ผู้เข้าพักชื่นชอบบน Google" data-zh="深受 Google 宾客喜爱">Loved by guests on Google</span></div>
+  </div>
+</section>
+
+<section class="band" id="book"><div class="maxw reserve">
   <div class="reveal">
-    <p class="eyebrow" data-en>Our Story</p><p class="eyebrow" data-th>เรื่องราวของเรา</p><p class="eyebrow" data-zh>关于我们</p>
-    <h2><span data-en>Where the mountains slow you down</span><span data-th>ที่ซึ่งขุนเขาช่วยให้คุณได้พักจริงๆ</span><span data-zh>让群山为你放慢脚步</span></h2>
-    <p class="lead"><span data-en>Tucked along Mittraphap Road, Chill Hotel is a boutique escape built for stillness — clean modern rooms, a glistening pool, a steaming hot tub, and a kitchen that sends you off each morning happy. Loved by 1,056 guests for one simple reason: it feels like exhaling.</span><span data-th>ตั้งอยู่ริมถนนมิตรภาพ ชิลล์ โฮเทล คือที่พักบูทีคที่สร้างมาเพื่อความผ่อนคลาย ห้องพักสะอาดทันสมัย สระว่ายน้ำใส อ่างน้ำวนอุ่นๆ และอาหารเช้าที่ทำให้ทุกเช้าของคุณสดใส ผู้เข้าพักกว่า 1,056 ท่านหลงรักด้วยเหตุผลง่ายๆ คือ "ได้พักผ่อนอย่างแท้จริง"</span><span data-zh>坐落于幸福路旁，Chill Hotel 是一处为静心而生的精品居所——简约现代的客房、波光粼粼的泳池、暖意融融的按摩浴缸，以及让你每天清晨都心情愉悦的餐厨。1,056 位住客钟爱它的理由很简单：在这里，能真正地舒一口气。</span></p>
-    <p style="margin-top:22px"><a href="#rooms" class="btn btn-outline"><span data-en>Explore rooms</span><span data-th>ดูห้องพัก</span><span data-zh>浏览客房</span></a></p>
+    <span class="eyebrow t" data-en="Reservations" data-th="การจอง" data-zh="预订">Reservations</span>
+    <h2 class="t" data-en="Book direct" data-th="จองตรง" data-zh="直接预订">Book direct</h2>
+    <p class="lead t" data-en="Best rate, straight from us. Send your dates and we'll reply quickly in English, ไทย or 中文." data-th="ราคาดีที่สุด จองกับเราตรง ส่งวันที่มา เราตอบกลับเร็วทั้งอังกฤษ ไทย หรือจีน" data-zh="最优价，直接向我们预订。告知日期，我们将以英文、泰文或中文迅速回复。">Best rate, straight from us. Send your dates and we'll reply quickly in English, ไทย or 中文.</p>
+    <div class="contact-row"><svg class="ic"><use href="#ic-pin"/></svg><div><div class="k t" data-en="Address" data-th="ที่อยู่" data-zh="地址">Address</div><div class="v">Mu Si, Pak Chong, Khao Yai, Nakhon Ratchasima</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-phone"/></svg><div><div class="k t" data-en="Telephone" data-th="โทรศัพท์" data-zh="电话">Telephone</div><div class="v">+66 44 000 111</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-chat"/></svg><div><div class="k">LINE</div><div class="v">@chillhotelkhaoyai</div></div></div>
   </div>
-</div></section>
-
-<!-- ROOMS -->
-<section id="rooms" style="background:var(--bg);padding-top:40px"><div class="wrap">
-  <div class="reveal" style="text-align:center;margin-bottom:42px">
-    <p class="eyebrow" data-en>Stay</p><p class="eyebrow" data-th>ห้องพัก</p><p class="eyebrow" data-zh>住宿</p>
-    <h2><span data-en>Rooms made for resting</span><span data-th>ห้องพักเพื่อการพักผ่อน</span><span data-zh>为休憩而设的客房</span></h2>
-    <p class="lead" style="margin:10px auto 0"><span data-en>Every room is air-conditioned with fast Wi-Fi and a proper hot shower. Book here for the lowest rate — always below the apps.</span><span data-th>ทุกห้องมีแอร์ Wi-Fi เร็ว และฝักบัวน้ำอุ่น จองที่นี่ราคาดีที่สุด ถูกกว่าแอปเสมอ</span><span data-zh>每间客房均配空调、高速 Wi-Fi 与热水淋浴。官网预订享最低价——始终低于各大平台。</span></p>
-  </div>
-  <div class="rooms" id="rooms-grid"></div>
-  <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:18px"><span data-en>Indicative rates — confirm live availability on LINE.</span><span data-th>ราคาโดยประมาณ — สอบถามห้องว่างได้ทาง LINE</span><span data-zh>价格仅供参考——空房请于 LINE 确认。</span></p>
-</div></section>
-
-<!-- AMENITIES -->
-<section id="amenities" class="amen"><div class="wrap">
-  <div class="reveal" style="text-align:center;margin-bottom:42px">
-    <p class="eyebrow" data-en>Facilities</p><p class="eyebrow" data-th>สิ่งอำนวยความสะดวก</p><p class="eyebrow" data-zh>设施</p>
-    <h2><span data-en>Everything for an easy stay</span><span data-th>ครบทุกสิ่งเพื่อการพักที่สบาย</span><span data-zh>让入住轻松自在</span></h2>
-  </div>
-  <div class="amen-grid reveal" id="amen-grid"></div>
-</div></section>
-
-<!-- GALLERY -->
-<section id="gallery"><div class="wrap">
-  <div class="reveal" style="margin-bottom:32px">
-    <p class="eyebrow" data-en>Gallery</p><p class="eyebrow" data-th>แกลเลอรี</p><p class="eyebrow" data-zh>相册</p>
-    <h2><span data-en>A look around</span><span data-th>บรรยากาศโดยรอบ</span><span data-zh>环境一览</span></h2>
-  </div>
-  <div class="gal reveal" id="gal"></div>
-</div></section>
-
-<!-- REVIEWS -->
-<section style="background:var(--cream)"><div class="wrap">
-  <div class="reveal" style="text-align:center;margin-bottom:40px">
-    <p class="eyebrow" data-en>Guest Love</p><p class="eyebrow" data-th>เสียงจากผู้เข้าพัก</p><p class="eyebrow" data-zh>住客好评</p>
-    <h2><span data-en>4.8 from 1,056 guests</span><span data-th>4.8 จากผู้เข้าพัก 1,056 ท่าน</span><span data-zh>1,056 位住客 · 4.8 分</span></h2>
-  </div>
-  <div class="quotes reveal">
-    <div class="quote"><div class="st">★★★★★</div><p data-en>"Spotless, stylish, and the pool was perfect after a day in the park. Staff went out of their way for us."</p><p data-th>"สะอาด สวย และสระว่ายน้ำดีมากหลังเที่ยวอุทยานมาทั้งวัน พนักงานดูแลดีเกินคาด"</p><p data-zh>"干净又有格调，逛完公园后泡泡泳池太惬意了。员工的贴心远超预期。"</p><footer>— <span data-en>Verified Google guest</span><span data-th>ผู้เข้าพักจาก Google</span><span data-zh>Google 认证住客</span></footer></div>
-    <div class="quote"><div class="st">★★★★★</div><p data-en>"Great location near Khao Yai, super comfy beds, and breakfast was lovely. Booked direct and saved."</p><p data-th>"ทำเลดีใกล้เขาใหญ่ เตียงนอนสบายมาก อาหารเช้าอร่อย จองตรงประหยัดด้วย"</p><footer>— <span data-en>Verified Google guest</span><span data-th>ผู้เข้าพักจาก Google</span><span data-zh>Google 认证住客</span></footer></div>
-    <div class="quote"><div class="st">★★★★★</div><p data-en>"The hot tub at night under the mountain air — unforgettable. We'll be back."</p><p data-th>"แช่อ่างน้ำวนตอนกลางคืนรับอากาศภูเขา — ประทับใจมาก ต้องกลับมาอีกแน่นอน"</p><p data-zh>"夜里在山间空气中泡按摩浴缸，难以忘怀。我们一定会再来。"</p><footer>— <span data-en>Verified Google guest</span><span data-th>ผู้เข้าพักจาก Google</span><span data-zh>Google 认证住客</span></footer></div>
-  </div>
-  <p style="text-align:center;color:var(--muted);font-size:.78rem;margin-top:14px"><span data-en>Illustrative of guest sentiment — real reviews are synced from Google on the live build.</span><span data-th>ตัวอย่างความรู้สึกของผู้เข้าพัก — รีวิวจริงจะดึงจาก Google ในเวอร์ชันใช้งานจริง</span><span data-zh>用于呈现住客感受——正式版将同步 Google 真实评价。</span></p>
-</div></section>
-
-<!-- BOOKING -->
-<section id="book" class="book"><div class="wrap split">
-  <div class="reveal">
-    <p class="eyebrow" style="color:var(--gold)" data-en>Book Direct</p><p class="eyebrow" style="color:var(--gold)" data-th>จองตรง</p><p class="eyebrow" style="color:var(--gold)" data-zh>官网预订</p>
-    <h2><span data-en>Best rate, straight from us</span><span data-th>ราคาดีที่สุด จองกับเราโดยตรง</span><span data-zh>最优房价，直接预订</span></h2>
-    <p class="lead"><span data-en>Send a request and we'll confirm on LINE within a few hours — no booking fees, no middleman, the lowest price.</span><span data-th>ส่งคำขอจอง แล้วเรายืนยันทาง LINE ภายในไม่กี่ชั่วโมง ไม่มีค่าธรรมเนียม ไม่ผ่านคนกลาง ราคาถูกที่สุด</span><span data-zh>提交预订需求，我们将于数小时内通过 LINE 确认——无手续费、无中介、最低价格。</span></p>
-    <p style="margin-top:18px"><a href="tel:+66811415987" class="btn btn-gold">📞 +66 81 141 5987</a></p>
-  </div>
-  <form class="reveal" action="https://formspree.io/f/your-id" method="POST">
-    <div class="field"><label data-en>Full name</label><label data-th>ชื่อ-นามสกุล</label><label data-zh>姓名</label><input name="name" required></div>
-    <div class="row2"><div class="field"><label data-en>Check-in</label><label data-th>เช็คอิน</label><label data-zh>入住</label><input type="date" name="checkin" required></div><div class="field"><label data-en>Check-out</label><label data-th>เช็คเอาท์</label><label data-zh>退房</label><input type="date" name="checkout" required></div></div>
-    <div class="row2"><div class="field"><label data-en>Room</label><label data-th>ห้อง</label><label data-zh>房型</label><select><option>Deluxe Mountain View</option><option>Pool Access Room</option><option>Family Suite</option></select></div><div class="field"><label data-en>Guests</label><label data-th>ผู้เข้าพัก</label><label data-zh>入住人数</label><select><option>1</option><option>2</option><option>3</option><option>4</option></select></div></div>
-    <div class="field"><label data-en>Contact (email / LINE)</label><label data-th>ช่องทางติดต่อ (อีเมล / LINE)</label><label data-zh>联系方式（邮箱 / LINE）</label><input name="contact" required></div>
-    <button class="btn btn-gold" type="submit" style="width:100%;justify-content:center"><span data-en>Request booking →</span><span data-th>ส่งคำขอจอง →</span><span data-zh>提交预订 →</span></button>
+  <form class="eform reveal" onsubmit="return false">
+    <div class="field"><label class="t" data-en="Name" data-th="ชื่อ" data-zh="姓名">Name</label><input type="text" autocomplete="name"></div>
+    <div class="field two"><div><label class="t" data-en="Check-in" data-th="เช็คอิน" data-zh="入住">Check-in</label><input type="date"></div><div><label class="t" data-en="Check-out" data-th="เช็คเอาท์" data-zh="退房">Check-out</label><input type="date"></div></div>
+    <div class="field"><label class="t" data-en="Room" data-th="ห้อง" data-zh="房型">Room</label><input type="text"></div>
+    <button class="btn btn--solid t" data-en="Book direct" data-th="จองตรง" data-zh="直接预订">Book direct <svg class="ic"><use href="#ic-arrow"/></svg></button>
   </form>
 </div></section>
 
-<!-- LOCATION -->
-<section id="visit"><div class="wrap split">
-  <div class="reveal">
-    <p class="eyebrow" data-en>Find Us</p><p class="eyebrow" data-th>ที่ตั้ง</p><p class="eyebrow" data-zh>位置</p>
-    <h2><span data-en>Gateway to Khao Yai</span><span data-th>ประตูสู่เขาใหญ่</span><span data-zh>通往考艾的门户</span></h2>
-    <p class="lead"><span data-en>8 Mittraphap Road, Pak Chong, Nakhon Ratchasima — minutes from Khao Yai National Park, wineries and the night market. Airport shuttle on request.</span><span data-th>8 ถนนมิตรภาพ ปากช่อง นครราชสีมา — ใกล้อุทยานแห่งชาติเขาใหญ่ ไร่ไวน์ และตลาดกลางคืน มีบริการรับส่งสนามบินตามคำขอ</span><span data-zh>那空叻差是玛府帕侬县幸福路 8 号——邻近考艾国家公园、酒庄与夜市。可应需安排机场接送。</span></p>
-    <p style="margin-top:20px"><a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Chill+Hotel+Khaoyai">📍 <span data-en>Open in Google Maps</span><span data-th>เปิดใน Google Maps</span><span data-zh>在 Google 地图打开</span></a></p>
-  </div>
-  <iframe class="reveal" style="border:0;width:100%;height:420px;border-radius:18px;box-shadow:var(--shadow)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map" src="https://maps.google.com/maps?q=14.6679127,101.3957701&z=15&output=embed"></iframe>
-</div></section>
+<footer class="foot"><div class="maxw"><div class="foot-top">
+  <div class="foot-brand"><div class="brand">Chill Hotel</div>
+    <p class="t" data-en="A relaxed design hotel in Khao Yai — comfortable rooms, a pool, and mountain air." data-th="ดีไซน์โฮเทลสบาย ๆ ในเขาใหญ่ — ห้องสบาย สระว่ายน้ำ และอากาศภูเขา" data-zh="考艾一家轻松的设计酒店——舒适客房、泳池，与山间空气。">A relaxed design hotel in Khao Yai — comfortable rooms, a pool, and mountain air.</p>
+    <div class="foot-soc"><a href="#" aria-label="Facebook"><svg class="ic"><use href="#ic-fb"/></svg></a><a href="#" aria-label="Instagram"><svg class="ic"><use href="#ic-ig"/></svg></a><a href="#" aria-label="LINE"><svg class="ic"><use href="#ic-chat"/></svg></a></div></div>
+  <div class="foot-col"><h5 class="t" data-en="Explore" data-th="สำรวจ" data-zh="导览">Explore</h5><a href="#rooms" class="t" data-en="Rooms" data-th="ห้องพัก" data-zh="客房">Rooms</a><a href="#amenities" class="t" data-en="Amenities" data-th="สิ่งอำนวยความสะดวก" data-zh="设施">Amenities</a><a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a><a href="#book" class="t" data-en="Reserve" data-th="จอง" data-zh="预订">Reserve</a></div>
+  <div class="foot-col"><h5 class="t" data-en="Visit" data-th="เยี่ยมชม" data-zh="到访">Visit</h5><p>Mu Si, Pak Chong</p><p>Khao Yai, Nakhon Ratchasima</p><p>+66 44 000 111</p><a href="#book" class="t" data-en="Book direct →" data-th="จองตรง →" data-zh="直接预订 →">Book direct →</a></div>
+</div><div class="foot-bottom"><div>© 2026 Chill Hotel Khao Yai</div><div class="disc t" data-en="Design concept for demonstration — not the official website of Chill Hotel Khao Yai. Photography © respective owners, via Google Maps." data-th="แนวคิดการออกแบบเพื่อการสาธิต — ไม่ใช่เว็บไซต์ทางการ ภาพถ่ายเป็นลิขสิทธิ์ของเจ้าของ ผ่าน Google Maps" data-zh="设计概念演示——非官方网站。图片版权归各自所有者，来源 Google 地图。">Design concept for demonstration — not the official website of Chill Hotel Khao Yai. Photography © respective owners, via Google Maps.</div></div></div></footer>
 
-<footer class="site"><div class="wrap">
-  <div class="fgrid">
-    <div><div class="logo" style="color:#fff"><span class="mk">⛰</span> Chill Hotel Khaoyai</div>
-      <p style="margin-top:12px;max-width:40ch"><span data-en>A calm, design-led mountain hotel in Pak Chong, by Khao Yai. Book direct & save.</span><span data-th>โรงแรมบนภูเขาดีไซน์อบอุ่น เงียบสงบ ที่ปากช่อง ใกล้เขาใหญ่ จองตรงประหยัดกว่า</span><span data-zh>帕侬考艾旁的静谧设计山间酒店。官网预订更优惠。</span></p></div>
-    <div><h4 data-en>Contact</h4><h4 data-th>ติดต่อ</h4><h4 data-zh>联系</h4><p>📞 +66 81 141 5987<br>💬 LINE @chillhotelkhaoyai<br>📍 8 Mittraphap Rd, Pak Chong</p></div>
-    <div><h4 data-en>Explore</h4><h4 data-th>เมนู</h4><h4 data-zh>导航</h4><p><a href="#rooms" data-en>Rooms</a><a href="#rooms" data-th>ห้องพัก</a><a href="#rooms" data-zh>客房</a> · <a href="#gallery" data-en>Gallery</a><a href="#gallery" data-th>แกลเลอรี</a><a href="#gallery" data-zh>相册</a> · <a href="#book" data-en>Book</a><a href="#book" data-th>จอง</a><a href="#book" data-zh>预订</a></p></div>
-  </div>
-  <div class="copyright">© <span id="yr"></span> Chill Hotel Khaoyai · <span data-en>Redesign concept · photos from the hotel's Google listing</span><span data-th>คอนเซ็ปต์รีดีไซน์ · ภาพจากโปรไฟล์ Google ของโรงแรม</span><span data-zh>改版概念 · 图片来自酒店 Google 资料</span></div>
-</div></footer>
+<div class="bookbar" id="bookbar"><div class="bb-name">Chill Hotel</div><div class="bb-r"><span class="bb-note t" data-en="Design rooms · from ฿2,400/night" data-th="ห้องดีไซน์ · เริ่ม ฿2,400/คืน" data-zh="设计客房 · ฿2,400/晚起">Design rooms · from ฿2,400/night</span><a href="#book" class="btn btn--solid t" data-en="Reserve" data-th="จอง" data-zh="预订">Reserve</a></div></div>
 
-<div class="float">
-  <a class="f-line" href="https://line.me/R/ti/p/@chillhotelkhaoyai" aria-label="LINE">💬</a>
-  <a class="f-wa" href="https://wa.me/66811415987" aria-label="WhatsApp">🟢</a>
-  <a class="f-call" href="tel:+66811415987" aria-label="Call">📞</a>
-</div>
-
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Hotel","name":"Chill Hotel Khaoyai","starRating":{"@type":"Rating","ratingValue":"3"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"1056"},"priceRange":"฿฿","telephone":"+66811415987","address":{"@type":"PostalAddress","streetAddress":"8 Mittraphap Rd","addressLocality":"Pak Chong","addressRegion":"Nakhon Ratchasima","postalCode":"30130","addressCountry":"TH"},"geo":{"@type":"GeoCoordinates","latitude":14.6679127,"longitude":101.3957701},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Swimming pool","value":true},{"@type":"LocationFeatureSpecification","name":"Hot tub","value":true},{"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},{"@type":"LocationFeatureSpecification","name":"Restaurant","value":true},{"@type":"LocationFeatureSpecification","name":"Free parking","value":true}]}
-</script>
 <script>
-  // Real photos pulled live from the hotel's Google listing
-  const IMG=[
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF7jvQHqmPjbPWQjHAU-gGuqxLS96OuKRSTcsCFQKVIm8wDEQgCoeDHilAkZ4O7l3J4e52y8RKAQg8BDVJ_k2LYoKMt68QShxudMmaZ3vhdvfzwVOieTEV65iLobhByPUT8AfnlZst_7tI6=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHFKPjo9LLzmNKrJn2z6lhsHFZDmF9Sn-smDzRHHwyqaTVD2NGqFYBmlz0h_J-GGIp87MdWV7iVwigp5uzcFkDrtko2zcNuehO-_bd19C0qmAl4t4qrBFd2GmF03mXGUWcpb1fp6osjp5fT=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEsj9y8KgwzKQrHjtdt7sxY2TSzd918dJcYJW9PPJauuuam3HNhunElm_xa_0qXbKPThSPQgDSPpDbqpMfAYNi8PJTTF2f3R2A42ESAWFRLTFoKwmea69DYK6Jjwp8FiidGmJlsWE43Alcf=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGIGioUBMK1jb0wBXV5v91SO8NdGeIC8xPjkEJGd5t6P2Ggs9CQAr8Hde332_VIKzfu6hekA6hlDTD84802sLj7axqVqBe7GczW5Q5JEXyoNu4rVHLLqb1MEuNvGaNLplIULiLsl4D87pVk=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGwKiUWmsrEFSmRRN6Jst45-as6M2bF3IvB_8xXE8RoOHuYujt7eqbBDnXesQH7kUm_RMxY_ketQGJBlrrGX7KNkK-T1rDB2kDqR0SQUMIkGUSWkIgxx472Gou17BUv21v0TYSaJCnarnY=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH9p1YDv6xJnDZ8W_SJYarFBTop8rk3WNA2kvO1E4fYcjzSNt56956UMuIiKKia7joanPxLiDjkCg7cG4cpfv8DOG6ZbIDWmkpTmxA96u-4li9FNKML-xKkHtqR3u-fD-t9iYsP6PQzoWjD=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFUPEH170Rw23Tt-WJrp2Ir1P_aDaSfkE9fnHIGvSMC0MuOFo0J-nVWmrR-u7PLm2-bYTGN2PuEnMBzpkXpGI572fvPbVY1acYH0wclPXtqCfiAJ98o-UKrBcGIZULUQtSl5s9x5bss7qov=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbWw-yHomoxQGyNAfglstKHGQzN2_IsZwZ9OCJmvAvvwNi6a2HRf_4PfbtuXAACbptH2ErMXQuaywrsEvKmgXFZTIfwsS71Y83elo9LGPWLOzafS1R_sK6DoYKwRszjFU5A_DMLxcqsKiZ=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGJ0RIY5DwRcgmAxfjYQmY-mpfEPm8F3jyJkLflL0YYzOF55HIojxFG1-OTPox9cw5ypYloDd6rg4wTYOWjbZm3tn0eL-hVkppAWUBNRh7LDM4ikLr4aakU1ebfKFHRbRVePVpVY29UJzkj=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE3lYJ9UNunmjJtOcptbmAPj24I-zpgNXO8zqJ-Gyxaz1pEG8tRU9kXNrmsDx2Fi8VEuV3mDd9qWU2cf0M4Pd_-YmmcmOfjzgq7ZGoIhUbvUfkDWka4Xgfp1tZ21O2j2AyGtdmi-ErJYAg=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG8kXDIdNA9_40CGYK-YVxeWJnNFEALqueSI6rJ6HnqCfqISc9t39EGDgfnIazJsKJFtoOPEOQ70jUwBvArmBgxPll0EsALAgzxDX0nZuABKFTYZv7bBKedliypBNXqMUnDc69z6szW9ptP=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGkBOSIvDmyW2Xw_EQTaVIN0cKf2NKD6BqlrB05p082sxiwXel7QsXouh2gdZPNy1k2K5r58dtO84ayz9WuNnA3uVJ46XeOJyq9fm4fQoqIREEQoSHJSGlwfRuBWXMUxurpdMHq5uoB-_tl=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG3p_HYA3XKvBnDRPmlhU9zwyRMM6_xNAOtKkv7OTShOm8jtP66RW9ZxCeW85MbmeuHBOKzx7gi14Nj6JwxbN7pn1Be5XnCThQgGLEelcBBA8UYLBH3JIxfv9bL6T2z3kkHbOTmB_vGTd61=w1920-h1080-k-no",
-   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHkuSLz1aPBoaZ0mfVAtoIoubH5wZWkED8r8gFYzr1uBQzyIO_1Be1TwgQWd2p7a4ss9rFb4XuQS8SqOi_TxiD6mgLz_FdSbi1n3t4TjOhn7H8BMpB91AEazbdtdX3hXYSgJZwhQM-Ti86l=w1920-h1080-k-no"
-  ];
-  // hero / about backgrounds
-  document.getElementById('heroBg').style.backgroundImage=`url('${IMG[0]}')`;
-  document.getElementById('aboutPh').style.backgroundImage=`url('${IMG[3]}')`;
-  // rooms
-  const rooms=[
-    {img:IMG[5],en:"Deluxe Mountain View",th:"ดีลักซ์ วิวภูเขา",zh:"豪华山景房",p:"฿1,490",fe:{en:["2 guests","Balcony","Mountain view"],th:["2 ท่าน","ระเบียง","วิวภูเขา"],zh:["2 位","阳台","山景"]}},
-    {img:IMG[8],en:"Pool Access Room",th:"ห้องริมสระ",zh:"泳池畔客房",p:"฿1,890",fe:{en:["2 guests","Pool access","Terrace"],th:["2 ท่าน","ลงสระได้","ระเบียง"],zh:["2 位","直达泳池","露台"]}},
-    {img:IMG[11],en:"Family Suite",th:"แฟมิลี่ สวีท",zh:"家庭套房",p:"฿2,490",fe:{en:["4 guests","2 beds","Kitchenette"],th:["4 ท่าน","2 เตียง","ครัวเล็ก"],zh:["4 位","双床","小厨房"]}}
-  ];
-  document.getElementById('rooms-grid').innerHTML=rooms.map(r=>`<article class="room"><img loading="lazy" src="${r.img}" alt=""><div class="body">
-    <h3><span data-en>${r.en}</span><span data-th>${r.th}</span><span data-zh>${r.zh}</span></h3>
-    <ul class="feat">${r.fe.en.map((_,i)=>`<li><span data-en>${r.fe.en[i]}</span><span data-th>${r.fe.th[i]}</span><span data-zh>${r.fe.zh[i]}</span></li>`).join('')}</ul>
-    <div class="price">${r.p} <small><span data-en>/ night</span><span data-th>/ คืน</span><span data-zh>/ 晚</span></small></div>
-    <a href="#book" class="btn btn-outline" style="margin-top:14px;width:100%;justify-content:center"><span data-en>Book this room</span><span data-th>จองห้องนี้</span><span data-zh>预订此房</span></a>
-  </div></article>`).join('');
-  // amenities
-  const amen=[["🏊","Swimming pool","สระว่ายน้ำ","泳池"],["♨️","Hot tub","อ่างน้ำวน","按摩浴缸"],["🍽️","Restaurant","ร้านอาหาร","餐厅"],["📶","Free Wi-Fi","Wi-Fi ฟรี","免费 Wi-Fi"],["🅿️","Free parking","ที่จอดรถฟรี","免费停车"],["🚐","Airport shuttle","รับส่งสนามบิน","机场接送"],["🐶","Pet-friendly","สัตว์เลี้ยงเข้าได้","可携宠物"],["💪","Fitness center","ฟิตเนส","健身房"]];
-  document.getElementById('amen-grid').innerHTML=amen.map(a=>`<div class="it"><div class="ic">${a[0]}</div><span data-en>${a[1]}</span><span data-th>${a[2]}</span><span data-zh>${a[3]}</span></div>`).join('');
-  // gallery (big first, then rest)
-  const gi=[1,2,4,6,7,9,10,12];
-  document.getElementById('gal').innerHTML=gi.map((n,idx)=>`<img loading="lazy" class="${idx===0?'big':''}" src="${IMG[n]}" alt="">`).join('');
-
-  // language
-  function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));try{localStorage.setItem('chill_lang',l)}catch(e){}}
-  (function(){var s;try{s=localStorage.getItem('chill_lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':(navigator.language||'').toLowerCase().startsWith('zh')?'zh':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();
-  // sticky nav + reveal
-  const hdr=document.getElementById('hdr');addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>40));
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+window.PAGE_NAME="Chill Hotel Khao Yai";
+window.GAL_USED=[0,2,3,4,6,9];
+window.IMG=["https://lh3.googleusercontent.com/gps-cs-s/APNQkAE3lYJ9UNunmjJtOcptbmAPj24I-zpgNXO8zqJ-Gyxaz1pEG8tRU9kXNrmsDx2Fi8VEuV3mDd9qWU2cf0M4Pd_-YmmcmOfjzgq7ZGoIhUbvUfkDWka4Xgfp1tZ21O2j2AyGtdmi-ErJYAg","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbWw-yHomoxQGyNAfglstKHGQzN2_IsZwZ9OCJmvAvvwNi6a2HRf_4PfbtuXAACbptH2ErMXQuaywrsEvKmgXFZTIfwsS71Y83elo9LGPWLOzafS1R_sK6DoYKwRszjFU5A_DMLxcqsKiZ","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEsj9y8KgwzKQrHjtdt7sxY2TSzd918dJcYJW9PPJauuuam3HNhunElm_xa_0qXbKPThSPQgDSPpDbqpMfAYNi8PJTTF2f3R2A42ESAWFRLTFoKwmea69DYK6Jjwp8FiidGmJlsWE43Alcf","https://lh3.googleusercontent.com/gps-cs-s/APNQkAF7jvQHqmPjbPWQjHAU-gGuqxLS96OuKRSTcsCFQKVIm8wDEQgCoeDHilAkZ4O7l3J4e52y8RKAQg8BDVJ_k2LYoKMt68QShxudMmaZ3vhdvfzwVOieTEV65iLobhByPUT8AfnlZst_7tI6","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFUPEH170Rw23Tt-WJrp2Ir1P_aDaSfkE9fnHIGvSMC0MuOFo0J-nVWmrR-u7PLm2-bYTGN2PuEnMBzpkXpGI572fvPbVY1acYH0wclPXtqCfiAJ98o-UKrBcGIZULUQtSl5s9x5bss7qov","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG3p_HYA3XKvBnDRPmlhU9zwyRMM6_xNAOtKkv7OTShOm8jtP66RW9ZxCeW85MbmeuHBOKzx7gi14Nj6JwxbN7pn1Be5XnCThQgGLEelcBBA8UYLBH3JIxfv9bL6T2z3kkHbOTmB_vGTd61","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG8kXDIdNA9_40CGYK-YVxeWJnNFEALqueSI6rJ6HnqCfqISc9t39EGDgfnIazJsKJFtoOPEOQ70jUwBvArmBgxPll0EsALAgzxDX0nZuABKFTYZv7bBKedliypBNXqMUnDc69z6szW9ptP","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGIGioUBMK1jb0wBXV5v91SO8NdGeIC8xPjkEJGd5t6P2Ggs9CQAr8Hde332_VIKzfu6hekA6hlDTD84802sLj7axqVqBe7GczW5Q5JEXyoNu4rVHLLqb1MEuNvGaNLplIULiLsl4D87pVk","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGJ0RIY5DwRcgmAxfjYQmY-mpfEPm8F3jyJkLflL0YYzOF55HIojxFG1-OTPox9cw5ypYloDd6rg4wTYOWjbZm3tn0eL-hVkppAWUBNRh7LDM4ikLr4aakU1ebfKFHRbRVePVpVY29UJzkj","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGkBOSIvDmyW2Xw_EQTaVIN0cKf2NKD6BqlrB05p082sxiwXel7QsXouh2gdZPNy1k2K5r58dtO84ayz9WuNnA3uVJ46XeOJyq9fm4fQoqIREEQoSHJSGlwfRuBWXMUxurpdMHq5uoB-_tl","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGwKiUWmsrEFSmRRN6Jst45-as6M2bF3IvB_8xXE8RoOHuYujt7eqbBDnXesQH7kUm_RMxY_ketQGJBlrrGX7KNkK-T1rDB2kDqR0SQUMIkGUSWkIgxx472Gou17BUv21v0TYSaJCnarnY","https://lh3.googleusercontent.com/gps-cs-s/APNQkAH9p1YDv6xJnDZ8W_SJYarFBTop8rk3WNA2kvO1E4fYcjzSNt56956UMuIiKKia7joanPxLiDjkCg7cG4cpfv8DOG6ZbIDWmkpTmxA96u-4li9FNKML-xKkHtqR3u-fD-t9iYsP6PQzoWjD","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHFKPjo9LLzmNKrJn2z6lhsHFZDmF9Sn-smDzRHHwyqaTVD2NGqFYBmlz0h_J-GGIp87MdWV7iVwigp5uzcFkDrtko2zcNuehO-_bd19C0qmAl4t4qrBFd2GmF03mXGUWcpb1fp6osjp5fT","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHkuSLz1aPBoaZ0mfVAtoIoubH5wZWkED8r8gFYzr1uBQzyIO_1Be1TwgQWd2p7a4ss9rFb4XuQS8SqOi_TxiD6mgLz_FdSbi1n3t4TjOhn7H8BMpB91AEazbdtdX3hXYSgJZwhQM-Ti86l"];
 </script>
+<script src="../assets/luxe.js"></script>
 </body>
 </html>

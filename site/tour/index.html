@@ -1,72 +1,136 @@
 <!DOCTYPE html>
-<!-- TEMPLATE — Tour operator / Dive shop. Type sections: trips/courses with price+duration+includes,
-     book/request, reviews (foreign guests → WhatsApp emphasis). Ocean/adventure theme. CUSTOMISE marked. -->
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Andaman Trips — Island Tours & Diving, Krabi</title>
-<meta name="description" content="Island-hopping, snorkelling & scuba trips from Krabi. Small groups, great guides. Book direct on WhatsApp or LINE.">
-<meta name="theme-color" content="#0369a1">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤿</text></svg>">
-<style>
- :root{--brand:#0369a1;--brand-dark:#075985;--accent:#0891b2;--cta:#f97316;--ink:#0f172a;--muted:#64748b;--bg:#fff;--soft:#ecfeff;--line:#dbeafe;--line-green:#06c755;--wa:#25d366;--radius:16px;--shadow:0 8px 26px rgba(3,55,90,.12);--maxw:1060px;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Arial,sans-serif}
- *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{color:var(--ink);background:var(--bg);line-height:1.7}a{color:inherit}
- .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
- .btn{display:inline-flex;gap:8px;align-items:center;border:0;cursor:pointer;font-weight:800;padding:13px 24px;border-radius:999px;text-decoration:none}
- .btn-cta{background:var(--cta);color:#fff;box-shadow:var(--shadow)}.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.7)}.btn-wa{background:var(--wa);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
- section{padding:62px 0}h2{font-size:1.8rem;margin-bottom:8px}.lead{color:var(--muted);max-width:620px;margin-bottom:28px}.center{text-align:center}.center .lead{margin-inline:auto}
- .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.78rem}
- header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
- .nav{display:flex;align-items:center;justify-content:space-between;height:62px}.logo{font-weight:800;font-size:1.2rem;color:var(--brand);display:flex;gap:8px;align-items:center}
- .nav-right{display:flex;gap:12px;align-items:center}.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
- .lang button{border:0;background:#fff;padding:6px 11px;cursor:pointer;font-weight:700;color:var(--muted)}.lang button.active{background:var(--brand);color:#fff}
- .hero{min-height:66vh;display:flex;align-items:flex-end;color:#fff;position:relative;background:linear-gradient(120deg,#075985,#0891b2 55%,#22d3ee)}
- .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.05) 60%)}
- .hero .in{position:relative;z-index:2;padding:0 20px 46px;max-width:var(--maxw);margin:0 auto;width:100%}
- .hero h1{font-size:clamp(2rem,5vw,3.1rem);max-width:16ch;text-shadow:0 2px 16px rgba(0,0,0,.4)}.hero p{max-width:36ch;margin:12px 0 22px;text-shadow:0 1px 10px rgba(0,0,0,.45)}
- .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
- .trips{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}@media(max-width:860px){.trips{grid-template-columns:1fr 1fr}}@media(max-width:600px){.trips{grid-template-columns:1fr}}
- .trip{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
- .trip .ph{height:150px;color:#fff;display:flex;align-items:flex-end;padding:12px;font-weight:800}
- .p1{background:linear-gradient(135deg,#0891b2,#22d3ee)}.p2{background:linear-gradient(135deg,#0369a1,#0891b2)}.p3{background:linear-gradient(135deg,#0e7490,#14b8a6)}
- .trip .b{padding:16px}.trip .meta{font-size:.8rem;color:var(--muted);margin:4px 0 8px}.trip .amt{font-size:1.4rem;font-weight:800;color:var(--brand)}.trip .amt small{font-size:.75rem;color:var(--muted);font-weight:600}
- .inc{list-style:none;font-size:.85rem;margin:8px 0 12px}.inc li{padding-left:18px;position:relative}.inc li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:800}
- .book{background:var(--brand);color:#fff;text-align:center}.book .btn{margin:6px}
- .float{position:fixed;right:15px;bottom:15px;z-index:60;display:flex;flex-direction:column;gap:10px}.float a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
- .f-wa{background:var(--wa)}.f-line{background:var(--line-green)}
- footer{background:#0b1220;color:#cbd5e1;padding:38px 0;text-align:center}footer a{color:#cbd5e1;text-decoration:none}
- [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
-</style></head><body>
-<header><div class="wrap nav"><div class="logo">🤿 Andaman Trips</div><div class="nav-right">
- <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
- <a href="#book" class="btn btn-cta" style="padding:9px 16px"><span data-en>Book a trip</span><span data-th>จองทริป</span></a></div></div></header>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khao Yai Adventure — Tours, Trails &amp; Day Trips</title>
+<meta name="description" content="Khao Yai Adventure — ATV trails, archery, vineyard day-trips and campfire nights in Khao Yai. Book your activity on LINE.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/luxe.css">
+<style>:root{--bg:#F3F2E9;--bg-2:#E8E9DB;--bg-3:#DDE0CC;--ink:#23281D;--ink-soft:#566049;--ink-faint:#849070;--line:rgba(35,40,29,.13);--line-soft:rgba(35,40,29,.07);--accent:#5B7D38;--accent-deep:#3C5524;--dark:#202A1A;--cream:#EDEFE0;--gold:#C9A33F;--grade-overlay:rgba(91,125,56,.05)}</style>
+</head>
+<body lang="en">
+<div class="grain"></div>
 
-<section class="hero" style="padding:0"><div class="in">
- <h1><span data-en>The Andaman, the way it should be</span><span data-th>อันดามันในแบบที่ควรเป็น</span></h1>
- <p><span data-en>Small-group island tours, snorkelling & scuba from Krabi. Great guides, fair prices, book direct.</span><span data-th class="b">ทัวร์เกาะกลุ่มเล็ก ดำน้ำตื้นและสกูบา จากกระบี่ ไกด์ดี ราคาเป็นธรรม จองตรง</span></p>
- <div class="hero-cta"><a href="#book" class="btn btn-cta"><span data-en>See trips</span><span data-th>ดูทริป</span></a>
- <a href="https://wa.me/66800000000" class="btn btn-wa">🟢 WhatsApp</a></div></div></section>
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">Khao Yai Adventure</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#activities" class="t" data-en="Activities" data-th="กิจกรรม" data-zh="活动">Activities</a>
+    <a href="#about" class="t" data-en="About" data-th="เกี่ยวกับเรา" data-zh="关于">About</a>
+    <a href="#included" class="t" data-en="What's Included" data-th="รวมอะไรบ้าง" data-zh="包含内容">What's Included</a>
+    <a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a>
+    <a href="#book" class="navbtn t" data-en="Book" data-th="จอง" data-zh="预订">Book</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang" id="lang"><button data-l="en" class="active">EN</button><span>·</span><button data-l="th">ไทย</button><span>·</span><button data-l="zh">中文</button></div>
+    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
+  </div>
+</nav>
 
-<section><div class="wrap">
- <p class="eyebrow" data-en>Our Trips</p><p class="eyebrow" data-th>ทริปของเรา</p>
- <h2><span data-en>Pick your adventure</span><span data-th>เลือกการผจญภัยของคุณ</span></h2>
- <div class="trips" style="margin-top:18px">
-  <div class="trip"><div class="ph p1"><span data-en>4 Islands Tour</span><span data-th>ทัวร์ 4 เกาะ</span></div><div class="b"><div class="meta">🕐 <span data-en>Full day · longtail</span><span data-th>เต็มวัน · เรือหางยาว</span></div><ul class="inc"><li><span data-en>Lunch + snorkel gear</span><span data-th>อาหารกลางวัน + อุปกรณ์</span></li><li><span data-en>Hotel pickup</span><span data-th>รับที่โรงแรม</span></li></ul><div class="amt">฿1,200 <small>/ <span data-en>person</span><span data-th>ท่าน</span></small></div></div></div>
-  <div class="trip"><div class="ph p2"><span data-en>Phi Phi Speedboat</span><span data-th>เกาะพีพี สปีดโบ๊ท</span></div><div class="b"><div class="meta">🕐 <span data-en>Full day · speedboat</span><span data-th>เต็มวัน · สปีดโบ๊ท</span></div><ul class="inc"><li><span data-en>Buffet lunch + fruit</span><span data-th>บุฟเฟต์ + ผลไม้</span></li><li><span data-en>National park guide</span><span data-th>ไกด์อุทยาน</span></li></ul><div class="amt">฿1,800 <small>/ <span data-en>person</span><span data-th>ท่าน</span></small></div></div></div>
-  <div class="trip"><div class="ph p3"><span data-en>Discover Scuba</span><span data-th>ลองดำน้ำสกูบา</span></div><div class="b"><div class="meta">🕐 <span data-en>Half/full day · PADI</span><span data-th>ครึ่ง/เต็มวัน · PADI</span></div><ul class="inc"><li><span data-en>2 dives + instructor</span><span data-th>ดำน้ำ 2 ครั้ง + ครูฝึก</span></li><li><span data-en>All gear included</span><span data-th>อุปกรณ์ครบ</span></li></ul><div class="amt">฿3,400 <small>/ <span data-en>person</span><span data-th>ท่าน</span></small></div></div></div>
- </div>
+<header class="hero" id="top">
+  <div class="hero-media frame"><img data-img="0" alt="Khao Yai Adventure activities" fetchpriority="high"></div>
+  <div class="hero-inner maxw">
+    <div class="hero-eyebrow eyebrow"><span class="tick"></span><span class="t" data-en="Khao Yai · Outdoors" data-th="เขาใหญ่ · กิจกรรมกลางแจ้ง" data-zh="考艾 · 户外">Khao Yai · Outdoors</span></div>
+    <h1 class="t" data-en="Make a day of the mountains." data-th="ใช้เวลาทั้งวันกับขุนเขา" data-zh="把一整天，交给群山。">Make a day of the mountains.</h1>
+    <p class="hero-sub t" data-en="ATV trails, archery, vineyard day-trips and campfire nights — guided adventures across Khao Yai for couples, friends and families." data-th="ขับ ATV ยิงธนู ทริปไร่องุ่น และค่ำคืนรอบกองไฟ — กิจกรรมผจญภัยมีไกด์ทั่วเขาใหญ่ สำหรับคู่รัก เพื่อน และครอบครัว" data-zh="ATV 越野、射箭、葡萄园一日游与篝火之夜——专人带领的考艾探险，适合情侣、好友与家庭。">ATV trails, archery, vineyard day-trips and campfire nights — guided adventures across Khao Yai for couples, friends and families.</p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn--ghost-light t" data-en="Book an activity" data-th="จองกิจกรรม" data-zh="预订活动">Book an activity</a>
+      <a href="#activities" class="btn btn--ghost-light t" data-en="See activities" data-th="ดูกิจกรรม" data-zh="查看活动">See activities</a>
+    </div>
+  </div>
+  <div class="scrollcue"><span class="ln"></span><span class="t" data-en="Scroll" data-th="เลื่อนลง" data-zh="向下滚动">Scroll</span></div>
+  <div class="hero-meta"><div class="t" data-en="Tours &amp; Activities" data-th="ทัวร์และกิจกรรม" data-zh="旅游与活动">Tours &amp; Activities</div><div class="t" data-en="Khao Yai · Thailand" data-th="เขาใหญ่ · ไทย" data-zh="考艾 · 泰国">Khao Yai · Thailand</div></div>
+</header>
+
+<section class="band band--alt"><div class="manifesto reveal">
+  <span class="eyebrow t" data-en="The Idea" data-th="แนวคิด" data-zh="理念">The Idea</span>
+  <p class="t" data-en="Khao Yai is made for the outdoors. We handle the gear, the guides &amp; the route — you just turn up &amp; enjoy the ride." data-th="เขาใหญ่เกิดมาเพื่อกิจกรรมกลางแจ้ง เราจัดการอุปกรณ์ ไกด์ และเส้นทางให้ — คุณแค่มาถึงแล้วสนุกได้เลย" data-zh="考艾，是为户外而生的。装备、向导与路线由我们打理——你只需赴约，尽享旅程。">Khao Yai is made for the outdoors. We handle the gear, the guides <span class="amp">&amp;</span> the route — you just turn up <span class="amp">&amp;</span> enjoy the ride.</p>
 </div></section>
 
-<section id="book" class="book"><div class="wrap">
- <p class="eyebrow" style="color:#fff" data-en>Book direct</p><p class="eyebrow" style="color:#fff" data-th>จองตรง</p>
- <h2><span data-en>Ready when you are</span><span data-th>พร้อมเมื่อคุณพร้อม</span></h2>
- <p style="max-width:46ch;margin:8px auto 22px"><span data-en>Message us your dates & group size — we'll confirm availability and pickup. Booking direct is cheaper than the agents on the street.</span><span data-th class="b">ส่งวันที่และจำนวนคนมา เราจะยืนยันคิวและจุดรับ จองตรงถูกกว่าเอเย่นต์ทั่วไป</span></p>
- <a href="https://wa.me/66800000000" class="btn btn-wa">🟢 <span data-en>Book on WhatsApp</span><span data-th>จองทาง WhatsApp</span></a>
- <a href="https://line.me/R/ti/p/@andamantrips" class="btn btn-cta">💬 <span data-en>Book on LINE</span><span data-th>จองทาง LINE</span></a>
+<section class="band" id="about"><div class="maxw"><div class="split split--wide reveal">
+  <div class="split-media frame hoverable"><img data-img="1" alt="Adventure grounds"></div>
+  <div class="split-text">
+    <span class="idx">01 — <span class="t" data-en="About Us" data-th="เกี่ยวกับเรา" data-zh="关于我们">About Us</span></span>
+    <h2 class="t" data-en="Local guides, real adventures" data-th="ไกด์ท้องถิ่น ผจญภัยจริง" data-zh="本地向导，真实探险">Local guides, real adventures</h2>
+    <p class="body t" data-en="We're a small Khao Yai outfit who grew up on these trails. Safe gear, friendly guides, and routes that take in the best of the hills, the vineyards and the waterfalls — at a pace that suits you." data-th="เราเป็นทีมเล็ก ๆ ในเขาใหญ่ที่โตมากับเส้นทางเหล่านี้ อุปกรณ์ปลอดภัย ไกด์เป็นมิตร และเส้นทางที่พาชมขุนเขา ไร่องุ่น และน้ำตกที่ดีที่สุด — ในจังหวะที่เหมาะกับคุณ" data-zh="我们是一支在这些山径上长大的考艾小团队。安全的装备、亲切的向导，以及饱览群山、葡萄园与瀑布精华的路线——以你舒适的节奏。">We're a small Khao Yai outfit who grew up on these trails. Safe gear, friendly guides, and routes that take in the best of the hills, the vineyards and the waterfalls — at a pace that suits you.</p>
+    <a href="#activities" class="txtlink t" data-en="See activities" data-th="ดูกิจกรรม" data-zh="查看活动">See activities <svg class="ic"><use href="#ic-arrow"/></svg></a>
+  </div>
+</div></div></section>
+
+<section class="band band--alt" id="activities"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Activities" data-th="กิจกรรม" data-zh="活动">Activities</span><h2 class="t" data-en="Pick your adventure" data-th="เลือกการผจญภัยของคุณ" data-zh="选择你的探险">Pick your adventure</h2></div>
+  <p class="hint t" data-en="Per person. Hotel pick-up in the Khao Yai area included." data-th="ต่อท่าน รวมรับส่งในเขตเขาใหญ่" data-zh="价格按人计，含考艾区域酒店接送。">Per person. Hotel pick-up in the Khao Yai area included.</p></div>
+  <div class="tiles reveal">
+    <div class="tile"><div class="frame hoverable"><img data-img="2" alt="ATV trail ride"></div><h4><span class="t" data-en="ATV Trail Ride" data-th="ขับ ATV" data-zh="ATV 越野">ATV Trail Ride</span><span class="pr">฿800</span></h4><p class="t" data-en="One hour of guided trails through forest and stream — all gear and a safety briefing included." data-th="หนึ่งชั่วโมงบนเส้นทางป่าและลำธารแบบมีไกด์ — พร้อมอุปกรณ์และบรีฟความปลอดภัย" data-zh="一小时林间溪畔的向导越野——含全套装备与安全讲解。">One hour of guided trails through forest and stream — all gear and a safety briefing included.</p></div>
+    <div class="tile"><div class="frame hoverable"><img data-img="3" alt="Archery session"></div><h4><span class="t" data-en="Archery Session" data-th="ยิงธนู" data-zh="射箭体验">Archery Session</span><span class="pr">฿300</span></h4><p class="t" data-en="Loose a few arrows under a coach — a hit with first-timers and kids." data-th="ลองยิงธนูกับโค้ช — ถูกใจมือใหม่และเด็ก ๆ" data-zh="在教练指导下射上几箭——新手与孩子的最爱。">Loose a few arrows under a coach — a hit with first-timers and kids.</p></div>
+    <div class="tile"><div class="frame hoverable"><img data-img="4" alt="Khao Yai day trip"></div><h4><span class="t" data-en="Khao Yai Day-Trip" data-th="ทริปเที่ยวเขาใหญ่" data-zh="考艾一日游">Khao Yai Day-Trip</span><span class="pr">฿1,500</span></h4><p class="t" data-en="A full day of vineyards, waterfalls and viewpoints, with lunch and a guide-driver." data-th="เที่ยวไร่องุ่น น้ำตก และจุดชมวิวเต็มวัน พร้อมมื้อเที่ยงและไกด์-คนขับ" data-zh="一整天的葡萄园、瀑布与观景点，含午餐及向导兼司机。">A full day of vineyards, waterfalls and viewpoints, with lunch and a guide-driver.</p></div>
+    <div class="tile"><div class="frame hoverable"><img data-img="5" alt="BBQ and campfire"></div><h4><span class="t" data-en="BBQ &amp; Campfire Night" data-th="บาร์บีคิว &amp; แคมป์ไฟ" data-zh="烧烤篝火夜">BBQ &amp; Campfire Night</span><span class="pr">฿600</span></h4><p class="t" data-en="Grill, music and a fire under the stars — the perfect end to an active day." data-th="ปิ้งย่าง เสียงเพลง และกองไฟใต้แสงดาว — ปิดท้ายวันสุดแอคทีฟอย่างลงตัว" data-zh="烧烤、音乐与星空下的篝火——活力一日的完美收尾。">Grill, music and a fire under the stars — the perfect end to an active day.</p></div>
+  </div>
 </div></section>
 
-<footer><div class="wrap"><div class="logo" style="color:#fff;justify-content:center">🤿 Andaman Trips</div>
- <p style="margin-top:8px;font-size:.9rem">Ao Nang, Krabi · WhatsApp +66 80 000 0000 · 💬 <a href="https://line.me/R/ti/p/@andamantrips">LINE @andamantrips</a></p>
- <p style="font-size:.8rem;color:#94a3b8;margin-top:10px">© <span id="yr"></span> Andaman Trips</p></div></footer>
-<div class="float"><a class="f-wa" href="https://wa.me/66800000000">🟢</a><a class="f-line" href="https://line.me/R/ti/p/@andamantrips">💬</a></div>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristTrip","name":"Andaman Trips","provider":{"@type":"TravelAgency","name":"Andaman Trips","address":{"@type":"PostalAddress","addressLocality":"Ao Nang","addressRegion":"Krabi","addressCountry":"TH"}}}</script>
-<script>function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}(function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();</script>
-</body></html>
+<section class="band" id="included"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="What's Included" data-th="รวมอะไรบ้าง" data-zh="包含内容">What's Included</span><h2 class="t" data-en="We've got it covered" data-th="เราจัดให้ครบ" data-zh="一切，由我们安排">We've got it covered</h2></div></div>
+  <div class="amen reveal">
+    <div class="amen-item"><svg class="ic"><use href="#ic-van"/></svg><h4 class="t" data-en="Hotel Pick-Up" data-th="รับจากโรงแรม" data-zh="酒店接送">Hotel Pick-Up</h4><p class="t" data-en="Round-trip across Khao Yai." data-th="รับส่งทั่วเขาใหญ่" data-zh="考艾区域往返接送。">Round-trip across Khao Yai.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-shield"/></svg><h4 class="t" data-en="Safety Gear" data-th="อุปกรณ์ความปลอดภัย" data-zh="安全装备">Safety Gear</h4><p class="t" data-en="Helmets, briefings, the lot." data-th="หมวก บรีฟ ครบชุด" data-zh="头盔、讲解，一应俱全。">Helmets, briefings, the lot.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-compass"/></svg><h4 class="t" data-en="Local Guides" data-th="ไกด์ท้องถิ่น" data-zh="本地向导">Local Guides</h4><p class="t" data-en="Born and raised here." data-th="คนพื้นที่แท้ ๆ" data-zh="土生土长的本地人。">Born and raised here.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-camera"/></svg><h4 class="t" data-en="Photos" data-th="ภาพถ่าย" data-zh="照片">Photos</h4><p class="t" data-en="We snap the moments for you." data-th="เราเก็บภาพให้คุณ" data-zh="为你捕捉精彩瞬间。">We snap the moments for you.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-users"/></svg><h4 class="t" data-en="Family-Friendly" data-th="เหมาะกับครอบครัว" data-zh="适合家庭">Family-Friendly</h4><p class="t" data-en="Kids' archery &amp; gentle trails." data-th="ยิงธนูเด็กและเส้นทางสบาย" data-zh="儿童射箭与轻松路线。">Kids' archery &amp; gentle trails.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-clock"/></svg><h4 class="t" data-en="Flexible Times" data-th="เวลายืดหยุ่น" data-zh="时间灵活">Flexible Times</h4><p class="t" data-en="Morning, afternoon or sunset." data-th="เช้า บ่าย หรือยามเย็น" data-zh="上午、下午或日落时分。">Morning, afternoon or sunset.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-ticket"/></svg><h4 class="t" data-en="Clear Pricing" data-th="ราคาชัดเจน" data-zh="价格透明">Clear Pricing</h4><p class="t" data-en="One price, no surprises." data-th="ราคาเดียว ไม่บวกเพิ่ม" data-zh="一口价，无隐藏费用。">One price, no surprises.</p></div>
+    <div class="amen-item"><svg class="ic"><use href="#ic-chat"/></svg><h4 class="t" data-en="Book on LINE" data-th="จองทาง LINE" data-zh="LINE 预订">Book on LINE</h4><p class="t" data-en="Quick replies, EN/ไทย/中文." data-th="ตอบไว อังกฤษ/ไทย/จีน" data-zh="快速回复，中/英/泰。">Quick replies, EN/ไทย/中文.</p></div>
+  </div>
+</div></section>
+
+<section class="band band--alt" id="gallery"><div class="maxw">
+  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</span><h2 class="t" data-en="Out on the trail" data-th="ออกไปผจญภัย" data-zh="出发探险">Out on the trail</h2></div>
+  <p class="hint t" data-en="Real moments from Khao Yai Adventure — trails, targets and good times." data-th="ช่วงเวลาจริงจากกิจกรรม — เส้นทาง เป้า และความสนุก" data-zh="Khao Yai Adventure 的真实瞬间——山径、靶心与欢乐时光。">Real moments from Khao Yai Adventure — trails, targets and good times.</p></div>
+  <div class="gal reveal" id="gallery-grid"></div>
+</div></section>
+
+<section class="feature">
+  <div class="feature-bg frame"><img data-img="6" alt=""></div>
+  <div class="feature-inner reveal">
+    <span class="eyebrow t" data-en="What guests say" data-th="เสียงจากลูกค้า" data-zh="客人之声">What guests say</span>
+    <blockquote class="t" data-en="“The kids loved the archery and the ATV ride was a blast. Friendly guides, great day out — highly recommend.”" data-th="“เด็ก ๆ ชอบยิงธนูมาก และขี่ ATV ก็มันสุด ๆ ไกด์เป็นมิตร เที่ยวสนุกทั้งวัน — แนะนำเลย”" data-zh="“孩子们爱上了射箭，ATV 也超级过瘾。向导友好，玩了开心的一天——强烈推荐。”">“The kids loved the archery and the ATV ride was a blast. Friendly guides, great day out — highly recommend.”</blockquote>
+    <div class="attrib"><span class="stars"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg></span><span class="t" data-en="4.0 average · from 130+ reviews" data-th="เฉลี่ย 4.0 · จากรีวิวกว่า 130 รายการ" data-zh="平均 4.0 分 · 综合 130+ 条评价">4.0 average · from 130+ reviews</span></div>
+  </div>
+</section>
+
+<section class="band" id="book"><div class="maxw reserve">
+  <div class="reveal">
+    <span class="eyebrow t" data-en="Booking" data-th="การจอง" data-zh="预订">Booking</span>
+    <h2 class="t" data-en="Plan your day out" data-th="วางแผนวันสนุกของคุณ" data-zh="规划你的出游日">Plan your day out</h2>
+    <p class="lead t" data-en="Tell us the activity, the date and how many — we reply fast on LINE in English, ไทย or 中文 and sort the pick-up." data-th="บอกกิจกรรม วันที่ และจำนวนคน — เราตอบไวทาง LINE ทั้งอังกฤษ ไทย หรือจีน และจัดรถรับส่งให้" data-zh="告知活动、日期与人数——我们将在 LINE 上以英文、泰文或中文快速回复，并安排接送。">Tell us the activity, the date and how many — we reply fast on LINE in English, ไทย or 中文 and sort the pick-up.</p>
+    <div class="contact-row"><svg class="ic"><use href="#ic-pin"/></svg><div><div class="k t" data-en="Meet at" data-th="จุดนัดพบ" data-zh="集合地点">Meet at</div><div class="v">91 Thanarat Rd, Mu Si, Pak Chong, Nakhon Ratchasima</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-phone"/></svg><div><div class="k t" data-en="Telephone" data-th="โทรศัพท์" data-zh="电话">Telephone</div><div class="v">+66 81 938 3151</div></div></div>
+    <div class="contact-row"><svg class="ic"><use href="#ic-chat"/></svg><div><div class="k">LINE</div><div class="v">@khaoyaiadventure</div></div></div>
+  </div>
+  <form class="eform reveal" onsubmit="return false">
+    <div class="field"><label class="t" data-en="Name" data-th="ชื่อ" data-zh="姓名">Name</label><input type="text" autocomplete="name"></div>
+    <div class="field"><label class="t" data-en="Activity" data-th="กิจกรรม" data-zh="活动">Activity</label><input type="text"></div>
+    <div class="field two"><div><label class="t" data-en="Date" data-th="วันที่" data-zh="日期">Date</label><input type="date"></div><div><label class="t" data-en="People" data-th="จำนวนคน" data-zh="人数">People</label><input type="number" min="1" value="2"></div></div>
+    <div class="field"><label class="t" data-en="Phone / LINE" data-th="โทร / LINE" data-zh="电话 / LINE">Phone / LINE</label><input type="text"></div>
+    <button class="btn btn--solid t" data-en="Request booking" data-th="ส่งคำขอจอง" data-zh="提交预订">Request booking <svg class="ic"><use href="#ic-arrow"/></svg></button>
+  </form>
+</div></section>
+
+<footer class="foot"><div class="maxw"><div class="foot-top">
+  <div class="foot-brand"><div class="brand">Khao Yai Adventure</div>
+    <p class="t" data-en="Guided outdoor adventures across Khao Yai — ATV, archery, day-trips and campfire nights." data-th="กิจกรรมผจญภัยกลางแจ้งมีไกด์ทั่วเขาใหญ่ — ATV ยิงธนู ทริปเที่ยว และแคมป์ไฟ" data-zh="遍布考艾的向导户外探险——ATV、射箭、一日游与篝火之夜。">Guided outdoor adventures across Khao Yai — ATV, archery, day-trips and campfire nights.</p>
+    <div class="foot-soc"><a href="#" aria-label="Facebook"><svg class="ic"><use href="#ic-fb"/></svg></a><a href="#" aria-label="Instagram"><svg class="ic"><use href="#ic-ig"/></svg></a><a href="#" aria-label="LINE"><svg class="ic"><use href="#ic-chat"/></svg></a></div></div>
+  <div class="foot-col"><h5 class="t" data-en="Explore" data-th="สำรวจ" data-zh="导览">Explore</h5><a href="#activities" class="t" data-en="Activities" data-th="กิจกรรม" data-zh="活动">Activities</a><a href="#included" class="t" data-en="What's Included" data-th="รวมอะไรบ้าง" data-zh="包含内容">What's Included</a><a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a><a href="#book" class="t" data-en="Book" data-th="จอง" data-zh="预订">Book</a></div>
+  <div class="foot-col"><h5 class="t" data-en="Find us" data-th="ติดต่อเรา" data-zh="联系我们">Find us</h5><p>91 Thanarat Rd, Mu Si</p><p>Pak Chong, Nakhon Ratchasima</p><p>+66 81 938 3151</p><a href="#book" class="t" data-en="Book on LINE →" data-th="จองทาง LINE →" data-zh="LINE 预订 →">Book on LINE →</a></div>
+</div><div class="foot-bottom"><div>© 2026 Khao Yai Adventure</div><div class="disc t" data-en="Design concept for demonstration — not the official website of this business. Photography © respective owners, via Google Maps." data-th="แนวคิดการออกแบบเพื่อการสาธิต — ไม่ใช่เว็บไซต์ทางการ ภาพถ่ายเป็นลิขสิทธิ์ของเจ้าของ ผ่าน Google Maps" data-zh="设计概念演示——非官方网站。图片版权归各自所有者，来源 Google 地图。">Design concept for demonstration — not the official website of this business. Photography © respective owners, via Google Maps.</div></div></div></footer>
+
+<div class="bookbar" id="bookbar"><div class="bb-name">Khao Yai Adventure</div><div class="bb-r"><span class="bb-note t" data-en="ATV · archery · day-trips · from ฿300" data-th="ATV · ยิงธนู · ทริป · เริ่ม ฿300" data-zh="ATV · 射箭 · 一日游 · ฿300 起">ATV · archery · day-trips · from ฿300</span><a href="#book" class="btn btn--solid t" data-en="Book" data-th="จอง" data-zh="预订">Book</a></div></div>
+
+<script>
+window.PAGE_NAME="Khao Yai Adventure";
+window.GAL_USED=[0,1,2,3,4,5,6];
+window.IMG=["https://lh3.googleusercontent.com/gps-cs-s/APNQkAEOTaVe5R0gudyeyl_W82YiNXdagA8k7dDoCDHlBoXNtrEZ7iUtZwKvUmeBtSj7VwL0LWvBlp9y1BnmulO_0UUumPmQsN94nzJ1CTPoN1iAi9oTYCj5GoOP9VQZk6Api8wXbgg","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEe-ovBhjpZyTdcQi_YD2gCMBZzeKK6VNCVOt20XBIIiB5Uj1-07jrsdJHVavy4cf_QwRfKF8Ex4NY_ZQeHzbOyUdgKMFuMvj51msN2pV0eUe2mB5jC32R73S_DaqKeiojdUFkVRFcjTy2b","https://lh3.googleusercontent.com/gps-cs-s/APNQkAH1CibTmEThgsV-ujdNf9-fSFgnsucz7KuA67wp5Zug9kGFKCv5gMv5qJyt4gnhE255p27pB-Ib_aKYMf8ISnyuGlVG_V1N-k67BL5Jp_uaVW1AXLbqgA3LL5P3nhD8rU_MEOQ","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEV7qbG27iOu9NL5bcnQ3h_TT6jd_5MJ9qjR-kgz_TZMZRHlCBy273RmyEE6B_39XszH_akPjEq4K2kPH2bdh-my_0OEfjZzVVZ6pZzcI62wYgXZJIQ6bzjq7tgjEQNNzsedf8","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGaMCejQZFmxVbhkJKOImac-cbWJfJXM79f_RMX8rEpij_f6zkdT-GvNW3FCjgvtxwX384L5fK2R6n8i2wuDgfVss0i79E2wknI-Iy3O2fnxQwOjop-iGxMDaxhqUr1jV7n_Hc9","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHMIEbsopAVtp5S3HpFKF5Sj_yOwoKOuN4bZ2eoutO4xN5d--67TX3WJwh05Dn2BhItWP-7cWxA3CplfNoxEtUTOjhOlHQ2nE_MuqBUQGD-9XPyvLPsHt2VFggJyECx4NRIJbI","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG1QqU3p23mzVF7IE_k3BsEYHuysZhUmZ4DusG0LB2QPX2HU8MaaPr8FN-9HJ-D8ddZM-AX26WJznGUE6JU6sopfAeOcnw_wnBEsKMxCqxWkJltdjKPFkLzUqgm_S4agvX0z71vIy74HNs","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFdCvxlT-FdEUOcmuz8KMT2GWoJxetLeXTqaeE11YMHXc57ls9GvWiDOvCc0looBBCKEM8yFEzoh0q4aj28_jsRI9rBCH_d92NHl7djCku9YyAL655IE9lTIceSOLAfFmiEW_CJGg","https://lh3.googleusercontent.com/gps-cs-s/APNQkAER4eOiIbRgKgEvl3YG41rZrn0QEuE8gutdZn9UwV5BfAQv2fEl9jYz4_mN3pM0w9T7HY_hJir0m4_VyGb4bXoizxuf780qFKpX4ESIH2nl915_0dSFXi17O4PVTQS7HLogWH2t","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaVG45YrDvUaxJilgMImMJk-rhFpWVqdhgQxUFobcCSZTpufycCpol-fcrkzBvEWwHvwz_CXUcmMzIF9MEV6IUCP8w8znXYc0Z34JywO7wfX7e1EmHejujYGGIuyYxgFSaI9wi","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEwj4zF75wK04bD-S1inc3nfTJ6Z4crWRhf1Bau-Pa4NZaj4Q7PV69dXXiJ4OiJ1N4gEuytWLi0FdGrqozqfe56e9ELTKRqhEaV6zCsHlXUwd2DCqQvcBaFN5u2DI3lMk0lBaRxYA","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEuCOvJgOIZmCNqYO7k8FX-YDdrTT-OoOLJ8X5ronSI_xkrmfqjEu5LaOvhJJ_9udoB2owaIiybur9da2YetGax1bKk1odFJFPyBj9FvrUgPNNNZjZ2srlUUFjJniZQUJ7DkoWO","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHo2-810Y_JeYyhLJseFU_RrPxd-Y97VLiv6Dq1ulsjzX4jK-doOvhNj1k0adqzBF6YBbhH1_zKBtYfql7o5Agirudg2V679Nm6FS043DV2_JgstPFSrEqIN1jANUYY9aTp6m4","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHIGYLMNaKKw9NH4-VkmHb9cZSpg9l9mVVIPMz6U_M5dFhB3MAoKBt_TLhPH-ktU-XBv-7z3f9drd76DEnSGNPWxQ624w-er6W4CKPk1GglH0kd9oDtInwzDyL0GN3XL5l29l0","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGIfcDABkYf1NJyRfyOxVGRJOe6CZgfLZMrQANua93b9jY3tlQAiTKgJbP38APADYH4I-TdAlh31y0CZ-fIXTnCcb31NprouxHkdwTqcxtaiId3o1mlZF8QswsXi4ZmCdtAc6X5kA","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG41mQbWabYamzwrgkHzItfPyMJPR_KT--IyrVFl8_7_Vjbvvhz5SCU1wHUuMSTL3eEaAhgeFlZ85wzfE0u7aFAsbv7JaxlnWpV9oEoXC8UhIVke7SZKkG4wew9WifOYfo_YIUx"];
+</script>
+<script src="../assets/luxe.js"></script>
+</body>
+</html>
