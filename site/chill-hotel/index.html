@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--
+  REDESIGN EXAMPLE — Chill Hotel Khaoyai (real hotel: 4.8★, 1,056 Google reviews, Pak Chong).
+  Imagery = the hotel's REAL photos pulled live from its Google listing (lh3.googleusercontent.com).
+  Trilingual EN / ไทย / 中文 with per-language typography. Room names/prices are indicative (confirm with owner).
+  For a production build we'd self-host the chosen photos; here they're referenced live to show real imagery.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chill Hotel Khaoyai — Boutique Mountain Hotel near Khao Yai, Pak Chong</title>
+<meta name="description" content="A calm, design-led hotel minutes from Khao Yai National Park. Pool, hot tub, restaurant & the warmest welcome in Pak Chong. 4.8★ from 1,056 guests. Book direct & save." />
+<meta name="theme-color" content="#1f3d2b" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 48 48%22><rect width=%2248%22 height=%2248%22 rx=%2210%22 fill=%22%231f3d2b%22/><path d=%22M14 30c0-7 5-12 11-12 4 0 6 2 7 4-2-1-4-1-6 0-4 2-6 6-6 10 0 1 0 2 1 3-4-1-7-4-7-5z%22 fill=%22%23a7c4a0%22/></svg>" />
+<style>
+  :root{
+    --forest:#1f3d2b;--forest-2:#2e5740;--sage:#8aa888;--moss:#5b7355;--gold:#c2a36b;
+    --ink:#1b211d;--muted:#6b7669;--bg:#fbfaf6;--cream:#f3efe6;--line:#e3ded2;
+    --line-green:#06c755;--wa:#25d366;--maxw:1180px;
+    --serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+    --shadow:0 18px 50px rgba(31,61,43,.14);--shadow-sm:0 8px 24px rgba(31,61,43,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4,.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.1}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:var(--sans);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;color:var(--moss)}
+  .btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:0;font-family:var(--sans);font-weight:600;font-size:.96rem;padding:14px 26px;border-radius:999px;transition:transform .12s,box-shadow .2s,background .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-gold{background:var(--gold);color:#241c0c;box-shadow:0 10px 26px rgba(194,163,107,.4)}
+  .btn-dark{background:var(--forest);color:#fff}.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+  .btn-line{background:var(--line-green);color:#fff}.btn-outline{background:transparent;color:var(--forest);border:1.5px solid var(--forest)}
+  section{padding:96px 0}
+  h2{font-size:clamp(1.9rem,4vw,2.9rem)}
+  .lead{color:var(--muted);font-size:1.12rem;max-width:60ch}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* nav */
+  header{position:fixed;top:0;left:0;right:0;z-index:60;transition:.3s}
+  header .nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+  header.solid{background:rgba(251,250,246,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:1.3rem;color:#fff;transition:color .3s}
+  header.solid .logo{color:var(--forest)}
+  .logo .mk{width:34px;height:34px;border-radius:9px;background:var(--forest);display:flex;align-items:center;justify-content:center;color:var(--sage);font-size:1.1rem}
+  header.solid .logo .mk{background:var(--forest)}
+  .nav-links{display:flex;gap:30px}
+  .nav-links a{color:#fff;font-family:var(--sans);font-weight:500;font-size:.95rem;opacity:.92;transition:color .3s}
+  header.solid .nav-links a{color:var(--ink)}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .lang{display:flex;gap:2px;background:rgba(255,255,255,.16);border-radius:999px;padding:3px}
+  header.solid .lang{background:var(--cream)}
+  .lang button{border:0;background:transparent;color:#fff;font-family:var(--sans);font-weight:600;font-size:.8rem;padding:5px 10px;border-radius:999px;cursor:pointer;opacity:.8}
+  header.solid .lang button{color:var(--moss)}
+  .lang button.on{background:#fff;color:var(--forest);opacity:1}
+  header.solid .lang button.on{background:var(--forest);color:#fff}
+  @media(max-width:880px){.nav-links{display:none}}
+
+  /* hero */
+  .hero{position:relative;height:100vh;min-height:640px;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05)}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,30,20,.78),rgba(15,30,20,.15) 55%,rgba(15,30,20,.35))}
+  .hero .inner{position:relative;z-index:2;padding-bottom:64px;width:100%}
+  .hero h1{font-size:clamp(2.6rem,6.5vw,5rem);font-weight:500;max-width:16ch;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+  .hero p{font-size:1.2rem;max-width:46ch;margin:20px 0 30px;opacity:.96}
+  .hero-cta{display:flex;gap:13px;flex-wrap:wrap}
+  .hero-badge{position:absolute;top:96px;right:24px;z-index:2;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:14px;padding:12px 16px;text-align:center}
+  .hero-badge b{font-family:var(--serif);font-size:1.5rem;display:block}
+  @media(max-width:600px){.hero-badge{display:none}}
+
+  /* trust strip */
+  .strip{background:var(--forest);color:#dfe8da}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center;padding:20px 24px;font-weight:500;font-size:.96rem}
+  .strip span{display:flex;align-items:center;gap:8px}.strip b{color:#fff}
+
+  /* about split */
+  .split{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  @media(max-width:860px){.split{grid-template-columns:1fr;gap:30px}}
+  .split .ph{height:520px;border-radius:18px;background-size:cover;background-position:center;box-shadow:var(--shadow)}
+  @media(max-width:860px){.split .ph{height:320px}}
+  .split h2{margin:14px 0 18px}
+
+  /* rooms */
+  .rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:900px){.rooms{grid-template-columns:1fr 1fr}}@media(max-width:620px){.rooms{grid-template-columns:1fr}}
+  .room{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
+  .room:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .room img{height:240px;width:100%;object-fit:cover}
+  .room .body{padding:22px}
+  .room h3{font-size:1.4rem}
+  .room .feat{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+  .room .feat li{list-style:none;background:var(--cream);border-radius:999px;padding:4px 11px;font-size:.8rem;color:var(--moss)}
+  .room .price{font-family:var(--serif);font-size:1.6rem;color:var(--forest)}.room .price small{font-family:var(--sans);font-size:.8rem;color:var(--muted)}
+
+  /* amenities */
+  .amen{background:var(--cream)}
+  .amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:760px){.amen-grid{grid-template-columns:1fr 1fr}}
+  .amen-grid .it{background:#fff;border-radius:14px;padding:22px 16px;text-align:center;border:1px solid var(--line)}
+  .amen-grid .it .ic{font-size:1.7rem}.amen-grid .it span{display:block;margin-top:6px;font-weight:500;font-size:.92rem}
+
+  /* gallery */
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:12px}
+  @media(max-width:760px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}}
+  .gal img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+  .gal .big{grid-column:span 2;grid-row:span 2}
+
+  /* booking */
+  .book{background:var(--forest);color:#fff}
+  .book .split{align-items:center}
+  .book h2{color:#fff}.book .lead{color:#cfdcc8}
+  form{background:#fff;color:var(--ink);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+  .field{margin-bottom:14px}label{display:block;font-weight:600;font-size:.84rem;margin-bottom:6px;color:var(--moss)}
+  input,select{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;font-family:var(--sans);font-size:1rem;background:var(--bg)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  /* reviews */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}@media(max-width:820px){.quotes{grid-template-columns:1fr}}
+  .quote{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow-sm)}
+  .quote .st{color:var(--gold);letter-spacing:2px;margin-bottom:8px}.quote p{font-style:italic}.quote footer{margin-top:12px;color:var(--muted);font-weight:600;font-size:.88rem}
+
+  footer.site{background:#16271c;color:#aebfa6;padding:56px 0 30px}
+  footer.site a{color:#cdd9c6}
+  .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}@media(max-width:760px){.fgrid{grid-template-columns:1fr}}
+  .fgrid h4{color:#fff;font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+  .copyright{border-top:1px solid #2a3d2f;margin-top:34px;padding-top:20px;font-size:.85rem;color:#7e9077;text-align:center}
+  .float{position:fixed;right:18px;bottom:18px;z-index:70;display:flex;flex-direction:column;gap:11px}
+  .float a{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.55rem;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+  .f-line{background:var(--line-green)}.f-wa{background:var(--wa)}.f-call{background:var(--gold);color:#241c0c}
+
+  /* language system */
+  html[lang="en"] [data-th],html[lang="en"] [data-zh]{display:none!important}
+  html[lang="th"] [data-en],html[lang="th"] [data-zh]{display:none!important}
+  html[lang="zh"] [data-en],html[lang="zh"] [data-th]{display:none!important}
+  /* per-language typography */
+  html[lang="th"] body,html[lang="th"] .btn,html[lang="th"] input,html[lang="th"] select{font-family:'Noto Sans Thai',sans-serif}
+  html[lang="th"] h1,html[lang="th"] h2,html[lang="th"] h3,html[lang="th"] h4{font-family:'Noto Sans Thai',sans-serif;font-weight:700;letter-spacing:0;line-height:1.25}
+  html[lang="th"] body{line-height:1.85}
+  html[lang="zh"] body,html[lang="zh"] .btn,html[lang="zh"] input,html[lang="zh"] select{font-family:'Noto Sans SC',sans-serif}
+  html[lang="zh"] h1,html[lang="zh"] h2,html[lang="zh"] h3,html[lang="zh"] h4{font-family:'Noto Serif SC',serif;font-weight:600;letter-spacing:.02em;line-height:1.3}
+  html[lang="zh"] .eyebrow{letter-spacing:.3em}
+</style>
+</head>
+<body>
+<header id="hdr"><div class="wrap nav">
+  <a class="logo" href="#top"><span class="mk">⛰</span> Chill Hotel <span style="opacity:.6">Khaoyai</span></a>
+  <nav class="nav-links">
+    <a href="#rooms" data-en>Rooms</a><a href="#rooms" data-th>ห้องพัก</a><a href="#rooms" data-zh>客房</a>
+    <a href="#amenities" data-en>Facilities</a><a href="#amenities" data-th>สิ่งอำนวยความสะดวก</a><a href="#amenities" data-zh>设施</a>
+    <a href="#gallery" data-en>Gallery</a><a href="#gallery" data-th>แกลเลอรี</a><a href="#gallery" data-zh>相册</a>
+    <a href="#visit" data-en>Location</a><a href="#visit" data-th>ที่ตั้ง</a><a href="#visit" data-zh>位置</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang"><button data-l="en" class="on" onclick="setLang('en')">EN</button><button data-l="th" onclick="setLang('th')">ไทย</button><button data-l="zh" onclick="setLang('zh')">中文</button></div>
+    <a href="#book" class="btn btn-gold" style="padding:10px 18px"><span data-en>Book Direct</span><span data-th>จองตรง</span><span data-zh>官网预订</span></a>
+  </div>
+</div></header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="bg" id="heroBg"></div>
+  <div class="hero-badge"><b>4.8★</b><span data-en>1,056 reviews</span><span data-th>1,056 รีวิว</span><span data-zh>1,056 条评价</span></div>
+  <div class="inner"><div class="wrap">
+    <p class="eyebrow" style="color:#cfe0c8">Pak Chong · Khao Yai</p>
+    <h1><span data-en>Wake up in the mountains of Khao Yai</span><span data-th>ตื่นมาพบขุนเขาเขาใหญ่</span><span data-zh>在考艾的群山中醒来</span></h1>
+    <p><span data-en>A calm, design-led hotel minutes from the national park — pool, hot tub, and the warmest welcome in Pak Chong.</span><span data-th>โรงแรมดีไซน์อบอุ่น เงียบสงบ ใกล้อุทยานแห่งชาติเขาใหญ่ พร้อมสระว่ายน้ำ อ่างน้ำวน และการต้อนรับที่อบอุ่นที่สุดในปากช่อง</span><span data-zh>邻近国家公园的静谧设计酒店——泳池、按摩浴缸，以及帕侬最温暖的款待。</span></p>
+    <div class="hero-cta">
+      <a href="#book" class="btn btn-gold"><span data-en>Check availability</span><span data-th>เช็คห้องว่าง</span><span data-zh>查询空房</span></a>
+      <a href="https://line.me/R/ti/p/@chillhotelkhaoyai" class="btn btn-ghost">💬 <span data-en>Chat on LINE</span><span data-th>แชท LINE</span><span data-zh>LINE 咨询</span></a>
+    </div>
+  </div></div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <span>⭐ <b>4.8</b> / 5 · <span data-en>1,056 guest reviews</span><span data-th>1,056 รีวิว</span><span data-zh>1,056 条评价</span></span>
+  <span>🏊 <span data-en>Pool & hot tub</span><span data-th>สระว่ายน้ำ & อ่างน้ำวน</span><span data-zh>泳池与按摩浴缸</span></span>
+  <span>🌿 <span data-en>5 min to Khao Yai</span><span data-th>5 นาทีถึงเขาใหญ่</span><span data-zh>5 分钟到考艾</span></span>
+  <span>💸 <span data-en>Best price, book direct</span><span data-th>ราคาดีที่สุดเมื่อจองตรง</span><span data-zh>官网预订更优惠</span></span>
+</div></div>
+
+<!-- ABOUT -->
+<section><div class="wrap split">
+  <div class="ph reveal" id="aboutPh"></div>
+  <div class="reveal">
+    <p class="eyebrow" data-en>Our Story</p><p class="eyebrow" data-th>เรื่องราวของเรา</p><p class="eyebrow" data-zh>关于我们</p>
+    <h2><span data-en>Where the mountains slow you down</span><span data-th>ที่ซึ่งขุนเขาช่วยให้คุณได้พักจริงๆ</span><span data-zh>让群山为你放慢脚步</span></h2>
+    <p class="lead"><span data-en>Tucked along Mittraphap Road, Chill Hotel is a boutique escape built for stillness — clean modern rooms, a glistening pool, a steaming hot tub, and a kitchen that sends you off each morning happy. Loved by 1,056 guests for one simple reason: it feels like exhaling.</span><span data-th>ตั้งอยู่ริมถนนมิตรภาพ ชิลล์ โฮเทล คือที่พักบูทีคที่สร้างมาเพื่อความผ่อนคลาย ห้องพักสะอาดทันสมัย สระว่ายน้ำใส อ่างน้ำวนอุ่นๆ และอาหารเช้าที่ทำให้ทุกเช้าของคุณสดใส ผู้เข้าพักกว่า 1,056 ท่านหลงรักด้วยเหตุผลง่ายๆ คือ "ได้พักผ่อนอย่างแท้จริง"</span><span data-zh>坐落于幸福路旁，Chill Hotel 是一处为静心而生的精品居所——简约现代的客房、波光粼粼的泳池、暖意融融的按摩浴缸，以及让你每天清晨都心情愉悦的餐厨。1,056 位住客钟爱它的理由很简单：在这里，能真正地舒一口气。</span></p>
+    <p style="margin-top:22px"><a href="#rooms" class="btn btn-outline"><span data-en>Explore rooms</span><span data-th>ดูห้องพัก</span><span data-zh>浏览客房</span></a></p>
+  </div>
+</div></section>
+
+<!-- ROOMS -->
+<section id="rooms" style="background:var(--bg);padding-top:40px"><div class="wrap">
+  <div class="reveal" style="text-align:center;margin-bottom:42px">
+    <p class="eyebrow" data-en>Stay</p><p class="eyebrow" data-th>ห้องพัก</p><p class="eyebrow" data-zh>住宿</p>
+    <h2><span data-en>Rooms made for resting</span><span data-th>ห้องพักเพื่อการพักผ่อน</span><span data-zh>为休憩而设的客房</span></h2>
+    <p class="lead" style="margin:10px auto 0"><span data-en>Every room is air-conditioned with fast Wi-Fi and a proper hot shower. Book here for the lowest rate — always below the apps.</span><span data-th>ทุกห้องมีแอร์ Wi-Fi เร็ว และฝักบัวน้ำอุ่น จองที่นี่ราคาดีที่สุด ถูกกว่าแอปเสมอ</span><span data-zh>每间客房均配空调、高速 Wi-Fi 与热水淋浴。官网预订享最低价——始终低于各大平台。</span></p>
+  </div>
+  <div class="rooms" id="rooms-grid"></div>
+  <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:18px"><span data-en>Indicative rates — confirm live availability on LINE.</span><span data-th>ราคาโดยประมาณ — สอบถามห้องว่างได้ทาง LINE</span><span data-zh>价格仅供参考——空房请于 LINE 确认。</span></p>
+</div></section>
+
+<!-- AMENITIES -->
+<section id="amenities" class="amen"><div class="wrap">
+  <div class="reveal" style="text-align:center;margin-bottom:42px">
+    <p class="eyebrow" data-en>Facilities</p><p class="eyebrow" data-th>สิ่งอำนวยความสะดวก</p><p class="eyebrow" data-zh>设施</p>
+    <h2><span data-en>Everything for an easy stay</span><span data-th>ครบทุกสิ่งเพื่อการพักที่สบาย</span><span data-zh>让入住轻松自在</span></h2>
+  </div>
+  <div class="amen-grid reveal" id="amen-grid"></div>
+</div></section>
+
+<!-- GALLERY -->
+<section id="gallery"><div class="wrap">
+  <div class="reveal" style="margin-bottom:32px">
+    <p class="eyebrow" data-en>Gallery</p><p class="eyebrow" data-th>แกลเลอรี</p><p class="eyebrow" data-zh>相册</p>
+    <h2><span data-en>A look around</span><span data-th>บรรยากาศโดยรอบ</span><span data-zh>环境一览</span></h2>
+  </div>
+  <div class="gal reveal" id="gal"></div>
+</div></section>
+
+<!-- REVIEWS -->
+<section style="background:var(--cream)"><div class="wrap">
+  <div class="reveal" style="text-align:center;margin-bottom:40px">
+    <p class="eyebrow" data-en>Guest Love</p><p class="eyebrow" data-th>เสียงจากผู้เข้าพัก</p><p class="eyebrow" data-zh>住客好评</p>
+    <h2><span data-en>4.8 from 1,056 guests</span><span data-th>4.8 จากผู้เข้าพัก 1,056 ท่าน</span><span data-zh>1,056 位住客 · 4.8 分</span></h2>
+  </div>
+  <div class="quotes reveal">
+    <div class="quote"><div class="st">★★★★★</div><p data-en>"Spotless, stylish, and the pool was perfect after a day in the park. Staff went out of their way for us."</p><p data-th>"สะอาด สวย และสระว่ายน้ำดีมากหลังเที่ยวอุทยานมาทั้งวัน พนักงานดูแลดีเกินคาด"</p><p data-zh>"干净又有格调，逛完公园后泡泡泳池太惬意了。员工的贴心远超预期。"</p><footer>— <span data-en>Verified Google guest</span><span data-th>ผู้เข้าพักจาก Google</span><span data-zh>Google 认证住客</span></footer></div>
+    <div class="quote"><div class="st">★★★★★</div><p data-en>"Great location near Khao Yai, super comfy beds, and breakfast was lovely. Booked direct and saved."</p><p data-th>"ทำเลดีใกล้เขาใหญ่ เตียงนอนสบายมาก อาหารเช้าอร่อย จองตรงประหยัดด้วย"</p><footer>— <span data-en>Verified Google guest</span><span data-th>ผู้เข้าพักจาก Google</span><span data-zh>Google 认证住客</span></footer></div>
+    <div class="quote"><div class="st">★★★★★</div><p data-en>"The hot tub at night under the mountain air — unforgettable. We'll be back."</p><p data-th>"แช่อ่างน้ำวนตอนกลางคืนรับอากาศภูเขา — ประทับใจมาก ต้องกลับมาอีกแน่นอน"</p><p data-zh>"夜里在山间空气中泡按摩浴缸，难以忘怀。我们一定会再来。"</p><footer>— <span data-en>Verified Google guest</span><span data-th>ผู้เข้าพักจาก Google</span><span data-zh>Google 认证住客</span></footer></div>
+  </div>
+  <p style="text-align:center;color:var(--muted);font-size:.78rem;margin-top:14px"><span data-en>Illustrative of guest sentiment — real reviews are synced from Google on the live build.</span><span data-th>ตัวอย่างความรู้สึกของผู้เข้าพัก — รีวิวจริงจะดึงจาก Google ในเวอร์ชันใช้งานจริง</span><span data-zh>用于呈现住客感受——正式版将同步 Google 真实评价。</span></p>
+</div></section>
+
+<!-- BOOKING -->
+<section id="book" class="book"><div class="wrap split">
+  <div class="reveal">
+    <p class="eyebrow" style="color:var(--gold)" data-en>Book Direct</p><p class="eyebrow" style="color:var(--gold)" data-th>จองตรง</p><p class="eyebrow" style="color:var(--gold)" data-zh>官网预订</p>
+    <h2><span data-en>Best rate, straight from us</span><span data-th>ราคาดีที่สุด จองกับเราโดยตรง</span><span data-zh>最优房价，直接预订</span></h2>
+    <p class="lead"><span data-en>Send a request and we'll confirm on LINE within a few hours — no booking fees, no middleman, the lowest price.</span><span data-th>ส่งคำขอจอง แล้วเรายืนยันทาง LINE ภายในไม่กี่ชั่วโมง ไม่มีค่าธรรมเนียม ไม่ผ่านคนกลาง ราคาถูกที่สุด</span><span data-zh>提交预订需求，我们将于数小时内通过 LINE 确认——无手续费、无中介、最低价格。</span></p>
+    <p style="margin-top:18px"><a href="tel:+66811415987" class="btn btn-gold">📞 +66 81 141 5987</a></p>
+  </div>
+  <form class="reveal" action="https://formspree.io/f/your-id" method="POST">
+    <div class="field"><label data-en>Full name</label><label data-th>ชื่อ-นามสกุล</label><label data-zh>姓名</label><input name="name" required></div>
+    <div class="row2"><div class="field"><label data-en>Check-in</label><label data-th>เช็คอิน</label><label data-zh>入住</label><input type="date" name="checkin" required></div><div class="field"><label data-en>Check-out</label><label data-th>เช็คเอาท์</label><label data-zh>退房</label><input type="date" name="checkout" required></div></div>
+    <div class="row2"><div class="field"><label data-en>Room</label><label data-th>ห้อง</label><label data-zh>房型</label><select><option>Deluxe Mountain View</option><option>Pool Access Room</option><option>Family Suite</option></select></div><div class="field"><label data-en>Guests</label><label data-th>ผู้เข้าพัก</label><label data-zh>入住人数</label><select><option>1</option><option>2</option><option>3</option><option>4</option></select></div></div>
+    <div class="field"><label data-en>Contact (email / LINE)</label><label data-th>ช่องทางติดต่อ (อีเมล / LINE)</label><label data-zh>联系方式（邮箱 / LINE）</label><input name="contact" required></div>
+    <button class="btn btn-gold" type="submit" style="width:100%;justify-content:center"><span data-en>Request booking →</span><span data-th>ส่งคำขอจอง →</span><span data-zh>提交预订 →</span></button>
+  </form>
+</div></section>
+
+<!-- LOCATION -->
+<section id="visit"><div class="wrap split">
+  <div class="reveal">
+    <p class="eyebrow" data-en>Find Us</p><p class="eyebrow" data-th>ที่ตั้ง</p><p class="eyebrow" data-zh>位置</p>
+    <h2><span data-en>Gateway to Khao Yai</span><span data-th>ประตูสู่เขาใหญ่</span><span data-zh>通往考艾的门户</span></h2>
+    <p class="lead"><span data-en>8 Mittraphap Road, Pak Chong, Nakhon Ratchasima — minutes from Khao Yai National Park, wineries and the night market. Airport shuttle on request.</span><span data-th>8 ถนนมิตรภาพ ปากช่อง นครราชสีมา — ใกล้อุทยานแห่งชาติเขาใหญ่ ไร่ไวน์ และตลาดกลางคืน มีบริการรับส่งสนามบินตามคำขอ</span><span data-zh>那空叻差是玛府帕侬县幸福路 8 号——邻近考艾国家公园、酒庄与夜市。可应需安排机场接送。</span></p>
+    <p style="margin-top:20px"><a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Chill+Hotel+Khaoyai">📍 <span data-en>Open in Google Maps</span><span data-th>เปิดใน Google Maps</span><span data-zh>在 Google 地图打开</span></a></p>
+  </div>
+  <iframe class="reveal" style="border:0;width:100%;height:420px;border-radius:18px;box-shadow:var(--shadow)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map" src="https://maps.google.com/maps?q=14.6679127,101.3957701&z=15&output=embed"></iframe>
+</div></section>
+
+<footer class="site"><div class="wrap">
+  <div class="fgrid">
+    <div><div class="logo" style="color:#fff"><span class="mk">⛰</span> Chill Hotel Khaoyai</div>
+      <p style="margin-top:12px;max-width:40ch"><span data-en>A calm, design-led mountain hotel in Pak Chong, by Khao Yai. Book direct & save.</span><span data-th>โรงแรมบนภูเขาดีไซน์อบอุ่น เงียบสงบ ที่ปากช่อง ใกล้เขาใหญ่ จองตรงประหยัดกว่า</span><span data-zh>帕侬考艾旁的静谧设计山间酒店。官网预订更优惠。</span></p></div>
+    <div><h4 data-en>Contact</h4><h4 data-th>ติดต่อ</h4><h4 data-zh>联系</h4><p>📞 +66 81 141 5987<br>💬 LINE @chillhotelkhaoyai<br>📍 8 Mittraphap Rd, Pak Chong</p></div>
+    <div><h4 data-en>Explore</h4><h4 data-th>เมนู</h4><h4 data-zh>导航</h4><p><a href="#rooms" data-en>Rooms</a><a href="#rooms" data-th>ห้องพัก</a><a href="#rooms" data-zh>客房</a> · <a href="#gallery" data-en>Gallery</a><a href="#gallery" data-th>แกลเลอรี</a><a href="#gallery" data-zh>相册</a> · <a href="#book" data-en>Book</a><a href="#book" data-th>จอง</a><a href="#book" data-zh>预订</a></p></div>
+  </div>
+  <div class="copyright">© <span id="yr"></span> Chill Hotel Khaoyai · <span data-en>Redesign concept · photos from the hotel's Google listing</span><span data-th>คอนเซ็ปต์รีดีไซน์ · ภาพจากโปรไฟล์ Google ของโรงแรม</span><span data-zh>改版概念 · 图片来自酒店 Google 资料</span></div>
+</div></footer>
+
+<div class="float">
+  <a class="f-line" href="https://line.me/R/ti/p/@chillhotelkhaoyai" aria-label="LINE">💬</a>
+  <a class="f-wa" href="https://wa.me/66811415987" aria-label="WhatsApp">🟢</a>
+  <a class="f-call" href="tel:+66811415987" aria-label="Call">📞</a>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Hotel","name":"Chill Hotel Khaoyai","starRating":{"@type":"Rating","ratingValue":"3"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"1056"},"priceRange":"฿฿","telephone":"+66811415987","address":{"@type":"PostalAddress","streetAddress":"8 Mittraphap Rd","addressLocality":"Pak Chong","addressRegion":"Nakhon Ratchasima","postalCode":"30130","addressCountry":"TH"},"geo":{"@type":"GeoCoordinates","latitude":14.6679127,"longitude":101.3957701},"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Swimming pool","value":true},{"@type":"LocationFeatureSpecification","name":"Hot tub","value":true},{"@type":"LocationFeatureSpecification","name":"Free WiFi","value":true},{"@type":"LocationFeatureSpecification","name":"Restaurant","value":true},{"@type":"LocationFeatureSpecification","name":"Free parking","value":true}]}
+</script>
+<script>
+  // Real photos pulled live from the hotel's Google listing
+  const IMG=[
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF7jvQHqmPjbPWQjHAU-gGuqxLS96OuKRSTcsCFQKVIm8wDEQgCoeDHilAkZ4O7l3J4e52y8RKAQg8BDVJ_k2LYoKMt68QShxudMmaZ3vhdvfzwVOieTEV65iLobhByPUT8AfnlZst_7tI6=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHFKPjo9LLzmNKrJn2z6lhsHFZDmF9Sn-smDzRHHwyqaTVD2NGqFYBmlz0h_J-GGIp87MdWV7iVwigp5uzcFkDrtko2zcNuehO-_bd19C0qmAl4t4qrBFd2GmF03mXGUWcpb1fp6osjp5fT=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEsj9y8KgwzKQrHjtdt7sxY2TSzd918dJcYJW9PPJauuuam3HNhunElm_xa_0qXbKPThSPQgDSPpDbqpMfAYNi8PJTTF2f3R2A42ESAWFRLTFoKwmea69DYK6Jjwp8FiidGmJlsWE43Alcf=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGIGioUBMK1jb0wBXV5v91SO8NdGeIC8xPjkEJGd5t6P2Ggs9CQAr8Hde332_VIKzfu6hekA6hlDTD84802sLj7axqVqBe7GczW5Q5JEXyoNu4rVHLLqb1MEuNvGaNLplIULiLsl4D87pVk=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGwKiUWmsrEFSmRRN6Jst45-as6M2bF3IvB_8xXE8RoOHuYujt7eqbBDnXesQH7kUm_RMxY_ketQGJBlrrGX7KNkK-T1rDB2kDqR0SQUMIkGUSWkIgxx472Gou17BUv21v0TYSaJCnarnY=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH9p1YDv6xJnDZ8W_SJYarFBTop8rk3WNA2kvO1E4fYcjzSNt56956UMuIiKKia7joanPxLiDjkCg7cG4cpfv8DOG6ZbIDWmkpTmxA96u-4li9FNKML-xKkHtqR3u-fD-t9iYsP6PQzoWjD=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFUPEH170Rw23Tt-WJrp2Ir1P_aDaSfkE9fnHIGvSMC0MuOFo0J-nVWmrR-u7PLm2-bYTGN2PuEnMBzpkXpGI572fvPbVY1acYH0wclPXtqCfiAJ98o-UKrBcGIZULUQtSl5s9x5bss7qov=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbWw-yHomoxQGyNAfglstKHGQzN2_IsZwZ9OCJmvAvvwNi6a2HRf_4PfbtuXAACbptH2ErMXQuaywrsEvKmgXFZTIfwsS71Y83elo9LGPWLOzafS1R_sK6DoYKwRszjFU5A_DMLxcqsKiZ=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGJ0RIY5DwRcgmAxfjYQmY-mpfEPm8F3jyJkLflL0YYzOF55HIojxFG1-OTPox9cw5ypYloDd6rg4wTYOWjbZm3tn0eL-hVkppAWUBNRh7LDM4ikLr4aakU1ebfKFHRbRVePVpVY29UJzkj=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE3lYJ9UNunmjJtOcptbmAPj24I-zpgNXO8zqJ-Gyxaz1pEG8tRU9kXNrmsDx2Fi8VEuV3mDd9qWU2cf0M4Pd_-YmmcmOfjzgq7ZGoIhUbvUfkDWka4Xgfp1tZ21O2j2AyGtdmi-ErJYAg=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG8kXDIdNA9_40CGYK-YVxeWJnNFEALqueSI6rJ6HnqCfqISc9t39EGDgfnIazJsKJFtoOPEOQ70jUwBvArmBgxPll0EsALAgzxDX0nZuABKFTYZv7bBKedliypBNXqMUnDc69z6szW9ptP=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGkBOSIvDmyW2Xw_EQTaVIN0cKf2NKD6BqlrB05p082sxiwXel7QsXouh2gdZPNy1k2K5r58dtO84ayz9WuNnA3uVJ46XeOJyq9fm4fQoqIREEQoSHJSGlwfRuBWXMUxurpdMHq5uoB-_tl=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAG3p_HYA3XKvBnDRPmlhU9zwyRMM6_xNAOtKkv7OTShOm8jtP66RW9ZxCeW85MbmeuHBOKzx7gi14Nj6JwxbN7pn1Be5XnCThQgGLEelcBBA8UYLBH3JIxfv9bL6T2z3kkHbOTmB_vGTd61=w1920-h1080-k-no",
+   "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHkuSLz1aPBoaZ0mfVAtoIoubH5wZWkED8r8gFYzr1uBQzyIO_1Be1TwgQWd2p7a4ss9rFb4XuQS8SqOi_TxiD6mgLz_FdSbi1n3t4TjOhn7H8BMpB91AEazbdtdX3hXYSgJZwhQM-Ti86l=w1920-h1080-k-no"
+  ];
+  // hero / about backgrounds
+  document.getElementById('heroBg').style.backgroundImage=`url('${IMG[0]}')`;
+  document.getElementById('aboutPh').style.backgroundImage=`url('${IMG[3]}')`;
+  // rooms
+  const rooms=[
+    {img:IMG[5],en:"Deluxe Mountain View",th:"ดีลักซ์ วิวภูเขา",zh:"豪华山景房",p:"฿1,490",fe:{en:["2 guests","Balcony","Mountain view"],th:["2 ท่าน","ระเบียง","วิวภูเขา"],zh:["2 位","阳台","山景"]}},
+    {img:IMG[8],en:"Pool Access Room",th:"ห้องริมสระ",zh:"泳池畔客房",p:"฿1,890",fe:{en:["2 guests","Pool access","Terrace"],th:["2 ท่าน","ลงสระได้","ระเบียง"],zh:["2 位","直达泳池","露台"]}},
+    {img:IMG[11],en:"Family Suite",th:"แฟมิลี่ สวีท",zh:"家庭套房",p:"฿2,490",fe:{en:["4 guests","2 beds","Kitchenette"],th:["4 ท่าน","2 เตียง","ครัวเล็ก"],zh:["4 位","双床","小厨房"]}}
+  ];
+  document.getElementById('rooms-grid').innerHTML=rooms.map(r=>`<article class="room"><img loading="lazy" src="${r.img}" alt=""><div class="body">
+    <h3><span data-en>${r.en}</span><span data-th>${r.th}</span><span data-zh>${r.zh}</span></h3>
+    <ul class="feat">${r.fe.en.map((_,i)=>`<li><span data-en>${r.fe.en[i]}</span><span data-th>${r.fe.th[i]}</span><span data-zh>${r.fe.zh[i]}</span></li>`).join('')}</ul>
+    <div class="price">${r.p} <small><span data-en>/ night</span><span data-th>/ คืน</span><span data-zh>/ 晚</span></small></div>
+    <a href="#book" class="btn btn-outline" style="margin-top:14px;width:100%;justify-content:center"><span data-en>Book this room</span><span data-th>จองห้องนี้</span><span data-zh>预订此房</span></a>
+  </div></article>`).join('');
+  // amenities
+  const amen=[["🏊","Swimming pool","สระว่ายน้ำ","泳池"],["♨️","Hot tub","อ่างน้ำวน","按摩浴缸"],["🍽️","Restaurant","ร้านอาหาร","餐厅"],["📶","Free Wi-Fi","Wi-Fi ฟรี","免费 Wi-Fi"],["🅿️","Free parking","ที่จอดรถฟรี","免费停车"],["🚐","Airport shuttle","รับส่งสนามบิน","机场接送"],["🐶","Pet-friendly","สัตว์เลี้ยงเข้าได้","可携宠物"],["💪","Fitness center","ฟิตเนส","健身房"]];
+  document.getElementById('amen-grid').innerHTML=amen.map(a=>`<div class="it"><div class="ic">${a[0]}</div><span data-en>${a[1]}</span><span data-th>${a[2]}</span><span data-zh>${a[3]}</span></div>`).join('');
+  // gallery (big first, then rest)
+  const gi=[1,2,4,6,7,9,10,12];
+  document.getElementById('gal').innerHTML=gi.map((n,idx)=>`<img loading="lazy" class="${idx===0?'big':''}" src="${IMG[n]}" alt="">`).join('');
+
+  // language
+  function setLang(l){document.documentElement.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));try{localStorage.setItem('chill_lang',l)}catch(e){}}
+  (function(){var s;try{s=localStorage.getItem('chill_lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':(navigator.language||'').toLowerCase().startsWith('zh')?'zh':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();
+  // sticky nav + reveal
+  const hdr=document.getElementById('hdr');addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>40));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
