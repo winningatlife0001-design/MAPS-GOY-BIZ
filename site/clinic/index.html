@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- TEMPLATE — Clinic (dental / cosmetic / medical-tourism). Type sections: services+prices,
+     doctors/credentials, trust/safety badges, book consultation (WhatsApp for intl patients). Clean clinical theme. -->
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smile Dental Krabi — Dental & Cosmetic Clinic for International Patients</title>
+<meta name="description" content="Modern dental & cosmetic clinic in Krabi. International standards, English-speaking dentists, transparent prices. Book a free consultation on WhatsApp.">
+<meta name="theme-color" content="#0e7490">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦷</text></svg>">
+<style>
+ :root{--brand:#0e7490;--brand-dark:#155e75;--accent:#0d9488;--ink:#0f172a;--muted:#64748b;--bg:#fff;--soft:#f0fdfa;--line:#e2e8f0;--line-green:#06c755;--wa:#25d366;--radius:16px;--shadow:0 8px 26px rgba(14,116,144,.10);--maxw:1060px;font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Thai",Arial,sans-serif}
+ *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{color:var(--ink);background:var(--bg);line-height:1.7}a{color:inherit}
+ .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+ .btn{display:inline-flex;gap:8px;align-items:center;border:0;cursor:pointer;font-weight:800;padding:13px 24px;border-radius:999px;text-decoration:none}
+ .btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow)}.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.7)}.btn-wa{background:var(--wa);color:#fff}.btn-outline{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+ section{padding:60px 0}h2{font-size:1.8rem;margin-bottom:8px}.lead{color:var(--muted);max-width:640px;margin-bottom:26px}.center{text-align:center}.center .lead{margin-inline:auto}
+ .eyebrow{color:var(--brand);font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.78rem}
+ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+ .nav{display:flex;align-items:center;justify-content:space-between;height:62px}.logo{font-weight:800;font-size:1.15rem;color:var(--brand);display:flex;gap:8px;align-items:center}
+ .nav-right{display:flex;gap:12px;align-items:center}.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.85rem}
+ .lang button{border:0;background:#fff;padding:6px 11px;cursor:pointer;font-weight:700;color:var(--muted)}.lang button.active{background:var(--brand);color:#fff}
+ .hero{background:linear-gradient(120deg,#155e75,#0e7490 55%,#0d9488);color:#fff;padding:64px 0}
+ .hero .in{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}@media(max-width:760px){.hero .in{grid-template-columns:1fr}}
+ .hero h1{font-size:clamp(1.9rem,4.5vw,2.8rem);max-width:18ch}.hero p{margin:12px 0 20px;opacity:.95;max-width:42ch}
+ .badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.badges span{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:6px 12px;font-size:.82rem;font-weight:600}
+ .card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:var(--radius);padding:20px}
+ .svc{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px}@media(max-width:760px){.svc{grid-template-columns:1fr}}
+ .svc .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.svc .p{color:var(--accent);font-weight:800;white-space:nowrap}
+ .docs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}@media(max-width:760px){.docs{grid-template-columns:1fr}}
+ .doc{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;text-align:center;box-shadow:var(--shadow)}
+ .doc .av{width:74px;height:74px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,#0e7490,#0d9488)}
+ .trust{background:var(--soft)}.trust .g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:center}@media(max-width:700px){.trust .g{grid-template-columns:1fr 1fr}}
+ .trust .item{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px}.trust .ico{font-size:1.6rem}
+ .book{background:var(--brand);color:#fff;text-align:center}.book .btn{margin:6px}
+ .float{position:fixed;right:15px;bottom:15px;z-index:60;display:flex;flex-direction:column;gap:10px}.float a{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.28);text-decoration:none}
+ .f-wa{background:var(--wa)}.f-line{background:var(--line-green)}
+ footer{background:#0b1220;color:#cbd5e1;padding:38px 0;text-align:center}footer a{color:#cbd5e1;text-decoration:none}
+ [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
+</style></head><body>
+<header><div class="wrap nav"><div class="logo">🦷 Smile Dental Krabi</div><div class="nav-right">
+ <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
+ <a href="#book" class="btn btn-primary" style="padding:9px 16px"><span data-en>Free consult</span><span data-th>ปรึกษาฟรี</span></a></div></div></header>
+
+<section class="hero"><div class="wrap in">
+ <div><h1><span data-en>World-class dental care, Thailand prices</span><span data-th>ทันตกรรมมาตรฐานสากล ราคาคนไทย</span></h1>
+  <p><span data-en>Modern dental & cosmetic treatments with English-speaking dentists. Trusted by international patients.</span><span data-th class="b">ทันตกรรมและความงามทันสมัย โดยทันตแพทย์ที่สื่อสารภาษาอังกฤษได้ ไว้วางใจโดยผู้ป่วยต่างชาติ</span></p>
+  <a href="#book" class="btn btn-wa">🟢 <span data-en>Free WhatsApp consult</span><span data-th>ปรึกษาฟรีทาง WhatsApp</span></a>
+  <div class="badges"><span data-en>✓ Sterilised to int'l standards</span><span data-th>✓ ฆ่าเชื้อมาตรฐานสากล</span><span data-en>✓ English-speaking</span><span data-th>✓ พูดอังกฤษได้</span><span data-en>✓ Airport pickup</span><span data-th>✓ รับสนามบิน</span></div>
+ </div>
+ <div class="card"><b><span data-en>Get a free quote</span><span data-th>ขอใบเสนอราคาฟรี</span></b>
+  <p style="font-size:.9rem;opacity:.9;margin:6px 0 12px"><span data-en>Send a photo or your treatment plan — we'll reply with a price & timeline.</span><span data-th class="b">ส่งรูปหรือแผนการรักษา เราจะตอบราคาและระยะเวลาให้</span></p>
+  <a href="https://wa.me/66800000000" class="btn btn-wa" style="width:100%;justify-content:center">🟢 WhatsApp</a></div>
+</div></section>
+
+<section><div class="wrap">
+ <p class="eyebrow" data-en>Treatments & Prices</p><p class="eyebrow" data-th>บริการและราคา</p>
+ <h2><span data-en>Transparent pricing</span><span data-th>ราคาชัดเจน โปร่งใส</span></h2>
+ <div class="svc" style="margin-top:14px"><div>
+  <div class="row"><span data-en>Check-up & clean</span><span data-th>ตรวจและขูดหินปูน</span><span class="p">฿800</span></div>
+  <div class="row"><span data-en>Tooth filling</span><span data-th>อุดฟัน</span><span class="p">฿800+</span></div>
+  <div class="row"><span data-en>Teeth whitening</span><span data-th>ฟอกสีฟัน</span><span class="p">฿6,000</span></div>
+ </div><div>
+  <div class="row"><span data-en>Dental implant</span><span data-th>รากฟันเทียม</span><span class="p">฿38,000+</span></div>
+  <div class="row"><span data-en>Crown (ceramic)</span><span data-th>ครอบฟันเซรามิก</span><span class="p">฿9,500+</span></div>
+  <div class="row"><span data-en>Root canal</span><span data-th>รักษารากฟัน</span><span class="p">฿6,000+</span></div>
+ </div></div>
+</div></section>
+
+<section class="trust"><div class="wrap center">
+ <p class="eyebrow" data-en>Why patients trust us</p><p class="eyebrow" data-th>ทำไมผู้ป่วยไว้วางใจ</p>
+ <h2 style="margin-bottom:24px"><span data-en>Safe, modern, international</span><span data-th>ปลอดภัย ทันสมัย ระดับสากล</span></h2>
+ <div class="g"><div class="item"><div class="ico">🧪</div><strong data-en>Sterilisation</strong><strong data-th>ระบบฆ่าเชื้อ</strong></div>
+  <div class="item"><div class="ico">🎓</div><strong data-en>Certified dentists</strong><strong data-th>ทันตแพทย์มีใบรับรอง</strong></div>
+  <div class="item"><div class="ico">🌐</div><strong data-en>1,000+ intl patients</strong><strong data-th>ผู้ป่วยต่างชาติ 1,000+</strong></div>
+  <div class="item"><div class="ico">🛬</div><strong data-en>Travel support</strong><strong data-th>ช่วยเรื่องเดินทาง</strong></div></div>
+</div></section>
+
+<section><div class="wrap center" style="margin-bottom:22px">
+ <p class="eyebrow" data-en>Our Dentists</p><p class="eyebrow" data-th>ทันตแพทย์ของเรา</p>
+ <h2><span data-en>Meet the team</span><span data-th>ทีมงานของเรา</span></h2></div>
+ <div class="wrap docs"><div class="doc"><div class="av"></div><b>Dr. [Name]</b><p style="color:var(--muted);font-size:.9rem" data-en>Implantology · 15 yrs</p><p style="color:var(--muted);font-size:.9rem" data-th>รากฟันเทียม · 15 ปี</p></div>
+  <div class="doc"><div class="av"></div><b>Dr. [Name]</b><p style="color:var(--muted);font-size:.9rem" data-en>Cosmetic · 10 yrs</p><p style="color:var(--muted);font-size:.9rem" data-th>ความงาม · 10 ปี</p></div>
+  <div class="doc"><div class="av"></div><b>Dr. [Name]</b><p style="color:var(--muted);font-size:.9rem" data-en>Orthodontics · 12 yrs</p><p style="color:var(--muted);font-size:.9rem" data-th>จัดฟัน · 12 ปี</p></div></div>
+</section>
+
+<section id="book" class="book"><div class="wrap">
+ <p class="eyebrow" style="color:#fff" data-en>Free consultation</p><p class="eyebrow" style="color:#fff" data-th>ปรึกษาฟรี</p>
+ <h2><span data-en>Get your free quote today</span><span data-th>ขอใบเสนอราคาฟรีวันนี้</span></h2>
+ <p style="max-width:46ch;margin:8px auto 22px"><span data-en>Send your X-ray or describe what you need — we'll reply with a treatment plan, price and timeline. No obligation.</span><span data-th class="b">ส่งฟิล์มเอกซเรย์หรือบอกสิ่งที่ต้องการ เราจะตอบแผนการรักษา ราคา และระยะเวลา ไม่มีข้อผูกมัด</span></p>
+ <a href="https://wa.me/66800000000" class="btn btn-wa">🟢 <span data-en>WhatsApp us</span><span data-th>ทาง WhatsApp</span></a>
+ <a href="https://line.me/R/ti/p/@smiledentalkrabi" class="btn btn-primary">💬 LINE</a>
+</div></section>
+
+<footer><div class="wrap"><div class="logo" style="color:#fff;justify-content:center">🦷 Smile Dental Krabi</div>
+ <p style="margin-top:8px;font-size:.9rem">Krabi, Thailand · WhatsApp +66 80 000 0000 · 💬 <a href="https://line.me/R/ti/p/@smiledentalkrabi">LINE</a></p>
+ <p style="font-size:.8rem;color:#94a3b8;margin-top:10px">© <span id="yr"></span> Smile Dental Krabi</p></div></footer>
+<div class="float"><a class="f-wa" href="https://wa.me/66800000000">🟢</a><a class="f-line" href="https://line.me/R/ti/p/@smiledentalkrabi">💬</a></div>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dentist","name":"Smile Dental Krabi","priceRange":"฿฿","telephone":"+66800000000","address":{"@type":"PostalAddress","addressLocality":"Krabi","addressCountry":"TH"}}</script>
+<script>function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}(function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();</script>
+</body></html>

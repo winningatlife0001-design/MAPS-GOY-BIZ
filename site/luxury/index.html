@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+  TEMPLATE — Hotel, LUXURY / 5-STAR TIER  (contrast this with the budget Smile House demo)
+  Tier cues: elegant serif headings, cream/near-black palette, ONE muted gold accent,
+  huge whitespace, full-bleed photography, calm tone, NO discount badges (luxury never
+  shouts price). Same underlying structure as the hotel template — different soul.
+  CUSTOMISE: search "CUSTOMISE"; swap gradients for large, beautiful photography.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saraya — A Private Beachfront Retreat, Koh Samui</title>
+<meta name="description" content="An intimate luxury retreat on the shores of Koh Samui. Ocean-view pool villas, private dining, and quiet, attentive service." />
+<meta name="theme-color" content="#1c1a17" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1a17; --bg:#faf7f1; --soft:#f1ebe0; --line:#e3dccd; --muted:#7a7263;
+    --accent:#9a8458;            /* muted gold — the ONLY accent */
+    --maxw:1120px; --line-green:#06c755;
+    --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:'Jost',system-ui,-apple-system,"Noto Sans Thai",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{color:var(--ink);background:var(--bg);font-family:var(--sans);font-weight:300;line-height:1.8;letter-spacing:.02em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:.01em;line-height:1.12}
+  .serif{font-family:var(--serif)}
+  .btn{display:inline-block;border:1px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;
+    font-family:var(--sans);font-weight:400;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;padding:15px 30px;transition:.2s}
+  .btn:hover{background:var(--ink);color:var(--bg)}
+  .btn-light{border-color:#fff;color:#fff}.btn-light:hover{background:#fff;color:var(--ink)}
+  section{padding:96px 0}
+  .eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .center{text-align:center}
+  header{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 0;transition:.3s;mix-blend-mode:difference}
+  header .nav{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--serif);font-size:1.5rem;letter-spacing:.22em;color:#fff;text-transform:uppercase}
+  .nav-links{display:flex;gap:34px}.nav-links a{color:#fff;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+  .lang{display:flex;gap:10px}.lang button{background:none;border:0;color:#fff;cursor:pointer;font-family:var(--sans);font-size:.78rem;letter-spacing:.12em;opacity:.6}.lang button.active{opacity:1;text-decoration:underline}
+  @media(max-width:860px){.nav-links{display:none}}
+  .hero{height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;position:relative;
+    /* CUSTOMISE: full-bleed photograph */
+    background:linear-gradient(rgba(20,18,15,.35),rgba(20,18,15,.45)),linear-gradient(120deg,#2b2a26,#4a4034 55%,#6b5d49)}
+  .hero .inner{position:relative;z-index:2;padding:0 24px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:400;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+  .hero p{font-weight:300;letter-spacing:.22em;text-transform:uppercase;font-size:.82rem;margin:20px 0 34px;opacity:.95}
+  .intro{max-width:720px;margin:0 auto;text-align:center}
+  .intro h2{font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:400;margin-bottom:20px}
+  .intro p{color:var(--muted);font-size:1.08rem}
+  .rooms{background:var(--soft)}
+  .room{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;margin-bottom:6px;background:var(--bg)}
+  .room:nth-child(even) .ph{order:2}
+  .room .ph{min-height:360px;background:linear-gradient(135deg,#6b5d49,#9a8458)}
+  .room .ph.b{background:linear-gradient(135deg,#4a4034,#7a7263)}
+  .room .txt{padding:60px 54px}.room .txt h3{font-size:2rem;font-weight:400;margin-bottom:6px}
+  .room .meta{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .room .txt p{color:var(--muted);margin-bottom:24px}
+  @media(max-width:760px){.room{grid-template-columns:1fr}.room:nth-child(even) .ph{order:0}.room .txt{padding:40px 28px}}
+  .exp{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+  .exp .item{background:var(--bg);padding:46px 30px;text-align:center}
+  .exp .item h3{font-size:1.5rem;font-weight:400;margin:10px 0 8px}.exp .item p{color:var(--muted);font-size:.95rem}
+  @media(max-width:760px){.exp{grid-template-columns:1fr}}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.gallery div{height:280px}
+  .g1{background:linear-gradient(135deg,#9a8458,#6b5d49)}.g2{background:linear-gradient(135deg,#4a4034,#9a8458)}.g3{background:linear-gradient(135deg,#7a7263,#2b2a26)}
+  @media(max-width:760px){.gallery{grid-template-columns:1fr 1fr}.gallery div{height:200px}}
+  .reserve{background:var(--ink);color:var(--bg);text-align:center}
+  .reserve h2{color:#fff;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400}
+  .reserve p{color:#cabfa9;max-width:48ch;margin:14px auto 30px;letter-spacing:.04em}
+  footer{background:var(--ink);color:#cabfa9;padding:50px 0;border-top:1px solid #3a352c;text-align:center}
+  footer .logo{color:#fff;margin-bottom:14px}footer a{color:#cabfa9}
+  .fnav{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin:18px 0}
+  [data-th]{display:none}html[lang="th"] [data-en]{display:none}html[lang="th"] [data-th]{display:inline}html[lang="th"] [data-th].b{display:block}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <div class="logo">Saraya</div>
+  <nav class="nav-links">
+    <a href="#villas" data-en>Villas</a><a href="#villas" data-th>วิลล่า</a>
+    <a href="#experiences" data-en>Experiences</a><a href="#experiences" data-th>ประสบการณ์</a>
+    <a href="#reserve" data-en>Reserve</a><a href="#reserve" data-th>สำรองห้อง</a>
+  </nav>
+  <div class="lang"><button id="en" class="active" onclick="setLang('en')">EN</button><button id="th" onclick="setLang('th')">ไทย</button></div>
+</div></header>
+
+<section class="hero" style="padding:0"><div class="inner">
+  <p data-en>Koh Samui · Thailand</p><p data-th>เกาะสมุย · ประเทศไทย</p>
+  <h1><span data-en>Quiet luxury,<br>by the sea</span><span data-th>ความหรูที่เงียบสงบ<br>ริมทะเล</span></h1>
+  <a href="#reserve" class="btn btn-light"><span data-en>Reserve your stay</span><span data-th>สำรองการเข้าพัก</span></a>
+</div></section>
+
+<section><div class="wrap intro">
+  <p class="eyebrow" data-en>The Retreat</p><p class="eyebrow" data-th>รีทรีต</p>
+  <h2><span data-en>An intimate beachfront sanctuary</span><span data-th>สถานที่พักผ่อนริมหาดอันเป็นส่วนตัว</span></h2>
+  <p><span data-en>Eighteen ocean-view pool villas set within tropical gardens, where unhurried days are shaped around the tide, the table, and the quiet attention of those who care for you.</span><span data-th class="b">วิลล่าพร้อมสระส่วนตัววิวทะเล 18 หลัง ท่ามกลางสวนเขตร้อน วันเวลาอันผ่อนคลายดำเนินไปตามจังหวะของคลื่น อาหาร และการดูแลอย่างใส่ใจ</span></p>
+</div></section>
+
+<section id="villas" class="rooms" style="padding:0">
+  <div class="room"><div class="ph"></div><div class="txt">
+    <h3>Garden Pool Villa</h3><div class="meta">90 m² · <span data-en>Private pool</span><span data-th>สระส่วนตัว</span></div>
+    <p><span data-en>A serene garden hideaway with a private plunge pool, outdoor rain shower and a daybed made for long afternoons.</span><span data-th class="b">วิลล่าในสวนอันเงียบสงบ พร้อมสระส่วนตัว ฝักบัวกลางแจ้ง และเตียงเดย์เบดสำหรับยามบ่าย</span></p>
+    <a href="#reserve" class="btn"><span data-en>Enquire</span><span data-th>สอบถาม</span></a>
+  </div></div>
+  <div class="room"><div class="ph b"></div><div class="txt">
+    <h3>Ocean Pool Villa</h3><div class="meta">120 m² · <span data-en>Sea view</span><span data-th>วิวทะเล</span></div>
+    <p><span data-en>Wake to the horizon. An elevated villa opening directly to the sea, with an infinity pool and a private sundeck.</span><span data-th class="b">ตื่นมาพบเส้นขอบฟ้า วิลล่ายกระดับเปิดสู่ทะเลโดยตรง พร้อมสระอินฟินิตี้และระเบียงส่วนตัว</span></p>
+    <a href="#reserve" class="btn"><span data-en>Enquire</span><span data-th>สอบถาม</span></a>
+  </div></div>
+  <div class="room"><div class="ph"></div><div class="txt">
+    <h3>The Beach Residence</h3><div class="meta">220 m² · 2 <span data-en>bedrooms</span><span data-th>ห้องนอน</span></div>
+    <p><span data-en>Our flagship two-bedroom residence on the sand, with a full kitchen, private chef on request, and uninterrupted ocean.</span><span data-th class="b">เรสซิเดนซ์สองห้องนอนริมหาด พร้อมครัวครบครัน เชฟส่วนตัวตามคำขอ และวิวทะเลไร้สิ่งบดบัง</span></p>
+    <a href="#reserve" class="btn"><span data-en>Enquire</span><span data-th>สอบถาม</span></a>
+  </div></div>
+</section>
+
+<section id="experiences"><div class="wrap center" style="margin-bottom:40px">
+  <p class="eyebrow" data-en>Experiences</p><p class="eyebrow" data-th>ประสบการณ์</p>
+  <h2 style="font-weight:400;font-size:clamp(1.8rem,3.6vw,2.6rem)"><span data-en>Days, beautifully spent</span><span data-th>วันเวลาอันงดงาม</span></h2>
+</div>
+<div class="exp">
+  <div class="item"><div class="serif" style="font-size:1.8rem;color:var(--accent)">✦</div><h3><span data-en>Private Dining</span><span data-th>ดินเนอร์ส่วนตัว</span></h3><p><span data-en>Candlelit tables on the sand, menus by our chef.</span><span data-th>โต๊ะอาหารริมหาดใต้แสงเทียน เมนูโดยเชฟของเรา</span></p></div>
+  <div class="item"><div class="serif" style="font-size:1.8rem;color:var(--accent)">✦</div><h3><span data-en>Spa & Wellness</span><span data-th>สปาและสุขภาพ</span></h3><p><span data-en>Traditional Thai therapies in a garden pavilion.</span><span data-th>ทรีตเมนต์ไทยดั้งเดิมในศาลากลางสวน</span></p></div>
+  <div class="item"><div class="serif" style="font-size:1.8rem;color:var(--accent)">✦</div><h3><span data-en>Sea & Island</span><span data-th>ทะเลและเกาะ</span></h3><p><span data-en>Private long-tail journeys to hidden bays.</span><span data-th>ล่องเรือหางยาวส่วนตัวสู่อ่าวลับ</span></p></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="gallery"><div class="g1"></div><div class="g2"></div><div class="g3"></div></div>
+</div></section>
+
+<section id="reserve" class="reserve"><div class="wrap">
+  <p class="eyebrow" data-en>Reservations</p><p class="eyebrow" data-th>สำรองห้องพัก</p>
+  <h2><span data-en>Begin your stay</span><span data-th>เริ่มต้นการเข้าพักของคุณ</span></h2>
+  <p><span data-en>Our team will arrange every detail personally. Reserve directly with us for our finest rates and a welcome that begins before you arrive.</span><span data-th class="b">ทีมงานของเราจะจัดการทุกรายละเอียดด้วยตนเอง สำรองห้องพักกับเราโดยตรงเพื่อรับอัตราที่ดีที่สุดและการต้อนรับตั้งแต่ก่อนคุณมาถึง</span></p>
+  <!-- CUSTOMISE: real reservation email / LINE / engine. Note: no "discount" language at this tier. -->
+  <a href="mailto:reservations@example.com" class="btn btn-light"><span data-en>Reserve by email</span><span data-th>สำรองทางอีเมล</span></a>
+  <a href="https://line.me/R/ti/p/@saraya" class="btn btn-light" style="margin-left:8px"><span data-en>Concierge on LINE</span><span data-th>คอนเซียจ LINE</span></a>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="logo">Saraya</div>
+  <div class="fnav"><a href="#villas" data-en>Villas</a><a href="#villas" data-th>วิลล่า</a><a href="#experiences" data-en>Experiences</a><a href="#experiences" data-th>ประสบการณ์</a><a href="#reserve" data-en>Reserve</a><a href="#reserve" data-th>สำรองห้อง</a></div>
+  <p style="font-size:.85rem"><span data-en>Koh Samui, Surat Thani, Thailand</span><span data-th>เกาะสมุย สุราษฎร์ธานี ประเทศไทย</span> · reservations@example.com</p>
+  <p style="font-size:.78rem;color:#7a7263;margin-top:14px">© <span id="yr"></span> Saraya Retreat</p>
+</div></footer>
+<script>
+  function setLang(l){document.documentElement.lang=l;document.getElementById('en').classList.toggle('active',l==='en');document.getElementById('th').classList.toggle('active',l==='th');try{localStorage.setItem('lang',l)}catch(e){}}
+  (function(){var s;try{s=localStorage.getItem('lang')}catch(e){}setLang(s||((navigator.language||'').toLowerCase().startsWith('th')?'th':'en'));document.getElementById('yr').textContent=new Date().getFullYear();})();
+</script>
+</body>
+</html>
