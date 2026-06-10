@@ -11,13 +11,13 @@
   --accent:#9C7C4E; --accent-deep:#71592F;
   --dark:#20281F; --dark-2:#2C3829; --cream:#ECE5D6; --gold:#C9A36A;
   --display:'Cormorant Garamond',Georgia,serif;
-  --body:'Inter',system-ui,-apple-system,sans-serif;
+  --body:'Figtree',system-ui,-apple-system,sans-serif;
   --btn-radius:100px;
   --grade-overlay:rgba(150,112,80,.05);
   --pad:clamp(22px,5vw,92px);
 }
-html[lang="th"]{ --display:'Noto Serif Thai',var(--display-fallback,'Cormorant Garamond'),serif; --body:'Noto Sans Thai','Inter',sans-serif; }
-html[lang="zh"]{ --display:'Noto Serif SC',serif; --body:'Noto Sans SC','Inter',sans-serif; }
+html[lang="th"]{ --display:'Noto Serif Thai',var(--display-fallback,'Cormorant Garamond'),serif; --body:'Noto Sans Thai','Figtree',sans-serif; }
+html[lang="zh"]{ --display:'Noto Serif SC',serif; --body:'Noto Sans SC','Figtree',sans-serif; }
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
