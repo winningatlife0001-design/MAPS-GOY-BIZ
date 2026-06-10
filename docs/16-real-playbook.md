@@ -2,7 +2,7 @@
 
 > Built by mining the transcripts of 50 YouTube videos from the people **actually doing this** (Nick Ponte $140K/mo, Pavlo, Darrel Wilson, Payton Clark Smith 375K views, Jono Catliff, Mark Builds Brands, Self‑Made Web Designer, GHL SaaS operators). Every figure below comes from those transcripts. Caveat: most creators are GoHighLevel affiliates, so "it's so easy" is sales‑flavoured — the **tactics and numbers** are what they state.
 
-> **🇹🇭 THIS PLAN IS FOR THAILAND ONLY.** Booking = **LINE**, payment = **PromptPay / cash**, discovery = **Google Maps**, tourist trade = **Agoda / Klook / Grab**. We build **multilingual (TH/EN/中文) sites that funnel to those channels** + the recurring automation layer. **We never build payment or checkout systems** — no Stripe, PayPal, or WooCommerce. Every US/UK tactic below is mapped to Thai rails (see Round 2 §A).
+> **🇹🇭 THIS PLAN IS FOR THAILAND ONLY.** Thais book via **LINE**; **holidaymakers (no LINE!) book via WhatsApp / phone / Google Maps / walk‑in / Klook‑Agoda**, Chinese guests via **WeChat**. **Payment is never ours** — owners settle it themselves in the LINE chat or at the venue; we never set up, display, or advise on payment. We build **trilingual (EN/ไทย/中文) sites that funnel into those channels** + the recurring automation layer. Every US/UK tactic below is mapped to Thai rails (Round 2 §A).
 
 ---
 
@@ -119,7 +119,7 @@ Set up once in GHL, then near‑zero fulfilment, ฿3,500–฿20,000/mo:
 4. **GBP optimisation** ($200–500/mo equiv), **social posting** ($199/mo equiv), **SEO**, **Google/Meta ads** ($2–3K/mo equiv).
 5. **Client mobile app** (GHL) — owner sees their leads/appointments → *this is why they keep paying.*
 
-**🇹🇭 Thailand adaptation (critical — the channel is LINE, not SMS):** missed‑call text‑back → **missed‑call → LINE auto‑message**; "AI receptionist" → **AI chat on the website + LINE OA** in TH/EN/中文; SMS broadcasts → **LINE OA broadcast** (promotions); reviews → **Google Maps reviews** (what tourists actually read). GHL can stay the CRM backbone, but everything customer‑facing routes through **LINE + Google Maps + PromptPay** — never SMS or card checkout. *(For deeper Thai‑native tactics, next research round should use a translate‑capable transcript actor to mine the Thai‑language operator videos that had no English captions.)*
+**🇹🇭 Thailand adaptation (critical — the channel is LINE, not SMS):** missed‑call text‑back → **missed‑call → LINE auto‑message**; "AI receptionist" → **AI chat on the website + LINE OA** in TH/EN/中文; SMS broadcasts → **LINE OA broadcast** (promotions); reviews → **Google Maps reviews** (what tourists actually read). GHL can stay the CRM backbone, but everything customer‑facing routes through **LINE + WhatsApp + Google Maps** — never SMS, and payment stays entirely the owner's affair, settled in chat or at the venue. *(For deeper Thai‑native tactics, next research round should use a translate‑capable transcript actor to mine the Thai‑language operator videos that had no English captions.)*
 
 ---
 
@@ -177,21 +177,22 @@ A second, **12× cheaper** mining round (43 *new* videos via `supreme_coder` at 
 **Hard correction: this is Thailand, and we are not a payments company.** The Western stack the US/UK YouTubers use — Stripe, PayPal, WooCommerce checkout, BNBforms — is **wrong for Thailand.** Here, money and bookings run on local rails, and the site's only job is **discovery + trust + funnel to the channel the customer already uses.** Never process a card.
 
 **The Thai rails:**
-- **Booking / contact = LINE.** Near‑universal. The primary CTA on every site is **"จองผ่าน LINE / Book on LINE"** → a **LINE Official Account** (chat, rich menu, auto‑reply). Secondary: **tap‑to‑call** + **Google Maps directions**.
-- **Payment = PromptPay / Thai QR** (national instant QR — every business has one), mobile‑bank transfer, or **cash / pay‑on‑arrival**. A deposit, if any, is just a **PromptPay QR image** — not a checkout. (TrueMoney/ShopeePay for some.)
-- **Tourist trade → deep‑link to the platform they already trust**, don't rebuild it: **Agoda / Booking.com / Traveloka** (hotels), **Klook / GetYourGuide / Fresha** (spas, tours), **Grab / LINE MAN / Foodpanda / Robinhood** (restaurant delivery). The site *links out*.
-- **Discovery = Google Business Profile / Google Maps** (tourists + locals — and Maps is literally our core service) **+ Facebook + LINE OA.**
+- **Booking / contact for Thais = LINE.** Near‑universal locally. Primary CTA: **"จองผ่าน LINE"** → the business's **LINE Official Account**.
+- **Payment = not our business, full stop.** The owner settles money **inside the LINE chat or at the venue** (transfer, QR, cash — however *they* like). **We never set up, display, advise on, or touch payment.** No Stripe, no PayPal, no checkout, no QR on the site. Nothing.
+- **Tourists / holidaymakers usually DON'T have LINE.** A Western guest uses **WhatsApp**; a Chinese guest uses **WeChat**; everyone has **Google Maps**. So every site runs a **dual funnel**: LINE for Thais **+ WhatsApp click‑to‑chat, tap‑to‑call, Google‑Maps directions, "walk‑ins welcome" + hours, and a WeChat ID** for Chinese guests. **Prices visible in ฿** (tourists won't message to ask), languages EN/ไทย/中文.
+- **Tourist trade → deep‑link to the platform they already trust:** Agoda/Booking (hotels), Klook/GetYourGuide/Fresha (spa & tours), Grab/LINE MAN (food delivery). The site *links out* — we never rebuild those.
+- **Discovery = Google Business Profile / Maps** (our core service) + Facebook + LINE.
 
-**Booking by niche, Thailand‑correct:**
-| Niche | Book via | Pay via | Site funnels to |
+**Booking by niche, Thailand‑correct (payment is always the owner's affair, settled in chat or at the venue):**
+| Niche | Thais book via | Tourists book via | Site funnels to |
 |---|---|---|---|
-| **Spa / massage (our lead niche)** | **LINE OA** chat / rich menu, phone, walk‑in | PromptPay QR / cash | Google Maps, Fresha/Klook (tourists), Facebook |
-| **Dental / aesthetic** | **LINE OA**, phone, EN/中文 enquiry form | PromptPay / cash / clinic invoice | Google Maps, WhatsApp (foreign patients) |
-| **Restaurant / café** | Phone, **LINE**, walk‑in | PromptPay / cash | Grab / LINE MAN / Foodpanda, Google Maps |
-| **Tours / activities** | **LINE / WhatsApp**, enquiry form | PromptPay / cash / via platform | Klook / GetYourGuide / Viator |
-| **Hotel (T3/T4 only)** | **LINE direct** + Agoda/Booking | PromptPay deposit / OTA / on‑arrival | Agoda/Booking/Traveloka, Google Maps |
+| **Spa / massage (lead niche)** | LINE OA | **WhatsApp / walk‑in / phone**, Klook/Fresha | Google Maps, LINE, WhatsApp |
+| **Dental / aesthetic** | LINE OA, phone | **WhatsApp / EN‑中文 enquiry form** | Google Maps, LINE, WhatsApp |
+| **Restaurant / café** | LINE, phone, walk‑in | **walk‑in / Google Maps**, Grab/LINE MAN for delivery | Maps, Grab/LINE MAN |
+| **Tours / activities** | LINE | **WhatsApp / Klook / GetYourGuide** | Klook, WhatsApp |
+| **Hotel (T3/T4 only)** | LINE direct | **Agoda / Booking deep‑link**, WhatsApp | Agoda/Booking, Maps |
 
-**The reframe:** for ~95% of Thai SMEs the site needs **a LINE button, a phone button, a Google‑Maps embed, a PromptPay QR, and (for tourist trade) a link to their Klook/Agoda listing** — in TH/EN/中文. **No engine, no checkout, no Stripe.** What we actually *set up* (and charge for): the **LINE Official Account** + auto‑reply, **Google Business Profile** optimisation, the **PromptPay QR** + bank details on‑page, the **OTA/Klook deep‑links**, and the multilingual site. Hotels wanting a true direct engine stay T3/T4 and we connect a lightweight one, but even then most direct Thai bookings still come through **LINE + PromptPay.**
+**The reframe:** a Thai SME site needs **LINE + WhatsApp + call buttons, Google‑Maps embed, visible ฿ prices, hours + "walk‑ins welcome," OTA/Klook links where relevant — in EN/ไทย/中文.** No engine, no checkout, no payment anything. What we set up and charge for: the **LINE OA + auto‑reply**, **WhatsApp click‑to‑chat**, **Google Business Profile**, the **OTA/Klook deep‑links**, and the trilingual site + automation layer.
 
 ### B. THE AI‑RECEPTIONIST ECONOMICS (the most profitable single add‑on)
 **Connor Cahill: ~$50–60k/mo, $265k in 5 months, 172 clients**, selling **one** product — a GHL AI receptionist — at **$1,000/mo** (range $400–1,500) on a **$497/mo** GHL cost. Three moves:
@@ -201,16 +202,16 @@ A second, **12× cheaper** mining round (43 *new* videos via `supreme_coder` at 
 
 Same engine as batch‑2's Kai ($28k/mo) and the Ponte thesis — confirmed a third time: **website = free hook; AI‑receptionist + automation = the ฿1,000–1,500/mo recurring core.** Med‑spa "**snapshots**" (Jasper Aiken) = a pre‑built GHL niche template imported per client in minutes (setup fee ~$1,000–3,000 + ~$1,000/mo) — the templatised delivery model we should copy per Thai niche.
 
-**Thai‑channel note:** Connor's calls/SMS are US‑style; in Thailand the *same engine* runs on **LINE + an AI chat that answers in TH/EN/中文** and books to the calendar, with **missed‑call → LINE message** instead of text‑back. The **economics and the value‑stack close are identical — only the channel changes** (LINE, Google Maps, PromptPay; never SMS/Stripe).
+**Thai‑channel note:** Connor's calls/SMS are US‑style; in Thailand the *same engine* runs on **LINE + an AI chat that answers in TH/EN/中文** and books to the calendar, with **missed‑call → LINE message** instead of text‑back. The **economics and the value‑stack close are identical — only the channel changes** (LINE + WhatsApp + Google Maps; never SMS, never payment).
 
 ### C. NICHE‑SPECIFIC CONVERSION RUBRICS (the category layouts requested)
 **Dental (MGE):** the #1 mistake is the **brochure site**. Must have: clear **CTA** ("Schedule today / call now") + unmistakable **"accepting new patients,"** a **first‑visit special offer** (exam+x‑ray+clean), **attention headlines** from what locals want, **one selling page per service** (implants/Invisalign/whitening) answering FAQs, **reviews throughout**.
 
 **Aesthetic / med‑spa (DevMart + Sagapixel):** **80% of traffic is mobile** → mobile‑first or lose bookings (*"cheap mobile site ⇒ clients assume cheap treatments"*). Must have: **sticky Book‑Now (header+footer) → +20–40% bookings**; **trust in the first 2 scrolls** (certifications, clinic + practitioner photos, Google/Trustpilot reviews, before/after); a templated **treatment page**: name+hero → what it solves (bullets) → **swipeable** before/after → how it works → benefits+downtime → **who it's NOT for** → one CTA. SEO: **title = "[Service] + [City]"**, name services by **search intent** ("chemical peels" not "peels"; "biodentical hormones" not "menopause"), fast load, **big tap‑to‑call / tap‑to‑book** mobile buttons (not tiny footer text). Compliance: aesthetic‑ad rules limit direct "Botox" claims — mind Thai medical‑ad law the same way.
 
-**Hotels:** hero + rooms with rates; **Book on LINE** + **Agoda/Booking** deep‑links; **PromptPay** deposit; Google‑Maps + reviews; EN/中文. A true direct‑booking engine only if they ask (T3/T4).
+**Hotels:** hero + rooms with rates; **Book on LINE** (Thais) + **WhatsApp & Agoda/Booking deep‑links** (tourists); Google‑Maps + reviews; EN/ไทย/中文. Any deposit is arranged by the owner in chat — not on the site. A true direct‑booking engine only if they ask (T3/T4).
 
-**Restaurants:** photography sells; menu pages; **LINE / phone reserve** + walk‑in; delivery handed off to **Grab / LINE MAN / Foodpanda** (we link, not build); Google Maps + PromptPay QR.
+**Restaurants:** photography sells; menu pages; **LINE / phone reserve** + walk‑in; delivery handed off to **Grab / LINE MAN / Foodpanda** (we link, not build); Google Maps; tourists walk in.
 
 ### D. DELIVERY & PAYMENT TERMS (protect the cash)
 Two safe delivery methods (Saddam Kassim): (1) build on the **client's own domain+hosting** → auto‑live, no migration; or (2) build on **your subdomain/staging**, share for approval, **migrate** on sign‑off. **Always take ≥50% upfront** (escrow on freelance platforms). Maps to us: collect deposit → build on our gh‑pages staging → **screenshot‑grade** → migrate to their domain / go live on approval.
