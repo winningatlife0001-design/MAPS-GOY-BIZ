@@ -240,3 +240,41 @@ Two safe delivery methods (Saddam Kassim): (1) build on the **client's own domai
 ---
 
 *Source corpus: **86 transcripts across two rounds** — Round 1 = 50 (karamelo, ~$0.006 each) + Round 2 = 36 of 43 new videos (supreme_coder, **$0.0005 each**; 7 Thai‑language ones had no English captions and need a translate‑capable actor next time). Discovery via streamers/youtube‑scraper (~$0.003/video). Raw transcripts in /tmp/yt/g1–g5. **Total transcript‑mining cost across BOTH rounds ≈ $0.5; Round 2 ≈ $0.24 all‑in.** The research is cents — the larger session spend was Google‑Maps‑scraping‑with‑photos (real business data + images for the demo sites) + the screenshot‑grading pipeline, not this plan.*
+
+---
+
+## 9. THE "$10,000 vs $200 WEBSITE" RUBRIC — how we grade every build
+
+> Source: Metics Media, *Build $10,000 Websites using Claude Code* (315k views), + AI Chris Lee, Darrel Wilson, "I sell 3D sites for $10K" (batch 2). This is the **design benchmark** to grade every site against before it ships — the same eight criteria these demos were built to.
+
+**The 8 things that separate a $10,000 site from a $200 one** — grouped as *taste · substance · felt quality*:
+1. **Point of view** — a real direction, not a mood board ("dark-moody, Pacific-Northwest", not "modern & clean").
+2. **Typography** — deliberate pairings; **ban Inter** (screams "AI made this") → Geist/Figtree/Fraunces etc.
+3. **Colour** — restraint: ~5 hex values, no rainbow. Restraint signals quality.
+4. **Hierarchy** — sizes tell the eye what to read 1st/2nd/3rd; flat = cheap.
+5. **Imagery** — the one pillar AI can't fake: custom or AI-gen photos, consistent. (Our demos use the business's real Google photos; a signed client uses their own.)
+6. **Motion** — restrained micro-interactions/cursor effects; "more expensive, not busier". *(This is the one our demos deliberately keep thin — next polish pass.)*
+7. **Mobile** — *designed*, not shrunk: a dedicated pass (hide, tighten, resize), because phones dominate traffic.
+8. **Invisible** — fast, finished, real domain attached (a `*.vercel.app`/localhost link "makes it 5× harder to sell").
+
+**The build loop (T3 premium):** brief with a real point of view → **"ask me clarifying questions"** → grade honestly against the 8 → ask for a **batch** of fixes (not one-at-a-time) → a final pass adding **one** subtle motion per flat section → swap Inter → designed-mobile pass → ship on a real domain. **Screenshot-grade before shipping** (our proven capability).
+
+### The premium build stack (concrete, from batch 2)
+- **Claude Code + two skills:** Anthropic's **front-end-design** (bans overused fonts, pushes bold direction, restrained sensory copy) + community **UI-UX-Pro-Max** (57 UI styles, 95 colour palettes, 56 font pairings; install via *"install this plugin using npm"*).
+- **21st.dev** — free pre-built components/scroll-effects (copy-prompt → paste into Claude Code). Claude protects your architecture (says no to React in a static site).
+- **Nano Banana 2** (Google AI Studio) — free **~600–750 image gens/month**; prompt at **2K resolution**, feed image-1 as reference for consistency. Total startup ≈ **$20/mo (Claude Pro)**; a full site ships for **~$60 incl. domain**.
+- **Hosting:** Hostinger Premium (static) / Business (Node) — but *our* T3 path is Claude Code → static HTML → Vercel/Pages.
+
+### Concrete pricing & economics (batch 2 — what operators actually charge)
+- **Darrel Wilson's 3 tiers:** $150–250 + $25–35/mo · $299–600 + $40–60/mo · $600–1,000 + $75–120/mo. (Maps to our T1–T3; the **monthly** is the point.)
+- **"I sell 3D sites for $10K":** ~20 min to build, **~20 messages to sell** — *finding the buyer is the hard part, not the build.*
+- **Kai (GHL SaaS): $28,946/month, churn <5%** — and the maths we adopt: **100 clients × $100 beats 5 × $2,000** (more clients, lower churn, stacked services).
+- **Recurring is the asset (2V8wnMLKWh8):** a web-design business with **zero recurring revenue is worth nothing** to a buyer; valuation = a direct function of MRR. Reason enough to lead with the monthly.
+
+### Lead-sniping & outreach (batch 2 additions)
+- **Cameron's 3 methods:** expireddomains.net (sites that lapsed = owners who valued one), **Facebook Ad Library** (they're already spending = they have budget), and agency-outsource (white-label for busy agencies).
+- **Personalised cold email ≈ 10.5% reply vs ~1% generic** — personalise the first line or don't send.
+- **Payton's golden question:** *"When was the last time you guys updated your website?"* — opens the gap without insulting them.
+- **NicStana:** *"won't take a job without a monthly"* + 6 recurring streams (hosting, care plan, SEO, content, reviews, ads) — the same stack we run through GHL.
+
+*Batch 2 corpus (13 videos): Metics Media, AI Chris Lee, Darrel Wilson, Payton Clark Smith, Kai Stone, GHL SaaS operators, NicStana, Cameron, "$10K 3D sites". Mined via Apify; synthesis free.*
