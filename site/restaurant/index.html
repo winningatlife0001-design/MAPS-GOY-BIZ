@@ -1,125 +1,327 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Krua Khao Yai — Thai Kitchen</title>
-<meta name="description" content="Krua Khao Yai — a much-loved Thai kitchen in Pak Chong. Smoked ribs, jungle curry and a table with a view. Reserve online.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600&family=Noto+Serif+Thai:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/luxe.css">
-<style>:root{--bg:#F7F1E7;--bg-2:#EFE5D4;--bg-3:#E7DAC4;--ink:#271F18;--ink-soft:#615445;--ink-faint:#938472;--line:rgba(39,31,24,.14);--line-soft:rgba(39,31,24,.07);--accent:#B0542F;--accent-deep:#823A1E;--dark:#261C15;--cream:#F1E7D6;--gold:#C2A05A;--grade-overlay:rgba(176,84,47,.07)}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Krua Khao Yai — wood-fired Thai kitchen on Thanarat Rd · ครัวเขาใหญ่</title>
+<meta name="description" content="Krua Khao Yai — a much-loved Thai kitchen on Thanarat Road, Pak Chong. Smoked pork ribs, jungle curry, grilled river prawns. 4.0★, 3,739 Google reviews. Reserve on LINE, walk in, or order via Grab & LINE MAN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..500&family=Figtree:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&family=Noto+Serif+Thai:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@400;500&display=swap" rel="stylesheet">
+<meta property="og:title" content="Krua Khao Yai">
+<meta property="og:description" content="Wood-fired Thai cooking on the Khao Yai road. Smoked ribs, jungle curry, river prawns. 4.0★ · 3,739 reviews.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://winningatlife0001-design.github.io/MAPS-GOY-BIZ/restaurant/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Krua Khao Yai","servesCuisine":"Thai","description":"A much-loved Thai kitchen on Thanarat Road, Pak Chong — smoked ribs, jungle curry and grilled river prawns.","url":"https://winningatlife0001-design.github.io/MAPS-GOY-BIZ/restaurant/","telephone":"+66868659263","priceRange":"฿฿","address":{"@type":"PostalAddress","streetAddress":"27 Moo 7, Thanarat Rd, Mu Si","addressLocality":"Pak Chong","addressRegion":"Nakhon Ratchasima","postalCode":"30130","addressCountry":"TH"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.0","reviewCount":"3739"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"11:00","closes":"22:00"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+.ico{width:1em;height:1em;fill:currentColor;flex:none}
+/* reveal — visible by default; animate only when html.js (not in flat mode) */
+html.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+html.js .rv.in{opacity:1;transform:none}
+/* sticky mobile action bar (mechanics; colours via vars) */
+.bookbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg) 96%,transparent);border-top:1px solid var(--line);backdrop-filter:blur(10px)}
+.bb{display:flex;align-items:center;justify-content:center;gap:6px;border-radius:11px;padding:13px 4px;font-size:12.5px;font-weight:600;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 60%,#fff);color:var(--ink);white-space:nowrap}
+.bb .ico{width:16px;height:16px}
+.bb-line{background:#06C755;color:#fff;border-color:#06C755}
+@media(max-width:880px){.bookbar{display:grid}body{padding-bottom:0}}
+/* flat (screenshot) mode: un-stick bars so stitched captures stay clean */
+html.flat .topbar{position:static}
+html.flat .bookbar{position:static;display:none}
+</style>
+<style>
+:root{
+  --bg:#FBF5EC; --ink:#241A12; --clay:#B4471F; --clay-d:#8A3415; --char:#2B2018;
+  --cream:#F3E8D6; --gold:#C98A2E; --soft:color-mix(in srgb,var(--ink) 68%,var(--bg));
+  --faint:color-mix(in srgb,var(--ink) 48%,var(--bg)); --line:color-mix(in srgb,var(--ink) 16%,var(--bg));
+  --serif:"Fraunces","Noto Serif Thai",Georgia,serif;
+  --sans:"Figtree","Noto Sans Thai","Helvetica Neue",Arial,sans-serif;
+}
+html.zh{--serif:"Noto Serif SC","Fraunces",serif;--sans:"Noto Sans SC","Figtree","Noto Sans Thai",sans-serif}
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 93%,transparent);border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{font-family:var(--serif);font-weight:500;font-size:22px;letter-spacing:-.01em;color:var(--ink)}
+.brand small{display:block;font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--clay)}
+.topbar-right{display:flex;align-items:center;gap:16px}
+.langs{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.langs button{appearance:none;border:0;background:transparent;font-family:var(--sans);font-weight:500;font-size:12.5px;padding:7px 12px;cursor:pointer;color:var(--soft);white-space:nowrap}
+.langs button.on{background:var(--char);color:var(--bg)}
+.top-line{display:inline-flex;align-items:center;gap:8px;background:#06C755;color:#fff;border-radius:99px;padding:10px 18px;font-size:13.5px;font-weight:600}
+.top-line .ico{width:16px;height:16px}
+@media(max-width:720px){.top-line span{display:none}.top-line{padding:10px 12px}.langs button{padding:7px 10px;font-size:12px}.topbar-right{gap:10px}}
+/* hero */
+.hero{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(26px,4vw,60px);align-items:center;padding:clamp(36px,5vw,84px) 0 clamp(28px,3vw,52px)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--clay);font-weight:600;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--clay)}
+.hero h1{font-family:var(--serif);font-weight:450;font-size:clamp(40px,5.4vw,78px);line-height:1.0;letter-spacing:-.015em;margin:18px 0 18px}
+.hero p.lead{font-size:clamp(16px,1.25vw,18.5px);color:var(--soft);max-width:44ch;line-height:1.72}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:9px;border-radius:99px;padding:14px 26px;font-size:14.5px;font-weight:600;transition:transform .2s,box-shadow .2s}
+.btn .ico{width:17px;height:17px}.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:#06C755;color:#fff;box-shadow:0 8px 22px -10px rgba(6,199,85,.7)}
+.btn-dark{background:var(--char);color:var(--bg)}
+.hero-thumbs{display:flex;gap:12px;margin-top:30px}
+.hero-thumbs a{flex:1;border-radius:12px;overflow:hidden;aspect-ratio:1/1;position:relative;background:var(--cream)}
+.hero-thumbs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.hero-thumbs a:hover img{transform:scale(1.06)}
+.hero-media{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--cream)}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:880px){.hero{grid-template-columns:1fr}.hero-media{order:-1;aspect-ratio:16/12}}
+/* trust */
+.trust{background:var(--char);color:#ECE0CF}
+.trust-in{display:flex;flex-wrap:wrap;gap:12px 34px;align-items:center;justify-content:space-between;padding:16px 0;font-size:14px}
+.trust span{display:inline-flex;align-items:center;gap:9px}
+.trust b{color:#fff}.trust .star{color:var(--gold)}
+.trust .ico{width:16px;height:16px;color:var(--gold)}
+section{padding:clamp(56px,7vw,104px) 0}
+.shead{max-width:60ch;margin-bottom:clamp(28px,4vw,52px)}
+.shead .eyebrow{color:var(--clay)}
+.shead h2{font-family:var(--serif);font-weight:450;font-size:clamp(30px,3.6vw,52px);line-height:1.05;letter-spacing:-.015em;margin-top:12px}
+.shead p{color:var(--soft);margin-top:13px;font-size:clamp(15.5px,1.1vw,17.5px)}
+.shead.center{margin-left:auto;margin-right:auto;text-align:center}
+/* intro */
+.intro{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,5vw,72px);align-items:center}
+.intro-txt p{color:var(--soft);margin-bottom:1.1em;max-width:50ch;font-size:clamp(15.5px,1.1vw,17.5px)}
+.intro-txt p.big{font-family:var(--serif);color:var(--ink);font-size:clamp(20px,1.7vw,26px);line-height:1.4;font-weight:450}
+.intro-fig{position:relative;aspect-ratio:5/6;border-radius:18px;overflow:hidden;background:var(--cream)}
+.intro-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:760px){.intro{grid-template-columns:1fr}}
+/* signature dishes */
+.dish-sec{background:var(--cream)}
+.dishes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dish{position:relative;border-radius:16px;overflow:hidden;background:var(--char);aspect-ratio:4/5}
+.dish img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.dish:hover img{transform:scale(1.05)}
+.dish .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,6,.86) 0%,rgba(20,12,6,.25) 42%,rgba(20,12,6,0) 70%)}
+.dish .lab{position:absolute;left:18px;right:18px;bottom:16px;color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.dish .lab h3{font-family:var(--serif);font-weight:450;font-size:21px;line-height:1.1}
+.dish .lab .d{color:rgba(255,255,255,.78);font-size:12.5px;margin-top:4px}
+.dish .lab .pr{font-size:17px;font-weight:600;white-space:nowrap}
+@media(max-width:880px){.dishes{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.dishes{grid-template-columns:1fr}.dish{aspect-ratio:16/11}}
+/* menu columns */
+.menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,70px)}
+.mcol h3{font-family:var(--serif);font-weight:450;font-size:24px;padding-bottom:12px;border-bottom:2px solid var(--clay);margin-bottom:6px}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.mrow .nm{font-weight:600;font-size:16px}
+.mrow .nm small{display:block;font-weight:400;color:var(--soft);font-size:13.5px;margin-top:2px}
+.mrow .pp{font-weight:600;font-variant-numeric:tabular-nums;color:var(--clay)}
+@media(max-width:680px){.menu-cols{grid-template-columns:1fr;gap:34px}}
+/* gallery strip */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal .ph{position:relative;border-radius:13px;overflow:hidden;aspect-ratio:1/1;background:var(--cream)}
+.gal .ph:first-child{grid-column:span 2;grid-row:span 2}
+.gal .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media(max-width:680px){.gal{grid-template-columns:1fr 1fr}.gal .ph:first-child{grid-column:span 2}}
+/* eat with us / order */
+.order-sec{background:var(--char);color:#ECE0CF}
+.order-sec .shead h2{color:#fff}.order-sec .shead .eyebrow{color:var(--gold)}.order-sec .shead p{color:#CBB89F}
+.order-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.ocard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:26px 24px}
+.ocard h4{font-family:var(--serif);font-weight:450;font-size:21px;color:#fff;margin-bottom:8px}
+.ocard p{color:#CBB89F;font-size:14px;margin-bottom:16px}
+.ocard .acts{display:flex;flex-wrap:wrap;gap:9px}
+.mini{display:inline-flex;align-items:center;gap:7px;border-radius:99px;padding:10px 16px;font-size:13px;font-weight:600;background:#fff;color:var(--char)}
+.mini .ico{width:15px;height:15px}
+.mini.line{background:#06C755;color:#fff}.mini.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+@media(max-width:780px){.order-grid{grid-template-columns:1fr}}
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,64px)}
+.vblock{padding:22px 0;border-top:1px solid var(--line)}.vblock:first-child{border-top:0;padding-top:0}
+.vk{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--clay);font-weight:700;margin-bottom:9px}
+.vv{font-size:clamp(15.5px,1.2vw,18px);line-height:1.65}.vv small{display:block;color:var(--soft);font-size:14px;margin-top:3px}
+.vact{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);border-radius:99px;padding:11px 19px;font-size:13.5px;font-weight:600;transition:.2s}
+.chip .ico{width:15px;height:15px}.chip.solid{background:var(--char);color:var(--bg);border-color:var(--char)}.chip:hover{transform:translateY(-1px)}
+@media(max-width:720px){.visit{grid-template-columns:1fr}}
+footer{background:#1C140E;color:#B8A488;padding:clamp(48px,6vw,80px) 0 110px}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px}
+.f-brand{font-family:var(--serif);color:#fff;font-size:23px;margin-bottom:10px}
+.f-grid p,.f-grid li{font-size:14px;line-height:1.85}
+.f-k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:700}
+.f-grid a{border-bottom:1px solid rgba(184,164,136,.3)}
+.f-base{margin-top:42px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:12.5px;color:#7C6B54}
+@media(max-width:880px){.f-grid{grid-template-columns:1fr}}
+</style>
 </head>
-<body lang="en">
-<div class="grain"></div>
-
-<nav class="nav" id="nav">
-  <a href="#top" class="brand">Krua Khao Yai</a>
-  <div class="nav-links" id="navlinks">
-    <a href="#menu" class="t" data-en="Menu" data-th="เมนู" data-zh="菜单">Menu</a>
-    <a href="#about" class="t" data-en="The Kitchen" data-th="ครัวของเรา" data-zh="厨房">The Kitchen</a>
-    <a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a>
-    <a href="#visit" class="t" data-en="Visit" data-th="มาหาเรา" data-zh="到访">Visit</a>
-    <a href="#book" class="navbtn t" data-en="Book a table" data-th="จองโต๊ะ" data-zh="订座">Book a table</a>
-  </div>
-  <div class="nav-right">
-    <div class="lang" id="lang"><button data-l="en" class="active">EN</button><span>·</span><button data-l="th">ไทย</button><span>·</span><button data-l="zh">中文</button></div>
-    <button class="burger" id="burger" aria-label="Menu"><i></i><i></i><i></i></button>
-  </div>
-</nav>
-
-<header class="hero" id="top">
-  <div class="hero-media frame"><img data-img="0" alt="Krua Khao Yai dishes" fetchpriority="high"></div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow eyebrow"><span class="tick"></span><span class="t" data-en="Khao Yai · Thai Kitchen" data-th="เขาใหญ่ · ครัวไทย" data-zh="考艾 · 泰式厨房">Khao Yai · Thai Kitchen</span></div>
-    <h1 class="t" data-en="The food everyone drives up for." data-th="อาหารที่ใคร ๆ ก็ขับรถมากิน" data-zh="人人专程驱车而来的味道。">The food everyone drives up for.</h1>
-    <p class="hero-sub t" data-en="Smoked ribs, fiery jungle curry, herbs from the hills — honest Thai cooking that's filled tables in Khao Yai for years." data-th="ซี่โครงรมควัน แกงป่ารสจัด ผักสมุนไพรจากภูเขา — อาหารไทยฝีมือจริงใจที่ทำให้โต๊ะเต็มมาหลายปีในเขาใหญ่" data-zh="烟熏排骨、火辣丛林咖喱、山间香草——多年来坐满考艾餐桌的，是这份实在的泰式手艺。">Smoked ribs, fiery jungle curry, herbs from the hills — honest Thai cooking that's filled tables in Khao Yai for years.</p>
-    <div class="hero-cta">
-      <a href="#book" class="btn btn--ghost-light t" data-en="Book a table" data-th="จองโต๊ะ" data-zh="订座">Book a table</a>
-      <a href="#menu" class="btn btn--ghost-light t" data-en="See the menu" data-th="ดูเมนู" data-zh="查看菜单">See the menu</a>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-line" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 5.7 2 10.3c0 4.1 3.6 7.5 8.4 8.2.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.6 1.1-.5 6-3.6 8.2-6.1C21.8 13.6 22 12 22 10.3 22 5.7 17.5 2 12 2zM8.4 13H6.3c-.3 0-.5-.2-.5-.5V8.6c0-.3.2-.5.5-.5s.5.2.5.5v3.4h1.6c.3 0 .5.2.5.5s-.2.5-.5.5zm2.1-.5c0 .3-.2.5-.5.5s-.5-.2-.5-.5V8.6c0-.3.2-.5.5-.5s.5.2.5.5v3.9zm4.8 0c0 .2-.1.4-.3.5h-.2c-.2 0-.3-.1-.4-.2l-2-2.8v2.5c0 .3-.2.5-.5.5s-.5-.2-.5-.5V8.6c0-.2.1-.4.3-.5h.2c.2 0 .3.1.4.2l2 2.8V8.6c0-.3.2-.5.5-.5s.5.2.5.5v3.9zm3.2-2.5c.3 0 .5.2.5.5s-.2.5-.5.5h-1.6v1h1.6c.3 0 .5.2.5.5s-.2.5-.5.5h-2.1c-.3 0-.5-.2-.5-.5V8.6c0-.3.2-.5.5-.5h2.1c.3 0 .5.2.5.5s-.2.5-.5.5h-1.6v1h1.6z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a9.9 9.9 0 0 0-8.5 15L2 22l5.2-1.4A9.9 9.9 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-3-.2-.3A8 8 0 1 1 12 20zm4.5-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.2-2.8c-.2-.4.2-.4.5-1 .1-.2 0-.4 0-.5l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6a10.8 10.8 0 0 0 4.1 3.7c1.5.7 2.1.7 2.9.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.2-.2-.2-.4-.3z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.8-12h-1.6v5l4.3 2.6.8-1.3-3.5-2.1V8z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a7.8 7.8 0 0 1 0-4h3.4a16.6 16.6 0 0 0 0 4H4.3zm.8 2h3a15.7 15.7 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.4-3.6A15.7 15.7 0 0 0 8.1 8zM12 20c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.5 14.5 0 0 1 0-4h4.6a14.5 14.5 0 0 1 0 4zm.2 5.6a15.7 15.7 0 0 0 1.4-3.6h3a8 8 0 0 1-4.4 3.6zm1.8-5.6a16.6 16.6 0 0 0 0-4h3.4a7.8 7.8 0 0 1 0 4h-3.4z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h12.2l-4.6-4.6L14 6l7 7-7 7-1.4-1.4 4.6-4.6H5z"/></symbol>
+</svg>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">Krua Khao Yai<small data-en="Thai Kitchen · Est. 2009" data-th="ครัวไทย · ตั้งแต่ 2552" data-zh="泰式厨房 · 2009">Thai Kitchen · Est. 2009</small></a>
+    <div class="topbar-right">
+      <div class="langs" role="group" aria-label="Language">
+        <button data-lang="en" class="on">EN</button><button data-lang="th">ไทย</button><button data-lang="zh">中文</button>
+      </div>
+      <a class="top-line" href="https://line.me/R/ti/p/@kruakhaoyai"><svg class="ico"><use href="#i-line"/></svg><span data-en="Reserve" data-th="จองโต๊ะ" data-zh="订位">Reserve</span></a>
     </div>
   </div>
-  <div class="scrollcue"><span class="ln"></span><span class="t" data-en="Scroll" data-th="เลื่อนลง" data-zh="向下滚动">Scroll</span></div>
-  <div class="hero-meta"><div class="t" data-en="Thai Restaurant" data-th="ร้านอาหารไทย" data-zh="泰式餐厅">Thai Restaurant</div><div class="t" data-en="Pak Chong · Khao Yai" data-th="ปากช่อง · เขาใหญ่" data-zh="北冲 · 考艾">Pak Chong · Khao Yai</div></div>
 </header>
 
-<section class="band band--alt"><div class="manifesto reveal">
-  <span class="eyebrow t" data-en="Since the first wok" data-th="ตั้งแต่กระทะใบแรก" data-zh="自第一口锅起">Since the first wok</span>
-  <p class="t" data-en="No fuss, no shortcuts — just big flavours, generous plates, &amp; the kind of meal you talk about on the drive home." data-th="ไม่ต้องมีพิธีรีตอง ไม่มีทางลัด — มีแต่รสจัดจ้าน จานใหญ่ใจถึง และมื้ออาหารที่คุณจะพูดถึงตลอดทางกลับบ้าน" data-zh="不繁复、不取巧——只有浓烈的滋味、丰盛的菜肴，以及让你在归途上仍念念不忘的一餐。">No fuss, no shortcuts — just big flavours, generous plates, <span class="amp">&amp;</span> the kind of meal you talk about on the drive home.</p>
-</div></section>
+<main id="top">
 
-<section class="band" id="about"><div class="maxw"><div class="split split--wide reveal">
-  <div class="split-media frame hoverable"><img data-img="1" alt="The kitchen"></div>
-  <div class="split-text">
-    <span class="idx">01 — <span class="t" data-en="The Kitchen" data-th="ครัวของเรา" data-zh="厨房">The Kitchen</span></span>
-    <h2 class="t" data-en="Cooked the long way" data-th="ปรุงด้วยใจ ไม่รีบร้อน" data-zh="慢工出真味">Cooked the long way</h2>
-    <p class="body t" data-en="Curries pounded by hand, ribs smoked low and slow, vegetables picked that morning. It's the cooking of this region — unhurried, generous and full of heart — served at a fair price, all day." data-th="แกงตำมือ ซี่โครงรมควันช้า ๆ ผักเก็บสดเช้านั้น นี่คืออาหารของภูมิภาคนี้ — ไม่เร่งรีบ ใจกว้าง และเต็มไปด้วยหัวใจ — ในราคาที่เป็นธรรม ตลอดทั้งวัน" data-zh="手捣咖喱、慢火烟熏排骨、当晨现采的蔬菜。这是这片土地的味道——从容、慷慨、满含心意——以公道价格，全天供应。">Curries pounded by hand, ribs smoked low and slow, vegetables picked that morning. It's the cooking of this region — unhurried, generous and full of heart — served at a fair price, all day.</p>
-    <a href="#menu" class="txtlink t" data-en="See the menu" data-th="ดูเมนู" data-zh="查看菜单">See the menu <svg class="ic"><use href="#ic-arrow"/></svg></a>
+<section class="wrap hero">
+  <div class="hero-text">
+    <span class="hero-eyebrow" data-en="Thai kitchen · Thanarat Rd" data-th="ครัวไทย · ถนนธนะรัชต์" data-zh="泰式厨房 · Thanarat 路"><span class="dot"></span>Thai kitchen · Thanarat Rd</span>
+    <h1 data-en="Wood-fired Thai cooking on the Khao Yai road." data-th="อาหารไทยปรุงด้วยไฟถ่าน บนถนนสายเขาใหญ่" data-zh="炭火泰式料理，就在考艾路上。">Wood-fired Thai cooking on the Khao Yai road.</h1>
+    <p class="lead" data-en="Smoked pork ribs, jungle curry and river prawns over charcoal — the kitchen locals have driven out for since 2009. Reserve a table, walk in, or order delivery." data-th="ซี่โครงหมูรมควัน แกงป่า และกุ้งแม่น้ำย่างถ่าน — ครัวที่คนท้องถิ่นขับรถมากินตั้งแต่ปี 2552 จองโต๊ะ เดินเข้ามา หรือสั่งเดลิเวอรีก็ได้" data-zh="炭烤烟熏猪肋排、丛林咖喱与河虾——自2009年起当地人专程开车来吃的厨房。可订位、可直接到店，也可外送。">Smoked pork ribs, jungle curry and river prawns over charcoal — the kitchen locals have driven out for since 2009. Reserve a table, walk in, or order delivery.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://line.me/R/ti/p/@kruakhaoyai"><svg class="ico"><use href="#i-line"/></svg><span data-en="Reserve on LINE" data-th="จองโต๊ะผ่าน LINE" data-zh="LINE 订位">Reserve on LINE</span></a>
+      <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong"><svg class="ico"><use href="#i-pin"/></svg><span data-en="Get directions" data-th="ดูเส้นทาง" data-zh="查看路线">Get directions</span></a>
+    </div>
+    <div class="hero-thumbs">
+      <a href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAE0RUV5RUw8gVrBONuKkgRBaOzMALzQNMxGstFNtC_XFnZr" alt="Signature dish" loading="eager"></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEHCnTaOHoNsR3d3ihAc4JAC5-GIsNinWiYB7Q5k9SjiI2J" alt="Grill" loading="eager"></a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEX1Tb5JUyfx1KfjvjoQmZaMrT8iWJ-HezsXMsm8SJtFB6N" alt="Table" loading="eager"></a>
+    </div>
   </div>
-</div></div></section>
+  <div class="hero-media"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEjDUhRhxcjGcYofNqDXBAcX139FcakB34HDEeNP4d75HdW" alt="Krua Khao Yai signature plate" loading="eager" fetchpriority="high"></div>
+</section>
 
-<section class="band band--alt" id="menu"><div class="maxw">
-  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="The Menu" data-th="เมนู" data-zh="菜单">The Menu</span><h2 class="t" data-en="What people order" data-th="เมนูที่ใคร ๆ ก็สั่ง" data-zh="人气必点">What people order</h2></div>
-  <p class="hint t" data-en="A few favourites. The full menu runs to a hundred dishes — ask us." data-th="ตัวอย่างเมนูยอดนิยม เมนูเต็มมีเป็นร้อยจาน ถามเราได้เลย" data-zh="以下为几道人气之选。全菜单逾百道，欢迎询问。">A few favourites. The full menu runs to a hundred dishes — ask us.</p></div>
-  <div class="tiles reveal">
-    <div class="tile"><div class="frame hoverable"><img data-img="2" alt="Smoked pork ribs"></div><h4><span class="t" data-en="Smoked Pork Ribs" data-th="ซี่โครงหมูรมควัน" data-zh="烟熏猪肋排">Smoked Pork Ribs</span><span class="pr">฿320</span></h4><p class="t" data-en="Slow-smoked, fall-off-the-bone, the dish reviewers can't stop mentioning." data-th="รมควันช้า ๆ เนื้อหลุดล่อน เมนูที่รีวิวพูดถึงไม่หยุด" data-zh="慢火烟熏、骨肉轻离，评价里被反复提及的一道。">Slow-smoked, fall-off-the-bone, the dish reviewers can't stop mentioning.</p></div>
-    <div class="tile"><div class="frame hoverable"><img data-img="3" alt="Jungle curry"></div><h4><span class="t" data-en="Jungle Curry" data-th="แกงป่า" data-zh="丛林咖喱">Jungle Curry</span><span class="pr">฿180</span></h4><p class="t" data-en="Fiery, herbal, no coconut — the real taste of the northeast." data-th="เผ็ดร้อน หอมสมุนไพร ไม่ใส่กะทิ — รสอีสานแท้" data-zh="火辣、草本、不加椰浆——地道东北风味。">Fiery, herbal, no coconut — the real taste of the northeast.</p></div>
-    <div class="tile"><div class="frame hoverable"><img data-img="4" alt="Panang beef"></div><h4><span class="t" data-en="Panang Beef" data-th="พะแนงเนื้อ" data-zh="帕能牛肉">Panang Beef</span><span class="pr">฿220</span></h4><p class="t" data-en="Rich, mellow curry with tender beef and kaffir lime." data-th="แกงข้นกลมกล่อม เนื้อนุ่ม หอมใบมะกรูด" data-zh="浓郁柔和的咖喱，配嫩牛肉与青柠叶。">Rich, mellow curry with tender beef and kaffir lime.</p></div>
-    <div class="tile"><div class="frame hoverable"><img data-img="5" alt="Salted-fish omelette"></div><h4><span class="t" data-en="Salted-Fish Omelette" data-th="ไข่เจียวปลาเค็ม" data-zh="咸鱼煎蛋">Salted-Fish Omelette</span><span class="pr">฿150</span></h4><p class="t" data-en="Crisp at the edges, a Thai comfort-food classic." data-th="กรอบขอบ ของโปรดสไตล์ไทยแท้" data-zh="边缘焦香，泰式经典家常味。">Crisp at the edges, a Thai comfort-food classic.</p></div>
-    <div class="tile"><div class="frame hoverable"><img data-img="6" alt="Stir-fried winged bean"></div><h4><span class="t" data-en="Winged-Bean Salad" data-th="ยำถั่วพู" data-zh="翼豆沙拉">Winged-Bean Salad</span><span class="pr">฿140</span></h4><p class="t" data-en="Crunchy, nutty, bright with chilli and lime." data-th="กรอบ มัน รสจัดด้วยพริกและมะนาว" data-zh="爽脆、坚果香，辣椒与青柠点亮。">Crunchy, nutty, bright with chilli and lime.</p></div>
-    <div class="tile"><div class="frame hoverable"><img data-img="7" alt="Glass noodle salad"></div><h4><span class="t" data-en="Glass-Noodle Salad" data-th="ยำวุ้นเส้น" data-zh="冬粉沙拉">Glass-Noodle Salad</span><span class="pr">฿160</span></h4><p class="t" data-en="Light, zingy yam wun sen — the table refresher." data-th="ยำวุ้นเส้นรสแซ่บ สดชื่นกลางวง" data-zh="清爽开胃的冬粉沙拉，餐桌的解腻之选。">Light, zingy yam wun sen — the table refresher.</p></div>
-  </div>
-</div></section>
+<div class="trust"><div class="wrap trust-in">
+  <span><span class="star">★</span> <b>4.0</b> · <a href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong" data-en="3,739 Google reviews" data-th="3,739 รีวิวบน Google" data-zh="3,739 条谷歌评价">3,739 Google reviews</a></span>
+  <span><svg class="ico"><use href="#i-clock"/></svg><span data-en="Open daily 11:00–22:00" data-th="เปิดทุกวัน 11:00–22:00" data-zh="每日 11:00–22:00">Open daily 11:00–22:00</span></span>
+  <span><svg class="ico"><use href="#i-check"/></svg><span data-en="Walk-ins welcome · English menu" data-th="วอล์กอินได้ · มีเมนูอังกฤษ" data-zh="欢迎到店 · 备英文菜单">Walk-ins welcome · English menu</span></span>
+  <span><svg class="ico"><use href="#i-pin"/></svg><span data-en="Thanarat Rd, 8 min from the park" data-th="ถนนธนะรัชต์ 8 นาทีจากอุทยานฯ" data-zh="Thanarat路，距公园8分钟">Thanarat Rd, 8 min from the park</span></span>
+</div></div>
 
-<section class="feature">
-  <div class="feature-bg frame"><img data-img="9" alt=""></div>
-  <div class="feature-inner reveal">
-    <span class="eyebrow t" data-en="What guests say" data-th="เสียงจากลูกค้า" data-zh="食客之声">What guests say</span>
-    <blockquote class="t" data-en="“The ribs and the jungle curry are unreal. Huge portions, quick service, fair prices — we come back every trip.”" data-th="“ซี่โครงกับแกงป่าอร่อยจนไม่อยากเชื่อ จานใหญ่ เสิร์ฟไว ราคาดี — มาเขาใหญ่ทีไรต้องแวะทุกครั้ง”" data-zh="“排骨和丛林咖喱好吃得不真实。分量超大、上菜快、价格公道——每次来都必回。”">“The ribs and the jungle curry are unreal. Huge portions, quick service, fair prices — we come back every trip.”</blockquote>
-    <div class="attrib"><span class="stars"><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg><svg viewBox="0 0 24 24"><use href="#ic-star"/></svg></span><span class="t" data-en="4.0 average · from 3,700+ reviews" data-th="เฉลี่ย 4.0 · จากรีวิวกว่า 3,700 รายการ" data-zh="平均 4.0 分 · 综合 3,700+ 条评价">4.0 average · from 3,700+ reviews</span></div>
+<section class="wrap">
+  <div class="intro">
+    <div class="intro-txt rv">
+      <p class="big" data-en="One charcoal grill, recipes from the family’s home province, and a car park that fills up every weekend." data-th="เตาถ่านหนึ่งเตา สูตรจากบ้านเกิดของครอบครัว และลานจอดรถที่เต็มทุกสุดสัปดาห์" data-zh="一座炭火灶、家乡祖传的食谱，以及每个周末都停满的停车场。">One charcoal grill, recipes from the family’s home province, and a car park that fills up every weekend.</p>
+      <p data-en="Krua Khao Yai has cooked the same honest Isan and central-Thai food for over fifteen years. Ribs smoked low over coconut husk, jungle curry loud with fresh peppercorn, whole river prawns split and grilled." data-th="ครัวเขาใหญ่ปรุงอาหารอีสานและภาคกลางแบบจริงใจมากว่าสิบห้าปี ซี่โครงรมควันด้วยกาบมะพร้าว แกงป่าจัดจ้านด้วยพริกไทยอ่อน และกุ้งแม่น้ำผ่าย่างทั้งตัว" data-zh="考艾厨房十五年来始终烹制地道的伊善与中部泰菜。椰壳慢熏的肋排、鲜胡椒辛香的丛林咖喱、剖开炭烤的整只河虾。">Krua Khao Yai has cooked the same honest Isan and central-Thai food for over fifteen years. Ribs smoked low over coconut husk, jungle curry loud with fresh peppercorn, whole river prawns split and grilled.</p>
+      <p data-en="Big tables for groups, cold beer, and a long veranda that catches the evening air off the mountains. Come hungry." data-th="โต๊ะใหญ่สำหรับมาเป็นหมู่คณะ เบียร์เย็น ๆ และระเบียงยาวที่รับลมเย็นจากภูเขายามเย็น มาแบบหิว ๆ ได้เลย" data-zh="适合多人聚会的大桌、冰镇啤酒，还有一条迎着山间晚风的长露台。请空着肚子来。">Big tables for groups, cold beer, and a long veranda that catches the evening air off the mountains. Come hungry.</p>
+    </div>
+    <div class="intro-fig rv"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEku5Q8D3GuFVCO0m3LfjofpZkaRITh-dNI89OZiAxmeb6t" alt="The grill at Krua Khao Yai" loading="lazy"></div>
   </div>
 </section>
 
-<section class="band" id="gallery"><div class="maxw">
-  <div class="sec-head reveal"><div><span class="eyebrow t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</span><h2 class="t" data-en="On the table" data-th="บนโต๊ะอาหาร" data-zh="餐桌之上">On the table</h2></div>
-  <p class="hint t" data-en="Real plates at Krua Khao Yai — straight from the wok." data-th="จานจริงจากครัวเขาใหญ่ — ตรงจากกระทะ" data-zh="Krua Khao Yai 的真实菜肴——锅气直送。">Real plates at Krua Khao Yai — straight from the wok.</p></div>
-  <div class="gal reveal" id="gallery-grid"></div>
-</div></section>
-
-<section class="band band--alt" id="visit"><div class="maxw reserve" id="book">
-  <div class="reveal">
-    <span class="eyebrow t" data-en="Visit &amp; Book" data-th="มาหาเรา &amp; จอง" data-zh="到访与订座">Visit &amp; Book</span>
-    <h2 class="t" data-en="Find us, or save a table" data-th="มาหาเรา หรือจองโต๊ะ" data-zh="前来，或先订座">Find us, or save a table</h2>
-    <p class="lead t" data-en="Walk-ins always welcome. For weekends and big groups, drop us your details and we'll save you a table." data-th="วอล์กอินได้เสมอ สำหรับวันหยุดหรือกลุ่มใหญ่ ส่งรายละเอียดมา เราจองโต๊ะให้" data-zh="随时欢迎现场入座。周末或团体聚餐，留下信息，我们为您留位。">Walk-ins always welcome. For weekends and big groups, drop us your details and we'll save you a table.</p>
-    <div class="contact-row"><svg class="ic"><use href="#ic-pin"/></svg><div><div class="k t" data-en="Address" data-th="ที่อยู่" data-zh="地址">Address</div><div class="v">27 Moo 7, Thanarat Rd, Mu Si, Pak Chong, Nakhon Ratchasima</div></div></div>
-    <div class="contact-row"><svg class="ic"><use href="#ic-clock"/></svg><div><div class="k t" data-en="Open daily" data-th="เปิดทุกวัน" data-zh="每日营业">Open daily</div><div class="v t" data-en="10:30 – 21:00" data-th="10:30 – 21:00" data-zh="10:30 – 21:00">10:30 – 21:00</div></div></div>
-    <div class="contact-row"><svg class="ic"><use href="#ic-phone"/></svg><div><div class="k t" data-en="Telephone" data-th="โทรศัพท์" data-zh="电话">Telephone</div><div class="v">+66 86 865 9263</div></div></div>
+<section class="dish-sec"><div class="wrap">
+  <div class="shead"><span class="eyebrow" data-en="What people drive here for" data-th="สิ่งที่คนขับรถมากิน" data-zh="人们专程来吃的">What people drive here for</span><h2 data-en="Six plates that built our name." data-th="หกจานที่สร้างชื่อให้เรา" data-zh="成就我们名声的六道菜。">Six plates that built our name.</h2></div>
+  <div class="dishes">
+    <div class="dish rv"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH64Ttdm06quhcCMWF0ODjY33sDzIYO9zBShFsUmsyibhbC" alt="Smoked pork ribs" loading="lazy"><div class="grad"></div><div class="lab"><div><h3 data-en="Smoked pork ribs" data-th="ซี่โครงหมูรมควัน" data-zh="烟熏猪肋排">Smoked pork ribs</h3><div class="d" data-en="Coconut-husk smoke, tamarind glaze" data-th="รมควันกาบมะพร้าว เคลือบมะขาม" data-zh="椰壳烟熏，罗望子酱">Coconut-husk smoke, tamarind glaze</div></div><div class="pr">฿320</div></div></div>
+    <div class="dish rv"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFdEijK245KeLKj2rOw-TGlsP7PygJDsf8ZRkt_squsUqA0" alt="Jungle curry" loading="lazy"><div class="grad"></div><div class="lab"><div><h3 data-en="Jungle curry" data-th="แกงป่า" data-zh="丛林咖喱">Jungle curry</h3><div class="d" data-en="Fresh peppercorn, no coconut, fierce" data-th="พริกไทยอ่อน ไม่ใส่กะทิ เผ็ดร้อน" data-zh="鲜胡椒，无椰浆，够辣">Fresh peppercorn, no coconut, fierce</div></div><div class="pr">฿180</div></div></div>
+    <div class="dish rv"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEizMhGdnk6ro2386Lc7XJ782FPA6C6TYXJ2I-z-Rlb6Ph3" alt="Grilled river prawns" loading="lazy"><div class="grad"></div><div class="lab"><div><h3 data-en="Grilled river prawns" data-th="กุ้งแม่น้ำเผา" data-zh="炭烤河虾">Grilled river prawns</h3><div class="d" data-en="Split &amp; charred, seafood dip" data-th="ผ่าย่าง น้ำจิ้มซีฟู้ด" data-zh="剖开炭烤，配海鲜蘸酱">Split &amp; charred, seafood dip</div></div><div class="pr">฿380</div></div></div>
+    <div class="dish rv"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFruQZfNsJFMxEcjRcBOc9BxFP-ntxVp_L2TMtaBOhGMG-b" alt="Tom yum goong" loading="lazy"><div class="grad"></div><div class="lab"><div><h3 data-en="Tom yum goong" data-th="ต้มยำกุ้ง" data-zh="冬阴功虾汤">Tom yum goong</h3><div class="d" data-en="Hot &amp; sour prawn soup" data-th="ต้มยำกุ้งรสจัด" data-zh="酸辣鲜虾汤">Hot &amp; sour prawn soup</div></div><div class="pr">฿220</div></div></div>
+    <div class="dish rv"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHnNGA4hn7L-GXxAhazwQVISZg6KsK2zlaM9WHP1-J-aZHw" alt="Som tum" loading="lazy"><div class="grad"></div><div class="lab"><div><h3 data-en="Som tum" data-th="ส้มตำ" data-zh="青木瓜沙拉">Som tum</h3><div class="d" data-en="Green papaya, pounded to order" data-th="มะละกอ ตำสด ๆ ทุกจาน" data-zh="现舂青木瓜">Green papaya, pounded to order</div></div><div class="pr">฿90</div></div></div>
+    <div class="dish rv"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSKeTD0XVHJJnmdWqeUorZ1i_EQzJ_DjszVCRMQOBWVZpk" alt="Khao soi" loading="lazy"><div class="grad"></div><div class="lab"><div><h3 data-en="Northern khao soi" data-th="ข้าวซอย" data-zh="北部金面">Northern khao soi</h3><div class="d" data-en="Curried noodles, crispy top" data-th="ก๋วยเตี๋ยวแกง โรยเส้นกรอบ" data-zh="咖喱面，配酥脆面">Curried noodles, crispy top</div></div><div class="pr">฿120</div></div></div>
   </div>
-  <form class="eform reveal" onsubmit="return false">
-    <div class="field"><label class="t" data-en="Name" data-th="ชื่อ" data-zh="姓名">Name</label><input type="text" autocomplete="name"></div>
-    <div class="field two"><div><label class="t" data-en="Date" data-th="วันที่" data-zh="日期">Date</label><input type="date"></div><div><label class="t" data-en="Guests" data-th="จำนวนคน" data-zh="人数">Guests</label><input type="number" min="1" value="2"></div></div>
-    <div class="field"><label class="t" data-en="Time" data-th="เวลา" data-zh="时间">Time</label><input type="time"></div>
-    <div class="field"><label class="t" data-en="Phone / LINE" data-th="โทร / LINE" data-zh="电话 / LINE">Phone / LINE</label><input type="text"></div>
-    <button class="btn btn--solid t" data-en="Request a table" data-th="ขอจองโต๊ะ" data-zh="申请订座">Request a table <svg class="ic"><use href="#ic-arrow"/></svg></button>
-  </form>
 </div></section>
 
-<footer class="foot"><div class="maxw"><div class="foot-top">
-  <div class="foot-brand"><div class="brand">Krua Khao Yai</div>
-    <p class="t" data-en="A much-loved Thai kitchen on Thanarat Road, Pak Chong — big flavours, generous plates, fair prices." data-th="ครัวไทยสุดเลิฟบนถนนธนะรัชต์ ปากช่อง — รสจัดจ้าน จานใหญ่ ราคาเป็นธรรม" data-zh="位于北冲 Thanarat 路、深受喜爱的泰式厨房——浓烈滋味、丰盛分量、公道价格。">A much-loved Thai kitchen on Thanarat Road, Pak Chong — big flavours, generous plates, fair prices.</p>
-    <div class="foot-soc"><a href="#" aria-label="Facebook"><svg class="ic"><use href="#ic-fb"/></svg></a><a href="#" aria-label="Instagram"><svg class="ic"><use href="#ic-ig"/></svg></a><a href="#" aria-label="LINE"><svg class="ic"><use href="#ic-chat"/></svg></a></div></div>
-  <div class="foot-col"><h5 class="t" data-en="Explore" data-th="สำรวจ" data-zh="导览">Explore</h5><a href="#menu" class="t" data-en="Menu" data-th="เมนู" data-zh="菜单">Menu</a><a href="#about" class="t" data-en="The Kitchen" data-th="ครัวของเรา" data-zh="厨房">The Kitchen</a><a href="#gallery" class="t" data-en="Gallery" data-th="แกลเลอรี" data-zh="影廊">Gallery</a><a href="#book" class="t" data-en="Book a table" data-th="จองโต๊ะ" data-zh="订座">Book a table</a></div>
-  <div class="foot-col"><h5 class="t" data-en="Visit" data-th="มาหาเรา" data-zh="到访">Visit</h5><p>27 Moo 7, Thanarat Rd</p><p>Mu Si, Pak Chong</p><p>+66 86 865 9263</p><a href="#book" class="t" data-en="Book a table →" data-th="จองโต๊ะ →" data-zh="订座 →">Book a table →</a></div>
-</div><div class="foot-bottom"><div>© 2026 Krua Khao Yai</div><div class="disc t" data-en="Design concept for demonstration — not the official website of Krua Khao Yai. Photography © respective owners, via Google Maps." data-th="แนวคิดการออกแบบเพื่อการสาธิต — ไม่ใช่เว็บไซต์ทางการ ภาพถ่ายเป็นลิขสิทธิ์ของเจ้าของ ผ่าน Google Maps" data-zh="设计概念演示——非官方网站。图片版权归各自所有者，来源 Google 地图。">Design concept for demonstration — not the official website of Krua Khao Yai. Photography © respective owners, via Google Maps.</div></div></div></footer>
+<section class="wrap">
+  <div class="shead"><span class="eyebrow" data-en="On the menu" data-th="ในเมนู" data-zh="菜单精选">On the menu</span><h2 data-en="A little of everything." data-th="มีให้เลือกหลากหลาย" data-zh="样样都有一点。">A little of everything.</h2><p data-en="A taste of the full menu — there’s plenty more on the board when you arrive." data-th="นี่เป็นเพียงส่วนหนึ่งของเมนู — ยังมีอีกเพียบบนกระดานเมื่อคุณมาถึง" data-zh="这只是菜单的一部分——到店后菜板上还有更多。">A taste of the full menu — there’s plenty more on the board when you arrive.</p></div>
+  <div class="menu-cols">
+    <div class="mcol">
+      <h3 data-en="To start &amp; to share" data-th="ของทานเล่นและแบ่งกัน" data-zh="前菜与共享">To start &amp; to share</h3>
+      <div class="mrow"><div class="nm" data-en="Crispy spring rolls" data-th="ปอเปี๊ยะทอด" data-zh="炸春卷">Crispy spring rolls<small data-en="Vegetable, sweet chilli" data-th="ผัก น้ำจิ้มหวาน" data-zh="蔬菜，甜辣酱">Vegetable, sweet chilli</small></div><div class="pp">฿80</div></div>
+      <div class="mrow"><div class="nm" data-en="Fish cakes" data-th="ทอดมันปลา" data-zh="泰式鱼饼">Fish cakes<small data-en="Red curry, cucumber relish" data-th="พริกแกงแดง อาจาด" data-zh="红咖喱，黄瓜酱">Red curry, cucumber relish</small></div><div class="pp">฿120</div></div>
+      <div class="mrow"><div class="nm" data-en="Grilled pork neck" data-th="คอหมูย่าง" data-zh="炭烤猪颈肉">Grilled pork neck<small data-en="Isan-style, jaew dip" data-th="สไตล์อีสาน น้ำจิ้มแจ่ว" data-zh="伊善风味，配jaew蘸酱">Isan-style, jaew dip</small></div><div class="pp">฿140</div></div>
+      <div class="mrow"><div class="nm" data-en="Larb moo" data-th="ลาบหมู" data-zh="泰式猪肉沙拉">Larb moo<small data-en="Minced pork, herbs, toasted rice" data-th="หมูสับ สมุนไพร ข้าวคั่ว" data-zh="肉末、香草、炒米">Minced pork, herbs, toasted rice</small></div><div class="pp">฿120</div></div>
+      <div class="mrow"><div class="nm" data-en="Stir-fried morning glory" data-th="ผัดผักบุ้ง" data-zh="炒空心菜">Stir-fried morning glory<small data-en="Garlic, chilli, soybean" data-th="กระเทียม พริก เต้าเจี้ยว" data-zh="蒜、辣椒、豆酱">Garlic, chilli, soybean</small></div><div class="pp">฿90</div></div>
+    </div>
+    <div class="mcol">
+      <h3 data-en="Mains &amp; rice" data-th="จานหลักและข้าว" data-zh="主菜与饭">Mains &amp; rice</h3>
+      <div class="mrow"><div class="nm" data-en="Pad thai goong" data-th="ผัดไทยกุ้ง" data-zh="虾仁泰式炒河粉">Pad thai goong<small data-en="River prawns, tamarind" data-th="กุ้งแม่น้ำ มะขาม" data-zh="河虾，罗望子">River prawns, tamarind</small></div><div class="pp">฿120</div></div>
+      <div class="mrow"><div class="nm" data-en="Green curry chicken" data-th="แกงเขียวหวานไก่" data-zh="青咖喱鸡">Green curry chicken<small data-en="Coconut, Thai basil" data-th="กะทิ โหระพา" data-zh="椰浆，泰式罗勒">Coconut, Thai basil</small></div><div class="pp">฿150</div></div>
+      <div class="mrow"><div class="nm" data-en="Cashew chicken" data-th="ไก่ผัดเม็ดมะม่วง" data-zh="腰果鸡丁">Cashew chicken<small data-en="Dried chilli, roasted cashews" data-th="พริกแห้ง เม็ดมะม่วงคั่ว" data-zh="干辣椒，烤腰果">Dried chilli, roasted cashews</small></div><div class="pp">฿150</div></div>
+      <div class="mrow"><div class="nm" data-en="Crab fried rice" data-th="ข้าวผัดปู" data-zh="蟹肉炒饭">Crab fried rice<small data-en="Lump crab, spring onion" data-th="เนื้อปู ต้นหอม" data-zh="蟹肉，葱花">Lump crab, spring onion</small></div><div class="pp">฿180</div></div>
+      <div class="mrow"><div class="nm" data-en="Mango sticky rice" data-th="ข้าวเหนียวมะม่วง" data-zh="芒果糯米饭">Mango sticky rice<small data-en="In season, coconut cream" data-th="ตามฤดูกาล ราดกะทิ" data-zh="应季，淋椰浆">In season, coconut cream</small></div><div class="pp">฿80</div></div>
+    </div>
+  </div>
+</section>
 
-<div class="bookbar" id="bookbar"><div class="bb-name">Krua Khao Yai</div><div class="bb-r"><span class="bb-note t" data-en="Thai kitchen · ฿200–400 · open daily" data-th="ครัวไทย · ฿200–400 · เปิดทุกวัน" data-zh="泰式厨房 · ฿200–400 · 每日营业">Thai kitchen · ฿200–400 · open daily</span><a href="#book" class="btn btn--solid t" data-en="Book a table" data-th="จองโต๊ะ" data-zh="订座">Book a table</a></div></div>
+<section class="wrap">
+  <div class="shead"><span class="eyebrow" data-en="The table" data-th="โต๊ะอาหาร" data-zh="餐桌">The table</span><h2 data-en="Charcoal, herbs and good company." data-th="ไฟถ่าน สมุนไพร และมิตรภาพ" data-zh="炭火、香草与好友相伴。">Charcoal, herbs and good company.</h2></div>
+  <div class="gal rv">
+    <div class="ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEa1XSEid4ot7O719cjgzoWR4uppLC9vbdu4nC9ecozYMSz" alt="Dining veranda" loading="lazy"></div>
+    <div class="ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG6Cosmai04_2YcaDMSeQaZ_qbgJ93lJpwF9qOY5ihbQRmZ" alt="Dish" loading="lazy"></div>
+    <div class="ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG4ZzSwvo-8yk4l-tsx-dL3x1kVSXZipmGwFWr_SzWTL8Xo" alt="Grill" loading="lazy"></div>
+    <div class="ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEjDUhRhxcjGcYofNqDXBAcX139FcakB34HDEeNP4d75HdW" alt="Plated food" loading="lazy"></div>
+    <div class="ph"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEHCnTaOHoNsR3d3ihAc4JAC5-GIsNinWiYB7Q5k9SjiI2J" alt="Atmosphere" loading="lazy"></div>
+  </div>
+</section>
 
+<section class="order-sec"><div class="wrap">
+  <div class="shead center"><span class="eyebrow" data-en="Eat with us" data-th="มากินกับเรา" data-zh="与我们共餐">Eat with us</span><h2 data-en="Three ways to the table." data-th="สามวิธีสู่โต๊ะอาหาร" data-zh="三种方式来用餐。">Three ways to the table.</h2></div>
+  <div class="order-grid">
+    <div class="ocard rv"><h4 data-en="Reserve a table" data-th="จองโต๊ะ" data-zh="订位">Reserve a table</h4><p data-en="Weekends fill up — message us on LINE or call to hold a table, especially for groups." data-th="สุดสัปดาห์เต็มเร็ว — ทัก LINE หรือโทรจองโต๊ะ โดยเฉพาะมาเป็นกลุ่ม" data-zh="周末很满——请用LINE或来电订位，团体尤其建议预订。">Weekends fill up — message us on LINE or call to hold a table, especially for groups.</p>
+      <div class="acts"><a class="mini line" href="https://line.me/R/ti/p/@kruakhaoyai"><svg class="ico"><use href="#i-line"/></svg>LINE</a><a class="mini ghost" href="tel:+66868659263"><svg class="ico"><use href="#i-tel"/></svg><span data-en="Call" data-th="โทร" data-zh="致电">Call</span></a></div></div>
+    <div class="ocard rv"><h4 data-en="Walk in" data-th="เดินเข้ามา" data-zh="直接到店">Walk in</h4><p data-en="There’s almost always room on the veranda. Open every day, 11:00 to 22:00. English menu at the table." data-th="มักมีที่ว่างบนระเบียงเสมอ เปิดทุกวัน 11:00–22:00 มีเมนูอังกฤษที่โต๊ะ" data-zh="露台几乎总有座位。每日11:00–22:00营业，桌上备英文菜单。">There’s almost always room on the veranda. Open every day, 11:00 to 22:00. English menu at the table.</p>
+      <div class="acts"><a class="mini" href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong"><svg class="ico"><use href="#i-pin"/></svg><span data-en="Google Maps" data-th="Google Maps" data-zh="谷歌地图">Google Maps</span></a></div></div>
+    <div class="ocard rv"><h4 data-en="Order delivery" data-th="สั่งเดลิเวอรี" data-zh="点外送">Order delivery</h4><p data-en="Staying in your villa or hotel? We deliver across Mu Si through Grab and LINE MAN." data-th="พักอยู่ที่วิลล่าหรือโรงแรม? เราส่งทั่วหมูสีผ่าน Grab และ LINE MAN" data-zh="住在别墅或酒店？我们通过Grab和LINE MAN配送整个Mu Si地区。">Staying in your villa or hotel? We deliver across Mu Si through Grab and LINE MAN.</p>
+      <div class="acts"><a class="mini" href="https://food.grab.com/th/en/">Grab</a><a class="mini" href="https://lineman.line.me/">LINE MAN</a></div></div>
+  </div>
+</div></section>
+
+<section class="wrap" id="visit">
+  <div class="shead"><span class="eyebrow" data-en="Find us" data-th="หาเรา" data-zh="找到我们">Find us</span><h2 data-en="On Thanarat Road." data-th="บนถนนธนะรัชต์" data-zh="就在 Thanarat 路。">On Thanarat Road.</h2></div>
+  <div class="visit">
+    <div>
+      <div class="vblock"><div class="vk" data-en="Where" data-th="ที่ตั้ง" data-zh="地址">Where</div><div class="vv">27 Moo 7, Thanarat Rd, Mu Si<br>Pak Chong, Nakhon Ratchasima 30130<small data-en="About 8 minutes before the national park gate, parking on site." data-th="ก่อนถึงด่านอุทยานฯ ประมาณ 8 นาที มีที่จอดรถ" data-zh="距国家公园入口约8分钟，备有停车位。">About 8 minutes before the national park gate, parking on site.</small></div>
+        <div class="vact"><a class="chip solid" href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong"><svg class="ico"><use href="#i-pin"/></svg><span data-en="Directions" data-th="นำทาง" data-zh="导航">Directions</span></a><a class="chip" href="tel:+66868659263"><svg class="ico"><use href="#i-tel"/></svg><span>+66 86 865 9263</span></a></div></div>
+      <div class="vblock"><div class="vk" data-en="Hours" data-th="เวลาเปิด" data-zh="营业时间">Hours</div><div class="vv" data-en="Every day, 11:00–22:00 · kitchen closes 21:30" data-th="ทุกวัน 11:00–22:00 · ครัวปิด 21:30" data-zh="每日 11:00–22:00 · 厨房 21:30 收单">Every day, 11:00–22:00 · kitchen closes 21:30</div></div>
+    </div>
+    <div>
+      <div class="vblock"><div class="vk" data-en="Good to know" data-th="ข้อมูลน่ารู้" data-zh="贴心提示">Good to know</div><div class="vv" data-en="Big tables for groups · vegetarian options · cold beer · English &amp; picture menu for visitors." data-th="โต๊ะใหญ่สำหรับกลุ่ม · มีเมนูเจ · เบียร์เย็น · เมนูอังกฤษและรูปภาพสำหรับนักท่องเที่ยว" data-zh="大桌聚会 · 素食可选 · 冰镇啤酒 · 备英文及图片菜单。">Big tables for groups · vegetarian options · cold beer · English &amp; picture menu for visitors.</div></div>
+      <div class="vblock"><div class="vk" data-en="On holiday here?" data-th="มาเที่ยวเหรอ?" data-zh="来度假？">On holiday here?</div><div class="vv" data-en="Just walk in — show this page at the table. Chinese guests welcome; we have a picture menu and reach us on WeChat “kruakhaoyai”." data-th="เดินเข้ามาได้เลย — แสดงหน้านี้ที่โต๊ะ ต้อนรับแขกชาวจีน มีเมนูรูปภาพ และติดต่อ WeChat “kruakhaoyai”" data-zh="直接进来即可——在餐桌出示此页。欢迎中国客人，备图片菜单，微信：kruakhaoyai。">Just walk in — show this page at the table. Chinese guests welcome; we have a picture menu and reach us on WeChat “kruakhaoyai”.</div>
+        <div class="vact"><a class="chip" href="https://wa.me/66868659263"><svg class="ico"><use href="#i-wa"/></svg><span>WhatsApp</span></a><a class="chip" href="https://line.me/R/ti/p/@kruakhaoyai"><svg class="ico"><use href="#i-line"/></svg><span>LINE</span></a></div></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer><div class="wrap">
+  <div class="f-grid">
+    <div><p class="f-brand">Krua Khao Yai</p><p data-en="Wood-fired Isan &amp; central-Thai cooking on Thanarat Road since 2009. Reserve, walk in, or order delivery." data-th="อาหารอีสานและภาคกลางปรุงด้วยไฟถ่าน บนถนนธนะรัชต์ ตั้งแต่ปี 2552 จอง เดินเข้ามา หรือสั่งเดลิเวอรี" data-zh="自2009年起在Thanarat路炭火烹制伊善与中部泰菜。订位、到店或外送皆可。">Wood-fired Isan &amp; central-Thai cooking on Thanarat Road since 2009. Reserve, walk in, or order delivery.</p></div>
+    <div><p class="f-k" data-en="Find us" data-th="ติดต่อ" data-zh="联系我们">Find us</p><ul><li>27 Moo 7, Thanarat Rd, Mu Si 30130</li><li><a href="tel:+66868659263">+66 86 865 9263</a></li><li><a href="https://line.me/R/ti/p/@kruakhaoyai">LINE @kruakhaoyai</a></li><li><a href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong" data-en="Google Maps" data-th="Google Maps" data-zh="谷歌地图">Google Maps</a></li></ul></div>
+    <div><p class="f-k" data-en="Hours" data-th="เวลาเปิด" data-zh="营业时间">Hours</p><ul><li data-en="Every day 11:00–22:00" data-th="ทุกวัน 11:00–22:00" data-zh="每日 11:00–22:00">Every day 11:00–22:00</li><li data-en="Kitchen closes 21:30" data-th="ครัวปิด 21:30" data-zh="厨房 21:30 收单">Kitchen closes 21:30</li><li data-en="Delivery via Grab &amp; LINE MAN" data-th="เดลิเวอรีผ่าน Grab &amp; LINE MAN" data-zh="Grab 与 LINE MAN 外送">Delivery via Grab &amp; LINE MAN</li></ul></div>
+  </div>
+  <div class="f-base"><span>© 2026 Krua Khao Yai</span><span data-en="Demonstration site by FoundDirect — websites &amp; Google Maps for Thai businesses" data-th="เว็บไซต์ตัวอย่างโดย FoundDirect — เว็บไซต์และ Google Maps สำหรับธุรกิจไทย" data-zh="演示网站 · FoundDirect — 为泰国商家打造网站与谷歌地图">Demonstration site by FoundDirect — websites &amp; Google Maps for Thai businesses</span></div>
+</div></footer>
+<nav class="bookbar" aria-label="Quick actions">
+  <a class="bb bb-line" href="https://line.me/R/ti/p/@kruakhaoyai"><svg class="ico"><use href="#i-line"/></svg><span data-en="Reserve" data-th="จองโต๊ะ" data-zh="订位">Reserve</span></a>
+  <a class="bb" href="https://wa.me/66868659263"><svg class="ico"><use href="#i-wa"/></svg><span>WhatsApp</span></a>
+  <a class="bb" href="tel:+66868659263"><svg class="ico"><use href="#i-tel"/></svg><span data-en="Call" data-th="โทร" data-zh="致电">Call</span></a>
+  <a class="bb" href="https://www.google.com/maps/search/?api=1&query=Krua%20Khao%20Yai%20Thanarat%20Pak%20Chong"><svg class="ico"><use href="#i-pin"/></svg><span data-en="Map" data-th="แผนที่" data-zh="地图">Map</span></a>
+</nav>
 <script>
-window.PAGE_NAME="Krua Khao Yai";
-window.SEO={type:"Restaurant",name:"Krua Khao Yai",desc:"A much-loved Thai kitchen on Thanarat Road, Pak Chong — smoked ribs, jungle curry and more.",url:"https://winningatlife0001-design.github.io/MAPS-GOY-BIZ/restaurant/",phone:"+66 86 865 9263",priceRange:"฿฿",cuisine:"Thai",address:"27 Moo 7, Thanarat Rd, Mu Si, Pak Chong",postal:"30130",rating:"4.0",reviews:"3739",theme:"#261C15"};
-window.GAL_USED=[0,1,2,3,4,5,6,7,9];
-window.IMG=["https://lh3.googleusercontent.com/gps-cs-s/APNQkAEjDUhRhxcjGcYofNqDXBAcX139FcakB34HDEeNP4d75HdWCma5i2C4pE1RrqABXfTCeE4nxba6z759V2NtyGBaV68iwEBwjHXo7IjNO9-PdKetlH4UBgN7oHngcsKStwt3PoVI","https://lh3.googleusercontent.com/gps-cs-s/APNQkAE0RUV5RUw8gVrBONuKkgRBaOzMALzQNMxGstFNtC_XFnZrF68SzLRWttcqBZhMx-A1R_0LhuXUo2LvnUXiOJl68zPKmk-7FRjZhLccbAd48QSap3BB7p4ArGg0vnpgYQLxwbVb","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEHCnTaOHoNsR3d3ihAc4JAC5-GIsNinWiYB7Q5k9SjiI2J9PgJbvckruEc0THEl90i4kWi0WHgKL3cbByGSHB2L7tqfEHMKZU1A5zOcSlUrZjH7lSxEPZD7texa44Qxkr5gym82fJM9KKu","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEX1Tb5JUyfx1KfjvjoQmZaMrT8iWJ-HezsXMsm8SJtFB6N6sj7lKdJmCMNmHHg3gGJbBS5Z7TGt1lILNNkVEaod3dBSegecOzkng_DK9MIF51FOF8x4MyI1T6EsGsKPRbiAMBZVC2u2jfq","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEku5Q8D3GuFVCO0m3LfjofpZkaRITh-dNI89OZiAxmeb6tFGc16L4Xk05DfmESq-xq9EZB_dAke81U2L3bllzRGa5LsXExBjlVUunES7_bFyyelctSSJSQD2a4GmA40CKheE6xHgfujJGS","https://lh3.googleusercontent.com/gps-cs-s/APNQkAH64Ttdm06quhcCMWF0ODjY33sDzIYO9zBShFsUmsyibhbC2wZJUP594vr_CN7rEXMAAs5e2nvZ20idFpoBxaWGgU1sWyJMm7D2VN6JIZ09FxCRXPc_3aICo5qR1nyaVDcmzjbZ8ye7GFI","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFdEijK245KeLKj2rOw-TGlsP7PygJDsf8ZRkt_squsUqA0Uq-Bd0r1_w1R37MpbVK_RvPbqiZY-d6Itqrp1lSL1VxAxJ0sIAr5W5eqI729bY5S42jgA869vceIaxTgmv_EMXjE7vpbtBJe","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEizMhGdnk6ro2386Lc7XJ782FPA6C6TYXJ2I-z-Rlb6Ph3bJz0_-ewbCpb-tELnqupdzVBxQB3vp5kcIaaMhn4Ob0HH-3gYhZqF6hVy5hdRZ5QvokAL2-iyXVtV1RF7PjgdmHDyw","https://lh3.googleusercontent.com/gps-cs-s/APNQkAFruQZfNsJFMxEcjRcBOc9BxFP-ntxVp_L2TMtaBOhGMG-brK8H6KgLwUUvKHYV7A_-kRG0BD1Gf-DnM4vwzfa2y0fxKmXDU9y7i4S7Ucjw2danNJ4Iv3Cr4XsmKsyOc27dlC_mwDzDsPe5","https://lh3.googleusercontent.com/gps-cs-s/APNQkAHnNGA4hn7L-GXxAhazwQVISZg6KsK2zlaM9WHP1-J-aZHwcM1m0OKOw__XcrMQGtX8rXUzUaFmCR7TQsXVIOM7T9jT5WaSbWL52D06v7ZoZa0FBRPmeTz6NYgds7LuPzjC0uZ2I0gVtzpc","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSKeTD0XVHJJnmdWqeUorZ1i_EQzJ_DjszVCRMQOBWVZpk9SzqEkCesYzyO9GaecGcoaVZbbNi9FXCvff5buYyAKzLfE757PsennNJ1wvfQH2OJ6jNgVUff0mRmv6TzP7ej12b","https://lh3.googleusercontent.com/gps-cs-s/APNQkAEa1XSEid4ot7O719cjgzoWR4uppLC9vbdu4nC9ecozYMSzOhbkLjvI64bb2sYugbVXYCv3uJlRT6G0tn-P475gw4cyse_2yFhDjB-c6Ya7HrTJ3hlPp36TDOQWOvCZFQwALbVYmWPUv4UU","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG6Cosmai04_2YcaDMSeQaZ_qbgJ93lJpwF9qOY5ihbQRmZclXTeXciaxWgNjQjsyodTK31ZnIOn10xbTE0jc6moGmdmSX0VOBblpFcIJSYhcwGMBWi9VLmVpt4SeA2azFVPAinO1whZx_G","https://lh3.googleusercontent.com/gps-cs-s/APNQkAG4ZzSwvo-8yk4l-tsx-dL3x1kVSXZipmGwFWr_SzWTL8XoyyjyaCONC_zWe3aVb86Iv-BQPNCEtQ-1UjnqZUBM_TiAUo7QO-M7vRxuAT5xTkQn568DaPVBZBfeDrfBNF_dJDk","https://lh3.googleusercontent.com/gps-cs-s/APNQkAGORNx2HVR3qHI4gpZaSoOm44uKCwRbuGEAUNfu9k-erGxfJOURb2sM_sBZ34xxuQEbEN3hpDYgZ4T5JRUK0LhFh6Rs_ri9VszJQNWU-tNmHNqoLCck3nmfJ-5uILoA_acegmXWt3lEhMw"];
+(function(){
+  var qs=new URLSearchParams(location.search);
+  var KEY='restaurant-lang';
+  var lang=qs.get('lang')||localStorage.getItem(KEY)||'en';
+  function setLang(l){
+    document.querySelectorAll('[data-en]').forEach(function(el){var t=el.getAttribute('data-'+l)||el.getAttribute('data-en');if(t)el.innerHTML=t;});
+    document.documentElement.lang=(l==='th'?'th':l==='zh'?'zh-Hans':'en');
+    document.documentElement.classList.toggle('zh',l==='zh');
+    document.querySelectorAll('.langs button').forEach(function(b){b.classList.toggle('on',b.dataset.lang===l);});
+    try{localStorage.setItem(KEY,l);}catch(e){}
+  }
+  document.querySelectorAll('.langs button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang);});});
+  if(lang!=='en')setLang(lang);
+  if(qs.has('flat')){document.documentElement.classList.add('flat');return;}
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
 </script>
-<script src="../assets/luxe.js"></script>
 </body>
 </html>
