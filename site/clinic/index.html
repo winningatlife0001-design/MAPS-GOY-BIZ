@@ -170,6 +170,24 @@ footer{background:#0F2A26;color:#A9CBC3;padding:clamp(48px,6vw,80px) 0 110px}
 .f-base{margin-top:42px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:12.5px;color:#6E938B}
 @media(max-width:880px){.f-grid{grid-template-columns:1fr}}
 </style>
+<style>/* FX-ENHANCE: frontend-design skill — orchestrated load + atmosphere */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes fxUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  @keyframes fxFade{from{opacity:0}to{opacity:1}}
+  /* one well-orchestrated page load: staggered hero entrance */
+  .hero-eyebrow,.hero .eyebrow,.hero-panel .eyebrow,.hero-head .hero-eyebrow{animation:fxUp .7s .04s both cubic-bezier(.2,.7,.2,1)}
+  .hero h1,.hero-h,.hero-head h1{animation:fxUp .82s .12s both cubic-bezier(.2,.7,.2,1)}
+  .hero p.lead,.hero-p,.hero .lead,.hero-aside p,.hero-text .lead{animation:fxUp .82s .22s both cubic-bezier(.2,.7,.2,1)}
+  .hero-cta,.hero-meta,.hero-thumbs,.hero-aside .hero-cta{animation:fxUp .82s .32s both cubic-bezier(.2,.7,.2,1)}
+  .hero-media,.hero-band,.hero-bg,.hero-media .shot,.hero-badge,.hero-card{animation:fxFade 1.1s .06s both ease}
+  .hero-card,.hero-badge{animation:fxUp .8s .5s both cubic-bezier(.2,.7,.2,1)}
+}
+/* atmosphere: fine film grain over everything (under the nav/bars) */
+body::after{content:"";position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.04;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* a touch more depth on hover for media tiles */
+.ph,.dish,.xc-img,.rc-img,.room-media,.gal .ph,.intro-fig,.space-fig{will-change:transform}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
