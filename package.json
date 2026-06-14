@@ -1,0 +1,11 @@
+{
+  "name": "maps-goy-biz",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "qa": "node scripts/qa-screenshots.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

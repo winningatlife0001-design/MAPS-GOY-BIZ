@@ -20,3 +20,7 @@ Thumbs.db
 node_modules/
 *.log
 .cache/
+
+# Local QA artifacts (Playwright)
+qa-out/
+/pw*.mjs
